@@ -12,6 +12,8 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#323E48" />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />
           {!!GTAG_ID && (
             <>
               <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
