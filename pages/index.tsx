@@ -270,7 +270,9 @@ export default function Home() {
   const rigAvgCost = metrics ? Math.floor(metrics.avg_completed_offer_cost) : 465
   const rigTimeToArrivalMinutes = metrics ? Math.floor(metrics.avg_time_to_arrival / 60) : 39
   const rigTimeToArrivalDisplay = metrics ? formatArrivalTime(metrics.avg_time_to_arrival) : '39 min'
-  const trucksServiced = metrics ? metrics.total_completed_service_requests.toLocaleString() : '2,945'
+  const trucksServiced = metrics?.total_completed_service_requests != null
+    ? metrics.total_completed_service_requests.toLocaleString()
+    : '2,945'
   const servicingSince = metrics
     ? new Date(metrics.first_service_request_date).toLocaleDateString('en-US', {
         month: 'long',
