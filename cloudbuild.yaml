@@ -9,6 +9,7 @@ steps:
         --build-arg NEXT_PUBLIC_API_URL=$_API_URL \
         --build-arg NEXT_PUBLIC_GTAG_ID=$_GTAG_ID \
         --build-arg NEXT_PUBLIC_GTAG_CALL_CONVERSION=$_GTAG_CALL_CONVERSION \
+        --build-arg NEXT_PUBLIC_GTAG_CALL_CONVERSION_TOLLFREE=$_GTAG_CALL_CONVERSION_TOLLFREE \
         . \
         -f Dockerfile
     entrypoint: bash
@@ -52,6 +53,7 @@ substitutions:
   _NEXT_PUBLIC_API_URL: https://api.bigrig.app
   _GTAG_ID: 'AW-10844383792'
   _GTAG_CALL_CONVERSION: 'vyyoCNT1mYscELDUgLMo'
+  _GTAG_CALL_CONVERSION_TOLLFREE: 'PgBXCLzqz6AcELDUgLMo'
 tags:
   - rig-ads-website
 timeout: 3600s

@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import LandingPage from '../components/LandingPage'
 import { STATE_DATA, StatePageData } from '../data/stateData'
+import { STATE_CONVERSION_LABELS } from '../data/stateConversionLabels'
 
 interface Props {
   state: StatePageData
@@ -18,6 +19,7 @@ export default function StatePage({ state }: Props) {
       stateSvgViewBox={state.svgViewBox}
       pageTitle={`Truck Down in ${state.name}? | Truck Repair & Roadside Assistance | Call ${state.phoneDisplay}`}
       pageDescription={`Truck broke down in ${state.name}? RIG has ${state.mechanicsCount}+ mechanics nearby. Avg dispatch in 14 min, avg cost $465 — 29% less than industry. Call ${state.phoneDisplay} — available 24/7.`}
+      gtagCallConversionLabel={STATE_CONVERSION_LABELS[state.slug]}
     />
   )
 }

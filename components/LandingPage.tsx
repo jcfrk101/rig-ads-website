@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Box, Container, Typography, useMediaQuery } from '@mui/material'
-import { fireCallConversion } from '../utils/gtag'
+import { fireCallConversion, fireDniConfig } from '../utils/gtag'
 
 const CAROUSEL_IMAGES = [
   'https://images.squarespace-cdn.com/content/v1/66561a788242c8621f3683d9/04cb11a1-9b13-43aa-ba10-8c1a12abdbea/service_image_2.jpg',
@@ -257,6 +257,7 @@ export interface LandingPageProps {
   pageTitle?: string
   pageDescription?: string
   vehicleType?: 'truck' | 'rv'
+  gtagCallConversionLabel?: string
 }
 
 export default function LandingPage({
@@ -270,6 +271,7 @@ export default function LandingPage({
   pageTitle,
   pageDescription,
   vehicleType = 'truck',
+  gtagCallConversionLabel,
 }: LandingPageProps) {
   const isRV = vehicleType === 'rv'
   const isMobile = useMediaQuery('(max-width:768px)')
@@ -284,6 +286,10 @@ export default function LandingPage({
       })
       .catch(() => {})
   }, [])
+
+  useEffect(() => {
+    if (gtagCallConversionLabel) fireDniConfig(gtagCallConversionLabel, phoneDisplay)
+  }, [gtagCallConversionLabel, phoneDisplay])
 
   const rigTimeToDispatch = metrics ? Math.round(metrics.avg_time_to_first_offer_minutes * 10) / 10 : 14.1
   const rigAvgCost = metrics ? Math.floor(metrics.avg_completed_offer_cost) : 465
