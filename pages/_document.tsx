@@ -3,6 +3,7 @@ import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/do
 import createEmotionServer from '@emotion/server/create-instance'
 import createEmotionCache from '../utils/createEmotionCache'
 import { GTAG_ID } from '../utils/gtag'
+import { OAIQ_PIXEL_ID } from '../utils/oaiq'
 
 export default class MyDocument extends Document {
   render() {
@@ -11,6 +12,28 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#323E48" />
+          {/* OpenAI Ads measurement pixel — must load early in <head> to register the session. */}
+          {!!OAIQ_PIXEL_ID && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function (w, d, s, u) {
+                    if (w.oaiq) return;
+                    var q = function () { q.q.push(arguments); };
+                    q.q = [];
+                    w.oaiq = q;
+                    var js = d.createElement(s);
+                    js.async = true;
+                    js.src = u;
+                    var f = d.getElementsByTagName(s)[0];
+                    f.parentNode.insertBefore(js, f);
+                  })(window, document, "script", "https://bzrcdn.openai.com/sdk/oaiq.min.js");
+                  oaiq("init", { pixelId: "${OAIQ_PIXEL_ID}" });
+                  oaiq("measure", "page_viewed");
+                `,
+              }}
+            />
+          )}
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />

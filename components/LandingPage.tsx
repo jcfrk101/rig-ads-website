@@ -2,6 +2,13 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Box, Container, Typography, useMediaQuery } from '@mui/material'
 import { fireCallConversion, fireDniConfig } from '../utils/gtag'
+import { fireCallLead } from '../utils/oaiq'
+
+// Phone-call CTA: fire the Google Ads call conversion and the OpenAI Ads lead_created event.
+function fireCallCta() {
+  fireCallConversion()
+  fireCallLead()
+}
 
 const CAROUSEL_IMAGES = [
   'https://images.squarespace-cdn.com/content/v1/66561a788242c8621f3683d9/04cb11a1-9b13-43aa-ba10-8c1a12abdbea/service_image_2.jpg',
@@ -230,7 +237,7 @@ const CallButton: FunctionComponent<CallButtonProps> = ({ size = 'large', isMobi
         transition: 'transform 0.15s ease, box-shadow 0.15s ease',
         cursor: 'pointer',
       }}
-      onClick={fireCallConversion}
+      onClick={fireCallCta}
       onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
         e.currentTarget.style.transform = 'translateY(-2px)'
         e.currentTarget.style.boxShadow = '0 12px 40px rgba(10,220,106,0.45)'
@@ -387,7 +394,7 @@ export default function LandingPage({
             <Box
               component="a"
               href={phoneTel}
-              onClick={fireCallConversion}
+              onClick={fireCallCta}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
