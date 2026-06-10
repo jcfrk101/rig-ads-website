@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/[state]": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/[state].js"
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -30,15 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/roadside": [
+    "/subscribe": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/roadside.js"
+      "static/chunks/pages/subscribe.js"
     ],
-    "/rv-roadside": [
+    "/unsubscribe": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/rv-roadside.js"
+      "static/chunks/pages/unsubscribe.js"
     ]
   },
   "ampFirstPages": []
