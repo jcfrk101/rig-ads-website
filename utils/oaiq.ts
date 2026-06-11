@@ -17,5 +17,5 @@ export function fireOaiqEvent(eventName: string, eventData: Record<string, unkno
 
 // Phone-call CTA → lead conversion.
 export function fireCallLead() {
-  fireOaiqEvent('lead_created')
+  fireOaiqEvent('lead_created', { type: 'customer_action' })
 }
