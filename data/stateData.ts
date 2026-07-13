@@ -282,7 +282,7 @@ export const STATE_DATA: StatePageData[] = [
   },
   {
     name: 'South Carolina',
-    slug: 'southcarolina',
+    slug: 'south-carolina',
     phoneDisplay: '+1 (803) 721-9183',
     phoneTel: tel('+1 (803) 721-9183'),
     mechanicsCount: 150,
@@ -292,7 +292,7 @@ export const STATE_DATA: StatePageData[] = [
   },
   {
     name: 'New Mexico',
-    slug: 'newmexico',
+    slug: 'new-mexico',
     phoneDisplay: '+1 (505) 337-4893',
     phoneTel: tel('+1 (505) 337-4893'),
     mechanicsCount: 150,

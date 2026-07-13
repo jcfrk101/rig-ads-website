@@ -1,0 +1,308 @@
+{
+ "ak": {
+  "code": "ak",
+  "name": "Alaska",
+  "cityCount": 5,
+  "corridorCount": 0
+ },
+ "al": {
+  "code": "al",
+  "name": "Alabama",
+  "cityCount": 24,
+  "corridorCount": 5
+ },
+ "ar": {
+  "code": "ar",
+  "name": "Arkansas",
+  "cityCount": 20,
+  "corridorCount": 4
+ },
+ "az": {
+  "code": "az",
+  "name": "Arizona",
+  "cityCount": 44,
+  "corridorCount": 5
+ },
+ "ca": {
+  "code": "ca",
+  "name": "California",
+  "cityCount": 337,
+  "corridorCount": 6
+ },
+ "co": {
+  "code": "co",
+  "name": "Colorado",
+  "cityCount": 32,
+  "corridorCount": 3
+ },
+ "ct": {
+  "code": "ct",
+  "name": "Connecticut",
+  "cityCount": 40,
+  "corridorCount": 3
+ },
+ "dc": {
+  "code": "dc",
+  "name": "District of Columbia",
+  "cityCount": 3,
+  "corridorCount": 1
+ },
+ "de": {
+  "code": "de",
+  "name": "Delaware",
+  "cityCount": 5,
+  "corridorCount": 1
+ },
+ "fl": {
+  "code": "fl",
+  "name": "Florida",
+  "cityCount": 151,
+  "corridorCount": 4
+ },
+ "ga": {
+  "code": "ga",
+  "name": "Georgia",
+  "cityCount": 44,
+  "corridorCount": 7
+ },
+ "hi": {
+  "code": "hi",
+  "name": "Hawaii",
+  "cityCount": 10,
+  "corridorCount": 0
+ },
+ "ia": {
+  "code": "ia",
+  "name": "Iowa",
+  "cityCount": 19,
+  "corridorCount": 4
+ },
+ "id": {
+  "code": "id",
+  "name": "Idaho",
+  "cityCount": 13,
+  "corridorCount": 4
+ },
+ "il": {
+  "code": "il",
+  "name": "Illinois",
+  "cityCount": 131,
+  "corridorCount": 12
+ },
+ "in": {
+  "code": "in",
+  "name": "Indiana",
+  "cityCount": 39,
+  "corridorCount": 8
+ },
+ "ks": {
+  "code": "ks",
+  "name": "Kansas",
+  "cityCount": 15,
+  "corridorCount": 2
+ },
+ "ky": {
+  "code": "ky",
+  "name": "Kentucky",
+  "cityCount": 20,
+  "corridorCount": 6
+ },
+ "la": {
+  "code": "la",
+  "name": "Louisiana",
+  "cityCount": 18,
+  "corridorCount": 6
+ },
+ "ma": {
+  "code": "ma",
+  "name": "Massachusetts",
+  "cityCount": 83,
+  "corridorCount": 5
+ },
+ "md": {
+  "code": "md",
+  "name": "Maryland",
+  "cityCount": 60,
+  "corridorCount": 4
+ },
+ "me": {
+  "code": "me",
+  "name": "Maine",
+  "cityCount": 6,
+  "corridorCount": 1
+ },
+ "mi": {
+  "code": "mi",
+  "name": "Michigan",
+  "cityCount": 52,
+  "corridorCount": 4
+ },
+ "mn": {
+  "code": "mn",
+  "name": "Minnesota",
+  "cityCount": 43,
+  "corridorCount": 3
+ },
+ "mo": {
+  "code": "mo",
+  "name": "Missouri",
+  "cityCount": 30,
+  "corridorCount": 9
+ },
+ "ms": {
+  "code": "ms",
+  "name": "Mississippi",
+  "cityCount": 15,
+  "corridorCount": 5
+ },
+ "mt": {
+  "code": "mt",
+  "name": "Montana",
+  "cityCount": 7,
+  "corridorCount": 3
+ },
+ "nc": {
+  "code": "nc",
+  "name": "North Carolina",
+  "cityCount": 40,
+  "corridorCount": 5
+ },
+ "nd": {
+  "code": "nd",
+  "name": "North Dakota",
+  "cityCount": 8,
+  "corridorCount": 2
+ },
+ "ne": {
+  "code": "ne",
+  "name": "Nebraska",
+  "cityCount": 9,
+  "corridorCount": 2
+ },
+ "nh": {
+  "code": "nh",
+  "name": "New Hampshire",
+  "cityCount": 9,
+  "corridorCount": 4
+ },
+ "nj": {
+  "code": "nj",
+  "name": "New Jersey",
+  "cityCount": 74,
+  "corridorCount": 4
+ },
+ "nm": {
+  "code": "nm",
+  "name": "New Mexico",
+  "cityCount": 12,
+  "corridorCount": 3
+ },
+ "nv": {
+  "code": "nv",
+  "name": "Nevada",
+  "cityCount": 15,
+  "corridorCount": 2
+ },
+ "ny": {
+  "code": "ny",
+  "name": "New York",
+  "cityCount": 150,
+  "corridorCount": 8
+ },
+ "oh": {
+  "code": "oh",
+  "name": "Ohio",
+  "cityCount": 65,
+  "corridorCount": 8
+ },
+ "ok": {
+  "code": "ok",
+  "name": "Oklahoma",
+  "cityCount": 16,
+  "corridorCount": 3
+ },
+ "or": {
+  "code": "or",
+  "name": "Oregon",
+  "cityCount": 22,
+  "corridorCount": 2
+ },
+ "pa": {
+  "code": "pa",
+  "name": "Pennsylvania",
+  "cityCount": 47,
+  "corridorCount": 11
+ },
+ "ri": {
+  "code": "ri",
+  "name": "Rhode Island",
+  "cityCount": 13,
+  "corridorCount": 1
+ },
+ "sc": {
+  "code": "sc",
+  "name": "South Carolina",
+  "cityCount": 18,
+  "corridorCount": 5
+ },
+ "sd": {
+  "code": "sd",
+  "name": "South Dakota",
+  "cityCount": 6,
+  "corridorCount": 2
+ },
+ "tn": {
+  "code": "tn",
+  "name": "Tennessee",
+  "cityCount": 34,
+  "corridorCount": 9
+ },
+ "tx": {
+  "code": "tx",
+  "name": "Texas",
+  "cityCount": 123,
+  "corridorCount": 10
+ },
+ "ut": {
+  "code": "ut",
+  "name": "Utah",
+  "cityCount": 39,
+  "corridorCount": 4
+ },
+ "va": {
+  "code": "va",
+  "name": "Virginia",
+  "cityCount": 43,
+  "corridorCount": 5
+ },
+ "vt": {
+  "code": "vt",
+  "name": "Vermont",
+  "cityCount": 4,
+  "corridorCount": 3
+ },
+ "wa": {
+  "code": "wa",
+  "name": "Washington",
+  "cityCount": 51,
+  "corridorCount": 2
+ },
+ "wi": {
+  "code": "wi",
+  "name": "Wisconsin",
+  "cityCount": 32,
+  "corridorCount": 4
+ },
+ "wv": {
+  "code": "wv",
+  "name": "West Virginia",
+  "cityCount": 5,
+  "corridorCount": 5
+ },
+ "wy": {
+  "code": "wy",
+  "name": "Wyoming",
+  "cityCount": 6,
+  "corridorCount": 3
+ }
+}

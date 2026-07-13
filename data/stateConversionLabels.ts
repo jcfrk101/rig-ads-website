@@ -29,8 +29,8 @@ export const STATE_CONVERSION_LABELS: Record<string, string> = {
   alabama: 'yXl-CMiV5aAcELDUgLMo',
   arkansas: '_XFpCMuV5aAcELDUgLMo',
   wisconsin: 'KOC9CM6V5aAcELDUgLMo',
-  southcarolina: 'kJB3CNGV5aAcELDUgLMo',
-  newmexico: '9ZQ1CNSV5aAcELDUgLMo',
+  'south-carolina': 'kJB3CNGV5aAcELDUgLMo',
+  'new-mexico': '9ZQ1CNSV5aAcELDUgLMo',
   louisiana: 'FbwMCNeV5aAcELDUgLMo',
   oklahoma: 'TzjlCNqV5aAcELDUgLMo',
 }

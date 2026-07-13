@@ -1,0 +1,128 @@
+import { useMemo, useState } from 'react'
+import s from '../../styles/Directory.module.scss'
+import { MechanicListing } from '../../data/directory/mechanics'
+import { DISPATCH_PHONE_TEL } from '../../data/directory'
+import { fireCallConversion } from '../../utils/gtag'
+
+interface Props {
+  mechanics: MechanicListing[]
+  placeName: string // "Dallas" or "I-10 in Alabama"
+  note: string // the green "how RIG works" banner text (bolded lead handled here)
+  noteLead: string
+}
+
+function starString(rating: number) {
+  return '★★★★★'.slice(0, Math.round(rating)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(rating))
+}
+
+export default function ListingSection({ mechanics, placeName, note, noteLead }: Props) {
+  const allServices = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const m of mechanics) for (const svc of m.services) counts.set(svc, (counts.get(svc) || 0) + 1)
+    return [...counts.entries()].sort((a, b) => b[1] - a[1])
+  }, [mechanics])
+
+  const [serviceFilter, setServiceFilter] = useState<string[]>([])
+  const [rigOnly, setRigOnly] = useState(false)
+  const [open247Only, setOpen247Only] = useState(false)
+
+  const shown = mechanics.filter(
+    (m) =>
+      (!rigOnly || m.rigNetwork) &&
+      (!open247Only || m.open247) &&
+      (serviceFilter.length === 0 || serviceFilter.some((f) => m.services.includes(f)))
+  )
+
+  const toggleService = (svc: string) =>
+    setServiceFilter((cur) => (cur.includes(svc) ? cur.filter((x) => x !== svc) : [...cur, svc]))
+
+  return (
+    <div className={s.body}>
+      <aside className={s.filters}>
+        <h3>Filter</h3>
+        <div className={s.fgroup}>
+          <div className={s.fgroupLbl}>Service needed</div>
+          {allServices.map(([svc, count]) => (
+            <label key={svc} className={s.chk}>
+              <input type="checkbox" checked={serviceFilter.includes(svc)} onChange={() => toggleService(svc)} />
+              {svc} <span className={s.chkCount}>{count}</span>
+            </label>
+          ))}
+        </div>
+        <div className={s.fgroup}>
+          <div className={s.fgroupLbl}>Network</div>
+          <label className={s.chk}>
+            <input type="checkbox" checked={rigOnly} onChange={() => setRigOnly(!rigOnly)} />
+            RIG mechanics only
+            <span className={s.chkCount}>{mechanics.filter((m) => m.rigNetwork).length}</span>
+          </label>
+        </div>
+        <div className={s.fgroup}>
+          <div className={s.fgroupLbl}>Availability</div>
+          <label className={s.chk}>
+            <input type="checkbox" checked={open247Only} onChange={() => setOpen247Only(!open247Only)} />
+            Open 24/7
+            <span className={s.chkCount}>{mechanics.filter((m) => m.open247).length}</span>
+          </label>
+        </div>
+      </aside>
+
+      <main className={s.listings}>
+        <div className={s.listingHead}>
+          <div className={s.listingCount}>
+            <b>{shown.length}</b> mechanics &amp; shops — {placeName}
+          </div>
+        </div>
+
+        <div className={s.bannerNote}>
+          <span>ⓘ</span>
+          <div>
+            <b>{noteLead}</b> {note}
+          </div>
+        </div>
+
+        {shown.map((m) => (
+          <div key={m.id} className={s.cardRow}>
+            <div className={m.rigNetwork ? s.thumb : s.thumbListed}>{m.initials}</div>
+            <div className={s.cinfo}>
+              <div className={s.cname}>
+                {m.name}
+                {m.rigNetwork ? (
+                  <span className={s.tagRig}>RIG network</span>
+                ) : (
+                  <span className={s.tagListed}>Listed shop</span>
+                )}
+              </div>
+              <div className={s.cmeta}>
+                <span className={s.stars}>{starString(m.rating)}</span> {m.rating.toFixed(1)} ({m.reviewCount}) ·{' '}
+                {m.distanceMi} mi · {m.open247 ? 'Open 24/7' : m.availableNow ? 'Available now' : 'Business hours'}
+              </div>
+              <div className={s.svc}>
+                {m.services.map((svc) => (
+                  <span key={svc}>{svc}</span>
+                ))}
+              </div>
+            </div>
+            <div className={s.cactions}>
+              {m.rigNetwork ? (
+                <>
+                  <div className={s.eta}>~{m.etaMin} min ETA</div>
+                  <a className={s.btnDispatch} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
+                    Request dispatch
+                  </a>
+                </>
+              ) : (
+                <>
+                  <div className={s.etaMuted}>Not in dispatch</div>
+                  <a className={s.btnDispatch} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
+                    Find closest instead
+                  </a>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </main>
+    </div>
+  )
+}

@@ -1,0 +1,2222 @@
+[
+ {
+  "state": "fl",
+  "stateName": "Florida",
+  "tier": "Extended",
+  "name": "I-4 (Florida)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-4",
+  "routeDisplay": "I-4",
+  "fullCoverage": false
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Core",
+  "name": "I-5 (California)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-5",
+  "routeDisplay": "I-5",
+  "fullCoverage": true
+ },
+ {
+  "state": "or",
+  "stateName": "Oregon",
+  "tier": "Core",
+  "name": "I-5 (Oregon)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-5",
+  "routeDisplay": "I-5",
+  "fullCoverage": true
+ },
+ {
+  "state": "wa",
+  "stateName": "Washington",
+  "tier": "Core",
+  "name": "I-5 (Washington)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-5",
+  "routeDisplay": "I-5",
+  "fullCoverage": true
+ },
+ {
+  "state": "az",
+  "stateName": "Arizona",
+  "tier": "Extended",
+  "name": "I-8 (Arizona)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-8",
+  "routeDisplay": "I-8",
+  "fullCoverage": false
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Extended",
+  "name": "I-8 (California)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-8",
+  "routeDisplay": "I-8",
+  "fullCoverage": false
+ },
+ {
+  "state": "al",
+  "stateName": "Alabama",
+  "tier": "Core",
+  "name": "I-10 (Alabama)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "az",
+  "stateName": "Arizona",
+  "tier": "Core",
+  "name": "I-10 (Arizona)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Core",
+  "name": "I-10 (California)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "fl",
+  "stateName": "Florida",
+  "tier": "Core",
+  "name": "I-10 (Florida)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Core",
+  "name": "I-10 (Louisiana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "ms",
+  "stateName": "Mississippi",
+  "tier": "Core",
+  "name": "I-10 (Mississippi)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "nm",
+  "stateName": "New Mexico",
+  "tier": "Core",
+  "name": "I-10 (New Mexico)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Core",
+  "name": "I-10 (Texas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-10",
+  "routeDisplay": "I-10",
+  "fullCoverage": true
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Extended",
+  "name": "I-12 (Louisiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-12",
+  "routeDisplay": "I-12",
+  "fullCoverage": false
+ },
+ {
+  "state": "az",
+  "stateName": "Arizona",
+  "tier": "Core",
+  "name": "I-15 (Arizona)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Core",
+  "name": "I-15 (California)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "id",
+  "stateName": "Idaho",
+  "tier": "Core",
+  "name": "I-15 (Idaho)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "mt",
+  "stateName": "Montana",
+  "tier": "Core",
+  "name": "I-15 (Montana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "nv",
+  "stateName": "Nevada",
+  "tier": "Core",
+  "name": "I-15 (Nevada)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "ut",
+  "stateName": "Utah",
+  "tier": "Core",
+  "name": "I-15 (Utah)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-15",
+  "routeDisplay": "I-15",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Extended",
+  "name": "I-16 (Georgia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-16",
+  "routeDisplay": "I-16",
+  "fullCoverage": false
+ },
+ {
+  "state": "az",
+  "stateName": "Arizona",
+  "tier": "Extended",
+  "name": "I-17 (Arizona)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-17",
+  "routeDisplay": "I-17",
+  "fullCoverage": false
+ },
+ {
+  "state": "al",
+  "stateName": "Alabama",
+  "tier": "Core",
+  "name": "I-20 (Alabama)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Core",
+  "name": "I-20 (Georgia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Core",
+  "name": "I-20 (Louisiana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "ms",
+  "stateName": "Mississippi",
+  "tier": "Core",
+  "name": "I-20 (Mississippi)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "sc",
+  "stateName": "South Carolina",
+  "tier": "Core",
+  "name": "I-20 (South Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Core",
+  "name": "I-20 (Texas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-20",
+  "routeDisplay": "I-20",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Extended",
+  "name": "I-24 (Georgia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-24",
+  "routeDisplay": "I-24",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-24 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-24",
+  "routeDisplay": "I-24",
+  "fullCoverage": false
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Extended",
+  "name": "I-24 (Kentucky)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-24",
+  "routeDisplay": "I-24",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-24 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-24",
+  "routeDisplay": "I-24",
+  "fullCoverage": false
+ },
+ {
+  "state": "co",
+  "stateName": "Colorado",
+  "tier": "Core",
+  "name": "I-25 (Colorado)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-25",
+  "routeDisplay": "I-25",
+  "fullCoverage": true
+ },
+ {
+  "state": "nm",
+  "stateName": "New Mexico",
+  "tier": "Core",
+  "name": "I-25 (New Mexico)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-25",
+  "routeDisplay": "I-25",
+  "fullCoverage": true
+ },
+ {
+  "state": "wy",
+  "stateName": "Wyoming",
+  "tier": "Core",
+  "name": "I-25 (Wyoming)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-25",
+  "routeDisplay": "I-25",
+  "fullCoverage": true
+ },
+ {
+  "state": "nc",
+  "stateName": "North Carolina",
+  "tier": "Extended",
+  "name": "I-26 (North Carolina)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-26",
+  "routeDisplay": "I-26",
+  "fullCoverage": false
+ },
+ {
+  "state": "sc",
+  "stateName": "South Carolina",
+  "tier": "Extended",
+  "name": "I-26 (South Carolina)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-26",
+  "routeDisplay": "I-26",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-26 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-26",
+  "routeDisplay": "I-26",
+  "fullCoverage": false
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-27 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-27",
+  "routeDisplay": "I-27",
+  "fullCoverage": false
+ },
+ {
+  "state": "ia",
+  "stateName": "Iowa",
+  "tier": "Extended",
+  "name": "I-29 (Iowa)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-29",
+  "routeDisplay": "I-29",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-29 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-29",
+  "routeDisplay": "I-29",
+  "fullCoverage": false
+ },
+ {
+  "state": "nd",
+  "stateName": "North Dakota",
+  "tier": "Extended",
+  "name": "I-29 (North Dakota)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-29",
+  "routeDisplay": "I-29",
+  "fullCoverage": false
+ },
+ {
+  "state": "sd",
+  "stateName": "South Dakota",
+  "tier": "Extended",
+  "name": "I-29 (South Dakota)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-29",
+  "routeDisplay": "I-29",
+  "fullCoverage": false
+ },
+ {
+  "state": "ar",
+  "stateName": "Arkansas",
+  "tier": "Extended",
+  "name": "I-30 (Arkansas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-30",
+  "routeDisplay": "I-30",
+  "fullCoverage": false
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-30 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-30",
+  "routeDisplay": "I-30",
+  "fullCoverage": false
+ },
+ {
+  "state": "ia",
+  "stateName": "Iowa",
+  "tier": "Core",
+  "name": "I-35 (Iowa)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "ks",
+  "stateName": "Kansas",
+  "tier": "Core",
+  "name": "I-35 (Kansas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "mn",
+  "stateName": "Minnesota",
+  "tier": "Core",
+  "name": "I-35 (Minnesota)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Core",
+  "name": "I-35 (Missouri)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "ok",
+  "stateName": "Oklahoma",
+  "tier": "Core",
+  "name": "I-35 (Oklahoma)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Core",
+  "name": "I-35 (Texas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-35",
+  "routeDisplay": "I-35",
+  "fullCoverage": true
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-37 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-37",
+  "routeDisplay": "I-37",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-39 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-39",
+  "routeDisplay": "I-39",
+  "fullCoverage": false
+ },
+ {
+  "state": "wi",
+  "stateName": "Wisconsin",
+  "tier": "Extended",
+  "name": "I-39 (Wisconsin)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-39",
+  "routeDisplay": "I-39",
+  "fullCoverage": false
+ },
+ {
+  "state": "ar",
+  "stateName": "Arkansas",
+  "tier": "Core",
+  "name": "I-40 (Arkansas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "az",
+  "stateName": "Arizona",
+  "tier": "Core",
+  "name": "I-40 (Arizona)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Core",
+  "name": "I-40 (California)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "nc",
+  "stateName": "North Carolina",
+  "tier": "Core",
+  "name": "I-40 (North Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "nm",
+  "stateName": "New Mexico",
+  "tier": "Core",
+  "name": "I-40 (New Mexico)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "ok",
+  "stateName": "Oklahoma",
+  "tier": "Core",
+  "name": "I-40 (Oklahoma)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Core",
+  "name": "I-40 (Tennessee)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Core",
+  "name": "I-40 (Texas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-40",
+  "routeDisplay": "I-40",
+  "fullCoverage": true
+ },
+ {
+  "state": "wi",
+  "stateName": "Wisconsin",
+  "tier": "Extended",
+  "name": "I-43 (Wisconsin)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-43",
+  "routeDisplay": "I-43",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-44 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-44",
+  "routeDisplay": "I-44",
+  "fullCoverage": false
+ },
+ {
+  "state": "ok",
+  "stateName": "Oklahoma",
+  "tier": "Extended",
+  "name": "I-44 (Oklahoma)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-44",
+  "routeDisplay": "I-44",
+  "fullCoverage": false
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-44 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-44",
+  "routeDisplay": "I-44",
+  "fullCoverage": false
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-45 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-45",
+  "routeDisplay": "I-45",
+  "fullCoverage": false
+ },
+ {
+  "state": "ar",
+  "stateName": "Arkansas",
+  "tier": "Extended",
+  "name": "I-49 (Arkansas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-49",
+  "routeDisplay": "I-49",
+  "fullCoverage": false
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Extended",
+  "name": "I-49 (Louisiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-49",
+  "routeDisplay": "I-49",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-49 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-49",
+  "routeDisplay": "I-49",
+  "fullCoverage": false
+ },
+ {
+  "state": "ar",
+  "stateName": "Arkansas",
+  "tier": "Extended",
+  "name": "I-55 (Arkansas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-55 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Extended",
+  "name": "I-55 (Louisiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-55 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "ms",
+  "stateName": "Mississippi",
+  "tier": "Extended",
+  "name": "I-55 (Mississippi)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-55 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-55",
+  "routeDisplay": "I-55",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-57 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-57",
+  "routeDisplay": "I-57",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-57 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-57",
+  "routeDisplay": "I-57",
+  "fullCoverage": false
+ },
+ {
+  "state": "al",
+  "stateName": "Alabama",
+  "tier": "Extended",
+  "name": "I-59 (Alabama)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-59",
+  "routeDisplay": "I-59",
+  "fullCoverage": false
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Extended",
+  "name": "I-59 (Georgia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-59",
+  "routeDisplay": "I-59",
+  "fullCoverage": false
+ },
+ {
+  "state": "la",
+  "stateName": "Louisiana",
+  "tier": "Extended",
+  "name": "I-59 (Louisiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-59",
+  "routeDisplay": "I-59",
+  "fullCoverage": false
+ },
+ {
+  "state": "ms",
+  "stateName": "Mississippi",
+  "tier": "Extended",
+  "name": "I-59 (Mississippi)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-59",
+  "routeDisplay": "I-59",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-59 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-59",
+  "routeDisplay": "I-59",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-64 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Extended",
+  "name": "I-64 (Indiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Extended",
+  "name": "I-64 (Kentucky)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-64 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "va",
+  "stateName": "Virginia",
+  "tier": "Extended",
+  "name": "I-64 (Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "wv",
+  "stateName": "West Virginia",
+  "tier": "Extended",
+  "name": "I-64 (West Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-64",
+  "routeDisplay": "I-64",
+  "fullCoverage": false
+ },
+ {
+  "state": "al",
+  "stateName": "Alabama",
+  "tier": "Extended",
+  "name": "I-65 (Alabama)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-65",
+  "routeDisplay": "I-65",
+  "fullCoverage": false
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Extended",
+  "name": "I-65 (Indiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-65",
+  "routeDisplay": "I-65",
+  "fullCoverage": false
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Extended",
+  "name": "I-65 (Kentucky)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-65",
+  "routeDisplay": "I-65",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-65 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-65",
+  "routeDisplay": "I-65",
+  "fullCoverage": false
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Extended",
+  "name": "I-69 (Indiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Extended",
+  "name": "I-69 (Kentucky)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "mi",
+  "stateName": "Michigan",
+  "tier": "Extended",
+  "name": "I-69 (Michigan)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "ms",
+  "stateName": "Mississippi",
+  "tier": "Extended",
+  "name": "I-69 (Mississippi)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-69 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "tx",
+  "stateName": "Texas",
+  "tier": "Extended",
+  "name": "I-69 (Texas)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-69",
+  "routeDisplay": "I-69",
+  "fullCoverage": false
+ },
+ {
+  "state": "co",
+  "stateName": "Colorado",
+  "tier": "Core",
+  "name": "I-70 (Colorado)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Core",
+  "name": "I-70 (Illinois)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Core",
+  "name": "I-70 (Indiana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "ks",
+  "stateName": "Kansas",
+  "tier": "Core",
+  "name": "I-70 (Kansas)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "md",
+  "stateName": "Maryland",
+  "tier": "Core",
+  "name": "I-70 (Maryland)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Core",
+  "name": "I-70 (Missouri)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Core",
+  "name": "I-70 (Ohio)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Core",
+  "name": "I-70 (Pennsylvania)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "ut",
+  "stateName": "Utah",
+  "tier": "Core",
+  "name": "I-70 (Utah)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "wv",
+  "stateName": "West Virginia",
+  "tier": "Core",
+  "name": "I-70 (West Virginia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-70",
+  "routeDisplay": "I-70",
+  "fullCoverage": true
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Extended",
+  "name": "I-71 (Kentucky)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-71",
+  "routeDisplay": "I-71",
+  "fullCoverage": false
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Extended",
+  "name": "I-71 (Ohio)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-71",
+  "routeDisplay": "I-71",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-72 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-72",
+  "routeDisplay": "I-72",
+  "fullCoverage": false
+ },
+ {
+  "state": "mo",
+  "stateName": "Missouri",
+  "tier": "Extended",
+  "name": "I-72 (Missouri)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-72",
+  "routeDisplay": "I-72",
+  "fullCoverage": false
+ },
+ {
+  "state": "ia",
+  "stateName": "Iowa",
+  "tier": "Extended",
+  "name": "I-74 (Iowa)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-74",
+  "routeDisplay": "I-74",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-74 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-74",
+  "routeDisplay": "I-74",
+  "fullCoverage": false
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Extended",
+  "name": "I-74 (Indiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-74",
+  "routeDisplay": "I-74",
+  "fullCoverage": false
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Extended",
+  "name": "I-74 (Ohio)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-74",
+  "routeDisplay": "I-74",
+  "fullCoverage": false
+ },
+ {
+  "state": "fl",
+  "stateName": "Florida",
+  "tier": "Core",
+  "name": "I-75 (Florida)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Core",
+  "name": "I-75 (Georgia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "ky",
+  "stateName": "Kentucky",
+  "tier": "Core",
+  "name": "I-75 (Kentucky)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "mi",
+  "stateName": "Michigan",
+  "tier": "Core",
+  "name": "I-75 (Michigan)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Core",
+  "name": "I-75 (Ohio)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Core",
+  "name": "I-75 (Tennessee)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-75",
+  "routeDisplay": "I-75",
+  "fullCoverage": true
+ },
+ {
+  "state": "co",
+  "stateName": "Colorado",
+  "tier": "Extended",
+  "name": "I-76 (Colorado)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-76",
+  "routeDisplay": "I-76",
+  "fullCoverage": false
+ },
+ {
+  "state": "ne",
+  "stateName": "Nebraska",
+  "tier": "Extended",
+  "name": "I-76 (Nebraska)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-76",
+  "routeDisplay": "I-76",
+  "fullCoverage": false
+ },
+ {
+  "state": "nj",
+  "stateName": "New Jersey",
+  "tier": "Extended",
+  "name": "I-76 (New Jersey)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-76",
+  "routeDisplay": "I-76",
+  "fullCoverage": false
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Extended",
+  "name": "I-76 (Ohio)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-76",
+  "routeDisplay": "I-76",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-76 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-76",
+  "routeDisplay": "I-76",
+  "fullCoverage": false
+ },
+ {
+  "state": "nc",
+  "stateName": "North Carolina",
+  "tier": "Extended",
+  "name": "I-77 (North Carolina)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-77",
+  "routeDisplay": "I-77",
+  "fullCoverage": false
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Extended",
+  "name": "I-77 (Ohio)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-77",
+  "routeDisplay": "I-77",
+  "fullCoverage": false
+ },
+ {
+  "state": "sc",
+  "stateName": "South Carolina",
+  "tier": "Extended",
+  "name": "I-77 (South Carolina)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-77",
+  "routeDisplay": "I-77",
+  "fullCoverage": false
+ },
+ {
+  "state": "va",
+  "stateName": "Virginia",
+  "tier": "Extended",
+  "name": "I-77 (Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-77",
+  "routeDisplay": "I-77",
+  "fullCoverage": false
+ },
+ {
+  "state": "wv",
+  "stateName": "West Virginia",
+  "tier": "Extended",
+  "name": "I-77 (West Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-77",
+  "routeDisplay": "I-77",
+  "fullCoverage": false
+ },
+ {
+  "state": "nj",
+  "stateName": "New Jersey",
+  "tier": "Extended",
+  "name": "I-78 (New Jersey)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-78",
+  "routeDisplay": "I-78",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-78 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-78",
+  "routeDisplay": "I-78",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-78 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-78",
+  "routeDisplay": "I-78",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-79 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-79",
+  "routeDisplay": "I-79",
+  "fullCoverage": false
+ },
+ {
+  "state": "wv",
+  "stateName": "West Virginia",
+  "tier": "Extended",
+  "name": "I-79 (West Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-79",
+  "routeDisplay": "I-79",
+  "fullCoverage": false
+ },
+ {
+  "state": "ca",
+  "stateName": "California",
+  "tier": "Core",
+  "name": "I-80 (California)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "ia",
+  "stateName": "Iowa",
+  "tier": "Core",
+  "name": "I-80 (Iowa)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Core",
+  "name": "I-80 (Illinois)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Core",
+  "name": "I-80 (Indiana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "ne",
+  "stateName": "Nebraska",
+  "tier": "Core",
+  "name": "I-80 (Nebraska)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "nj",
+  "stateName": "New Jersey",
+  "tier": "Core",
+  "name": "I-80 (New Jersey)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "nv",
+  "stateName": "Nevada",
+  "tier": "Core",
+  "name": "I-80 (Nevada)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Core",
+  "name": "I-80 (Ohio)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Core",
+  "name": "I-80 (Pennsylvania)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "ut",
+  "stateName": "Utah",
+  "tier": "Core",
+  "name": "I-80 (Utah)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "wy",
+  "stateName": "Wyoming",
+  "tier": "Core",
+  "name": "I-80 (Wyoming)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-80",
+  "routeDisplay": "I-80",
+  "fullCoverage": true
+ },
+ {
+  "state": "md",
+  "stateName": "Maryland",
+  "tier": "Extended",
+  "name": "I-81 (Maryland)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-81 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-81 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "tn",
+  "stateName": "Tennessee",
+  "tier": "Extended",
+  "name": "I-81 (Tennessee)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "va",
+  "stateName": "Virginia",
+  "tier": "Extended",
+  "name": "I-81 (Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "wv",
+  "stateName": "West Virginia",
+  "tier": "Extended",
+  "name": "I-81 (West Virginia)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-81",
+  "routeDisplay": "I-81",
+  "fullCoverage": false
+ },
+ {
+  "state": "md",
+  "stateName": "Maryland",
+  "tier": "Extended",
+  "name": "I-83 (Maryland)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-83",
+  "routeDisplay": "I-83",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-83 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-83",
+  "routeDisplay": "I-83",
+  "fullCoverage": false
+ },
+ {
+  "state": "ct",
+  "stateName": "Connecticut",
+  "tier": "Extended",
+  "name": "I-84 (Connecticut)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "id",
+  "stateName": "Idaho",
+  "tier": "Extended",
+  "name": "I-84 (Idaho)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "ma",
+  "stateName": "Massachusetts",
+  "tier": "Extended",
+  "name": "I-84 (Massachusetts)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-84 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "or",
+  "stateName": "Oregon",
+  "tier": "Extended",
+  "name": "I-84 (Oregon)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-84 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "ut",
+  "stateName": "Utah",
+  "tier": "Extended",
+  "name": "I-84 (Utah)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-84",
+  "routeDisplay": "I-84",
+  "fullCoverage": false
+ },
+ {
+  "state": "al",
+  "stateName": "Alabama",
+  "tier": "Core",
+  "name": "I-85 (Alabama)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-85",
+  "routeDisplay": "I-85",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Core",
+  "name": "I-85 (Georgia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-85",
+  "routeDisplay": "I-85",
+  "fullCoverage": true
+ },
+ {
+  "state": "nc",
+  "stateName": "North Carolina",
+  "tier": "Core",
+  "name": "I-85 (North Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-85",
+  "routeDisplay": "I-85",
+  "fullCoverage": true
+ },
+ {
+  "state": "sc",
+  "stateName": "South Carolina",
+  "tier": "Core",
+  "name": "I-85 (South Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-85",
+  "routeDisplay": "I-85",
+  "fullCoverage": true
+ },
+ {
+  "state": "va",
+  "stateName": "Virginia",
+  "tier": "Core",
+  "name": "I-85 (Virginia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-85",
+  "routeDisplay": "I-85",
+  "fullCoverage": true
+ },
+ {
+  "state": "id",
+  "stateName": "Idaho",
+  "tier": "Extended",
+  "name": "I-86 (Idaho)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-86",
+  "routeDisplay": "I-86",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-86 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-86",
+  "routeDisplay": "I-86",
+  "fullCoverage": false
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Extended",
+  "name": "I-86 (Pennsylvania)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-86",
+  "routeDisplay": "I-86",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-87 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-87",
+  "routeDisplay": "I-87",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-88 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-88",
+  "routeDisplay": "I-88",
+  "fullCoverage": false
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Extended",
+  "name": "I-88 (New York)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-88",
+  "routeDisplay": "I-88",
+  "fullCoverage": false
+ },
+ {
+  "state": "nh",
+  "stateName": "New Hampshire",
+  "tier": "Extended",
+  "name": "I-89 (New Hampshire)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-89",
+  "routeDisplay": "I-89",
+  "fullCoverage": false
+ },
+ {
+  "state": "vt",
+  "stateName": "Vermont",
+  "tier": "Extended",
+  "name": "I-89 (Vermont)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-89",
+  "routeDisplay": "I-89",
+  "fullCoverage": false
+ },
+ {
+  "state": "id",
+  "stateName": "Idaho",
+  "tier": "Core",
+  "name": "I-90 (Idaho)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Core",
+  "name": "I-90 (Illinois)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Core",
+  "name": "I-90 (Indiana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "ma",
+  "stateName": "Massachusetts",
+  "tier": "Core",
+  "name": "I-90 (Massachusetts)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "mn",
+  "stateName": "Minnesota",
+  "tier": "Core",
+  "name": "I-90 (Minnesota)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "mt",
+  "stateName": "Montana",
+  "tier": "Core",
+  "name": "I-90 (Montana)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Core",
+  "name": "I-90 (New York)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "oh",
+  "stateName": "Ohio",
+  "tier": "Core",
+  "name": "I-90 (Ohio)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Core",
+  "name": "I-90 (Pennsylvania)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "sd",
+  "stateName": "South Dakota",
+  "tier": "Core",
+  "name": "I-90 (South Dakota)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "wa",
+  "stateName": "Washington",
+  "tier": "Core",
+  "name": "I-90 (Washington)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "wi",
+  "stateName": "Wisconsin",
+  "tier": "Core",
+  "name": "I-90 (Wisconsin)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "wy",
+  "stateName": "Wyoming",
+  "tier": "Core",
+  "name": "I-90 (Wyoming)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-90",
+  "routeDisplay": "I-90",
+  "fullCoverage": true
+ },
+ {
+  "state": "ct",
+  "stateName": "Connecticut",
+  "tier": "Extended",
+  "name": "I-91 (Connecticut)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-91",
+  "routeDisplay": "I-91",
+  "fullCoverage": false
+ },
+ {
+  "state": "ma",
+  "stateName": "Massachusetts",
+  "tier": "Extended",
+  "name": "I-91 (Massachusetts)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-91",
+  "routeDisplay": "I-91",
+  "fullCoverage": false
+ },
+ {
+  "state": "nh",
+  "stateName": "New Hampshire",
+  "tier": "Extended",
+  "name": "I-91 (New Hampshire)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-91",
+  "routeDisplay": "I-91",
+  "fullCoverage": false
+ },
+ {
+  "state": "vt",
+  "stateName": "Vermont",
+  "tier": "Extended",
+  "name": "I-91 (Vermont)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-91",
+  "routeDisplay": "I-91",
+  "fullCoverage": false
+ },
+ {
+  "state": "ma",
+  "stateName": "Massachusetts",
+  "tier": "Extended",
+  "name": "I-93 (Massachusetts)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-93",
+  "routeDisplay": "I-93",
+  "fullCoverage": false
+ },
+ {
+  "state": "nh",
+  "stateName": "New Hampshire",
+  "tier": "Extended",
+  "name": "I-93 (New Hampshire)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-93",
+  "routeDisplay": "I-93",
+  "fullCoverage": false
+ },
+ {
+  "state": "vt",
+  "stateName": "Vermont",
+  "tier": "Extended",
+  "name": "I-93 (Vermont)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-93",
+  "routeDisplay": "I-93",
+  "fullCoverage": false
+ },
+ {
+  "state": "il",
+  "stateName": "Illinois",
+  "tier": "Extended",
+  "name": "I-94 (Illinois)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "in",
+  "stateName": "Indiana",
+  "tier": "Extended",
+  "name": "I-94 (Indiana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "mi",
+  "stateName": "Michigan",
+  "tier": "Extended",
+  "name": "I-94 (Michigan)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "mn",
+  "stateName": "Minnesota",
+  "tier": "Extended",
+  "name": "I-94 (Minnesota)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "mt",
+  "stateName": "Montana",
+  "tier": "Extended",
+  "name": "I-94 (Montana)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "nd",
+  "stateName": "North Dakota",
+  "tier": "Extended",
+  "name": "I-94 (North Dakota)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "wi",
+  "stateName": "Wisconsin",
+  "tier": "Extended",
+  "name": "I-94 (Wisconsin)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-94",
+  "routeDisplay": "I-94",
+  "fullCoverage": false
+ },
+ {
+  "state": "ct",
+  "stateName": "Connecticut",
+  "tier": "Core",
+  "name": "I-95 (Connecticut)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "dc",
+  "stateName": "District of Columbia",
+  "tier": "Core",
+  "name": "I-95 (District of Columbia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "de",
+  "stateName": "Delaware",
+  "tier": "Core",
+  "name": "I-95 (Delaware)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "fl",
+  "stateName": "Florida",
+  "tier": "Core",
+  "name": "I-95 (Florida)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "ga",
+  "stateName": "Georgia",
+  "tier": "Core",
+  "name": "I-95 (Georgia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "ma",
+  "stateName": "Massachusetts",
+  "tier": "Core",
+  "name": "I-95 (Massachusetts)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "md",
+  "stateName": "Maryland",
+  "tier": "Core",
+  "name": "I-95 (Maryland)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "me",
+  "stateName": "Maine",
+  "tier": "Core",
+  "name": "I-95 (Maine)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "nc",
+  "stateName": "North Carolina",
+  "tier": "Core",
+  "name": "I-95 (North Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "nh",
+  "stateName": "New Hampshire",
+  "tier": "Core",
+  "name": "I-95 (New Hampshire)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "nj",
+  "stateName": "New Jersey",
+  "tier": "Core",
+  "name": "I-95 (New Jersey)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "ny",
+  "stateName": "New York",
+  "tier": "Core",
+  "name": "I-95 (New York)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "pa",
+  "stateName": "Pennsylvania",
+  "tier": "Core",
+  "name": "I-95 (Pennsylvania)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "ri",
+  "stateName": "Rhode Island",
+  "tier": "Core",
+  "name": "I-95 (Rhode Island)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "sc",
+  "stateName": "South Carolina",
+  "tier": "Core",
+  "name": "I-95 (South Carolina)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "va",
+  "stateName": "Virginia",
+  "tier": "Core",
+  "name": "I-95 (Virginia)",
+  "includeReason": "tier1-freight-corridor; full-exit-coverage",
+  "route": "i-95",
+  "routeDisplay": "I-95",
+  "fullCoverage": true
+ },
+ {
+  "state": "mi",
+  "stateName": "Michigan",
+  "tier": "Extended",
+  "name": "I-96 (Michigan)",
+  "includeReason": "tier2-freight-corridor; route-page-only",
+  "route": "i-96",
+  "routeDisplay": "I-96",
+  "fullCoverage": false
+ }
+]

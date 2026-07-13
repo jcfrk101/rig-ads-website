@@ -1,0 +1,4561 @@
+{
+ "i-4/fl": {
+  "citiesAlong": [
+   "tampa",
+   "plant-city",
+   "lakeland",
+   "four-corners",
+   "kissimmee",
+   "orlando",
+   "altamonte-springs",
+   "sanford",
+   "deltona",
+   "deland",
+   "daytona-beach"
+  ],
+  "endpoints": "I-275 in Tampa to I-95 near Daytona Beach",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-275",
+   "I-75",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-4 runs northeast from Tampa through Lakeland and Orlando to I-95 near Daytona Beach, tying Tampa Bay's port and distribution hubs to Central Florida's warehouse belt. Heavy tourist and commuter volumes make the Orlando stretch one of the most congested pieces of interstate in the Southeast."
+ },
+ "i-10/al": {
+  "citiesAlong": [
+   "mobile",
+   "daphne"
+  ],
+  "endpoints": "Mississippi state line to the Florida state line",
+  "approxMiles": 65,
+  "majorJunctions": [
+   "I-65",
+   "I-165"
+  ],
+  "neighbors": {
+   "prev": "ms",
+   "next": "fl"
+  },
+  "description": "A short west-to-east run across coastal Alabama that carries I-10 through downtown Mobile via the George Wallace Tunnel, then across Mobile Bay on a long causeway toward Daphne. Port of Mobile traffic and the tunnel-and-bay crossing make this segment a frequent chokepoint, and hazmat loads must detour around the tunnel."
+ },
+ "i-10/fl": {
+  "citiesAlong": [
+   "pensacola",
+   "ferry-pass",
+   "tallahassee",
+   "jacksonville"
+  ],
+  "endpoints": "Alabama state line to its eastern terminus at I-95 in Jacksonville",
+  "approxMiles": 360,
+  "majorJunctions": [
+   "I-110",
+   "I-75",
+   "I-295",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "al",
+   "next": null
+  },
+  "description": "I-10 crosses the Florida Panhandle west to east from Pensacola past Tallahassee to its end at I-95 in Jacksonville, with long, lightly developed timberland stretches and sparse services between metro areas. It meets I-75 at Lake City and feeds port and rail traffic into Jacksonville."
+ },
+ "i-10/la": {
+  "citiesAlong": [
+   "lake-charles",
+   "lafayette",
+   "baton-rouge",
+   "prairieville",
+   "laplace",
+   "kenner",
+   "metairie",
+   "new-orleans",
+   "slidell"
+  ],
+  "endpoints": "Texas state line at the Sabine River to the Mississippi state line east of Slidell",
+  "approxMiles": 275,
+  "majorJunctions": [
+   "I-210",
+   "I-49",
+   "I-110",
+   "I-12",
+   "I-55",
+   "I-59"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": "ms"
+  },
+  "description": "This west-to-east run through Lake Charles, Lafayette, Baton Rouge, and New Orleans serves one of the densest petrochemical and port corridors in the country, including the 18-mile elevated Atchafalaya Basin Bridge. The Baton Rouge Mississippi River bridge and metro New Orleans are reliable congestion points; I-12 offers a through-freight bypass north of Lake Pontchartrain."
+ },
+ "i-10/ms": {
+  "citiesAlong": [
+   "west-gulfport",
+   "gulfport",
+   "biloxi"
+  ],
+  "endpoints": "Louisiana state line to the Alabama state line",
+  "approxMiles": 75,
+  "majorJunctions": [
+   "I-110"
+  ],
+  "neighbors": {
+   "prev": "la",
+   "next": "al"
+  },
+  "description": "A roughly 77-mile west-to-east run across the Mississippi Gulf Coast just inland of the beach towns, passing Gulfport and Biloxi. It carries through freight between New Orleans and Mobile plus local traffic for the Port of Gulfport and the coast casinos, with I-110 dropping south into Biloxi."
+ },
+ "i-10/tx": {
+  "citiesAlong": [
+   "el-paso",
+   "socorro",
+   "san-antonio",
+   "seguin",
+   "houston",
+   "channelview",
+   "baytown",
+   "beaumont"
+  ],
+  "endpoints": "New Mexico state line at El Paso to the Louisiana state line at Orange",
+  "approxMiles": 880,
+  "majorJunctions": [
+   "I-20",
+   "I-35",
+   "I-37",
+   "I-45",
+   "I-69",
+   "I-610"
+  ],
+  "neighbors": {
+   "prev": "nm",
+   "next": "la"
+  },
+  "description": "At nearly 880 miles, this is the longest single-state stretch of interstate in the US, running from El Paso across remote Chihuahuan Desert country to San Antonio, Houston, and the Louisiana line at Orange. Fuel and service gaps west of Junction can exceed 60 miles, while the eastern end threads the heavy petrochemical and port traffic of the Houston-Beaumont corridor."
+ },
+ "i-12/la": {
+  "citiesAlong": [
+   "baton-rouge",
+   "slidell"
+  ],
+  "endpoints": "I-10 in Baton Rouge to the I-10/I-59 interchange near Slidell",
+  "approxMiles": 85,
+  "majorJunctions": [
+   "I-10",
+   "I-55",
+   "I-59"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "An east-west shortcut north of Lake Pontchartrain that lets through freight between Baton Rouge and Slidell skip metro New Orleans entirely. It meets I-55 at Hammond mid-route and is a designated hurricane evacuation corridor, so expect heavy volumes during coastal weather events."
+ },
+ "i-16/ga": {
+  "citiesAlong": [
+   "macon",
+   "savannah"
+  ],
+  "endpoints": "I-75 in Macon to downtown Savannah",
+  "approxMiles": 165,
+  "majorJunctions": [
+   "I-75",
+   "I-516",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "A flat, lightly trafficked west-to-east connector across Georgia's pine flats from Macon to Savannah, functioning mainly as the inland drayage route for the Port of Savannah. Services are thin between the endpoints, with long gaps of rural exits."
+ },
+ "i-20/al": {
+  "citiesAlong": [
+   "northport",
+   "tuscaloosa",
+   "bessemer",
+   "birmingham"
+  ],
+  "endpoints": "Mississippi state line to the Georgia state line",
+  "approxMiles": 215,
+  "majorJunctions": [
+   "I-59",
+   "I-359",
+   "I-65",
+   "I-459"
+  ],
+  "neighbors": {
+   "prev": "ms",
+   "next": "ga"
+  },
+  "description": "I-20 runs concurrent with I-59 from the Mississippi line through Tuscaloosa to Birmingham, where the routes split and I-20 continues east past Anniston toward Atlanta. Birmingham's Malfunction Junction (I-20/59 at I-65) is a well-known urban bottleneck; the I-459 bypass is the usual through-truck routing."
+ },
+ "i-20/ga": {
+  "citiesAlong": [
+   "douglasville",
+   "atlanta",
+   "stonecrest",
+   "evans",
+   "martinez",
+   "augusta"
+  ],
+  "endpoints": "Alabama state line to the South Carolina state line at the Savannah River",
+  "approxMiles": 200,
+  "majorJunctions": [
+   "I-285",
+   "I-75",
+   "I-85",
+   "I-520"
+  ],
+  "neighbors": {
+   "prev": "al",
+   "next": "sc"
+  },
+  "description": "This west-to-east crossing of Georgia runs straight through downtown Atlanta before a quieter rural run to Augusta and the South Carolina line. Atlanta metro congestion between the two I-285 crossings is severe at peak hours; east of Conyers the corridor opens up with steady but manageable freight volumes."
+ },
+ "i-20/la": {
+  "citiesAlong": [
+   "shreveport",
+   "bossier-city",
+   "monroe"
+  ],
+  "endpoints": "Texas state line to the Mississippi state line at the Mississippi River",
+  "approxMiles": 190,
+  "majorJunctions": [
+   "I-49",
+   "I-220"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": "ms"
+  },
+  "description": "I-20 crosses north Louisiana west to east through Shreveport-Bossier City and Monroe, a mostly flat run through piney woods and Red and Ouachita river bottomlands. It is the main Dallas-to-Jackson through-freight lane, meeting I-49 in Shreveport."
+ },
+ "i-20/ms": {
+  "citiesAlong": [
+   "clinton",
+   "jackson",
+   "pearl",
+   "meridian"
+  ],
+  "endpoints": "Louisiana state line at Vicksburg to the Alabama state line",
+  "approxMiles": 155,
+  "majorJunctions": [
+   "I-55",
+   "I-220",
+   "I-59"
+  ],
+  "neighbors": {
+   "prev": "la",
+   "next": "al"
+  },
+  "description": "After crossing the Mississippi River at Vicksburg, I-20 runs east through Jackson and Pearl to Meridian, where it picks up a concurrency with I-59 into Alabama. The Jackson metro interchange complex with I-55 is the main congestion point on an otherwise rolling rural corridor."
+ },
+ "i-20/tx": {
+  "citiesAlong": [
+   "odessa",
+   "midland",
+   "big-spring",
+   "abilene",
+   "weatherford",
+   "fort-worth",
+   "arlington",
+   "grand-prairie",
+   "duncanville",
+   "dallas",
+   "longview"
+  ],
+  "endpoints": "Western terminus at I-10 near Kent to the Louisiana state line east of Waskom",
+  "approxMiles": 635,
+  "majorJunctions": [
+   "I-10",
+   "I-820",
+   "I-35W",
+   "I-35E",
+   "I-45",
+   "I-635"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "la"
+  },
+  "description": "I-20 begins at I-10 in remote West Texas and runs east through the Permian Basin oilfield traffic of Odessa-Midland, then Abilene, before serving as the southern freight bypass of the Dallas-Fort Worth metroplex. East of Dallas it settles into a steady piney-woods run past Longview to the Louisiana line, with heavy oversize and oilfield equipment moves common on the western half."
+ },
+ "i-24/ga": {
+  "citiesAlong": [],
+  "endpoints": "Tennessee state line to the Tennessee state line through Dade County",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-59"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "tn"
+  },
+  "description": "I-24 dips into Georgia's extreme northwest corner for only about four miles through Lookout Valley in Dade County, between two stretches of Tennessee on the Nashville-Chattanooga run. Its only significant feature for truckers is the northern terminus of I-59, which feeds Birmingham-bound traffic onto the corridor."
+ },
+ "i-27/tx": {
+  "citiesAlong": [
+   "lubbock",
+   "amarillo"
+  ],
+  "endpoints": "Lubbock to I-40 in Amarillo",
+  "approxMiles": 125,
+  "majorJunctions": [
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "A south-to-north High Plains connector entirely within the Texas Panhandle, linking Lubbock's cotton and ag freight with the feedlot and beef-packing traffic around Amarillo, where it ends at I-40. The route is flat and fast but exposed, with high crosswinds and winter ice a regular hazard."
+ },
+ "i-30/ar": {
+  "citiesAlong": [
+   "texarkana",
+   "benton",
+   "little-rock",
+   "north-little-rock"
+  ],
+  "endpoints": "Texas state line at Texarkana to its eastern terminus at I-40 in North Little Rock",
+  "approxMiles": 145,
+  "majorJunctions": [
+   "I-49",
+   "I-530",
+   "I-630",
+   "I-440",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": null
+  },
+  "description": "I-30 runs northeast from Texarkana through Benton into Little Rock, where it crosses the Arkansas River and ends at I-40 in North Little Rock. It is the main Dallas-to-Memphis freight funnel, so volumes stay heavy end to end, with the downtown Little Rock river crossing the tightest spot."
+ },
+ "i-30/tx": {
+  "citiesAlong": [
+   "fort-worth",
+   "arlington",
+   "grand-prairie",
+   "dallas",
+   "rockwall",
+   "greenville",
+   "texarkana"
+  ],
+  "endpoints": "Western terminus at I-20 in Fort Worth to the Arkansas state line at Texarkana",
+  "approxMiles": 225,
+  "majorJunctions": [
+   "I-35W",
+   "I-820",
+   "I-35E",
+   "I-45",
+   "I-635"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ar"
+  },
+  "description": "I-30 begins at I-20 in Fort Worth, runs straight through downtown Dallas and Arlington's entertainment district, then crosses Lake Ray Hubbard toward Rockwall, Greenville, and Texarkana. The metroplex section carries intense commuter congestion, while the eastern half is a fast rural run and the primary Dallas-Little Rock freight lane."
+ },
+ "i-35/ok": {
+  "citiesAlong": [
+   "ardmore",
+   "norman",
+   "moore",
+   "oklahoma-city",
+   "edmond"
+  ],
+  "endpoints": "Texas state line at the Red River to the Kansas state line",
+  "approxMiles": 235,
+  "majorJunctions": [
+   "I-40",
+   "I-44",
+   "I-235",
+   "I-240"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": "ks"
+  },
+  "description": "I-35 runs south to north across Oklahoma from the Red River through Ardmore, Norman, and Oklahoma City to the Kansas line, climbing through the Arbuckle Mountains south of Davis with grades and curves unusual for the region. It is the spine of the central US NAFTA corridor, and the I-35/I-40/I-44 interchanges in Oklahoma City see heavy truck volumes."
+ },
+ "i-35/tx": {
+  "citiesAlong": [
+   "laredo",
+   "san-antonio",
+   "schertz",
+   "new-braunfels",
+   "san-marcos",
+   "kyle",
+   "austin",
+   "round-rock",
+   "georgetown",
+   "temple",
+   "waco",
+   "waxahachie",
+   "dallas",
+   "fort-worth",
+   "lewisville",
+   "denton"
+  ],
+  "endpoints": "Southern terminus in Laredo near the Mexican border to the Oklahoma state line at the Red River",
+  "approxMiles": 505,
+  "majorJunctions": [
+   "I-10",
+   "I-410",
+   "I-14",
+   "I-20",
+   "I-30",
+   "I-635"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ok"
+  },
+  "description": "The busiest land-border freight corridor in the country, I-35 runs south to north from the Laredo port of entry through San Antonio, Austin, Waco, and the Dallas-Fort Worth split (I-35E and I-35W rejoin at Denton). Expect near-constant congestion through the Austin-San Marcos corridor and both metroplex branches, with heavy Mexico-bound drayage the whole length."
+ },
+ "i-37/tx": {
+  "citiesAlong": [
+   "corpus-christi",
+   "san-antonio"
+  ],
+  "endpoints": "Corpus Christi harbor to I-35 in downtown San Antonio",
+  "approxMiles": 145,
+  "majorJunctions": [
+   "I-410",
+   "I-10",
+   "I-35"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "A south-to-north connector from the Port of Corpus Christi to downtown San Antonio, carrying petroleum, wind-energy components, and Eagle Ford Shale oilfield traffic across mostly flat brush country. Services are sparse through the middle counties between Mathis and Pleasanton."
+ },
+ "i-40/ar": {
+  "citiesAlong": [
+   "fort-smith",
+   "russellville",
+   "conway",
+   "north-little-rock",
+   "west-memphis"
+  ],
+  "endpoints": "Oklahoma state line at Fort Smith to the Tennessee state line at the Mississippi River",
+  "approxMiles": 285,
+  "majorJunctions": [
+   "I-49",
+   "I-540",
+   "I-30",
+   "I-440",
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": "ok",
+   "next": "tn"
+  },
+  "description": "I-40 crosses Arkansas west to east along the Arkansas River valley through Fort Smith, Russellville, Conway, and North Little Rock before running flat Delta farmland to the Mississippi River crossing at Memphis. It is one of the heaviest long-haul truck corridors in the US, and the West Memphis area, where I-40 and I-55 converge, is a major fueling and staging hub."
+ },
+ "i-40/ok": {
+  "citiesAlong": [
+   "yukon",
+   "oklahoma-city",
+   "midwest-city",
+   "shawnee"
+  ],
+  "endpoints": "Texas state line to the Arkansas state line near Fort Smith",
+  "approxMiles": 330,
+  "majorJunctions": [
+   "I-35",
+   "I-44",
+   "I-235",
+   "I-240"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": "ar"
+  },
+  "description": "This west-to-east crossing of Oklahoma follows the old Route 66 corridor from the Texas Panhandle line through Oklahoma City to the Arkansas line near Fort Smith. Outside the OKC metro the route is fast and rural with long gaps between full-service truck stops in the western counties."
+ },
+ "i-40/tx": {
+  "citiesAlong": [
+   "amarillo"
+  ],
+  "endpoints": "New Mexico state line to the Oklahoma state line",
+  "approxMiles": 175,
+  "majorJunctions": [
+   "I-27"
+  ],
+  "neighbors": {
+   "prev": "nm",
+   "next": "ok"
+  },
+  "description": "A flat, straight west-to-east run across the Texas Panhandle high plains with Amarillo as the only major stop and junction point (I-27). High crosswinds, sudden winter ice, and dust are the main operating hazards, and Amarillo serves as the primary fueling hub for hundreds of miles."
+ },
+ "i-44/ok": {
+  "citiesAlong": [
+   "lawton",
+   "oklahoma-city",
+   "tulsa"
+  ],
+  "endpoints": "Texas state line at the Red River to the Missouri state line near Joplin",
+  "approxMiles": 330,
+  "majorJunctions": [
+   "I-35",
+   "I-40",
+   "I-235",
+   "I-240",
+   "I-244"
+  ],
+  "neighbors": {
+   "prev": "tx",
+   "next": "mo"
+  },
+  "description": "I-44 angles northeast across Oklahoma from the Red River through Lawton, Oklahoma City, and Tulsa toward Missouri, with most of the rural mileage running on tolled turnpikes (H.E. Bailey, Turner, and Will Rogers). Budget for tolls and note that turnpike service plazas are the main fuel points between the metros."
+ },
+ "i-44/tx": {
+  "citiesAlong": [
+   "wichita-falls"
+  ],
+  "endpoints": "Southern terminus in Wichita Falls to the Oklahoma state line at the Red River",
+  "approxMiles": 15,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": null,
+   "next": "ok"
+  },
+  "description": "A short stub of roughly 15 miles that begins in Wichita Falls, where I-44 ends at US-277/US-281, and runs north past Sheppard Air Force Base to the Red River crossing into Oklahoma. It funnels Texas traffic onto the tolled H.E. Bailey Turnpike toward Lawton and Oklahoma City."
+ },
+ "i-45/tx": {
+  "citiesAlong": [
+   "galveston",
+   "texas-city",
+   "league-city",
+   "houston",
+   "spring",
+   "the-woodlands",
+   "conroe",
+   "huntsville",
+   "dallas"
+  ],
+  "endpoints": "Galveston to I-30 in downtown Dallas",
+  "approxMiles": 285,
+  "majorJunctions": [
+   "I-10",
+   "I-610",
+   "I-69",
+   "I-20",
+   "I-30"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "Entirely within Texas, I-45 runs south to north from Galveston's port and the Texas City refinery complex through Houston to downtown Dallas. It is the state's principal Houston-Dallas freight lane and a critical hurricane evacuation route, with the Houston metro section among the most congested truck corridors in Texas."
+ },
+ "i-49/ar": {
+  "citiesAlong": [
+   "texarkana",
+   "fort-smith",
+   "fayetteville",
+   "springdale",
+   "rogers",
+   "bentonville",
+   "bella-vista"
+  ],
+  "endpoints": "Louisiana state line to Texarkana (southern segment) and I-40 near Alma to the Missouri state line (northern segment)",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-30",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": "la",
+   "next": "mo"
+  },
+  "description": "I-49 in Arkansas exists as two disconnected segments: a short southern piece from the Louisiana line to I-30 at Texarkana, and a northern stretch from I-40 near Alma through the Boston Mountains (including the Bobby Hopper Tunnel and sustained grades) into the Fayetteville-Springdale-Rogers-Bentonville corridor serving Walmart and Tyson freight. The gap between Texarkana and Fort Smith is still covered by US-71."
+ },
+ "i-49/la": {
+  "citiesAlong": [
+   "lafayette",
+   "alexandria",
+   "shreveport"
+  ],
+  "endpoints": "I-10 in Lafayette to the Arkansas state line north of Shreveport",
+  "approxMiles": 205,
+  "majorJunctions": [
+   "I-10",
+   "I-20",
+   "I-220"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ar"
+  },
+  "description": "I-49 runs south to north up the middle of Louisiana from I-10 at Lafayette through Alexandria to Shreveport and the Arkansas line, paralleling the Red River valley. It is the main Gulf Coast-to-Ozarks freight link, mostly rural and free-flowing outside the Lafayette and Shreveport metros."
+ },
+ "i-55/ar": {
+  "citiesAlong": [
+   "west-memphis"
+  ],
+  "endpoints": "Tennessee state line at the Mississippi River in Memphis to the Missouri state line near Blytheville",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-40",
+   "I-555"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "mo"
+  },
+  "description": "After crossing the Mississippi River from Memphis, I-55 runs north through West Memphis and the flat Delta farmland of northeast Arkansas to the Missouri bootheel. The I-40/I-55 junction at West Memphis is one of the busiest truck-stop clusters in the mid-South."
+ },
+ "i-55/la": {
+  "citiesAlong": [
+   "laplace"
+  ],
+  "endpoints": "Southern terminus at I-10 near LaPlace to the Mississippi state line north of Kentwood",
+  "approxMiles": 65,
+  "majorJunctions": [
+   "I-10",
+   "I-12"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ms"
+  },
+  "description": "I-55 begins at I-10 near LaPlace and runs north past Hammond (I-12) to the Mississippi line, with its southern miles carried on a long elevated causeway over the Manchac Swamp between Lakes Pontchartrain and Maurepas. No shoulders to speak of on the swamp bridge, so breakdowns there are a serious problem."
+ },
+ "i-55/ms": {
+  "citiesAlong": [
+   "jackson",
+   "madison",
+   "horn-lake",
+   "southaven"
+  ],
+  "endpoints": "Louisiana state line to the Tennessee state line at Memphis",
+  "approxMiles": 290,
+  "majorJunctions": [
+   "I-20",
+   "I-220",
+   "I-269",
+   "I-69"
+  ],
+  "neighbors": {
+   "prev": "la",
+   "next": "tn"
+  },
+  "description": "I-55 runs the length of Mississippi south to north, from the Louisiana line through Jackson and up through the DeSoto County suburbs of Southaven and Horn Lake into Memphis. It is the main New Orleans-Memphis-Chicago freight spine, with long rural stretches between McComb, Jackson, and Grenada."
+ },
+ "i-59/al": {
+  "citiesAlong": [
+   "northport",
+   "tuscaloosa",
+   "bessemer",
+   "birmingham",
+   "gadsden"
+  ],
+  "endpoints": "Mississippi state line to the Georgia state line in the northeast corner of the state",
+  "approxMiles": 240,
+  "majorJunctions": [
+   "I-20",
+   "I-459",
+   "I-65",
+   "I-759"
+  ],
+  "neighbors": {
+   "prev": "ms",
+   "next": "ga"
+  },
+  "description": "I-59 enters Alabama concurrent with I-20, passing Tuscaloosa and Bessemer into Birmingham, where the routes split and I-59 continues northeast past Gadsden and Fort Payne toward the Georgia line. The route parallels the Appalachian foothills with gentle grades and serves as the Birmingham-Chattanooga freight lane."
+ },
+ "i-59/ga": {
+  "citiesAlong": [],
+  "endpoints": "Alabama state line to its northern terminus at I-24 near the Tennessee line",
+  "approxMiles": 20,
+  "majorJunctions": [
+   "I-24"
+  ],
+  "neighbors": {
+   "prev": "al",
+   "next": null
+  },
+  "description": "A short 20-mile run through Georgia's rural northwest corner in Dade County, where I-59 ends at I-24 just south of Chattanooga. It carries Birmingham-to-Chattanooga through traffic with no significant towns or services along the Georgia miles."
+ },
+ "i-59/la": {
+  "citiesAlong": [
+   "slidell"
+  ],
+  "endpoints": "Southern terminus at the I-10/I-12 interchange near Slidell to the Mississippi state line at the Pearl River",
+  "approxMiles": 10,
+  "majorJunctions": [
+   "I-10",
+   "I-12"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ms"
+  },
+  "description": "I-59's southernmost miles, roughly 11 in all, run from the I-10/I-12 interchange at Slidell north across the Pearl River swamps into Mississippi. It is the funnel for New Orleans traffic heading toward Hattiesburg, Meridian, and Birmingham."
+ },
+ "i-59/ms": {
+  "citiesAlong": [
+   "hattiesburg",
+   "meridian"
+  ],
+  "endpoints": "Louisiana state line at the Pearl River to the Alabama state line",
+  "approxMiles": 170,
+  "majorJunctions": [
+   "I-20"
+  ],
+  "neighbors": {
+   "prev": "la",
+   "next": "al"
+  },
+  "description": "I-59 runs south to north through the piney woods of southeast Mississippi, passing Hattiesburg and Laurel before joining I-20 at Meridian for the concurrent run into Alabama. Traffic is mostly long-haul between New Orleans and Birmingham, with light volumes outside the two junction cities."
+ },
+ "i-65/al": {
+  "citiesAlong": [
+   "mobile",
+   "montgomery",
+   "prattville",
+   "alabaster",
+   "hoover",
+   "homewood",
+   "birmingham",
+   "decatur",
+   "athens"
+  ],
+  "endpoints": "Southern terminus at I-10 in Mobile to the Tennessee state line",
+  "approxMiles": 365,
+  "majorJunctions": [
+   "I-10",
+   "I-85",
+   "I-20",
+   "I-59",
+   "I-459",
+   "I-565"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "tn"
+  },
+  "description": "I-65 begins at I-10 in Mobile and runs the full height of Alabama south to north through Montgomery and Birmingham, crossing the Tennessee River near Decatur on its way to the state line. It is the state's primary north-south freight spine, linking the Port of Mobile with the Birmingham and Huntsville (via I-565) manufacturing corridors; Birmingham metro is the main congestion zone."
+ },
+ "i-69/ms": {
+  "citiesAlong": [],
+  "endpoints": "US-61 near Tunica Resorts to I-55 near Hernando",
+  "approxMiles": 25,
+  "majorJunctions": [
+   "I-55",
+   "I-269"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "A short, isolated stretch of the future I-69 corridor running across rural DeSoto and Tunica county farmland between US-61 near the Tunica casinos and I-55 at Hernando, tying into the I-269 Memphis outer loop. Traffic is light and services are minimal along the route itself."
+ },
+ "i-69/tx": {
+  "citiesAlong": [
+   "rosenberg",
+   "sugar-land",
+   "houston"
+  ],
+  "endpoints": "Rosenberg to north of Houston near Cleveland, following US-59 (signed sections)",
+  "approxMiles": 75,
+  "majorJunctions": [
+   "I-10",
+   "I-610",
+   "I-45"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "The signed I-69 mainline in Texas currently runs along US-59 through the Houston metro, from around Rosenberg and Sugar Land through downtown to the Cleveland area, with separate I-69E, I-69C, and I-69W segments signed in the Rio Grande Valley and at Laredo. It carries heavy port and border-bound freight through some of Houston's most congested freeway miles."
+ },
+ "i-75/fl": {
+  "citiesAlong": [
+   "hialeah",
+   "miami-lakes",
+   "weston",
+   "bonita-springs",
+   "estero",
+   "fort-myers",
+   "north-fort-myers",
+   "port-charlotte",
+   "north-port",
+   "sarasota",
+   "bradenton",
+   "riverview",
+   "brandon",
+   "tampa",
+   "temple-terrace",
+   "wesley-chapel",
+   "the-villages",
+   "ocala",
+   "gainesville"
+  ],
+  "endpoints": "Southern terminus at SR 826 in Hialeah to the Georgia state line north of Lake City",
+  "approxMiles": 470,
+  "majorJunctions": [
+   "I-595",
+   "I-275",
+   "I-4",
+   "I-10"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ga"
+  },
+  "description": "I-75 starts in Hialeah, crosses the Everglades on the tolled Alligator Alley — a long stretch with almost no fuel or services — then runs up the Gulf coast through Fort Myers, Sarasota, and Tampa before turning inland past Ocala and Gainesville to Georgia. It is Florida's main west-coast freight artery, with the Tampa metro and seasonal snowbird traffic the biggest slowdowns."
+ },
+ "i-75/ga": {
+  "citiesAlong": [
+   "valdosta",
+   "macon",
+   "stockbridge",
+   "atlanta",
+   "smyrna",
+   "marietta",
+   "kennesaw",
+   "dalton"
+  ],
+  "endpoints": "Florida state line south of Valdosta to the Tennessee state line at Chattanooga",
+  "approxMiles": 355,
+  "majorJunctions": [
+   "I-16",
+   "I-475",
+   "I-285",
+   "I-20",
+   "I-85",
+   "I-575"
+  ],
+  "neighbors": {
+   "prev": "fl",
+   "next": "tn"
+  },
+  "description": "One of the Southeast's heaviest freight corridors, I-75 runs south to north from Valdosta through Macon and straight up Atlanta's Downtown Connector (concurrent with I-85) before continuing past Marietta and the carpet-industry hub of Dalton to Chattanooga. Through trucks commonly use the I-475 Macon bypass and I-285 around Atlanta to avoid the worst congestion."
+ },
+ "i-85/al": {
+  "citiesAlong": [
+   "montgomery",
+   "auburn",
+   "opelika"
+  ],
+  "endpoints": "Southern terminus at I-65 in Montgomery to the Georgia state line at the Chattahoochee River",
+  "approxMiles": 80,
+  "majorJunctions": [
+   "I-65"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ga"
+  },
+  "description": "I-85 begins at I-65 in Montgomery and runs northeast about 80 miles through Auburn and Opelika to the Georgia line near the Kia and auto-supplier belt at West Point. It is a steady automotive-manufacturing freight lane linking Montgomery's Hyundai plant with the Georgia I-85 corridor."
+ },
+ "i-85/ga": {
+  "citiesAlong": [
+   "lagrange",
+   "newnan",
+   "south-fulton",
+   "east-point",
+   "atlanta",
+   "brookhaven",
+   "duluth",
+   "lawrenceville"
+  ],
+  "endpoints": "Alabama state line near West Point to the South Carolina state line at the Savannah River",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-185",
+   "I-285",
+   "I-75",
+   "I-20",
+   "I-985"
+  ],
+  "neighbors": {
+   "prev": "al",
+   "next": "sc"
+  },
+  "description": "I-85 crosses Georgia southwest to northeast through the heart of Atlanta, sharing the Downtown Connector with I-75, then continues past the Gwinnett County distribution belt toward South Carolina. The corridor anchors the Southeast's auto-manufacturing supply chain from the Kia plant near LaGrange to the Carolinas, and Atlanta metro congestion is severe in both peaks."
+ },
+ "i-95/fl": {
+  "citiesAlong": [
+   "miami",
+   "miami-gardens",
+   "hollywood",
+   "fort-lauderdale",
+   "pompano-beach",
+   "deerfield-beach",
+   "boca-raton",
+   "delray-beach",
+   "boynton-beach",
+   "west-palm-beach",
+   "palm-beach-gardens",
+   "jupiter",
+   "port-saint-lucie",
+   "fort-pierce",
+   "palm-bay",
+   "melbourne",
+   "titusville",
+   "daytona-beach",
+   "ormond-beach",
+   "palm-coast",
+   "jacksonville"
+  ],
+  "endpoints": "Southern terminus at US-1 in Miami to the Georgia state line at the St. Marys River",
+  "approxMiles": 380,
+  "majorJunctions": [
+   "I-195",
+   "I-395",
+   "I-595",
+   "I-4",
+   "I-295",
+   "I-10"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ga"
+  },
+  "description": "I-95 runs the length of Florida's Atlantic coast south to north, from its national southern terminus in Miami through the nearly continuous urban corridor of Fort Lauderdale and West Palm Beach, then along the Space Coast past Melbourne and Daytona Beach to Jacksonville. It serves PortMiami, Port Everglades, and JAXPORT freight, with the Miami-to-Jupiter stretch congested at almost any hour."
+ },
+ "i-95/ga": {
+  "citiesAlong": [
+   "savannah"
+  ],
+  "endpoints": "Florida state line at the St. Marys River to the South Carolina state line at the Savannah River",
+  "approxMiles": 110,
+  "majorJunctions": [
+   "I-16"
+  ],
+  "neighbors": {
+   "prev": "fl",
+   "next": "sc"
+  },
+  "description": "A flat coastal run of about 112 miles through Georgia's Lowcountry marshes and pine flats, passing Brunswick and the west side of Savannah. The I-16 junction feeds heavy container drayage to and from the Port of Savannah, making the Savannah-area interchanges the busiest truck traffic on the segment."
+ },
+ "i-5/ca": {
+  "citiesAlong": [
+   "chula-vista",
+   "national-city",
+   "san-diego",
+   "encinitas",
+   "carlsbad",
+   "oceanside",
+   "san-clemente",
+   "san-juan-capistrano",
+   "mission-viejo",
+   "lake-forest",
+   "irvine",
+   "tustin",
+   "santa-ana",
+   "orange",
+   "anaheim",
+   "fullerton",
+   "buena-park",
+   "norwalk",
+   "downey",
+   "east-los-angeles",
+   "los-angeles",
+   "glendale",
+   "burbank",
+   "san-fernando",
+   "sylmar",
+   "santa-clarita",
+   "valencia",
+   "los-banos",
+   "tracy",
+   "stockton",
+   "elk-grove",
+   "sacramento",
+   "woodland",
+   "redding"
+  ],
+  "endpoints": "Mexican border at San Ysidro to the Oregon state line north of Hilt",
+  "approxMiles": 795,
+  "majorJunctions": [
+   "I-8",
+   "I-405",
+   "I-10",
+   "I-210",
+   "I-580",
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "or"
+  },
+  "description": "Runs the full length of California south to north, from the San Diego border trade area through the Los Angeles basin and up the west side of the Central Valley to Sacramento and Redding. Expect heavy metro congestion from San Diego through LA, the steep Grapevine climb over Tejon Pass, and long stretches with sparse services on the valley's west side near Los Banos."
+ },
+ "i-8/az": {
+  "citiesAlong": [
+   "yuma",
+   "fortuna-foothills",
+   "casa-grande"
+  ],
+  "endpoints": "California state line at the Colorado River in Yuma to its eastern terminus at I-10 near Casa Grande",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-10"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": null
+  },
+  "description": "Runs west to east from the Colorado River at Yuma across open Sonoran desert to end at I-10 near Casa Grande, linking Yuma's produce freight with the Phoenix and Tucson corridors. The Telegraph Pass grade east of Yuma and long gaps around Gila Bend define the drive."
+ },
+ "i-8/ca": {
+  "citiesAlong": [
+   "san-diego",
+   "la-mesa",
+   "el-cajon",
+   "el-centro"
+  ],
+  "endpoints": "Western terminus near the Pacific in San Diego to the Arizona state line at the Colorado River near Yuma",
+  "approxMiles": 170,
+  "majorJunctions": [
+   "I-5",
+   "I-805",
+   "I-15"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "az"
+  },
+  "description": "Climbs from sea level in San Diego over the Laguna Mountains, a windy 4,000-foot crossing with steep grades near In-Ko-Pah, before dropping into Imperial Valley farm country at El Centro and running to the Colorado River. Westbound trucks face a long sustained pull off the desert floor."
+ },
+ "i-10/az": {
+  "citiesAlong": [
+   "buckeye",
+   "goodyear",
+   "avondale",
+   "phoenix",
+   "tempe",
+   "chandler",
+   "casa-grande",
+   "marana",
+   "tucson"
+  ],
+  "endpoints": "California state line at the Colorado River near Ehrenberg to the New Mexico state line east of San Simon",
+  "approxMiles": 390,
+  "majorJunctions": [
+   "I-8",
+   "I-17",
+   "I-19"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": "nm"
+  },
+  "description": "Crosses Arizona west to east from the Colorado River at Ehrenberg through the Phoenix metro and down to Tucson before running empty high desert to New Mexico. Urban congestion through Phoenix and Tucson bookends long rural gaps around Quartzsite, Eloy, and Willcox."
+ },
+ "i-10/ca": {
+  "citiesAlong": [
+   "santa-monica",
+   "los-angeles",
+   "el-monte",
+   "west-covina",
+   "pomona",
+   "ontario",
+   "fontana",
+   "colton",
+   "redlands",
+   "beaumont",
+   "banning",
+   "palm-springs",
+   "indio",
+   "coachella"
+  ],
+  "endpoints": "Pacific terminus in Santa Monica to the Arizona state line at the Colorado River at Blythe",
+  "approxMiles": 245,
+  "majorJunctions": [
+   "I-5",
+   "I-405",
+   "I-710",
+   "I-605",
+   "I-15",
+   "I-215"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "az"
+  },
+  "description": "Starts at the Pacific in Santa Monica, cuts through downtown Los Angeles and the warehouse-dense Inland Empire around Ontario and Fontana, then descends San Gorgonio Pass into the Coachella Valley and open desert to Blythe. Port drayage and distribution-center traffic make the LA-to-Redlands stretch one of the busiest truck corridors in the country."
+ },
+ "i-10/nm": {
+  "citiesAlong": [
+   "las-cruces"
+  ],
+  "endpoints": "Arizona state line near Road Forks to the Texas state line at Anthony",
+  "approxMiles": 165,
+  "majorJunctions": [
+   "I-25"
+  ],
+  "neighbors": {
+   "prev": "az",
+   "next": "tx"
+  },
+  "description": "A high-desert run west to east through Lordsburg and Deming to Las Cruces, where it meets I-25 before dropping to the Texas line toward El Paso. Mostly rural and fast-moving, but the Lordsburg Playa is notorious for sudden dust storms that force closures."
+ },
+ "i-15/az": {
+  "citiesAlong": [],
+  "endpoints": "Nevada state line near Mesquite to the Utah state line south of St. George",
+  "approxMiles": 30,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "nv",
+   "next": "ut"
+  },
+  "description": "A short 30-mile connector through Arizona's remote northwest corner, carrying Las Vegas-Salt Lake traffic through the winding Virgin River Gorge. There are no towns or services on the Arizona stretch, and the canyon's tight curves and grades demand attention."
+ },
+ "i-15/ca": {
+  "citiesAlong": [
+   "san-diego",
+   "mira-mesa",
+   "escondido",
+   "temecula",
+   "murrieta",
+   "lake-elsinore",
+   "corona",
+   "norco",
+   "eastvale",
+   "ontario",
+   "fontana",
+   "rancho-cucamonga",
+   "hesperia",
+   "victorville",
+   "apple-valley"
+  ],
+  "endpoints": "Southern terminus at I-8 in San Diego to the Nevada state line at Primm",
+  "approxMiles": 285,
+  "majorJunctions": [
+   "I-8",
+   "I-215",
+   "I-10",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nv"
+  },
+  "description": "Runs south to north from San Diego through Temecula and the Inland Empire logistics hub at Ontario, over the steep Cajon Pass grade, then across the Mojave through Victorville and Barstow to the Nevada line at Primm. It is the main LA-to-Las Vegas freight lane, with heavy weekend traffic and a long high-desert gap beyond Barstow."
+ },
+ "i-15/nv": {
+  "citiesAlong": [
+   "enterprise",
+   "paradise",
+   "las-vegas",
+   "north-las-vegas"
+  ],
+  "endpoints": "California state line at Primm to the Arizona state line at Mesquite",
+  "approxMiles": 125,
+  "majorJunctions": [
+   "I-11",
+   "I-215"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": "az"
+  },
+  "description": "Enters from California at Primm and runs straight through the Las Vegas valley, passing the resort corridor and North Las Vegas, before an open desert run to Mesquite and the Arizona line. Congestion is concentrated in the short metro stretch; the rest is fast rural running."
+ },
+ "i-15/ut": {
+  "citiesAlong": [
+   "saint-george",
+   "cedar-city",
+   "spanish-fork",
+   "springville",
+   "provo",
+   "orem",
+   "american-fork",
+   "lehi",
+   "draper",
+   "sandy",
+   "murray",
+   "salt-lake-city",
+   "bountiful",
+   "layton",
+   "ogden"
+  ],
+  "endpoints": "Arizona state line south of St. George to the Idaho state line near Portage",
+  "approxMiles": 400,
+  "majorJunctions": [
+   "I-70",
+   "I-80",
+   "I-215",
+   "I-84"
+  ],
+  "neighbors": {
+   "prev": "az",
+   "next": "id"
+  },
+  "description": "Utah's north-south backbone, from St. George and Cedar City through long rural high-country stretches to the Wasatch Front cities of Provo, Salt Lake City, and Ogden. Expect winter conditions and grades in the south and dense commuter traffic from Provo northward."
+ },
+ "i-17/az": {
+  "citiesAlong": [
+   "phoenix",
+   "deer-valley",
+   "flagstaff"
+  ],
+  "endpoints": "Southern terminus at I-10 in Phoenix to its northern terminus at I-40 in Flagstaff",
+  "approxMiles": 145,
+  "majorJunctions": [
+   "I-10",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "Entirely within Arizona, climbing roughly a mile in elevation from I-10 in Phoenix to I-40 in Flagstaff. Sustained six percent grades near Black Canyon City and Camp Verde make brake management critical southbound, and winter snow is common at the Flagstaff end."
+ },
+ "i-25/co": {
+  "citiesAlong": [
+   "pueblo",
+   "fountain",
+   "colorado-springs",
+   "castle-rock",
+   "centennial",
+   "englewood",
+   "denver",
+   "thornton",
+   "northglenn",
+   "loveland",
+   "fort-collins"
+  ],
+  "endpoints": "New Mexico state line at Raton Pass to the Wyoming state line north of Wellington",
+  "approxMiles": 300,
+  "majorJunctions": [
+   "I-70",
+   "I-76",
+   "I-225",
+   "I-270"
+  ],
+  "neighbors": {
+   "prev": "nm",
+   "next": "wy"
+  },
+  "description": "Follows Colorado's Front Range south to north, linking Pueblo, Colorado Springs, Denver, and Fort Collins between Raton Pass and the Wyoming line. Heavy commuter congestion through the Denver and Colorado Springs metros contrasts with open ranch country at either end."
+ },
+ "i-25/nm": {
+  "citiesAlong": [
+   "las-cruces",
+   "south-valley",
+   "albuquerque",
+   "rio-rancho",
+   "enchanted-hills",
+   "santa-fe"
+  ],
+  "endpoints": "Southern terminus at I-10 in Las Cruces to the Colorado state line at Raton Pass",
+  "approxMiles": 460,
+  "majorJunctions": [
+   "I-10",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "co"
+  },
+  "description": "Begins at I-10 in Las Cruces and follows the Rio Grande north through long rural gaps at Truth or Consequences and Socorro to Albuquerque, then climbs past Santa Fe and over Glorieta Pass toward Raton Pass at the Colorado line. Services thin out quickly between the metro areas."
+ },
+ "i-40/az": {
+  "citiesAlong": [
+   "kingman",
+   "flagstaff"
+  ],
+  "endpoints": "California state line at the Colorado River near Topock to the New Mexico state line at Lupton",
+  "approxMiles": 360,
+  "majorJunctions": [
+   "I-17"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": "nm"
+  },
+  "description": "Crosses northern Arizona's high plateau west to east, paralleling old Route 66 from the Colorado River near Topock through Kingman and up past 7,000 feet at Flagstaff. Winter snow and ice around Flagstaff and long gaps between Kingman, Seligman, and Winslow are the main planning factors."
+ },
+ "i-40/ca": {
+  "citiesAlong": [],
+  "endpoints": "Western terminus at I-15 in Barstow to the Arizona state line at the Colorado River near Needles",
+  "approxMiles": 155,
+  "majorJunctions": [
+   "I-15"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "az"
+  },
+  "description": "A remote Mojave Desert crossing from I-15 at Barstow to the Colorado River at Needles, with essentially no towns in between. Extreme summer heat, long grades, and sparse fuel make this one of the emptiest interstate segments in California."
+ },
+ "i-40/nm": {
+  "citiesAlong": [
+   "albuquerque"
+  ],
+  "endpoints": "Arizona state line near Gallup to the Texas state line at Glenrio",
+  "approxMiles": 375,
+  "majorJunctions": [
+   "I-25"
+  ],
+  "neighbors": {
+   "prev": "az",
+   "next": "tx"
+  },
+  "description": "Runs west to east from Gallup across high plains to Albuquerque, where it crosses I-25 at the Big I interchange, then continues through Santa Rosa and Tucumcari to the Texas line at Glenrio. Long spacing between services and strong crosswinds are typical."
+ },
+ "i-70/co": {
+  "citiesAlong": [
+   "grand-junction",
+   "lakewood",
+   "wheat-ridge",
+   "arvada",
+   "denver",
+   "commerce-city",
+   "aurora"
+  ],
+  "endpoints": "Utah state line near Mack to the Kansas state line east of Burlington",
+  "approxMiles": 450,
+  "majorJunctions": [
+   "I-25",
+   "I-76",
+   "I-225",
+   "I-270"
+  ],
+  "neighbors": {
+   "prev": "ut",
+   "next": "ks"
+  },
+  "description": "Colorado's mountain crossing: from Grand Junction up Glenwood Canyon, over Vail Pass and through the 11,000-foot Eisenhower-Johnson tunnels, then down into Denver and across flat plains to Kansas. Chain laws, steep grades, and winter closures govern the high country, while the plains east of Aurora are fast and open."
+ },
+ "i-70/ut": {
+  "citiesAlong": [],
+  "endpoints": "Western terminus at I-15 at Cove Fort to the Colorado state line east of Westwater",
+  "approxMiles": 230,
+  "majorJunctions": [
+   "I-15"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "co"
+  },
+  "description": "Runs from I-15 at Cove Fort east through Richfield and the San Rafael Swell to the Colorado line, including the roughly 106-mile stretch between Salina and Green River with no services, the longest such gap on the Interstate system. Fuel planning is essential, and grades and crosswinds through the Swell add to the workload."
+ },
+ "i-76/co": {
+  "citiesAlong": [
+   "arvada",
+   "commerce-city",
+   "brighton"
+  ],
+  "endpoints": "Western terminus at I-70 in Arvada to the Nebraska state line near Julesburg, where it joins I-80",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-70",
+   "I-25",
+   "I-270"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ne"
+  },
+  "description": "Connects Denver to the I-80 corridor, running northeast from I-70 in Arvada past Brighton and along the South Platte River through Fort Morgan and Sterling to the Nebraska line. A key agricultural and Denver-bypass link, mostly rural and exposed to plains wind."
+ },
+ "i-80/ca": {
+  "citiesAlong": [
+   "san-francisco",
+   "oakland",
+   "berkeley",
+   "richmond",
+   "vallejo",
+   "fairfield",
+   "vacaville",
+   "davis",
+   "west-sacramento",
+   "sacramento",
+   "roseville",
+   "rocklin"
+  ],
+  "endpoints": "Western terminus in San Francisco to the Nevada state line at Verdi",
+  "approxMiles": 200,
+  "majorJunctions": [
+   "I-580",
+   "I-880",
+   "I-680",
+   "I-505",
+   "I-5"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nv"
+  },
+  "description": "From San Francisco across the Bay Bridge through Oakland, Vallejo, and Sacramento, then a long climb into the Sierra Nevada over 7,200-foot Donner Pass to the Nevada line. Bay Area and Sacramento congestion dominates the front half; chain controls and winter closures are routine on the Donner grade."
+ },
+ "i-80/nv": {
+  "citiesAlong": [
+   "reno",
+   "sparks",
+   "elko"
+  ],
+  "endpoints": "California state line at Verdi to the Utah state line at West Wendover",
+  "approxMiles": 410,
+  "majorJunctions": [
+   "I-580"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": "ut"
+  },
+  "description": "Follows the Humboldt River across northern Nevada from the Reno-Sparks freight hub through Winnemucca and Elko to the salt flats at Wendover. Distances between services are among the longest in the lower 48, with high-desert wind and winter ice at the summits."
+ },
+ "i-80/ut": {
+  "citiesAlong": [
+   "magna",
+   "salt-lake-city",
+   "south-salt-lake"
+  ],
+  "endpoints": "Nevada state line at Wendover to the Wyoming state line at Evanston",
+  "approxMiles": 195,
+  "majorJunctions": [
+   "I-15",
+   "I-215",
+   "I-84"
+  ],
+  "neighbors": {
+   "prev": "nv",
+   "next": "wy"
+  },
+  "description": "Enters at Wendover and crosses the dead-flat Bonneville Salt Flats, roughly 100 miles with almost no services, before hitting the Salt Lake City metro and then climbing the sustained grades of Parley's Canyon toward Wyoming. The transition from salt flats to mountain canyon comes fast on the east side."
+ },
+ "i-84/ut": {
+  "citiesAlong": [
+   "ogden"
+  ],
+  "endpoints": "Idaho state line near Snowville to its eastern terminus at I-80 at Echo Junction",
+  "approxMiles": 120,
+  "majorJunctions": [
+   "I-15",
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": "id",
+   "next": null
+  },
+  "description": "Drops in from Idaho at Snowville, runs concurrent with I-15 through the Tremonton-Ogden corridor, then splits east and descends Weber Canyon to end at I-80 at Echo Junction. It is the main Pacific Northwest freight link to I-80, with winter weather and canyon curves on the eastern half."
+ },
+ "i-24/il": {
+  "citiesAlong": [],
+  "endpoints": "Western terminus at I-57 near Goreville to the Ohio River crossing into Kentucky near Paducah",
+  "approxMiles": 40,
+  "majorJunctions": [
+   "I-57"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ky"
+  },
+  "description": "A short rural connector through the Shawnee Hills of far southern Illinois, I-24 links I-57 to the Ohio River bridge into Kentucky and carries through freight bound for Paducah, Nashville, and Chattanooga. Expect light traffic and long gaps between services."
+ },
+ "i-29/ia": {
+  "citiesAlong": [
+   "council-bluffs",
+   "sioux-city"
+  ],
+  "endpoints": "Missouri state line near Hamburg to the South Dakota line at the Big Sioux River north of Sioux City",
+  "approxMiles": 150,
+  "majorJunctions": [
+   "I-80",
+   "I-480",
+   "I-680",
+   "I-129"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": "sd"
+  },
+  "description": "I-29 follows the flat Missouri River valley up Iowa's western edge, connecting the Omaha-Council Bluffs metro with Sioux City on its way to South Dakota. Outside those two metros it is a lightly traveled rural run serving grain and livestock freight, and stretches near the river are prone to flood-related closures."
+ },
+ "i-29/mo": {
+  "citiesAlong": [
+   "kansas-city",
+   "saint-joseph"
+  ],
+  "endpoints": "Southern terminus at I-35 in downtown Kansas City to the Iowa state line north of Rock Port",
+  "approxMiles": 125,
+  "majorJunctions": [
+   "I-35",
+   "I-635",
+   "I-435",
+   "I-229"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ia"
+  },
+  "description": "Beginning in downtown Kansas City, I-29 runs north past Kansas City International Airport and through Saint Joseph before settling into a quiet rural stretch along the Missouri River bluffs to the Iowa line. It is the main truck route between Kansas City and the Omaha and Sioux Falls markets."
+ },
+ "i-35/ia": {
+  "citiesAlong": [
+   "west-des-moines",
+   "urbandale",
+   "des-moines",
+   "ankeny",
+   "ames",
+   "mason-city"
+  ],
+  "endpoints": "Missouri state line near Lamoni to the Minnesota line near Lake Mills",
+  "approxMiles": 220,
+  "majorJunctions": [
+   "I-80",
+   "I-235"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": "mn"
+  },
+  "description": "I-35 crosses Iowa south to north through rolling farm country, sharing a busy concurrency with I-80 around the west and north sides of Des Moines before continuing past Ames toward Minnesota. Winter crosswinds and blowing snow on the open stretches north of Ames are a regular hazard for high-profile loads."
+ },
+ "i-35/ks": {
+  "citiesAlong": [
+   "wichita",
+   "olathe",
+   "lenexa",
+   "overland-park",
+   "kansas-city"
+  ],
+  "endpoints": "Oklahoma state line south of Wichita to the Missouri line in downtown Kansas City",
+  "approxMiles": 235,
+  "majorJunctions": [
+   "I-135",
+   "I-235",
+   "I-335",
+   "I-435",
+   "I-635",
+   "I-70"
+  ],
+  "neighbors": {
+   "prev": "ok",
+   "next": "mo"
+  },
+  "description": "I-35 runs diagonally across eastern Kansas from the Oklahoma line through Wichita, then follows the tolled Kansas Turnpike through the Flint Hills past Emporia before descending into the Johnson County suburbs and downtown Kansas City. The Turnpike segment between Wichita and Emporia has widely spaced exits and service plazas rather than conventional truck stops."
+ },
+ "i-35/mn": {
+  "citiesAlong": [
+   "owatonna",
+   "lakeville",
+   "burnsville",
+   "bloomington",
+   "minneapolis",
+   "saint-paul",
+   "duluth"
+  ],
+  "endpoints": "Iowa state line at Albert Lea to the route's national northern terminus in Duluth",
+  "approxMiles": 260,
+  "majorJunctions": [
+   "I-90",
+   "I-35E",
+   "I-35W",
+   "I-94",
+   "I-494",
+   "I-694"
+  ],
+  "neighbors": {
+   "prev": "ia",
+   "next": null
+  },
+  "description": "From the Iowa line I-35 runs north past Owatonna into the Twin Cities, where it splits into I-35W through Minneapolis and I-35E through Saint Paul before rejoining and continuing to its national end at the Lake Superior port of Duluth. The Twin Cities split is a common routing mistake, and the long descent into Duluth demands brake checks in winter."
+ },
+ "i-35/mo": {
+  "citiesAlong": [
+   "kansas-city",
+   "liberty"
+  ],
+  "endpoints": "Kansas state line in downtown Kansas City to the Iowa line north of Eagleville",
+  "approxMiles": 115,
+  "majorJunctions": [
+   "I-70",
+   "I-670",
+   "I-29",
+   "I-435"
+  ],
+  "neighbors": {
+   "prev": "ks",
+   "next": "ia"
+  },
+  "description": "I-35 crosses the Missouri portion of Kansas City through the downtown loop, passes Liberty on the Northland side, then runs a lightly serviced rural diagonal to the Iowa line. It is the direct truck link between Kansas City and Des Moines."
+ },
+ "i-39/il": {
+  "citiesAlong": [
+   "bloomington",
+   "normal",
+   "rockford"
+  ],
+  "endpoints": "Southern terminus at I-55 near Normal to the Wisconsin line at South Beloit, running concurrent with I-90 from Rockford",
+  "approxMiles": 135,
+  "majorJunctions": [
+   "I-55",
+   "I-80",
+   "I-88",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "wi"
+  },
+  "description": "I-39 is the flat, low-traffic north-south bypass of the Chicago metro, running from I-55 near Bloomington-Normal through open grain country to Rockford and on to Wisconsin. Many through trucks use it with I-80 or I-88 to avoid Chicago tolls and congestion; crosswinds on the open prairie can be strong."
+ },
+ "i-44/mo": {
+  "citiesAlong": [
+   "joplin",
+   "springfield",
+   "kirkwood",
+   "st-louis"
+  ],
+  "endpoints": "Oklahoma state line west of Joplin to the route's eastern terminus at I-55 in downtown St. Louis",
+  "approxMiles": 290,
+  "majorJunctions": [
+   "I-49",
+   "I-270",
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": "ok",
+   "next": null
+  },
+  "description": "I-44 crosses Missouri diagonally through the Ozarks, linking Joplin, Springfield, and St. Louis along the historic Route 66 corridor. It is the primary freight lane between Texas-Oklahoma and the Midwest, with long grades and curves through the Ozark hills between Springfield and Rolla."
+ },
+ "i-49/mo": {
+  "citiesAlong": [
+   "joplin",
+   "grandview",
+   "kansas-city"
+  ],
+  "endpoints": "Arkansas state line near Pineville to the route's northern terminus at I-435/I-470 in south Kansas City",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-44",
+   "I-435",
+   "I-470"
+  ],
+  "neighbors": {
+   "prev": "ar",
+   "next": null
+  },
+  "description": "I-49 runs up Missouri's western edge from the Arkansas line, crossing I-44 just east of Joplin and following the old US-71 corridor through Harrisonville and Grandview to the Grandview Triangle interchange in south Kansas City. It is the main north-south lane between Kansas City and the Fort Smith and Shreveport markets, mostly rural with steady four-lane running."
+ },
+ "i-55/il": {
+  "citiesAlong": [
+   "east-saint-louis",
+   "edwardsville",
+   "springfield",
+   "bloomington",
+   "normal",
+   "joliet",
+   "plainfield",
+   "romeoville",
+   "bolingbrook",
+   "chicago"
+  ],
+  "endpoints": "Mississippi River crossing from St. Louis at East St. Louis to the route's northern terminus at Lake Shore Drive in Chicago",
+  "approxMiles": 295,
+  "majorJunctions": [
+   "I-70",
+   "I-72",
+   "I-74",
+   "I-80",
+   "I-355",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": null
+  },
+  "description": "I-55 is the main St. Louis-Chicago freight corridor, running northeast through Springfield and Bloomington-Normal before hitting heavy intermodal truck traffic around Joliet and Bolingbrook, home to some of the nation's largest rail-container yards. The final Stevenson Expressway stretch into Chicago is congested most of the day."
+ },
+ "i-55/mo": {
+  "citiesAlong": [
+   "cape-girardeau",
+   "oakville",
+   "mehlville",
+   "st-louis"
+  ],
+  "endpoints": "Arkansas state line in the Bootheel near Steele to the Poplar Street Bridge over the Mississippi at St. Louis",
+  "approxMiles": 210,
+  "majorJunctions": [
+   "I-57",
+   "I-255",
+   "I-44",
+   "I-64",
+   "I-70"
+  ],
+  "neighbors": {
+   "prev": "ar",
+   "next": "il"
+  },
+  "description": "I-55 runs up Missouri's eastern edge from the flat Bootheel farm country past Cape Girardeau, then along the river hills into the St. Louis metro. It carries the primary Memphis-St. Louis-Chicago freight flow, and the Poplar Street Bridge complex downtown is a well-known bottleneck."
+ },
+ "i-57/il": {
+  "citiesAlong": [
+   "champaign",
+   "kankakee",
+   "chicago"
+  ],
+  "endpoints": "Mississippi River bridge at Cairo to the route's northern terminus at I-94 on Chicago's South Side",
+  "approxMiles": 360,
+  "majorJunctions": [
+   "I-24",
+   "I-64",
+   "I-70",
+   "I-74",
+   "I-80",
+   "I-94"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": null
+  },
+  "description": "The longest interstate segment in Illinois, I-57 runs the full length of the state from Cairo through Mount Vernon, Effingham, Champaign, and Kankakee to the Dan Ryan Expressway in Chicago. It is the standard Chicago-Memphis truck lane, largely rural and flat with reliable services at the Effingham and Champaign junction towns."
+ },
+ "i-57/mo": {
+  "citiesAlong": [],
+  "endpoints": "I-55 near Sikeston east to the Mississippi River bridge into Cairo, Illinois",
+  "approxMiles": 20,
+  "majorJunctions": [
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "il"
+  },
+  "description": "A short flat connector across the Missouri Bootheel, I-57 links I-55 near Sikeston to the Mississippi River crossing at Cairo, feeding traffic between the St. Louis-Memphis corridor and the Chicago-bound I-57 mainline. Services cluster around the Sikeston junction."
+ },
+ "i-64/il": {
+  "citiesAlong": [
+   "east-saint-louis",
+   "belleville",
+   "ofallon"
+  ],
+  "endpoints": "Mississippi River at St. Louis (Poplar Street Bridge) to the Indiana state line near Grayville",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-55",
+   "I-70",
+   "I-255",
+   "I-57"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": "in"
+  },
+  "description": "I-64 crosses southern Illinois from the St. Louis Metro East through O'Fallon and Mount Vernon, where it meets I-57, then runs long rural miles to the Wabash River and Indiana. Outside the Metro East it is a quiet corridor with sparse services between Mount Vernon and the state line."
+ },
+ "i-64/in": {
+  "citiesAlong": [
+   "evansville",
+   "new-albany"
+  ],
+  "endpoints": "Illinois state line near Griffin to the Sherman Minton Bridge over the Ohio River at New Albany into Louisville",
+  "approxMiles": 125,
+  "majorJunctions": [
+   "I-69",
+   "I-265"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "ky"
+  },
+  "description": "I-64 crosses the hilly, forested southern tip of Indiana, passing about ten miles north of Evansville where it meets I-69, then rolling east to the Ohio River crossing at New Albany into Louisville. It is a lightly settled corridor with long gaps between full-service truck stops east of the I-69 junction."
+ },
+ "i-64/mo": {
+  "citiesAlong": [
+   "wentzville",
+   "chesterfield",
+   "st-louis"
+  ],
+  "endpoints": "Western terminus at I-70 in Wentzville to the Poplar Street Bridge over the Mississippi in downtown St. Louis",
+  "approxMiles": 40,
+  "majorJunctions": [
+   "I-70",
+   "I-270",
+   "I-170",
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "il"
+  },
+  "description": "I-64 begins at I-70 in Wentzville and runs east through the Chesterfield Valley commercial corridor and central St. Louis to the Mississippi River. It is primarily a commuter freeway, with heavy peak-hour congestion through the central county and downtown."
+ },
+ "i-65/in": {
+  "citiesAlong": [
+   "jeffersonville",
+   "columbus",
+   "greenwood",
+   "indianapolis",
+   "lafayette",
+   "crown-point",
+   "merrillville",
+   "gary"
+  ],
+  "endpoints": "Ohio River crossing from Louisville at Jeffersonville to the route's northern terminus at I-90 in Gary",
+  "approxMiles": 260,
+  "majorJunctions": [
+   "I-265",
+   "I-465",
+   "I-70",
+   "I-865",
+   "I-94",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "ky",
+   "next": null
+  },
+  "description": "I-65 runs the length of Indiana from the Louisville river crossing through Columbus and Indianapolis to its end at I-90 in Gary, forming the core Louisville-Indianapolis-Chicago freight lane. Traffic is heavy the entire way, with frequent construction zones and dense truck volumes around Indianapolis and the northwest Indiana industrial corridor."
+ },
+ "i-69/in": {
+  "citiesAlong": [
+   "evansville",
+   "bloomington",
+   "indianapolis",
+   "fishers",
+   "anderson",
+   "marion",
+   "fort-wayne"
+  ],
+  "endpoints": "Southern terminus in Evansville to the Michigan state line north of Angola",
+  "approxMiles": 310,
+  "majorJunctions": [
+   "I-64",
+   "I-465",
+   "I-469",
+   "I-80",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "mi"
+  },
+  "description": "I-69 crosses Indiana corner to corner, from Evansville through the newer Bloomington section to Indianapolis, then northeast past Anderson and Marion to Fort Wayne and the Michigan line. The route uses a signed concurrency on I-465 around Indianapolis's south and east sides, a segment that carries heavy metro truck traffic."
+ },
+ "i-69/mi": {
+  "citiesAlong": [
+   "lansing",
+   "east-lansing",
+   "flint",
+   "burton",
+   "port-huron"
+  ],
+  "endpoints": "Indiana state line south of Coldwater to the Blue Water Bridge border crossing at Port Huron",
+  "approxMiles": 200,
+  "majorJunctions": [
+   "I-94",
+   "I-96",
+   "I-496",
+   "I-75",
+   "I-475"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": null
+  },
+  "description": "I-69 arcs across southern Michigan from the Indiana line through Lansing and Flint to the Blue Water Bridge at Port Huron, one of the busiest commercial crossings into Canada. Expect steady cross-border truck traffic and possible bridge queues at the eastern end."
+ },
+ "i-70/il": {
+  "citiesAlong": [
+   "east-saint-louis"
+  ],
+  "endpoints": "Mississippi River crossing at St. Louis to the Indiana state line near Marshall",
+  "approxMiles": 155,
+  "majorJunctions": [
+   "I-55",
+   "I-64",
+   "I-255",
+   "I-57"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": "in"
+  },
+  "description": "I-70 crosses the flat prairie of south-central Illinois from the St. Louis Metro East through Effingham, where it meets I-57 at a major truck-stop hub, to the Indiana line. It shares pavement with I-55 out of East St. Louis before splitting east at Troy, and rural stretches carry heavy through freight between St. Louis and Indianapolis."
+ },
+ "i-70/in": {
+  "citiesAlong": [
+   "terre-haute",
+   "plainfield",
+   "indianapolis",
+   "richmond"
+  ],
+  "endpoints": "Illinois state line west of Terre Haute to the Ohio state line east of Richmond",
+  "approxMiles": 155,
+  "majorJunctions": [
+   "I-465",
+   "I-65"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "oh"
+  },
+  "description": "I-70 runs straight across central Indiana from Terre Haute through Indianapolis to Richmond, passing the massive warehouse and air-freight cluster around Plainfield and the Indianapolis airport. It is one of the country's heaviest cross-country truck lanes, with dense traffic through the Indianapolis inner loop."
+ },
+ "i-70/ks": {
+  "citiesAlong": [
+   "salina",
+   "manhattan",
+   "topeka",
+   "lawrence",
+   "kansas-city"
+  ],
+  "endpoints": "Colorado state line at Kanorado to the Missouri line in downtown Kansas City",
+  "approxMiles": 425,
+  "majorJunctions": [
+   "I-135",
+   "I-335",
+   "I-470",
+   "I-435",
+   "I-635",
+   "I-35"
+  ],
+  "neighbors": {
+   "prev": "co",
+   "next": "mo"
+  },
+  "description": "I-70 spans the full width of Kansas, from long, empty High Plains running in the west through Salina and the Flint Hills to Topeka, then follows the tolled Kansas Turnpike past Lawrence into Kansas City. Western sections have 40-plus-mile gaps between services and are prone to high wind and winter closures."
+ },
+ "i-70/mo": {
+  "citiesAlong": [
+   "kansas-city",
+   "independence",
+   "blue-springs",
+   "columbia",
+   "wentzville",
+   "ofallon",
+   "saint-peters",
+   "saint-charles",
+   "st-louis"
+  ],
+  "endpoints": "Kansas state line in downtown Kansas City to the Mississippi River at St. Louis",
+  "approxMiles": 250,
+  "majorJunctions": [
+   "I-35",
+   "I-435",
+   "I-470",
+   "I-64",
+   "I-270",
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": "ks",
+   "next": "il"
+  },
+  "description": "I-70 links Missouri's two big metros, running from Kansas City through Columbia to St. Louis as one of the busiest and most truck-dense corridors in the Midwest. The rural middle section is an aging four-lane carrying very heavy freight volumes, and congestion builds quickly through the St. Charles County suburbs into St. Louis."
+ },
+ "i-72/il": {
+  "citiesAlong": [
+   "springfield",
+   "decatur",
+   "champaign"
+  ],
+  "endpoints": "Mississippi River bridge at Hannibal, Missouri to the route's eastern terminus at I-57 in Champaign",
+  "approxMiles": 175,
+  "majorJunctions": [
+   "I-172",
+   "I-55",
+   "I-57"
+  ],
+  "neighbors": {
+   "prev": "mo",
+   "next": null
+  },
+  "description": "I-72 crosses west-central Illinois farm country from the Hannibal river bridge through Springfield and Decatur, a major grain-processing center, to its end at I-57 in Champaign. It is a lightly traveled corridor useful for avoiding heavier east-west routes, with services concentrated in the three main cities."
+ },
+ "i-72/mo": {
+  "citiesAlong": [],
+  "endpoints": "Western terminus at US-61 near Hannibal to the Mississippi River bridge into Illinois",
+  "approxMiles": 5,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": null,
+   "next": "il"
+  },
+  "description": "Missouri's piece of I-72 is only a few miles long, connecting US-61 on the west side of Hannibal to the Mark Twain Memorial Bridge over the Mississippi. It functions as a short approach ramp to the Illinois mainline toward Springfield and Champaign."
+ },
+ "i-74/ia": {
+  "citiesAlong": [
+   "davenport",
+   "bettendorf"
+  ],
+  "endpoints": "Western terminus at I-80 in Davenport to the I-74 bridge over the Mississippi into Moline, Illinois",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "il"
+  },
+  "description": "Iowa's short I-74 segment drops south from I-80 through Davenport and Bettendorf to the modern twin-arch Mississippi River bridge into Moline. It is the main cross-river artery of the Quad Cities and carries steady local and through truck traffic."
+ },
+ "i-74/il": {
+  "citiesAlong": [
+   "moline",
+   "galesburg",
+   "peoria",
+   "bloomington",
+   "normal",
+   "champaign",
+   "urbana",
+   "danville"
+  ],
+  "endpoints": "Mississippi River bridge at Moline to the Indiana state line east of Danville",
+  "approxMiles": 220,
+  "majorJunctions": [
+   "I-80",
+   "I-280",
+   "I-474",
+   "I-155",
+   "I-55",
+   "I-57"
+  ],
+  "neighbors": {
+   "prev": "ia",
+   "next": "in"
+  },
+  "description": "I-74 cuts diagonally across Illinois from the Quad Cities through Galesburg, Peoria, Bloomington-Normal, and Champaign-Urbana to Danville, stringing together the state's mid-size manufacturing and university cities. The Murray Baker Bridge over the Illinois River at Peoria and the junction cluster at Bloomington are the main slow points."
+ },
+ "i-74/in": {
+  "citiesAlong": [
+   "brownsburg",
+   "indianapolis"
+  ],
+  "endpoints": "Illinois state line west of Covington to the Ohio state line near Harrison, west of Cincinnati",
+  "approxMiles": 170,
+  "majorJunctions": [
+   "I-65",
+   "I-70",
+   "I-465"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "oh"
+  },
+  "description": "I-74 crosses Indiana from the Illinois line through Crawfordsville and Brownsburg to Indianapolis, where it rides the I-465 loop around the city's south side before splitting off southeast toward Cincinnati. The rural legs on either side of Indianapolis are quiet; the I-465 concurrency carries heavy metro truck volumes."
+ },
+ "i-75/mi": {
+  "citiesAlong": [
+   "lincoln-park",
+   "detroit",
+   "madison-heights",
+   "troy",
+   "pontiac",
+   "flint",
+   "saginaw",
+   "bay-city"
+  ],
+  "endpoints": "Ohio state line south of Monroe to the Canadian border at Sault Ste. Marie",
+  "approxMiles": 395,
+  "majorJunctions": [
+   "I-275",
+   "I-375",
+   "I-94",
+   "I-96",
+   "I-696",
+   "I-69"
+  ],
+  "neighbors": {
+   "prev": "oh",
+   "next": null
+  },
+  "description": "Michigan's main north-south artery, I-75 runs from the Ohio line through the industrial Downriver suburbs, downtown Detroit, Flint, Saginaw, and Bay City, then thins out through northern forest to the Mackinac Bridge and the Canadian border at Sault Ste. Marie. Heavy automotive freight dominates south of Bay City, while the northern half is remote with long service gaps and high-wind restrictions possible on the Mackinac Bridge."
+ },
+ "i-76/ne": {
+  "citiesAlong": [],
+  "endpoints": "Colorado state line to the route's eastern terminus at I-80 near Big Springs",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": "co",
+   "next": null
+  },
+  "description": "Only about three miles of I-76 lie in Nebraska, carrying Denver-bound traffic between I-80 near Big Springs and the Colorado line along the South Platte valley. It is effectively a high-plains connector ramp between the two corridors, with services back at the Big Springs junction."
+ },
+ "i-80/ia": {
+  "citiesAlong": [
+   "council-bluffs",
+   "west-des-moines",
+   "urbandale",
+   "des-moines",
+   "iowa-city",
+   "davenport"
+  ],
+  "endpoints": "Missouri River crossing at Council Bluffs to the Mississippi River at LeClaire into Illinois",
+  "approxMiles": 305,
+  "majorJunctions": [
+   "I-29",
+   "I-680",
+   "I-35",
+   "I-235",
+   "I-380",
+   "I-74"
+  ],
+  "neighbors": {
+   "prev": "ne",
+   "next": "il"
+  },
+  "description": "I-80 crosses Iowa river to river through Des Moines and Iowa City to the Quad Cities, one of the nation's core transcontinental truck lanes. The Walcott exit near Davenport hosts the World's Largest Truckstop (Iowa 80), and winter ice and drifting snow across the open hills are the main seasonal hazards."
+ },
+ "i-80/il": {
+  "citiesAlong": [
+   "joliet",
+   "new-lenox",
+   "tinley-park",
+   "lansing"
+  ],
+  "endpoints": "Mississippi River crossing near Rapids City to the Indiana state line at the Borman Expressway",
+  "approxMiles": 165,
+  "majorJunctions": [
+   "I-74",
+   "I-88",
+   "I-39",
+   "I-55",
+   "I-57",
+   "I-94"
+  ],
+  "neighbors": {
+   "prev": "ia",
+   "next": "in"
+  },
+  "description": "I-80 runs from the Quad Cities across the Illinois prairie to Joliet, then pushes through the truck-saturated south Chicago suburbs where it picks up I-94 near Lansing. The Joliet area is a national intermodal hub, and the eastern third of this segment is among the heaviest truck corridors in the country, with frequent congestion and construction."
+ },
+ "i-80/in": {
+  "citiesAlong": [
+   "hammond",
+   "gary",
+   "portage",
+   "south-bend",
+   "elkhart"
+  ],
+  "endpoints": "Illinois state line at Hammond to the Ohio state line east of Fremont",
+  "approxMiles": 150,
+  "majorJunctions": [
+   "I-94",
+   "I-65",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "oh"
+  },
+  "description": "I-80 enters Indiana on the free Borman Expressway shared with I-94 through Hammond and Gary, then joins the tolled Indiana Toll Road with I-90 at Lake Station and runs east past South Bend and Elkhart to Ohio. The Borman section is notoriously congested industrial-corridor driving; the Toll Road is fast with plaza-based services."
+ },
+ "i-80/ne": {
+  "citiesAlong": [
+   "north-platte",
+   "kearney",
+   "grand-island",
+   "lincoln",
+   "omaha"
+  ],
+  "endpoints": "Wyoming state line west of Kimball to the Missouri River at Omaha into Iowa",
+  "approxMiles": 455,
+  "majorJunctions": [
+   "I-76",
+   "I-180",
+   "I-480",
+   "I-680"
+  ],
+  "neighbors": {
+   "prev": "wy",
+   "next": "ia"
+  },
+  "description": "Nebraska's I-80 is the longest single-state stretch on this corridor, dropping off the high plains at Kimball and following the Platte River valley through North Platte, Kearney, Grand Island, and Lincoln to Omaha. It is flat, straight, and heavily trucked end to end, with strong crosswinds and fast-changing winter conditions; North Platte's Bailey Yard marks a major rail-freight counterpart along the route."
+ },
+ "i-88/il": {
+  "citiesAlong": [
+   "dekalb",
+   "aurora",
+   "naperville",
+   "downers-grove"
+  ],
+  "endpoints": "Western terminus at I-80 near Silvis in the Quad Cities to I-290 at Hillside, west of Chicago",
+  "approxMiles": 140,
+  "majorJunctions": [
+   "I-80",
+   "I-39",
+   "I-355",
+   "I-294",
+   "I-290"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-88, the tolled Reagan Memorial Tollway, runs from I-80 near the Quad Cities across open farmland past DeKalb into the western Chicago suburbs, ending at I-290 near Hillside. It is a common toll-paying alternative into Chicago's west side, with the busiest and most congested miles east of Aurora through the Naperville corridor."
+ },
+ "i-90/il": {
+  "citiesAlong": [
+   "rockford",
+   "belvidere",
+   "elgin",
+   "hoffman-estates",
+   "schaumburg",
+   "des-plaines",
+   "chicago"
+  ],
+  "endpoints": "Wisconsin state line at South Beloit to the Indiana state line via the Chicago Skyway",
+  "approxMiles": 110,
+  "majorJunctions": [
+   "I-39",
+   "I-290",
+   "I-294",
+   "I-190",
+   "I-94",
+   "I-55"
+  ],
+  "neighbors": {
+   "prev": "wi",
+   "next": "in"
+  },
+  "description": "I-90 in Illinois is tolled nearly end to end, following the Jane Addams Tollway from the Wisconsin line through Rockford and Elgin to O'Hare, then the Kennedy Expressway and Dan Ryan through downtown Chicago and the elevated Chicago Skyway to Indiana. Expect heavy congestion from the northwest suburbs through the city at almost any hour."
+ },
+ "i-90/in": {
+  "citiesAlong": [
+   "hammond",
+   "east-chicago",
+   "gary",
+   "portage",
+   "south-bend",
+   "elkhart"
+  ],
+  "endpoints": "Illinois state line at Hammond to the Ohio state line, running the full length of the Indiana Toll Road",
+  "approxMiles": 155,
+  "majorJunctions": [
+   "I-94",
+   "I-65",
+   "I-80",
+   "I-69"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "oh"
+  },
+  "description": "I-90 is the Indiana Toll Road for its entire crossing of the state, skirting the Lake Michigan steel corridor through East Chicago and Gary before running fast, flat miles past South Bend and Elkhart, the heart of the RV manufacturing industry. Fuel and food are concentrated at spaced service plazas rather than off-ramp truck stops."
+ },
+ "i-90/mn": {
+  "citiesAlong": [],
+  "endpoints": "South Dakota state line at Beaver Creek to the Mississippi River crossing into Wisconsin at La Crescent",
+  "approxMiles": 275,
+  "majorJunctions": [
+   "I-35"
+  ],
+  "neighbors": {
+   "prev": "sd",
+   "next": "wi"
+  },
+  "description": "I-90 crosses southern Minnesota through farm towns like Worthington, Fairmont, Albert Lea, and Austin, meeting I-35 at Albert Lea, then descends through bluff country to the Mississippi River at La Crescent. It is a long rural run with widely spaced services and significant winter wind and whiteout exposure on the open western half."
+ },
+ "i-94/il": {
+  "citiesAlong": [
+   "gurnee",
+   "waukegan",
+   "northbrook",
+   "skokie",
+   "chicago",
+   "lansing"
+  ],
+  "endpoints": "Wisconsin state line near Russell to the Indiana state line at Hammond",
+  "approxMiles": 75,
+  "majorJunctions": [
+   "I-294",
+   "I-90",
+   "I-55",
+   "I-57",
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": "wi",
+   "next": "in"
+  },
+  "description": "I-94 threads the length of the Chicago metro, entering from Wisconsin past Gurnee, running the Edens and Kennedy expressways through the North Side, then the Dan Ryan and Bishop Ford south to the Indiana line, where it joins I-80. It is congested urban driving nearly the whole way; many through trucks pay the I-294 Tri-State Tollway to bypass the city instead."
+ },
+ "i-94/in": {
+  "citiesAlong": [
+   "hammond",
+   "gary",
+   "portage",
+   "michigan-city"
+  ],
+  "endpoints": "Illinois state line at Hammond to the Michigan state line near New Buffalo",
+  "approxMiles": 45,
+  "majorJunctions": [
+   "I-80",
+   "I-90",
+   "I-65"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "mi"
+  },
+  "description": "I-94's short Indiana crossing follows the free Borman Expressway with I-80 through the Hammond and Gary industrial corridor, then curves around the bottom of Lake Michigan past Portage and Michigan City. Truck density on the Borman is extreme, and lake-effect snow bands hit this stretch hard in winter."
+ },
+ "i-94/mi": {
+  "citiesAlong": [
+   "kalamazoo",
+   "battle-creek",
+   "jackson",
+   "ann-arbor",
+   "dearborn",
+   "detroit",
+   "roseville",
+   "port-huron"
+  ],
+  "endpoints": "Indiana state line near New Buffalo to I-69 at the Blue Water Bridge in Port Huron",
+  "approxMiles": 275,
+  "majorJunctions": [
+   "I-196",
+   "I-69",
+   "I-96",
+   "I-275",
+   "I-75",
+   "I-696"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": null
+  },
+  "description": "I-94 crosses lower Michigan from the lakeshore at New Buffalo through Kalamazoo, Battle Creek, Jackson, and Ann Arbor into Detroit, then continues northeast to the Blue Water Bridge crossing into Canada at Port Huron. It is Michigan's principal automotive-freight corridor, with lake-effect snow common on the western end and older, tight urban lanes through Detroit."
+ },
+ "i-94/mn": {
+  "citiesAlong": [
+   "moorhead",
+   "saint-cloud",
+   "maple-grove",
+   "brooklyn-park",
+   "minneapolis",
+   "saint-paul",
+   "woodbury"
+  ],
+  "endpoints": "North Dakota state line at the Red River in Moorhead to the Wisconsin line at the St. Croix River near Hudson",
+  "approxMiles": 260,
+  "majorJunctions": [
+   "I-494",
+   "I-694",
+   "I-394",
+   "I-35W",
+   "I-35E"
+  ],
+  "neighbors": {
+   "prev": "nd",
+   "next": "wi"
+  },
+  "description": "I-94 runs diagonally across Minnesota from Moorhead, opposite Fargo, through Saint Cloud into the Twin Cities, passing directly through both downtown Minneapolis and Saint Paul before crossing the St. Croix into Wisconsin. The northwestern half is open prairie with severe winter blowing-snow closures possible; the metro section is congested through most business hours."
+ },
+ "i-96/mi": {
+  "citiesAlong": [
+   "muskegon",
+   "grand-rapids",
+   "lansing",
+   "novi",
+   "livonia",
+   "redford",
+   "detroit"
+  ],
+  "endpoints": "Western terminus at US-31 near Muskegon to the eastern terminus at I-75 in downtown Detroit",
+  "approxMiles": 190,
+  "majorJunctions": [
+   "I-196",
+   "I-69",
+   "I-275",
+   "I-696",
+   "I-94",
+   "I-75"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-96 lies entirely within Michigan, linking the Lake Michigan port area at Muskegon with Grand Rapids, Lansing, and Detroit, where it ends at I-75 near the Ambassador Bridge approaches. It is the main freight spine between west Michigan manufacturing and the Detroit auto plants, with heavy suburban congestion from Novi through Livonia."
+ },
+ "i-70/md": {
+  "citiesAlong": [
+   "hagerstown",
+   "frederick",
+   "columbia",
+   "ellicott-city",
+   "catonsville",
+   "woodlawn"
+  ],
+  "endpoints": "Pennsylvania state line near Hancock to its eastern terminus at I-695 in west Baltimore",
+  "approxMiles": 95,
+  "majorJunctions": [
+   "I-68",
+   "I-81",
+   "I-270",
+   "I-695"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": null
+  },
+  "description": "I-70 crosses Maryland west to east from the narrow panhandle near Hancock through Hagerstown and Frederick before ending at the Baltimore Beltway (I-695). The Hagerstown area is a major mid-Atlantic distribution hub where I-70 crosses I-81, and the eastern half carries steady freight and commuter traffic into the Baltimore metro."
+ },
+ "i-76/nj": {
+  "citiesAlong": [
+   "camden"
+  ],
+  "endpoints": "Walt Whitman Bridge over the Delaware River to its eastern terminus at I-295 in Bellmawr",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-676",
+   "I-295"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": null
+  },
+  "description": "A short urban connector of only about three miles, I-76 in New Jersey carries traffic off the Walt Whitman Bridge from Philadelphia past the south side of Camden to I-295 and the NJ 42 freeway toward Atlantic City. Expect heavy metro congestion at the bridge approaches during peak hours."
+ },
+ "i-78/nj": {
+  "citiesAlong": [
+   "bridgewater",
+   "union",
+   "newark",
+   "jersey-city"
+  ],
+  "endpoints": "Delaware River crossing at Phillipsburg to the Holland Tunnel in Jersey City",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-287",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": "ny"
+  },
+  "description": "I-78 runs east from the Delaware River at Phillipsburg through rural western New Jersey hills before hitting dense urban traffic around Newark, where it passes directly by Newark Liberty Airport and the Port Newark-Elizabeth container terminals. It is one of the busiest truck corridors into the New York metro, ending at the Holland Tunnel in Jersey City."
+ },
+ "i-78/ny": {
+  "citiesAlong": [
+   "manhattan"
+  ],
+  "endpoints": "Holland Tunnel under the Hudson River to its eastern terminus at Canal Street in Lower Manhattan",
+  "approxMiles": 0,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "nj",
+   "next": null
+  },
+  "description": "The New York portion of I-78 is under a mile long, consisting of the Holland Tunnel and its approach ending at Canal Street in Lower Manhattan. The tunnel has a 12-foot-6 clearance and restricts many combination vehicles and all hazmat loads, so most trucks should plan on the George Washington Bridge instead."
+ },
+ "i-80/nj": {
+  "citiesAlong": [
+   "parsippany",
+   "wayne",
+   "paterson",
+   "hackensack",
+   "teaneck"
+  ],
+  "endpoints": "Delaware Water Gap toll bridge at the Pennsylvania line to its eastern terminus at I-95 in Teaneck",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-287",
+   "I-280",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": null
+  },
+  "description": "I-80 enters New Jersey at the scenic Delaware Water Gap and runs east through increasingly dense suburbs past Parsippany and Paterson before ending at I-95 in Teaneck, feeding George Washington Bridge traffic. It is the primary east-west truck route between the New York metro and points west, with heavy congestion east of I-287 most of the day."
+ },
+ "i-81/md": {
+  "citiesAlong": [
+   "hagerstown"
+  ],
+  "endpoints": "Potomac River crossing at the West Virginia line to the Pennsylvania state line north of Hagerstown",
+  "approxMiles": 10,
+  "majorJunctions": [
+   "I-70"
+  ],
+  "neighbors": {
+   "prev": "wv",
+   "next": "pa"
+  },
+  "description": "Maryland's slice of I-81 is only about 12 miles but it is dense with truck activity, passing through Hagerstown where it crosses I-70 amid a heavy concentration of warehouses and distribution centers. This short stretch is a key link in the I-81 freight corridor between the Shenandoah Valley and the Northeast."
+ },
+ "i-81/ny": {
+  "citiesAlong": [
+   "binghamton",
+   "syracuse",
+   "cicero",
+   "watertown"
+  ],
+  "endpoints": "Pennsylvania state line south of Binghamton north to the Canadian border at the Thousand Islands Bridge",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-86",
+   "I-88",
+   "I-481",
+   "I-690",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": null
+  },
+  "description": "I-81 runs up central New York from Binghamton through Syracuse, where it crosses the Thruway (I-90), then north past Watertown to the Canadian border at the Thousand Islands Bridge. North of Syracuse the route crosses the Tug Hill lake-effect snow belt, one of the snowiest interstate stretches in the East, with long rural gaps between services toward the border."
+ },
+ "i-83/md": {
+  "citiesAlong": [
+   "baltimore",
+   "towson"
+  ],
+  "endpoints": "Downtown Baltimore at Fayette Street north to the Pennsylvania state line near Parkton",
+  "approxMiles": 35,
+  "majorJunctions": [
+   "I-695"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "pa"
+  },
+  "description": "I-83 begins in downtown Baltimore as the Jones Falls Expressway and runs north past Towson and the Timonium-Hunt Valley business corridor into rolling farm country toward the Pennsylvania line. The urban southern end is tight and congested; through trucks bound for Harrisburg typically pick up I-83 from the Baltimore Beltway (I-695)."
+ },
+ "i-84/ct": {
+  "citiesAlong": [
+   "danbury",
+   "waterbury",
+   "new-britain",
+   "farmington",
+   "west-hartford",
+   "hartford",
+   "east-hartford",
+   "manchester"
+  ],
+  "endpoints": "New York state line at Danbury to the Massachusetts state line at Union",
+  "approxMiles": 100,
+  "majorJunctions": [
+   "I-691",
+   "I-91",
+   "I-384"
+  ],
+  "neighbors": {
+   "prev": "ny",
+   "next": "ma"
+  },
+  "description": "I-84 crosses Connecticut diagonally from Danbury through Waterbury and downtown Hartford, where it meets I-91 in one of New England's busier interchanges. The corridor mixes hilly terrain, notably the grades around Waterbury, with heavy metro congestion through Hartford, and is the main inland truck route between New York and the Massachusetts Turnpike."
+ },
+ "i-84/ma": {
+  "citiesAlong": [],
+  "endpoints": "Connecticut state line at Holland to its northern terminus at I-90 in Sturbridge",
+  "approxMiles": 10,
+  "majorJunctions": [
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "ct",
+   "next": null
+  },
+  "description": "Massachusetts has only about eight miles of I-84, a rural connector that funnels Hartford-corridor traffic onto the Massachusetts Turnpike (I-90) at Sturbridge. The Sturbridge interchange is a well-known trucker waypoint with fuel and services where Boston- and Albany-bound traffic splits."
+ },
+ "i-84/ny": {
+  "citiesAlong": [
+   "middletown",
+   "newburgh"
+  ],
+  "endpoints": "Pennsylvania state line at Port Jervis to the Connecticut state line east of Brewster",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-87",
+   "I-684"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": "ct"
+  },
+  "description": "I-84 crosses New York's lower Hudson Valley from Port Jervis past Middletown and Newburgh, crossing the Hudson River on the high Newburgh-Beacon Bridge. It is a hilly but free-flowing bypass of New York City for east-west freight, meeting the Thruway (I-87) at Newburgh."
+ },
+ "i-86/ny": {
+  "citiesAlong": [
+   "jamestown",
+   "elmira",
+   "vestal",
+   "binghamton"
+  ],
+  "endpoints": "Pennsylvania state line west of Findley Lake east across the Southern Tier to the Binghamton area, where the signed interstate transitions to NY 17",
+  "approxMiles": 200,
+  "majorJunctions": [
+   "I-390",
+   "I-99",
+   "I-81"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": null
+  },
+  "description": "I-86, the Southern Tier Expressway, runs across rural southern New York past Jamestown, the Corning-Elmira area, and Binghamton, following the NY 17 corridor. It is a lightly trafficked alternative to I-90 with long gaps between services and rolling Appalachian terrain, and portions toward Binghamton still carry NY 17 signage."
+ },
+ "i-87/ny": {
+  "citiesAlong": [
+   "the-bronx",
+   "yonkers",
+   "greenburgh",
+   "spring-valley",
+   "newburgh",
+   "albany",
+   "clifton-park",
+   "saratoga-springs",
+   "queensbury"
+  ],
+  "endpoints": "I-278 in the Bronx north to the Canadian border at Champlain",
+  "approxMiles": 335,
+  "majorJunctions": [
+   "I-278",
+   "I-287",
+   "I-84",
+   "I-90",
+   "I-787"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-87 runs the length of eastern New York, starting as the Major Deegan Expressway in the Bronx, becoming the tolled Thruway up the Hudson Valley to Albany, then continuing as the free Adirondack Northway to the Canadian border at Champlain. North of Albany traffic thins quickly and services get sparse through the Adirondacks, so plan fuel stops; it is the main truck route between New York City and Montreal."
+ },
+ "i-88/ny": {
+  "citiesAlong": [
+   "binghamton",
+   "schenectady"
+  ],
+  "endpoints": "I-81 at Binghamton northeast to I-90 near Schenectady",
+  "approxMiles": 120,
+  "majorJunctions": [
+   "I-81",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-88 is a rural diagonal connector through the Susquehanna Valley linking Binghamton with the Albany-Schenectady area, entirely within New York. Traffic is light and services are widely spaced, with Oneonta the main stop near the midpoint; it saves significant miles for freight moving between I-81 and the Capital Region."
+ },
+ "i-89/nh": {
+  "citiesAlong": [
+   "concord"
+  ],
+  "endpoints": "I-93 at Bow just south of Concord northwest to the Connecticut River crossing at Lebanon on the Vermont line",
+  "approxMiles": 60,
+  "majorJunctions": [
+   "I-93"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "vt"
+  },
+  "description": "I-89 begins at I-93 near Concord and climbs northwest through wooded hill country to the Connecticut River at Lebanon, gateway to the Upper Valley. It is a rural two-lane-each-way run with long grades and few services between Concord and Lebanon, serving as the main route from southern New England toward Burlington and Montreal."
+ },
+ "i-89/vt": {
+  "citiesAlong": [
+   "south-burlington",
+   "burlington",
+   "colchester"
+  ],
+  "endpoints": "New Hampshire line at White River Junction northwest to the Canadian border at Highgate Springs",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-91"
+  ],
+  "neighbors": {
+   "prev": "nh",
+   "next": null
+  },
+  "description": "I-89 crosses Vermont from White River Junction through the Montpelier area and over mountain grades to the Burlington metro, the state's population center, before finishing at the Canadian border at Highgate Springs. Expect sustained climbs through the Green Mountains, winter weather exposure, and long rural stretches between services outside Burlington."
+ },
+ "i-90/ma": {
+  "citiesAlong": [
+   "westfield",
+   "west-springfield",
+   "springfield",
+   "chicopee",
+   "worcester",
+   "framingham",
+   "newton",
+   "boston"
+  ],
+  "endpoints": "New York state line at West Stockbridge east to its terminus near Logan Airport in Boston",
+  "approxMiles": 140,
+  "majorJunctions": [
+   "I-91",
+   "I-84",
+   "I-290",
+   "I-495",
+   "I-95",
+   "I-93"
+  ],
+  "neighbors": {
+   "prev": "ny",
+   "next": null
+  },
+  "description": "I-90, the tolled Massachusetts Turnpike, crosses the state from the Berkshire hills through Springfield and Worcester to downtown Boston and Logan Airport. The western end has long grades through the Berkshires with sparse exits, while everything east of I-495 is dense metro traffic; it is the primary freight artery across New England."
+ },
+ "i-90/ny": {
+  "citiesAlong": [
+   "buffalo",
+   "cheektowaga",
+   "rochester",
+   "syracuse",
+   "utica",
+   "schenectady",
+   "albany"
+  ],
+  "endpoints": "Pennsylvania state line at Ripley east to the Massachusetts state line in the Berkshire foothills",
+  "approxMiles": 385,
+  "majorJunctions": [
+   "I-190",
+   "I-390",
+   "I-490",
+   "I-81",
+   "I-87",
+   "I-88"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": "ma"
+  },
+  "description": "I-90 crosses upstate New York mostly as the tolled New York State Thruway, linking Buffalo, Rochester, Syracuse, Utica, and Albany in the state's dominant east-west freight corridor. The route is flat and fast with regular service plazas, but the Buffalo-to-Syracuse stretch sits squarely in the lake-effect snow belt in winter."
+ },
+ "i-91/ct": {
+  "citiesAlong": [
+   "new-haven",
+   "meriden",
+   "wethersfield",
+   "hartford",
+   "windsor",
+   "enfield"
+  ],
+  "endpoints": "I-95 in New Haven north to the Massachusetts state line at Enfield",
+  "approxMiles": 60,
+  "majorJunctions": [
+   "I-95",
+   "I-691",
+   "I-84",
+   "I-291"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ma"
+  },
+  "description": "I-91 begins at I-95 in New Haven and follows the Connecticut River valley north through Meriden and downtown Hartford to the Massachusetts line at Enfield. The Hartford interchange with I-84 is a chronic congestion point, and the corridor carries steady freight between the coastal ports and interior New England."
+ },
+ "i-91/ma": {
+  "citiesAlong": [
+   "springfield",
+   "west-springfield",
+   "holyoke",
+   "northampton"
+  ],
+  "endpoints": "Connecticut state line at Longmeadow north to the Vermont state line near Bernardston",
+  "approxMiles": 55,
+  "majorJunctions": [
+   "I-90",
+   "I-391"
+  ],
+  "neighbors": {
+   "prev": "ct",
+   "next": "vt"
+  },
+  "description": "I-91 runs up the Connecticut River valley through Massachusetts, passing Springfield, where it meets the Massachusetts Turnpike (I-90), then Holyoke and Northampton before the terrain turns rural toward Vermont. Springfield is the corridor's main freight and distribution hub, and the valley routing keeps grades gentle compared with surrounding hill country."
+ },
+ "i-91/nh": {
+  "citiesAlong": [],
+  "endpoints": "I-91 does not actually enter New Hampshire; it parallels the state's western border on the Vermont side of the Connecticut River from the Massachusetts line north past the Wells River area",
+  "approxMiles": 0,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "ma",
+   "next": "vt"
+  },
+  "description": "I-91 carries no mileage inside New Hampshire because the state line sits at the river's western bank, keeping the highway entirely in Vermont, but it is the working north-south route for New Hampshire's Connecticut River towns. Drivers serving Lebanon, Hanover, and Claremont typically run I-91 on the Vermont side and cross the river on local bridges or via I-89 at White River Junction."
+ },
+ "i-91/vt": {
+  "citiesAlong": [],
+  "endpoints": "Massachusetts state line at Guilford near Brattleboro north to the Canadian border at Derby Line",
+  "approxMiles": 175,
+  "majorJunctions": [
+   "I-89",
+   "I-93"
+  ],
+  "neighbors": {
+   "prev": "ma",
+   "next": null
+  },
+  "description": "I-91 runs the full length of eastern Vermont along the Connecticut River, from Brattleboro through White River Junction and St. Johnsbury to the Canadian border at Derby Line. It is a rural corridor with long gaps between services, sustained grades in the Northeast Kingdom, and serious winter weather; White River Junction is the key junction with I-89 for Burlington and Montreal traffic."
+ },
+ "i-93/ma": {
+  "citiesAlong": [
+   "braintree",
+   "quincy",
+   "dorchester",
+   "boston",
+   "somerville",
+   "medford",
+   "woburn",
+   "methuen"
+  ],
+  "endpoints": "I-95 at Canton north through Boston to the New Hampshire state line at Methuen",
+  "approxMiles": 45,
+  "majorJunctions": [
+   "I-95",
+   "I-90",
+   "I-495"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nh"
+  },
+  "description": "I-93 is metro Boston's north-south spine, running from I-95 at Canton up the Southeast Expressway through Quincy and downtown Boston, including the O'Neill Tunnel, then north past Woburn to the New Hampshire line. Congestion is heavy for nearly the entire run and the downtown tunnel restricts hazmat loads, so through trucks often route around on I-95 or I-495."
+ },
+ "i-93/nh": {
+  "citiesAlong": [
+   "salem",
+   "derry-village",
+   "manchester",
+   "concord"
+  ],
+  "endpoints": "Massachusetts state line at Salem north through Franconia Notch to the Vermont state line near Littleton",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-293",
+   "I-89",
+   "I-393"
+  ],
+  "neighbors": {
+   "prev": "ma",
+   "next": "vt"
+  },
+  "description": "I-93 runs the length of New Hampshire from the busy Salem-Manchester-Concord corridor into the White Mountains, where it narrows to a single lane each way as a parkway through Franconia Notch. North of Concord traffic drops off sharply and mountain grades and winter conditions become the main concern; the state's freight activity concentrates around Manchester."
+ },
+ "i-93/vt": {
+  "citiesAlong": [],
+  "endpoints": "New Hampshire state line near Waterford to its northern terminus at I-91 in St. Johnsbury",
+  "approxMiles": 10,
+  "majorJunctions": [
+   "I-91"
+  ],
+  "neighbors": {
+   "prev": "nh",
+   "next": null
+  },
+  "description": "Vermont's I-93 is a short rural connector of about 11 miles that climbs from the Connecticut River valley to end at I-91 in St. Johnsbury. It links Boston-bound I-93 traffic with I-91 toward Canada and is a quiet, scenic stretch with no services on the highway itself."
+ },
+ "i-95/ct": {
+  "citiesAlong": [
+   "stamford",
+   "norwalk",
+   "bridgeport",
+   "stratford",
+   "milford",
+   "new-haven",
+   "branford",
+   "new-london"
+  ],
+  "endpoints": "New York state line at Greenwich to the Rhode Island state line at Pawcatuck",
+  "approxMiles": 110,
+  "majorJunctions": [
+   "I-91",
+   "I-395"
+  ],
+  "neighbors": {
+   "prev": "ny",
+   "next": "ri"
+  },
+  "description": "I-95 hugs the Connecticut shoreline from Greenwich through Stamford, Bridgeport, and New Haven before the traffic thins east of the Connecticut River toward New London and the Rhode Island line. The southwestern half is one of the most congested truck corridors in the country, with tight urban interchanges and frequent delays between Greenwich and New Haven."
+ },
+ "i-95/dc": {
+  "citiesAlong": [
+   "washington"
+  ],
+  "endpoints": "Crosses the southern tip of the District on the Woodrow Wilson Bridge between Virginia and Maryland",
+  "approxMiles": 0,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "va",
+   "next": "md"
+  },
+  "description": "I-95 touches the District of Columbia for only about a tenth of a mile, where the Woodrow Wilson Bridge clips the city's southern tip over the Potomac River. Through freight follows I-95 around Washington on the Capital Beltway; no I-95 mainline runs through the city itself."
+ },
+ "i-95/de": {
+  "citiesAlong": [
+   "newark",
+   "bear",
+   "wilmington"
+  ],
+  "endpoints": "Maryland state line southwest of Newark to the Pennsylvania state line at Claymont",
+  "approxMiles": 25,
+  "majorJunctions": [
+   "I-295",
+   "I-495"
+  ],
+  "neighbors": {
+   "prev": "md",
+   "next": "pa"
+  },
+  "description": "Delaware's I-95 is a short, heavily traveled tolled stretch running from the Maryland line past Newark and through downtown Wilmington to the Pennsylvania line. Through trucks can bypass the Wilmington viaduct on I-495 along the Delaware River, and the corridor connects directly to the New Jersey Turnpike via I-295 at the Delaware Memorial Bridge."
+ },
+ "i-95/ma": {
+  "citiesAlong": [
+   "attleboro",
+   "needham",
+   "waltham",
+   "lexington",
+   "woburn",
+   "peabody",
+   "danvers"
+  ],
+  "endpoints": "Rhode Island state line at Attleboro north around Boston to the New Hampshire state line at Salisbury",
+  "approxMiles": 90,
+  "majorJunctions": [
+   "I-295",
+   "I-495",
+   "I-93",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "ri",
+   "next": "nh"
+  },
+  "description": "Rather than entering Boston, I-95 swings around the city on the Route 128 beltway through Waltham, Lexington, and Peabody before running up the North Shore to the New Hampshire line. The 128 section is dense with commuter traffic and closely spaced interchanges, while the stretches at both state lines are comparatively open."
+ },
+ "i-95/md": {
+  "citiesAlong": [
+   "oxon-hill-glassmanor",
+   "college-park",
+   "laurel",
+   "columbia",
+   "baltimore",
+   "edgewood"
+  ],
+  "endpoints": "Woodrow Wilson Bridge at the District of Columbia line northeast to the Delaware state line at Elkton",
+  "approxMiles": 110,
+  "majorJunctions": [
+   "I-495",
+   "I-195",
+   "I-395",
+   "I-695",
+   "I-895"
+  ],
+  "neighbors": {
+   "prev": "dc",
+   "next": "de"
+  },
+  "description": "I-95 in Maryland runs from the Wilson Bridge around the east side of Washington, then northeast past Laurel and Columbia into Baltimore, where the mainline uses the Fort McHenry Tunnel — hazmat loads must divert around it. Northeast of Baltimore the tolled corridor passes the Aberdeen area and crosses the Susquehanna River on the way to Delaware, carrying some of the heaviest freight volumes on the East Coast."
+ },
+ "i-95/me": {
+  "citiesAlong": [
+   "west-scarborough",
+   "south-portland",
+   "portland",
+   "lewiston",
+   "bangor"
+  ],
+  "endpoints": "New Hampshire state line at Kittery north to the Canadian border at Houlton",
+  "approxMiles": 305,
+  "majorJunctions": [
+   "I-295",
+   "I-395"
+  ],
+  "neighbors": {
+   "prev": "nh",
+   "next": null
+  },
+  "description": "I-95 runs the length of Maine from Kittery through the Portland area and Bangor to the Canadian border at Houlton, with much of the southern half operating as the tolled Maine Turnpike. North of Bangor is one of the longest low-service rural interstate stretches in the eastern US, so top off fuel before heading up; Portland's waterfront and Bangor anchor most of the state's freight activity."
+ },
+ "i-95/nh": {
+  "citiesAlong": [],
+  "endpoints": "Massachusetts state line at Seabrook to the Maine state line at the Piscataqua River Bridge in Portsmouth",
+  "approxMiles": 15,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "ma",
+   "next": "me"
+  },
+  "description": "New Hampshire's I-95 is a short tolled run of about 16 miles along the Seacoast, from Seabrook past Portsmouth and over the high Piscataqua River Bridge into Maine. It funnels all coastal New England-to-Maine traffic through a single toll plaza at Hampton, which backs up badly on summer weekends."
+ },
+ "i-95/nj": {
+  "citiesAlong": [
+   "east-brunswick",
+   "new-brunswick",
+   "edison",
+   "linden",
+   "elizabeth",
+   "newark",
+   "kearny",
+   "teaneck",
+   "fort-lee"
+  ],
+  "endpoints": "Delaware River crossing from the Pennsylvania Turnpike near Florence north to the George Washington Bridge at Fort Lee",
+  "approxMiles": 80,
+  "majorJunctions": [
+   "I-195",
+   "I-287",
+   "I-278",
+   "I-78",
+   "I-280",
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": "pa",
+   "next": "ny"
+  },
+  "description": "I-95 in New Jersey follows the New Jersey Turnpike from the Pennsylvania Turnpike connector bridge north past Newark Airport and the Port Newark-Elizabeth container port to the George Washington Bridge. The Turnpike's dual-dual layout separates trucks into outer lanes for much of the run, and the stretch through Elizabeth and Newark is among the busiest truck corridors in the nation."
+ },
+ "i-95/ny": {
+  "citiesAlong": [
+   "manhattan",
+   "the-bronx",
+   "new-rochelle",
+   "port-chester"
+  ],
+  "endpoints": "George Washington Bridge at the New Jersey line to the Connecticut state line at Port Chester",
+  "approxMiles": 25,
+  "majorJunctions": [
+   "I-87",
+   "I-278",
+   "I-295",
+   "I-678"
+  ],
+  "neighbors": {
+   "prev": "nj",
+   "next": "ct"
+  },
+  "description": "I-95 in New York crosses the George Washington Bridge, fights through the notoriously congested Cross Bronx Expressway, then follows the tolled New England Thruway through New Rochelle to the Connecticut line. The Cross Bronx is consistently ranked among the worst truck bottlenecks in the country, so time this stretch carefully."
+ },
+ "i-95/ri": {
+  "citiesAlong": [
+   "warwick",
+   "cranston",
+   "providence",
+   "pawtucket"
+  ],
+  "endpoints": "Connecticut state line at Hopkinton northeast to the Massachusetts state line at Pawtucket",
+  "approxMiles": 45,
+  "majorJunctions": [
+   "I-295",
+   "I-195"
+  ],
+  "neighbors": {
+   "prev": "ct",
+   "next": "ma"
+  },
+  "description": "I-95 crosses Rhode Island from quiet woods at the Connecticut line into the dense Providence metro, passing Warwick and T.F. Green Airport before threading directly through downtown Providence and Pawtucket. I-295 offers a western bypass of the city, and I-195 splits off downtown toward New Bedford and Cape Cod."
+ },
+ "i-20/sc": {
+  "citiesAlong": [
+   "aiken",
+   "columbia",
+   "florence"
+  ],
+  "endpoints": "Georgia state line at the Savannah River near Augusta to its eastern terminus at I-95 near Florence",
+  "approxMiles": 140,
+  "majorJunctions": [
+   "I-26",
+   "I-77",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "ga",
+   "next": null
+  },
+  "description": "I-20 crosses central South Carolina from the Augusta area northeast through Columbia, ending at I-95 near Florence. It links Georgia freight to the I-95 corridor with mostly rural running outside the Columbia metro, where it junctions both I-26 and I-77."
+ },
+ "i-24/ky": {
+  "citiesAlong": [
+   "paducah",
+   "hopkinsville"
+  ],
+  "endpoints": "Ohio River crossing from Illinois at Paducah to the Tennessee state line near Clarksville",
+  "approxMiles": 95,
+  "majorJunctions": [
+   "I-69"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": "tn"
+  },
+  "description": "I-24 cuts southeast across western Kentucky from the Ohio River at Paducah past Hopkinsville toward Nashville. It is a lightly developed rural stretch that carries heavy Chicago-to-Southeast through traffic and overlaps I-69 east of Paducah."
+ },
+ "i-24/tn": {
+  "citiesAlong": [
+   "clarksville",
+   "nashville",
+   "la-vergne",
+   "smyrna",
+   "murfreesboro",
+   "chattanooga"
+  ],
+  "endpoints": "Kentucky state line near Clarksville to its eastern terminus at I-75 in Chattanooga",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-65",
+   "I-40",
+   "I-440",
+   "I-840",
+   "I-75"
+  ],
+  "neighbors": {
+   "prev": "ky",
+   "next": null
+  },
+  "description": "I-24 runs southeast through Nashville and Murfreesboro to Chattanooga, ending at I-75. Drivers face heavy metro congestion around Nashville and the steep Monteagle grade over the Cumberland Plateau, one of the toughest mountain descents in the Southeast."
+ },
+ "i-26/nc": {
+  "citiesAlong": [
+   "asheville"
+  ],
+  "endpoints": "Tennessee state line at Sams Gap to the South Carolina state line near Columbus",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-40",
+   "I-240"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "sc"
+  },
+  "description": "I-26 descends through the Blue Ridge Mountains past Asheville, with long steep grades on both sides of the city, including the sustained downgrade toward the South Carolina line at Saluda. It connects the Tennessee Tri-Cities to the Upstate South Carolina manufacturing belt."
+ },
+ "i-26/sc": {
+  "citiesAlong": [
+   "spartanburg",
+   "columbia",
+   "summerville",
+   "north-charleston",
+   "charleston"
+  ],
+  "endpoints": "North Carolina state line near Landrum to its eastern terminus at Charleston",
+  "approxMiles": 220,
+  "majorJunctions": [
+   "I-85",
+   "I-385",
+   "I-20",
+   "I-77",
+   "I-95",
+   "I-526"
+  ],
+  "neighbors": {
+   "prev": "nc",
+   "next": null
+  },
+  "description": "I-26 is South Carolina's main port corridor, running from the Upstate near Spartanburg through Columbia to the Port of Charleston container terminals. Drayage and intermodal traffic is heavy on the eastern end between I-95 and North Charleston."
+ },
+ "i-26/tn": {
+  "citiesAlong": [
+   "kingsport",
+   "johnson-city"
+  ],
+  "endpoints": "Western terminus at I-81 near Kingsport to the North Carolina state line at Sams Gap",
+  "approxMiles": 55,
+  "majorJunctions": [
+   "I-81"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nc"
+  },
+  "description": "I-26 links I-81 at Kingsport through Johnson City into the mountains toward Asheville. The Tri-Cities section is moderately busy urban freeway before the route climbs to Sams Gap on the North Carolina line."
+ },
+ "i-40/nc": {
+  "citiesAlong": [
+   "asheville",
+   "hickory",
+   "statesville",
+   "winston-salem",
+   "greensboro",
+   "burlington",
+   "chapel-hill",
+   "durham",
+   "cary",
+   "raleigh",
+   "garner",
+   "wilmington"
+  ],
+  "endpoints": "Tennessee state line in the Pigeon River Gorge to its eastern terminus at Wilmington",
+  "approxMiles": 420,
+  "majorJunctions": [
+   "I-26",
+   "I-77",
+   "I-85",
+   "I-73",
+   "I-440",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": null
+  },
+  "description": "I-40 spans North Carolina from the narrow, rockslide-prone Pigeon River Gorge at the Tennessee line through Asheville, the Piedmont Triad, and the Raleigh-Durham metro to the Port of Wilmington. Expect mountain grades in the west and steady metro congestion from Winston-Salem through Raleigh."
+ },
+ "i-40/tn": {
+  "citiesAlong": [
+   "memphis",
+   "jackson",
+   "nashville",
+   "hermitage",
+   "mount-juliet",
+   "lebanon",
+   "cookeville",
+   "knoxville"
+  ],
+  "endpoints": "Mississippi River crossing from Arkansas at Memphis to the North Carolina state line in the Pigeon River Gorge",
+  "approxMiles": 455,
+  "majorJunctions": [
+   "I-55",
+   "I-240",
+   "I-65",
+   "I-24",
+   "I-75",
+   "I-81"
+  ],
+  "neighbors": {
+   "prev": "ar",
+   "next": "nc"
+  },
+  "description": "I-40 crosses the full width of Tennessee, tying the Memphis river and rail hub to Nashville and Knoxville before climbing into the Smokies at the North Carolina line. It is one of the busiest coast-to-coast truck corridors in the country, with major congestion in all three metros and plateau grades around Cookeville."
+ },
+ "i-55/tn": {
+  "citiesAlong": [
+   "new-south-memphis",
+   "memphis"
+  ],
+  "endpoints": "Mississippi state line in south Memphis to the Mississippi River crossing into Arkansas at the Memphis-Arkansas Bridge",
+  "approxMiles": 10,
+  "majorJunctions": [
+   "I-240"
+  ],
+  "neighbors": {
+   "prev": "ms",
+   "next": "ar"
+  },
+  "description": "I-55's short Tennessee section runs entirely through southwest Memphis, connecting Mississippi to the Memphis-Arkansas Bridge over the Mississippi River. It serves heavy industrial and intermodal traffic around the Memphis terminals and the I-240 loop."
+ },
+ "i-59/tn": {
+  "citiesAlong": [
+   "chattanooga"
+  ],
+  "endpoints": "Approach from the Georgia state line to its northern terminus at I-24 near Wildwood, just southwest of Chattanooga",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-24"
+  ],
+  "neighbors": {
+   "prev": "ga",
+   "next": null
+  },
+  "description": "I-59 reaches its northern terminus at I-24 in the far corner of the Chattanooga area, at the end of the Birmingham-to-Chattanooga corridor. Nearly all of the route's mileage lies in Georgia and Alabama, so this segment is a very short valley approach feeding I-24 traffic into Chattanooga."
+ },
+ "i-64/ky": {
+  "citiesAlong": [
+   "louisville",
+   "jeffersontown",
+   "frankfort",
+   "lexington",
+   "meads",
+   "ironville"
+  ],
+  "endpoints": "Ohio River crossing from Indiana at Louisville to the West Virginia state line near Catlettsburg",
+  "approxMiles": 190,
+  "majorJunctions": [
+   "I-65",
+   "I-71",
+   "I-264",
+   "I-265",
+   "I-75"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": "wv"
+  },
+  "description": "I-64 crosses central Kentucky from Louisville through Frankfort and the north side of Lexington, then runs long rural miles through the eastern hills to the Ashland area. The Louisville spaghetti-junction interchange with I-65 and I-71 is a known chokepoint; services thin out east of Winchester."
+ },
+ "i-64/va": {
+  "citiesAlong": [
+   "charlottesville",
+   "richmond",
+   "newport-news",
+   "hampton",
+   "norfolk",
+   "virginia-beach",
+   "chesapeake"
+  ],
+  "endpoints": "West Virginia state line near Covington to its eastern terminus at I-664 in Chesapeake",
+  "approxMiles": 300,
+  "majorJunctions": [
+   "I-81",
+   "I-95",
+   "I-295",
+   "I-564",
+   "I-264",
+   "I-664"
+  ],
+  "neighbors": {
+   "prev": "wv",
+   "next": null
+  },
+  "description": "I-64 runs from the Alleghany Mountains through Charlottesville and Richmond to the Port of Virginia terminals in Hampton Roads, including the Hampton Roads Bridge-Tunnel between Hampton and Norfolk. It carries heavy port drayage on the eastern end and overlaps I-81 between Lexington and Staunton in the Shenandoah Valley."
+ },
+ "i-64/wv": {
+  "citiesAlong": [
+   "huntington",
+   "charleston"
+  ],
+  "endpoints": "Kentucky state line near Kenova to the Virginia state line east of White Sulphur Springs",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-77",
+   "I-79"
+  ],
+  "neighbors": {
+   "prev": "ky",
+   "next": "va"
+  },
+  "description": "I-64 crosses southern West Virginia from Huntington through Charleston, then shares the tolled West Virginia Turnpike with I-77 south to Beckley before turning east through the mountains to Lewisburg. Expect sustained grades, curves, and toll plazas on the Turnpike overlap."
+ },
+ "i-65/ky": {
+  "citiesAlong": [
+   "bowling-green",
+   "elizabethtown",
+   "louisville"
+  ],
+  "endpoints": "Tennessee state line near Franklin to the Ohio River crossing into Indiana at Louisville",
+  "approxMiles": 140,
+  "majorJunctions": [
+   "I-165",
+   "I-265",
+   "I-264",
+   "I-64",
+   "I-71"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "in"
+  },
+  "description": "I-65 runs north through Bowling Green and Elizabethtown to Louisville, one of the heaviest freight lanes between the Midwest and the South. Louisville's downtown river crossing and the Kennedy Interchange with I-64 and I-71 are the main congestion points."
+ },
+ "i-65/tn": {
+  "citiesAlong": [
+   "spring-hill",
+   "franklin",
+   "brentwood",
+   "nashville"
+  ],
+  "endpoints": "Alabama state line near Ardmore to the Kentucky state line north of Portland",
+  "approxMiles": 120,
+  "majorJunctions": [
+   "I-840",
+   "I-440",
+   "I-40",
+   "I-24"
+  ],
+  "neighbors": {
+   "prev": "al",
+   "next": "ky"
+  },
+  "description": "I-65 climbs north out of the Alabama hill country through the fast-growing Franklin and Brentwood suburbs into Nashville, where it threads the downtown loop with I-40 and I-24. Rush-hour congestion through Williamson County and downtown Nashville is severe; I-840 offers a southern bypass."
+ },
+ "i-69/ky": {
+  "citiesAlong": [
+   "henderson"
+  ],
+  "endpoints": "Tennessee state line at Fulton to the Ohio River near Henderson at the Indiana line",
+  "approxMiles": 130,
+  "majorJunctions": [
+   "I-24",
+   "I-169"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "in"
+  },
+  "description": "I-69 through western Kentucky follows upgraded former parkways, running from Fulton northeast to a short overlap with I-24, then north past Madisonville to Henderson on the Ohio River. It is a rural, lightly trafficked corridor with long gaps between full-service truck stops."
+ },
+ "i-69/tn": {
+  "citiesAlong": [
+   "memphis"
+  ],
+  "endpoints": "Mississippi state line south of Memphis to the current end of signed route in the Memphis area; the corridor toward the Kentucky line at South Fulton is largely unbuilt",
+  "approxMiles": 25,
+  "majorJunctions": [
+   "I-55",
+   "I-240",
+   "I-40"
+  ],
+  "neighbors": {
+   "prev": "ms",
+   "next": "ky"
+  },
+  "description": "I-69 in Tennessee is currently signed along existing Memphis freeways, sharing pavement with I-55 and I-240 through the metro. The planned standalone corridor north toward Union City and the Kentucky line remains incomplete, so through traffic uses US highways beyond Memphis."
+ },
+ "i-70/oh": {
+  "citiesAlong": [
+   "dayton",
+   "huber-heights",
+   "springfield",
+   "columbus",
+   "zanesville"
+  ],
+  "endpoints": "Indiana state line west of Lewisburg to the West Virginia state line at the Ohio River near Bridgeport",
+  "approxMiles": 225,
+  "majorJunctions": [
+   "I-75",
+   "I-675",
+   "I-270",
+   "I-71",
+   "I-77"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": "wv"
+  },
+  "description": "I-70 crosses Ohio through the north side of Dayton, Springfield, and Columbus before rolling through hillier terrain past Zanesville to the Ohio River at Wheeling. The Columbus stretch between the I-270 beltway legs is a major national freight crossroads where I-70 meets I-71."
+ },
+ "i-70/pa": {
+  "citiesAlong": [],
+  "endpoints": "West Virginia state line at West Alexander to the Maryland state line at Warfordsburg",
+  "approxMiles": 170,
+  "majorJunctions": [
+   "I-79",
+   "I-76"
+  ],
+  "neighbors": {
+   "prev": "wv",
+   "next": "md"
+  },
+  "description": "I-70 crosses southwestern Pennsylvania through Washington and New Stanton, then rides the tolled Pennsylvania Turnpike (I-76) east to Breezewood, where through traffic must exit onto surface streets with traffic lights before continuing south to Maryland. The older non-Turnpike sections have short ramps and rolling grades."
+ },
+ "i-70/wv": {
+  "citiesAlong": [
+   "wheeling"
+  ],
+  "endpoints": "Ohio state line at the Ohio River in Wheeling to the Pennsylvania state line near Valley Grove",
+  "approxMiles": 15,
+  "majorJunctions": [
+   "I-470"
+  ],
+  "neighbors": {
+   "prev": "oh",
+   "next": "pa"
+  },
+  "description": "I-70's short Northern Panhandle segment passes directly through Wheeling, including the Wheeling Tunnel and a tight downtown stretch. The I-470 bypass to the south lets through trucks avoid the tunnel and city interchanges."
+ },
+ "i-71/ky": {
+  "citiesAlong": [
+   "louisville",
+   "florence",
+   "covington"
+  ],
+  "endpoints": "Southern terminus in Louisville to the Ohio River crossing at Covington into Cincinnati",
+  "approxMiles": 100,
+  "majorJunctions": [
+   "I-64",
+   "I-65",
+   "I-264",
+   "I-265",
+   "I-75"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "oh"
+  },
+  "description": "I-71 links Louisville and Cincinnati along a rolling rural corridor that parallels the Ohio River, joining I-75 at Walton for the busy combined run through Florence and Covington to the Brent Spence Bridge. The bridge approach into Cincinnati is one of the most congested truck bottlenecks in the region."
+ },
+ "i-71/oh": {
+  "citiesAlong": [
+   "cincinnati",
+   "mason",
+   "columbus",
+   "mansfield",
+   "medina",
+   "strongsville",
+   "cleveland"
+  ],
+  "endpoints": "Ohio River at Cincinnati to its northern terminus at I-90 in Cleveland",
+  "approxMiles": 250,
+  "majorJunctions": [
+   "I-275",
+   "I-70",
+   "I-270",
+   "I-76",
+   "I-480",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "ky",
+   "next": null
+  },
+  "description": "I-71 is Ohio's main diagonal, connecting Cincinnati, Columbus, and Cleveland with mostly flat, three-lane rural running between the metros. Congestion concentrates on the Columbus inner belt area and the approach into Cleveland past Strongsville."
+ },
+ "i-74/oh": {
+  "citiesAlong": [
+   "cincinnati"
+  ],
+  "endpoints": "Indiana state line near Harrison to its eastern terminus at I-75 in Cincinnati",
+  "approxMiles": 20,
+  "majorJunctions": [
+   "I-275",
+   "I-75"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": null
+  },
+  "description": "I-74's short Ohio segment drops from the Indiana line into Cincinnati, ending at I-75 just north of downtown. It funnels Indianapolis-Cincinnati freight through hilly western Hamilton County and the I-275 beltway interchange."
+ },
+ "i-75/ky": {
+  "citiesAlong": [
+   "richmond",
+   "lexington",
+   "georgetown",
+   "florence",
+   "covington"
+  ],
+  "endpoints": "Tennessee state line at Jellico to the Ohio River crossing at Covington into Cincinnati",
+  "approxMiles": 190,
+  "majorJunctions": [
+   "I-64",
+   "I-71",
+   "I-275"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "oh"
+  },
+  "description": "I-75 climbs out of the Cumberland Mountains at Jellico and runs north through Richmond, Lexington, and Georgetown to the Cincinnati suburbs. Watch for grades and truck speed advisories in the southern mountains and heavy congestion at the Brent Spence Bridge approach in Covington."
+ },
+ "i-75/oh": {
+  "citiesAlong": [
+   "cincinnati",
+   "middletown",
+   "dayton",
+   "troy",
+   "lima",
+   "findlay",
+   "bowling-green",
+   "toledo"
+  ],
+  "endpoints": "Ohio River crossing at Cincinnati to the Michigan state line at Toledo",
+  "approxMiles": 210,
+  "majorJunctions": [
+   "I-71",
+   "I-74",
+   "I-70",
+   "I-675",
+   "I-475",
+   "I-80/I-90"
+  ],
+  "neighbors": {
+   "prev": "ky",
+   "next": "mi"
+  },
+  "description": "I-75 runs the length of western Ohio, tying together the Cincinnati, Dayton, and Toledo industrial corridors on one of the busiest north-south truck routes in the country. The flat, heavily traveled lane serves major auto and manufacturing freight, with congestion in downtown Cincinnati and Dayton and at the Ohio Turnpike junction near Toledo."
+ },
+ "i-75/tn": {
+  "citiesAlong": [
+   "chattanooga",
+   "cleveland",
+   "knoxville"
+  ],
+  "endpoints": "Georgia state line at Chattanooga to the Kentucky state line at Jellico",
+  "approxMiles": 160,
+  "majorJunctions": [
+   "I-24",
+   "I-40",
+   "I-640"
+  ],
+  "neighbors": {
+   "prev": "ga",
+   "next": "ky"
+  },
+  "description": "I-75 runs from Chattanooga through Cleveland to Knoxville, where it overlaps I-40 through a congested downtown corridor, then climbs into the Cumberland Mountains toward Jellico. The northern mountain section has long grades and is prone to fog and winter closures."
+ },
+ "i-76/oh": {
+  "citiesAlong": [
+   "barberton",
+   "akron"
+  ],
+  "endpoints": "Western terminus at I-71 near Westfield Center to the Pennsylvania state line east of Youngstown",
+  "approxMiles": 80,
+  "majorJunctions": [
+   "I-71",
+   "I-77",
+   "I-80"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "pa"
+  },
+  "description": "I-76 runs east from I-71 through Akron, then joins the tolled Ohio Turnpike mainline south of Youngstown for the run into Pennsylvania. The central Akron interchange complex with I-77 sees regular congestion and construction."
+ },
+ "i-76/pa": {
+  "citiesAlong": [
+   "cranberry-township",
+   "monroeville",
+   "harrisburg",
+   "philadelphia"
+  ],
+  "endpoints": "Ohio state line near Petersburg to the New Jersey state line at the Walt Whitman Bridge in Philadelphia",
+  "approxMiles": 350,
+  "majorJunctions": [
+   "I-79",
+   "I-70",
+   "I-81",
+   "I-83",
+   "I-476",
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "oh",
+   "next": "nj"
+  },
+  "description": "I-76 follows the tolled Pennsylvania Turnpike across the state, passing north and east of Pittsburgh through Cranberry Township and Monroeville, then over a series of Allegheny ridge tunnels before skirting south of Harrisburg. East of Valley Forge it becomes the free Schuylkill Expressway, a tight and heavily congested approach into Philadelphia."
+ },
+ "i-77/nc": {
+  "citiesAlong": [
+   "charlotte",
+   "huntersville",
+   "cornelius",
+   "mooresville",
+   "statesville"
+  ],
+  "endpoints": "South Carolina state line south of Charlotte to the Virginia state line north of Mount Airy",
+  "approxMiles": 105,
+  "majorJunctions": [
+   "I-277",
+   "I-85",
+   "I-485",
+   "I-40",
+   "I-74"
+  ],
+  "neighbors": {
+   "prev": "sc",
+   "next": "va"
+  },
+  "description": "I-77 runs through the heart of Charlotte and its Lake Norman suburbs, one of the most congested urban corridors in the Carolinas, with tolled express lanes north of the city. Past Statesville and the I-40 junction, it climbs toward the Blue Ridge at the Virginia line."
+ },
+ "i-77/oh": {
+  "citiesAlong": [
+   "canton",
+   "green",
+   "akron",
+   "cleveland"
+  ],
+  "endpoints": "Ohio River crossing from West Virginia at Marietta to its northern terminus at I-90 in Cleveland",
+  "approxMiles": 165,
+  "majorJunctions": [
+   "I-70",
+   "I-76",
+   "I-80",
+   "I-480",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "wv",
+   "next": null
+  },
+  "description": "I-77 runs from the Ohio River at Marietta north through Canton and Akron to downtown Cleveland. The southern half is hilly and rural with long gaps between services, while the Canton-Akron-Cleveland stretch is a steady industrial freight corridor."
+ },
+ "i-77/sc": {
+  "citiesAlong": [
+   "columbia",
+   "rock-hill"
+  ],
+  "endpoints": "Southern terminus at I-26 near Cayce to the North Carolina state line south of Charlotte",
+  "approxMiles": 90,
+  "majorJunctions": [
+   "I-26",
+   "I-20"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nc"
+  },
+  "description": "I-77 begins at I-26 outside Columbia and runs north past Rock Hill into the Charlotte metro. It is a straightforward rolling corridor that funnels Columbia and Charleston-bound freight toward Charlotte, with growing suburban traffic north of Rock Hill."
+ },
+ "i-77/va": {
+  "citiesAlong": [],
+  "endpoints": "North Carolina state line at Lambsburg to the West Virginia state line at the East River Mountain Tunnel",
+  "approxMiles": 65,
+  "majorJunctions": [
+   "I-81"
+  ],
+  "neighbors": {
+   "prev": "nc",
+   "next": "wv"
+  },
+  "description": "I-77 crosses the Virginia mountains with two signature challenges for trucks: the long Fancy Gap grade climbing from the North Carolina line, notorious for fog and runaway-truck ramps, and the East River Mountain Tunnel at the West Virginia line. It briefly overlaps I-81 near Wytheville, the region's main service hub."
+ },
+ "i-77/wv": {
+  "citiesAlong": [
+   "charleston",
+   "parkersburg"
+  ],
+  "endpoints": "Virginia state line at the East River Mountain Tunnel near Bluefield to the Ohio River crossing at Parkersburg",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-64",
+   "I-79"
+  ],
+  "neighbors": {
+   "prev": "va",
+   "next": "oh"
+  },
+  "description": "I-77 crosses West Virginia via the tolled West Virginia Turnpike from Bluefield through Beckley to Charleston, a twisting mountain section with steep grades and multiple toll plazas. North of Charleston the route flattens somewhat on its way to the Ohio River at Parkersburg."
+ },
+ "i-78/pa": {
+  "citiesAlong": [
+   "allentown",
+   "bethlehem",
+   "easton"
+  ],
+  "endpoints": "Western terminus at I-81 near Jonestown to the New Jersey state line at the Delaware River south of Easton",
+  "approxMiles": 75,
+  "majorJunctions": [
+   "I-81",
+   "I-476"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nj"
+  },
+  "description": "I-78 splits from I-81 in Lebanon County and runs east past the massive Lehigh Valley warehouse belt around Allentown and Bethlehem to the Delaware River. It is a primary lane for freight heading to New York City and northern New Jersey, with dense truck volume and frequent slowdowns through the Lehigh Valley."
+ },
+ "i-79/pa": {
+  "citiesAlong": [
+   "pittsburgh",
+   "cranberry-township",
+   "erie"
+  ],
+  "endpoints": "West Virginia state line south of Waynesburg to its northern terminus at I-90 in Erie",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-70",
+   "I-376",
+   "I-76",
+   "I-80",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "wv",
+   "next": null
+  },
+  "description": "I-79 runs the length of western Pennsylvania, passing just west of Pittsburgh and through the Cranberry Township growth corridor before long rural miles north to Erie. It ties the Pittsburgh metro to I-80, the Turnpike, and the Lake Erie ports."
+ },
+ "i-79/wv": {
+  "citiesAlong": [
+   "charleston",
+   "morgantown"
+  ],
+  "endpoints": "Southern terminus at I-77 in Charleston to the Pennsylvania state line north of Morgantown",
+  "approxMiles": 160,
+  "majorJunctions": [
+   "I-77",
+   "I-68"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "pa"
+  },
+  "description": "I-79 climbs northeast from Charleston through the hills past Clarksburg and Fairmont to Morgantown, where it meets I-68. It is a rolling, mostly rural corridor with long distances between major services and winter weather exposure in the higher sections."
+ },
+ "i-80/oh": {
+  "citiesAlong": [
+   "toledo",
+   "elyria",
+   "strongsville",
+   "austintown",
+   "youngstown"
+  ],
+  "endpoints": "Indiana state line near Montpelier to the Pennsylvania state line east of Hubbard",
+  "approxMiles": 235,
+  "majorJunctions": [
+   "I-75",
+   "I-90",
+   "I-71",
+   "I-77",
+   "I-76",
+   "I-680"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": "pa"
+  },
+  "description": "I-80 crosses northern Ohio mostly on the tolled Ohio Turnpike, skirting south of Toledo and Cleveland with wide-open, flat running and full-service plazas. East of the Turnpike split it becomes a free route through the Youngstown area before entering Pennsylvania."
+ },
+ "i-80/pa": {
+  "citiesAlong": [
+   "hazleton"
+  ],
+  "endpoints": "Ohio state line near Sharon to the New Jersey state line at the Delaware Water Gap",
+  "approxMiles": 310,
+  "majorJunctions": [
+   "I-79",
+   "I-99",
+   "I-180",
+   "I-81",
+   "I-476",
+   "I-380"
+  ],
+  "neighbors": {
+   "prev": "oh",
+   "next": "nj"
+  },
+  "description": "I-80 crosses the sparsely populated ridges of northern Pennsylvania, a long rural haul with sustained grades, frequent winter weather, and big gaps between services. It intersects I-81 and the Northeast Extension (I-476) near the Hazleton warehouse cluster before descending to the Delaware Water Gap."
+ },
+ "i-81/pa": {
+  "citiesAlong": [
+   "harrisburg",
+   "hazleton",
+   "wilkes-barre",
+   "scranton"
+  ],
+  "endpoints": "Maryland state line near Greencastle to the New York state line near Great Bend",
+  "approxMiles": 235,
+  "majorJunctions": [
+   "I-76",
+   "I-83",
+   "I-78",
+   "I-80",
+   "I-476",
+   "I-84"
+  ],
+  "neighbors": {
+   "prev": "md",
+   "next": "ny"
+  },
+  "description": "I-81 runs the Cumberland and Wyoming valleys from the Maryland line through Harrisburg, Wilkes-Barre, and Scranton, serving one of the densest warehouse and distribution corridors in the Northeast. Truck volume is very heavy from Carlisle through Harrisburg, and the route climbs steadily in the Pocono-region sections."
+ },
+ "i-81/tn": {
+  "citiesAlong": [
+   "morristown",
+   "kingsport",
+   "bristol"
+  ],
+  "endpoints": "Southern terminus at I-40 near Dandridge to the Virginia state line at Bristol",
+  "approxMiles": 75,
+  "majorJunctions": [
+   "I-40",
+   "I-26"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "va"
+  },
+  "description": "I-81 begins at I-40 east of Knoxville and runs northeast through the Tri-Cities region past Kingsport to Bristol on the Virginia line. It funnels I-40 freight into the heavily trucked Shenandoah corridor and meets I-26 near Kingsport."
+ },
+ "i-81/va": {
+  "citiesAlong": [
+   "blacksburg",
+   "salem",
+   "roanoke",
+   "harrisonburg",
+   "winchester"
+  ],
+  "endpoints": "Tennessee state line at Bristol to the West Virginia state line north of Winchester",
+  "approxMiles": 325,
+  "majorJunctions": [
+   "I-77",
+   "I-581",
+   "I-64",
+   "I-66"
+  ],
+  "neighbors": {
+   "prev": "tn",
+   "next": "wv"
+  },
+  "description": "I-81 runs the full length of Virginia's Shenandoah and Great Valleys, from Bristol past Roanoke and Harrisonburg to Winchester, and carries some of the heaviest truck percentages of any rural interstate in the East. Rolling grades, high truck density, and limited passing capacity make it a demanding drive; it overlaps I-77 near Wytheville and I-64 near Staunton."
+ },
+ "i-81/wv": {
+  "citiesAlong": [],
+  "endpoints": "Virginia state line south of Martinsburg to the Maryland state line at the Potomac River near Williamsport",
+  "approxMiles": 25,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "va",
+   "next": "md"
+  },
+  "description": "I-81's short Eastern Panhandle segment passes through Martinsburg, a growing distribution-center hub between the Virginia and Maryland lines. It is a busy connector on the continuous I-81 freight corridor with no other interstate junctions in-state."
+ },
+ "i-83/pa": {
+  "citiesAlong": [
+   "york",
+   "harrisburg"
+  ],
+  "endpoints": "Maryland state line south of Shrewsbury to its northern terminus at I-81 north of Harrisburg",
+  "approxMiles": 50,
+  "majorJunctions": [
+   "I-76",
+   "I-283",
+   "I-81"
+  ],
+  "neighbors": {
+   "prev": "md",
+   "next": null
+  },
+  "description": "I-83 climbs from the Maryland line through York to Harrisburg, crossing the Susquehanna River and ending at I-81. It links Baltimore freight to the central Pennsylvania distribution belt, with older, tight interchanges through the Harrisburg area."
+ },
+ "i-84/pa": {
+  "citiesAlong": [
+   "scranton"
+  ],
+  "endpoints": "Western terminus at I-81 in Scranton to the New York state line near Matamoras",
+  "approxMiles": 55,
+  "majorJunctions": [
+   "I-81",
+   "I-380"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ny"
+  },
+  "description": "I-84 begins at I-81 in Scranton and runs east across the wooded Pocono plateau to the Delaware River at the New York line. It is a lightly developed rural stretch with winter weather exposure and few services between Scranton and Milford."
+ },
+ "i-85/nc": {
+  "citiesAlong": [
+   "gastonia",
+   "charlotte",
+   "concord",
+   "kannapolis",
+   "salisbury",
+   "thomasville",
+   "high-point",
+   "greensboro",
+   "burlington",
+   "durham"
+  ],
+  "endpoints": "South Carolina state line near Grover to the Virginia state line north of Wise",
+  "approxMiles": 235,
+  "majorJunctions": [
+   "I-485",
+   "I-77",
+   "I-73",
+   "I-74",
+   "I-40",
+   "I-885"
+  ],
+  "neighbors": {
+   "prev": "sc",
+   "next": "va"
+  },
+  "description": "I-85 is the spine of the Piedmont manufacturing crescent, running from Gastonia through Charlotte, the Salisbury-Kannapolis corridor, Greensboro, and Durham before turning rural toward Virginia. It overlaps I-40 between Greensboro and Hillsborough and carries constant heavy truck traffic through the Charlotte metro."
+ },
+ "i-85/sc": {
+  "citiesAlong": [
+   "anderson",
+   "greenville",
+   "mauldin",
+   "greer",
+   "spartanburg"
+  ],
+  "endpoints": "Georgia state line at Lake Hartwell to the North Carolina state line near Blacksburg",
+  "approxMiles": 105,
+  "majorJunctions": [
+   "I-185",
+   "I-385",
+   "I-26"
+  ],
+  "neighbors": {
+   "prev": "ga",
+   "next": "nc"
+  },
+  "description": "I-85 crosses the Upstate through the Greenville-Spartanburg manufacturing corridor, passing the BMW plant at Greer and the inland port that feed steady container and auto-parts truck traffic. It is one of the busiest freight lanes in the Southeast, linking Atlanta to Charlotte."
+ },
+ "i-85/va": {
+  "citiesAlong": [
+   "petersburg"
+  ],
+  "endpoints": "North Carolina state line near Bracey to its northern terminus at I-95 in Petersburg",
+  "approxMiles": 70,
+  "majorJunctions": [
+   "I-95"
+  ],
+  "neighbors": {
+   "prev": "nc",
+   "next": null
+  },
+  "description": "I-85 runs a quiet, mostly rural course through Southside Virginia from the North Carolina line to Petersburg, where it merges into I-95 toward Richmond. Services are sparse between South Hill and the Petersburg area."
+ },
+ "i-86/pa": {
+  "citiesAlong": [
+   "erie"
+  ],
+  "endpoints": "Western terminus at I-90 near Harborcreek, east of Erie, to the New York state line",
+  "approxMiles": 5,
+  "majorJunctions": [
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "ny"
+  },
+  "description": "I-86's short Pennsylvania stub begins at I-90 just east of Erie and immediately crosses into New York toward Jamestown. It serves as the western gateway to the Southern Tier Expressway corridor across upstate New York."
+ },
+ "i-90/oh": {
+  "citiesAlong": [
+   "toledo",
+   "elyria",
+   "lakewood",
+   "cleveland",
+   "euclid",
+   "mentor"
+  ],
+  "endpoints": "Indiana state line near Montpelier to the Pennsylvania state line at Conneaut",
+  "approxMiles": 245,
+  "majorJunctions": [
+   "I-75",
+   "I-280",
+   "I-71",
+   "I-77",
+   "I-480",
+   "I-271"
+  ],
+  "neighbors": {
+   "prev": "in",
+   "next": "pa"
+  },
+  "description": "I-90 shares the tolled Ohio Turnpike with I-80 across northwest Ohio past Toledo, then splits at Elyria to run free through downtown Cleveland and along the Lake Erie shore to Conneaut. The Cleveland section includes the sharp Dead Man's Curve on the innerbelt, a posted slow zone for trucks, and lake-effect snow is a factor east of the city."
+ },
+ "i-90/pa": {
+  "citiesAlong": [
+   "erie"
+  ],
+  "endpoints": "Ohio state line near West Springfield to the New York state line near North East",
+  "approxMiles": 45,
+  "majorJunctions": [
+   "I-79",
+   "I-86"
+  ],
+  "neighbors": {
+   "prev": "oh",
+   "next": "ny"
+  },
+  "description": "I-90 crosses Pennsylvania's short Lake Erie shoreline strip, passing just south of Erie where it meets I-79. The corridor sits squarely in the lake-effect snow belt, with sudden whiteout conditions common in winter."
+ },
+ "i-95/nc": {
+  "citiesAlong": [
+   "fayetteville",
+   "wilson",
+   "rocky-mount"
+  ],
+  "endpoints": "South Carolina state line near Rowland to the Virginia state line north of Roanoke Rapids",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-40",
+   "I-295",
+   "I-795"
+  ],
+  "neighbors": {
+   "prev": "sc",
+   "next": "va"
+  },
+  "description": "I-95 crosses the flat eastern North Carolina coastal plain past Fayetteville, Wilson, and Rocky Mount, crossing I-40 at Benson. It is a steady through-freight lane with long rural stretches, ongoing widening work, and truck-stop clusters at the major junction towns."
+ },
+ "i-95/pa": {
+  "citiesAlong": [
+   "chester",
+   "philadelphia",
+   "bensalem",
+   "levittown"
+  ],
+  "endpoints": "Delaware state line near Marcus Hook to the New Jersey state line at the Delaware River-Turnpike Bridge near Bristol",
+  "approxMiles": 50,
+  "majorJunctions": [
+   "I-476",
+   "I-76",
+   "I-676",
+   "I-276"
+  ],
+  "neighbors": {
+   "prev": "de",
+   "next": "nj"
+  },
+  "description": "I-95 hugs the Delaware River through Chester and downtown Philadelphia, a dense urban corridor serving the Philadelphia port terminals and refineries with constant congestion and older, tight interchanges. Through traffic now follows I-95 onto the Pennsylvania Turnpike connector bridge into New Jersey at Bristol."
+ },
+ "i-95/sc": {
+  "citiesAlong": [
+   "florence"
+  ],
+  "endpoints": "Georgia state line at the Savannah River near Hardeeville to the North Carolina state line near Dillon",
+  "approxMiles": 200,
+  "majorJunctions": [
+   "I-26",
+   "I-20"
+  ],
+  "neighbors": {
+   "prev": "ga",
+   "next": "nc"
+  },
+  "description": "I-95 crosses South Carolina's rural lowcountry and Pee Dee regions, with Florence at the I-20 junction serving as the main fuel and service hub. The corridor is a long, flat through-run between Savannah and the North Carolina line, with older narrow sections under staged widening."
+ },
+ "i-95/va": {
+  "citiesAlong": [
+   "petersburg",
+   "richmond",
+   "fredericksburg",
+   "dale-city",
+   "springfield",
+   "alexandria"
+  ],
+  "endpoints": "North Carolina state line near Skippers to the Potomac River crossing at the Woodrow Wilson Bridge toward Maryland",
+  "approxMiles": 180,
+  "majorJunctions": [
+   "I-85",
+   "I-64",
+   "I-295",
+   "I-395",
+   "I-495"
+  ],
+  "neighbors": {
+   "prev": "nc",
+   "next": "md"
+  },
+  "description": "I-95 runs from the rural Southside through Petersburg and downtown Richmond, then into the notoriously congested Fredericksburg-to-Springfield stretch feeding Washington DC, with reversible tolled express lanes in the northern section. The I-295 loop lets through trucks bypass Richmond and Petersburg."
+ },
+ "i-5/or": {
+  "citiesAlong": [
+   "medford",
+   "grants-pass",
+   "eugene",
+   "springfield",
+   "albany",
+   "salem",
+   "keizer",
+   "woodburn",
+   "tualatin",
+   "tigard",
+   "lake-oswego",
+   "portland"
+  ],
+  "endpoints": "California state line at Siskiyou Summit to the Washington state line at the Columbia River in Portland",
+  "approxMiles": 310,
+  "majorJunctions": [
+   "I-105",
+   "I-205",
+   "I-405",
+   "I-84"
+  ],
+  "neighbors": {
+   "prev": "ca",
+   "next": "wa"
+  },
+  "description": "I-5 runs south to north the length of western Oregon, climbing over Siskiyou Summit near the California line before descending through Medford, the Willamette Valley, and into Portland. It is the West Coast's main freight spine, mixing long rural valley stretches with heavy metro congestion around Portland and mountain grades and winter chain requirements at the southern end."
+ },
+ "i-5/wa": {
+  "citiesAlong": [
+   "vancouver",
+   "longview",
+   "olympia",
+   "lacey",
+   "lakewood",
+   "tacoma",
+   "federal-way",
+   "seatac",
+   "seattle",
+   "shoreline",
+   "lynnwood",
+   "everett",
+   "marysville",
+   "mount-vernon",
+   "bellingham"
+  ],
+  "endpoints": "Oregon state line at the Columbia River in Vancouver to the Canadian border at Blaine",
+  "approxMiles": 275,
+  "majorJunctions": [
+   "I-205",
+   "I-705",
+   "I-405",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "or",
+   "next": null
+  },
+  "description": "I-5 in Washington runs south to north from the Columbia River crossing at Vancouver through the Tacoma and Seattle metro areas to the Canadian border at Blaine. It carries port traffic from Tacoma and Seattle plus cross-border freight, with some of the heaviest urban congestion on the West Coast between Tacoma and Everett."
+ },
+ "i-15/id": {
+  "citiesAlong": [
+   "pocatello",
+   "idaho-falls"
+  ],
+  "endpoints": "Utah state line south of Malad City to the Montana state line at Monida Pass",
+  "approxMiles": 195,
+  "majorJunctions": [
+   "I-86"
+  ],
+  "neighbors": {
+   "prev": "ut",
+   "next": "mt"
+  },
+  "description": "I-15 crosses eastern Idaho south to north, linking the Salt Lake City freight corridor to Montana through Pocatello and Idaho Falls. Beyond Idaho Falls it is a long rural climb through open high country to Monida Pass at the Montana line, with limited services."
+ },
+ "i-15/mt": {
+  "citiesAlong": [
+   "butte",
+   "helena",
+   "great-falls"
+  ],
+  "endpoints": "Idaho state line at Monida Pass to the Canadian border at Sweetgrass",
+  "approxMiles": 400,
+  "majorJunctions": [
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "id",
+   "next": null
+  },
+  "description": "I-15 runs south to north across western Montana from Monida Pass through Butte, Helena, and Great Falls to the Sweetgrass border crossing, the busiest truck port of entry between Montana and Canada. Expect mountain grades around Butte and Helena, long rural gaps between services, and winter closures in high country."
+ },
+ "i-25/wy": {
+  "citiesAlong": [
+   "cheyenne",
+   "casper"
+  ],
+  "endpoints": "Colorado state line south of Cheyenne to its northern terminus at I-90 near Buffalo",
+  "approxMiles": 300,
+  "majorJunctions": [
+   "I-80",
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": "co",
+   "next": null
+  },
+  "description": "I-25 runs south to north through eastern Wyoming from the Colorado line at Cheyenne through Casper to its end at I-90 near Buffalo. It is a high-plains route serving energy and ranch freight, with long stretches between towns and frequent high-wind advisories."
+ },
+ "i-29/nd": {
+  "citiesAlong": [
+   "fargo",
+   "grand-forks"
+  ],
+  "endpoints": "South Dakota state line south of Fargo to the Canadian border at Pembina",
+  "approxMiles": 220,
+  "majorJunctions": [
+   "I-94"
+  ],
+  "neighbors": {
+   "prev": "sd",
+   "next": null
+  },
+  "description": "I-29 runs south to north up the flat Red River Valley through Fargo and Grand Forks to the Pembina border crossing, a major truck port of entry into Manitoba. The route is straight and level agricultural country, but winter ground blizzards and closures are a real hazard."
+ },
+ "i-29/sd": {
+  "citiesAlong": [
+   "sioux-falls",
+   "brookings",
+   "watertown"
+  ],
+  "endpoints": "Iowa state line near North Sioux City to the North Dakota state line north of Sisseton",
+  "approxMiles": 250,
+  "majorJunctions": [
+   "I-90",
+   "I-229"
+  ],
+  "neighbors": {
+   "prev": "ia",
+   "next": "nd"
+  },
+  "description": "I-29 runs south to north along the eastern edge of South Dakota, connecting Sioux City to Fargo through Sioux Falls, Brookings, and Watertown. Sioux Falls, where it crosses I-90, is the main freight hub on the route; north of Watertown services thin out across open farmland."
+ },
+ "i-39/wi": {
+  "citiesAlong": [
+   "beloit",
+   "janesville",
+   "madison",
+   "stevens-point",
+   "wausau"
+  ],
+  "endpoints": "Illinois state line south of Beloit to its northern terminus at US 51 near Merrill",
+  "approxMiles": 195,
+  "majorJunctions": [
+   "I-90",
+   "I-94",
+   "I-43"
+  ],
+  "neighbors": {
+   "prev": "il",
+   "next": null
+  },
+  "description": "I-39 runs south to north through central Wisconsin, overlapping I-90 from the Illinois line through Janesville and Madison before splitting north at Portage toward Stevens Point and Wausau. It is the main freight route between the Chicago-Rockford corridor and the paper and manufacturing towns of north-central Wisconsin."
+ },
+ "i-43/wi": {
+  "citiesAlong": [
+   "beloit",
+   "new-berlin",
+   "milwaukee",
+   "sheboygan",
+   "manitowoc",
+   "green-bay"
+  ],
+  "endpoints": "Southern terminus at I-39/I-90 in Beloit to its northern terminus at I-41 in Green Bay",
+  "approxMiles": 190,
+  "majorJunctions": [
+   "I-90",
+   "I-39",
+   "I-94",
+   "I-41",
+   "I-894",
+   "I-794"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-43 lies entirely within Wisconsin, running northeast from I-39/I-90 at Beloit through downtown Milwaukee, then up the Lake Michigan shore through Sheboygan and Manitowoc to Green Bay. It serves the Port of Milwaukee and the lakeshore manufacturing belt, with metro congestion concentrated around the Milwaukee interchanges."
+ },
+ "i-80/wy": {
+  "citiesAlong": [
+   "rock-springs",
+   "laramie",
+   "cheyenne"
+  ],
+  "endpoints": "Utah state line at Evanston to the Nebraska state line at Pine Bluffs",
+  "approxMiles": 405,
+  "majorJunctions": [
+   "I-25",
+   "I-180"
+  ],
+  "neighbors": {
+   "prev": "ut",
+   "next": "ne"
+  },
+  "description": "I-80 crosses southern Wyoming west to east through Rock Springs, Laramie, and Cheyenne, topping out at Sherman Summit, the highest point on the entire route. It is one of the country's heaviest transcontinental truck corridors, notorious for high-wind blowover restrictions and winter closures, especially around Elk Mountain between Rawlins and Laramie."
+ },
+ "i-84/id": {
+  "citiesAlong": [
+   "caldwell",
+   "nampa",
+   "meridian",
+   "boise",
+   "twin-falls"
+  ],
+  "endpoints": "Oregon state line at the Snake River near Ontario to the Utah state line near Juniper",
+  "approxMiles": 275,
+  "majorJunctions": [
+   "I-184",
+   "I-86"
+  ],
+  "neighbors": {
+   "prev": "or",
+   "next": "ut"
+  },
+  "description": "I-84 runs west to east across southern Idaho, through the Treasure Valley cities of Caldwell, Nampa, Meridian, and Boise, then along the Snake River Plain past Twin Falls toward Utah. It links Pacific Northwest freight to the Salt Lake City hub, with agricultural traffic heavy through the Magic Valley and long rural gaps southeast of Burley."
+ },
+ "i-84/or": {
+  "citiesAlong": [
+   "portland",
+   "gresham"
+  ],
+  "endpoints": "Western terminus at I-5 in Portland to the Idaho state line at Ontario",
+  "approxMiles": 375,
+  "majorJunctions": [
+   "I-5",
+   "I-205",
+   "I-82"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "id"
+  },
+  "description": "I-84 begins at I-5 in Portland and runs east through the Columbia River Gorge, then across eastern Oregon over Cabbage Hill (Emigrant Hill) near Pendleton and the Blue Mountains to the Idaho line at Ontario. The Gorge brings winter ice and wind closures, and Cabbage Hill's steep 6 percent grades are a well-known descent for loaded trucks."
+ },
+ "i-86/id": {
+  "citiesAlong": [
+   "pocatello"
+  ],
+  "endpoints": "Western terminus at I-84 near Heyburn to its eastern terminus at I-15 near Pocatello",
+  "approxMiles": 65,
+  "majorJunctions": [
+   "I-84",
+   "I-15"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": null
+  },
+  "description": "I-86 is a short west-to-east connector entirely within southeastern Idaho, linking I-84 near Heyburn to I-15 at Pocatello along the Snake River Plain past American Falls. It is the through route for freight moving between Boise and the I-15 corridor, mostly rural with services concentrated at the Pocatello end."
+ },
+ "i-90/id": {
+  "citiesAlong": [
+   "post-falls",
+   "coeur-dalene"
+  ],
+  "endpoints": "Washington state line at Post Falls to the Montana state line at Lookout Pass",
+  "approxMiles": 75,
+  "majorJunctions": [],
+  "neighbors": {
+   "prev": "wa",
+   "next": "mt"
+  },
+  "description": "I-90 crosses the Idaho panhandle west to east in about 75 miles, from the Washington line through Post Falls and Coeur d'Alene, then up the Silver Valley to Lookout Pass at the Montana border. The climb to Lookout Pass brings winter chain-up requirements and grades through the mountains east of Kellogg."
+ },
+ "i-90/mt": {
+  "citiesAlong": [
+   "missoula",
+   "butte",
+   "bozeman",
+   "billings"
+  ],
+  "endpoints": "Idaho state line at Lookout Pass to the Wyoming state line north of Sheridan",
+  "approxMiles": 550,
+  "majorJunctions": [
+   "I-15",
+   "I-94"
+  ],
+  "neighbors": {
+   "prev": "id",
+   "next": "wy"
+  },
+  "description": "I-90's longest single-state stretch runs west to east across Montana through Missoula, Butte, Bozeman, and Billings, crossing the Continental Divide at Homestake Pass and climbing Bozeman Pass between Bozeman and Livingston. It is a mountain-grade corridor with long rural gaps between towns and frequent winter chain requirements."
+ },
+ "i-90/sd": {
+  "citiesAlong": [
+   "rapid-city",
+   "mitchell",
+   "sioux-falls"
+  ],
+  "endpoints": "Wyoming state line near Beulah to the Minnesota state line east of Sioux Falls",
+  "approxMiles": 415,
+  "majorJunctions": [
+   "I-190",
+   "I-29",
+   "I-229"
+  ],
+  "neighbors": {
+   "prev": "wy",
+   "next": "mn"
+  },
+  "description": "I-90 crosses South Dakota west to east from the Black Hills at Rapid City over the Missouri River at Chamberlain to Sioux Falls, where it meets I-29. The route is mostly open prairie with long distances between full truck services, and winter wind and ice closures are common west of the river."
+ },
+ "i-90/wa": {
+  "citiesAlong": [
+   "seattle",
+   "mercer-island",
+   "bellevue",
+   "issaquah",
+   "spokane",
+   "spokane-valley"
+  ],
+  "endpoints": "Western terminus at I-5 in Seattle to the Idaho state line east of Spokane Valley",
+  "approxMiles": 300,
+  "majorJunctions": [
+   "I-5",
+   "I-405",
+   "I-82"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "id"
+  },
+  "description": "I-90 begins at I-5 in Seattle and runs east over Snoqualmie Pass, the state's main mountain freight crossing with winter chain requirements and traction closures, then across the Columbia Basin to Spokane. It carries port traffic from Seattle inland and is the primary east-west truck route across Washington."
+ },
+ "i-90/wi": {
+  "citiesAlong": [
+   "la-crosse",
+   "madison",
+   "janesville",
+   "beloit"
+  ],
+  "endpoints": "Minnesota state line at La Crosse to the Illinois state line at Beloit",
+  "approxMiles": 185,
+  "majorJunctions": [
+   "I-94",
+   "I-39",
+   "I-43"
+  ],
+  "neighbors": {
+   "prev": "mn",
+   "next": "il"
+  },
+  "description": "I-90 enters Wisconsin west to east at the Mississippi River crossing in La Crosse, runs concurrent with I-94 from Tomah past Wisconsin Dells, then with I-39 through Madison and Janesville to the Illinois line at Beloit. It is the main link between the Twin Cities and Chicago, busy with through freight and tourist traffic around the Dells."
+ },
+ "i-90/wy": {
+  "citiesAlong": [
+   "sheridan",
+   "gillette"
+  ],
+  "endpoints": "Montana state line north of Sheridan to the South Dakota state line near Beulah",
+  "approxMiles": 210,
+  "majorJunctions": [
+   "I-25"
+  ],
+  "neighbors": {
+   "prev": "mt",
+   "next": "sd"
+  },
+  "description": "I-90 clips northeastern Wyoming, entering from Montana near Sheridan, meeting I-25 at Buffalo, and running east through Gillette and the Powder River Basin coal country to the South Dakota line. Coal and energy traffic is heavy around Gillette, and the open terrain brings strong crosswinds and winter closures."
+ },
+ "i-94/mt": {
+  "citiesAlong": [
+   "billings"
+  ],
+  "endpoints": "Western terminus at I-90 near Billings to the North Dakota state line at Wibaux",
+  "approxMiles": 250,
+  "majorJunctions": [
+   "I-90"
+  ],
+  "neighbors": {
+   "prev": null,
+   "next": "nd"
+  },
+  "description": "I-94 begins at I-90 just east of Billings and runs west to east down the Yellowstone River valley through Miles City and Glendive to the North Dakota line. It is a lightly traveled rural corridor with long gaps between fuel and repair services east of Billings."
+ },
+ "i-94/nd": {
+  "citiesAlong": [
+   "dickinson",
+   "mandan",
+   "bismarck",
+   "west-fargo",
+   "fargo"
+  ],
+  "endpoints": "Montana state line near Beach to the Minnesota state line at Fargo",
+  "approxMiles": 350,
+  "majorJunctions": [
+   "I-29"
+  ],
+  "neighbors": {
+   "prev": "mt",
+   "next": "mn"
+  },
+  "description": "I-94 crosses North Dakota west to east through Dickinson, the Bismarck-Mandan area at the Missouri River, and Fargo, where it meets I-29 before crossing into Minnesota. It serves oil-patch and agricultural freight across open prairie, where ground blizzards and winter interstate closures are a routine hazard."
+ },
+ "i-94/wi": {
+  "citiesAlong": [
+   "eau-claire",
+   "madison",
+   "waukesha",
+   "brookfield",
+   "west-allis",
+   "milwaukee",
+   "oak-creek",
+   "mount-pleasant",
+   "racine",
+   "kenosha"
+  ],
+  "endpoints": "Minnesota state line at Hudson to the Illinois state line south of Kenosha",
+  "approxMiles": 350,
+  "majorJunctions": [
+   "I-90",
+   "I-39",
+   "I-41",
+   "I-43",
+   "I-894",
+   "I-794"
+  ],
+  "neighbors": {
+   "prev": "mn",
+   "next": "il"
+  },
+  "description": "I-94 enters Wisconsin from the Twin Cities at Hudson, runs southeast through Eau Claire, joins I-90 from Tomah through Madison, then continues east to Milwaukee and turns south along Lake Michigan past Racine and Kenosha to the Illinois line. It is the main Chicago-Milwaukee-Twin Cities freight corridor, with heavy metro congestion through the Milwaukee interchanges and the lakefront industrial belt."
+ }
+}
