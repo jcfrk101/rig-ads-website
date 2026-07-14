@@ -67,6 +67,9 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
             <Link href={`/${SEGMENT}/corridors/`}>
               <a>Corridors</a>
             </Link>
+            <Link href={`/${SEGMENT}/how-it-works/`}>
+              <a>How It Works</a>
+            </Link>
             <a href="https://www.bigrig.app/fleets">For Fleets</a>
             <a href="https://www.bigrig.app/join">Join as Mechanic</a>
           </nav>
@@ -99,6 +102,9 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
           </Link>
           <Link href={`/${SEGMENT}/corridors/`}>
             <a>Interstate corridors</a>
+          </Link>
+          <Link href={`/${SEGMENT}/how-it-works/`}>
+            <a>How RIG dispatch works</a>
           </Link>
           <a href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
             24/7 dispatch: {DISPATCH_PHONE_DISPLAY}

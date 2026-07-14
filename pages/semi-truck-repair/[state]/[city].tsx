@@ -105,8 +105,15 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
         <p>
           RIG covers {city.name} and the surrounding {city.stateName} area with mobile diesel mechanics for
           roadside breakdowns: engine diagnostics, air brakes, tires, electrical, cooling, DPF/regen issues, and
-          trailer repair. For a truck that won&apos;t roll, dispatch beats searching — we route the nearest
-          available mechanic to your location{corridorNames.length > 0 ? `, including on ${corridorNames.join(' and ')}` : ''}.
+          trailer repair. For a truck that won&apos;t roll, dispatch beats searching — one call sends your
+          breakdown to local mechanics who bid back in minutes with rates and ETAs
+          {corridorNames.length > 0 ? `, including on ${corridorNames.join(' and ')}` : ''}.{' '}
+          <Link href={`/${SEGMENT}/how-it-works/`}>
+            <a style={{ fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>
+              See how RIG dispatch works
+            </a>
+          </Link>
+          .
         </p>
       </div>
 

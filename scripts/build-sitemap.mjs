@@ -14,6 +14,7 @@ const corridors = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'corridors.json
 
 const urls = [
   { loc: `/${SEGMENT}/`, priority: '1.0' },
+  { loc: `/${SEGMENT}/how-it-works/`, priority: '0.9' },
   { loc: `/${SEGMENT}/corridors/`, priority: '0.8' },
 ]
 

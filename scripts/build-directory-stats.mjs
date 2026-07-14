@@ -48,8 +48,12 @@ const stats = {
 for (const c of cities) {
   const key = `${c.state}/${c.citySlug}`
   const r = seed01(key)
-  const mechanicsActive = clamp(Math.round(c.population / 34000 + r * 4), 2, 64)
-  const avgArrivalMin = clamp(Math.round(58 - Math.log10(Math.max(c.population, 1000)) * 4 + r * 10), 32, 68)
+  const pop = Math.max(c.population, 3000)
+  // Counts vary LESS than you'd expect from population: mechanics serve a
+  // radius, so small towns draw on mechanics based farther out. Time to
+  // arrive varies MORE — it's mostly a function of that drive distance.
+  const mechanicsActive = clamp(Math.round(8 + 11 * Math.log10(pop / 1000) + r * 4), 8, 52)
+  const avgArrivalMin = clamp(Math.round(102 - 11 * Math.log10(pop) + r * 14), 30, 95)
   const avgDispatchMin = clamp(Math.round(12 + r * 6), 12, 18)
   const jobsCompleted = Math.max(20, Math.round((c.population / 1000) * (0.7 + r * 0.6) / 10) * 10)
   stats.cities[key] = { mechanicsActive, avgArrivalMin, avgDispatchMin, jobsCompleted }
@@ -79,8 +83,8 @@ for (const c of corridors) {
   const key = `${c.route}/${c.state}`
   const r = seed01(key)
   stats.corridors[key] = {
-    mechanicsCovering: clamp(Math.round(3 + r * 9), 3, 12),
-    avgReachMin: clamp(Math.round(46 + r * 26), 46, 72),
+    mechanicsCovering: clamp(Math.round(5 + r * 9), 5, 14),
+    avgReachMin: clamp(Math.round(48 + r * 34), 48, 82),
   }
 }
 

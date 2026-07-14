@@ -3,6 +3,7 @@ import s from '../../styles/Directory.module.scss'
 import { MechanicListing } from '../../data/directory/mechanics'
 import { DISPATCH_PHONE_TEL } from '../../data/directory'
 import { fireCallConversion } from '../../utils/gtag'
+import HowItWorksLink from './HowItWorks'
 
 interface Props {
   mechanics: MechanicListing[]
@@ -77,7 +78,7 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
         <div className={s.bannerNote}>
           <span>ⓘ</span>
           <div>
-            <b>{noteLead}</b> {note}
+            <b>{noteLead}</b> {note} <HowItWorksLink>See how dispatch works →</HowItWorksLink>
           </div>
         </div>
 

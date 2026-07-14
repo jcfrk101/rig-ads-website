@@ -594,6 +594,166 @@ $star: #e8a93a;
   }
 }
 
+/* ============ how it works: steps, popup, link ============ */
+.hiwSteps {
+  list-style: none;
+  margin: 18px 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.hiwStep {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  border: 1px solid $line;
+  border-radius: 11px;
+  padding: 14px 16px;
+  background: #fff;
+  b {
+    font-size: 15px;
+  }
+  p {
+    margin: 4px 0 0;
+    font-size: 13.5px;
+    color: $muted;
+    line-height: 1.55;
+  }
+}
+.hiwStepsCompact {
+  gap: 9px;
+  .hiwStep {
+    padding: 10px 12px;
+    p {
+      font-size: 12.5px;
+    }
+  }
+}
+.hiwNum {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: $accent;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hiwLink {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  color: $accent;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  &:hover {
+    color: $accent-d;
+  }
+}
+.hiwLinkOnDark {
+  composes: hiwLink;
+  color: #f0b49e;
+  font-size: 13px;
+  &:hover {
+    color: #fff;
+  }
+}
+.hiwOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 26, 31, 0.55);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.hiwModal {
+  position: relative;
+  background: $paper;
+  border-radius: 14px;
+  padding: 22px 22px 18px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 18px 50px rgba(20, 26, 31, 0.35);
+  // reset — the trigger link can live inside colored contexts (green note,
+  // dark banner) and the modal must not inherit their text styles
+  color: $ink;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+  line-height: 1.5;
+  h2 {
+    margin: 0 34px 6px 0;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    color: $ink;
+  }
+  b {
+    color: $ink;
+  }
+}
+.hiwLead {
+  margin: 0;
+  font-size: 13.5px;
+  color: $muted;
+  line-height: 1.55;
+}
+.hiwClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid $line-d;
+  background: #fff;
+  color: $muted;
+  font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    color: $ink;
+    border-color: $steel;
+  }
+}
+.hiwMore {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  a {
+    color: $steel;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+.hiwCallout {
+  background: #fff;
+  border: 1px solid $line;
+  border-left: 4px solid $amber;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 16px 0;
+  font-size: 13.5px;
+  color: $ink;
+  line-height: 1.6;
+  b {
+    color: $steel;
+  }
+}
+
 .footnote {
   padding: 16px 22px;
   background: #fafbfc;
