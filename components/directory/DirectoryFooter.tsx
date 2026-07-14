@@ -81,7 +81,7 @@ export default function DirectoryFooter() {
 
         <div>
           <div className={s.bigFooterHead}>Company</div>
-          <a href={MAIN_SITE}>About RIG</a>
+          <a href={MAIN_SITE}>RIG home</a>
           <a href={`${MAIN_SITE}/fleets`}>For fleets</a>
           <a href={`${MAIN_SITE}/join`}>Join as a mechanic</a>
           <a href={`${MAIN_SITE}/contact`}>Contact</a>
