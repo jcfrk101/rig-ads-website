@@ -9,6 +9,7 @@ import {
   DISPATCH_PHONE_TEL,
 } from '../../data/directory'
 import { fireCallConversion } from '../../utils/gtag'
+import DirectoryFooter from './DirectoryFooter'
 
 export interface Crumb {
   label: string
@@ -96,20 +97,7 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
         {children}
 
         {footnote && <div className={s.footnote}>{footnote}</div>}
-        <div className={s.footerLinks}>
-          <Link href={`/${SEGMENT}/`}>
-            <a>Semi truck repair directory</a>
-          </Link>
-          <Link href={`/${SEGMENT}/corridors/`}>
-            <a>Interstate corridors</a>
-          </Link>
-          <Link href={`/${SEGMENT}/how-it-works/`}>
-            <a>How RIG dispatch works</a>
-          </Link>
-          <a href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
-            24/7 dispatch: {DISPATCH_PHONE_DISPLAY}
-          </a>
-        </div>
+        <DirectoryFooter />
       </div>
     </div>
   )
