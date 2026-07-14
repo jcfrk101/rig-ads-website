@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import s from '../../styles/Directory.module.scss'
 import { MechanicListing } from '../../data/directory/mechanics'
@@ -127,6 +128,11 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
                     Find closest instead
                   </a>
                 </>
+              )}
+              {m.profilePath && (
+                <Link href={m.profilePath}>
+                  <a className={s.btnGhost}>View profile</a>
+                </Link>
               )}
             </div>
           </div>

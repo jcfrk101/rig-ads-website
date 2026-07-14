@@ -45,6 +45,11 @@ for (const c of cities)
 for (const c of corridors)
   urls.push({ loc: `/${SEGMENT}/corridors/${c.route}/${c.state}/`, priority: c.tier === 'Core' ? '0.7' : '0.6' })
 
+// mechanic profile pages exist only in real mode (mock profiles aren't real
+// entities and aren't prerendered)
+for (const key of Object.keys(mech.profiles || {}))
+  urls.push({ loc: `/${SEGMENT}/${key}/`, priority: '0.5' })
+
 const xml =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

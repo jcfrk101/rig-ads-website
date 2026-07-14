@@ -27,7 +27,27 @@ export interface MechanicListing {
   services: string[]
   rigNetwork: boolean // true = dispatchable RIG mechanic; false = listed shop only
   open247: boolean
+  profilePath?: string // /semi-truck-repair/<state>/<home-city>/<slug>/
 }
+
+// Profile page data: the mechanic-level record behind a listing, anchored to
+// their home city (nearest directory city to their base).
+export interface MechanicProfile extends MechanicListing {
+  homeState: string
+  homeCitySlug: string
+  homeCityName: string
+  directPhone?: string // listed shops only — shown per the all-data-honest model
+}
+
+export const slugifyMechanic = (name: string, id: string) =>
+  name
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '') +
+  '-' +
+  // short stable suffix so same-named shops never collide
+  (Math.abs([...id].reduce((h, c) => Math.imul(h, 31) + c.charCodeAt(0), 7)) % 10000).toString(36)
 
 function seed(s: string): () => number {
   let h = 2166136261
@@ -51,7 +71,7 @@ const NAME_B = ['Diesel Service', 'Truck Repair', 'Mobile Diesel', 'Fleet Servic
 // Keep in sync with SERVICE_LABELS in scripts/build-directory-mechanics.mjs.
 const SERVICES = ['Mobile repair', 'Tire change', 'Towing', 'Maintenance']
 
-function build(key: string, count: number, localName: string): MechanicListing[] {
+function build(key: string, count: number, localName: string, profileBase?: string): MechanicListing[] {
   const rnd = seed(key)
   const out: MechanicListing[] = []
   for (let i = 0; i < count; i++) {
@@ -65,10 +85,14 @@ function build(key: string, count: number, localName: string): MechanicListing[]
     const services: string[] = ['Mobile repair']
     for (const s of SERVICES.slice(1)) if (rnd() > 0.45) services.push(s)
     const rigNetwork = i < Math.max(2, count - 2) // most are in-network in mock data
+    const id = `${key}-${i}`
     out.push({
-      id: `${key}-${i}`,
+      id,
       name,
       initials: (words[0][0] + (words[1]?.[0] || '')).toUpperCase(),
+      // NOTE: key must be omitted (not undefined) — getStaticProps props
+      // must be JSON-serializable
+      ...(profileBase ? { profilePath: `${profileBase}${slugifyMechanic(name, id)}/` } : {}),
       thumbsUpPct: 88 + Math.floor(rnd() * 12),
       ratingCount: 20 + Math.floor(rnd() * 220),
       jobsCompleted: 30 + Math.floor(rnd() * 400),
@@ -113,11 +137,41 @@ export const isRouteCovered = (route: string) =>
 export function getMechanicsForCity(state: string, citySlug: string, cityName: string): MechanicListing[] {
   if (realMode) return real.pages[`${state}/${citySlug}`] || []
   const rnd = seed(`${state}/${citySlug}`)
-  return build(`${state}/${citySlug}`, 4 + Math.floor(rnd() * 3), cityName)
+  return build(`${state}/${citySlug}`, 4 + Math.floor(rnd() * 3), cityName, `/semi-truck-repair/${state}/${citySlug}/`)
 }
 
 export function getMechanicsForCorridor(route: string, state: string, stateName: string): MechanicListing[] {
   if (realMode) return real.pages[`${route}/${state}`] || []
   const rnd = seed(`${route}/${state}`)
+  // mock corridor entities are page-scoped with no home city → no profile link
   return build(`${route}/${state}`, 2 + Math.floor(rnd() * 2), stateName)
+}
+
+// ---------------------------------------------------------------------------
+// Mechanic profile pages
+// Real mode: ingestion writes a `profiles` map (one entry per mechanic at
+// their home city) and every path is prerendered. Mock mode: profile pages
+// are NOT prerendered (fallback:'blocking' serves them on demand in dev) so
+// ~10k fake pages don't bloat the build; getProfile resolves from the same
+// deterministic generator the listing links came from.
+// ---------------------------------------------------------------------------
+const realProfiles = (realJson as { profiles?: Record<string, MechanicProfile> }).profiles || {}
+
+export function getProfilePaths(): { state: string; city: string; shop: string }[] {
+  if (!realMode) return []
+  return Object.keys(realProfiles).map((key) => {
+    const [state, city, shop] = key.split('/')
+    return { state, city, shop }
+  })
+}
+
+export function getProfile(state: string, citySlug: string, shopSlug: string): MechanicProfile | null {
+  if (realMode) return realProfiles[`${state}/${citySlug}/${shopSlug}`] || null
+  const city = CITIES.find((c) => c.state === state && c.citySlug === citySlug)
+  if (!city) return null
+  const listing = getMechanicsForCity(state, citySlug, city.name).find((m) =>
+    m.profilePath?.endsWith(`/${shopSlug}/`)
+  )
+  if (!listing) return null
+  return { ...listing, homeState: state, homeCitySlug: citySlug, homeCityName: city.name }
 }

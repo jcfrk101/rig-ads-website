@@ -41,6 +41,16 @@ export const SERVICE_LABELS = {
 const serviceLabel = (slug) =>
   SERVICE_LABELS[slug] || slug.replace(/[-_]/g, ' ').replace(/^./, (c) => c.toUpperCase())
 
+// mirror of slugifyMechanic in data/directory/mechanics.ts — keep in sync
+const slugifyMechanic = (name, id) =>
+  name
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '') +
+  '-' +
+  (Math.abs([...id].reduce((h, c) => Math.imul(h, 31) + c.charCodeAt(0), 7)) % 10000).toString(36)
+
 function haversineMi(lat1, lng1, lat2, lng2) {
   const R = 3958.8
   const toRad = (d) => (d * Math.PI) / 180
@@ -140,13 +150,20 @@ const cities = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'cities.json'), 'u
 const corridorMeta = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'corridor-meta.json'), 'utf8'))
 const cityByKey = new Map(cities.map((c) => [`${c.state}/${c.citySlug}`, c]))
 
-const out = { _generatedAt: exp.generatedAt, _mechanicCount: exp.mechanics.length, pages: {} }
+const out = { _generatedAt: exp.generatedAt, _mechanicCount: exp.mechanics.length, pages: {}, profiles: {} }
 let covered = 0
+
+// home city per mechanic: the closest city page that actually lists them
+const homeCandidate = new Map() // mechanicId -> {city, distanceMi}
 
 for (const c of cities) {
   const listings = pickForPoint(exp.mechanics, c.lat, c.lng, CITY_CAP)
   out.pages[`${c.state}/${c.citySlug}`] = listings
   if (listings.length) covered++
+  for (const l of listings) {
+    const cur = homeCandidate.get(l.id)
+    if (!cur || l.distanceMi < cur.distanceMi) homeCandidate.set(l.id, { city: c, distanceMi: l.distanceMi })
+  }
 }
 
 // Corridor pages: match against a rough polyline through the cities along the
@@ -197,7 +214,37 @@ for (const [key, meta] of Object.entries(corridorMeta)) {
     .slice(0, CORRIDOR_CAP)
 }
 
+// ---------------------------------------------------------------------------
+// Mechanic profile pages: one per mechanic, anchored at their home city
+// (closest city page listing them). Stamp profilePath onto every listing
+// occurrence so cards can link to the profile.
+// ---------------------------------------------------------------------------
+const profilePathById = new Map()
+for (const m of exp.mechanics) {
+  const home = homeCandidate.get(m.id)
+  if (!home) continue // appears on no city page (corridor-only reach) → no profile
+  const slug = slugifyMechanic(m.name, m.id)
+  const key = `${home.city.state}/${home.city.citySlug}/${slug}`
+  const profilePath = `/semi-truck-repair/${key}/`
+  profilePathById.set(m.id, profilePath)
+  out.profiles[key] = {
+    ...toListing(m, home.distanceMi),
+    profilePath,
+    homeState: home.city.state,
+    homeCitySlug: home.city.citySlug,
+    homeCityName: home.city.name,
+    // the honest-data model: listed shops show their own line; RIG-network
+    // mechanics are reached through dispatch only
+    ...(m.network === 'listed' && m.phone ? { directPhone: m.phone } : {}),
+  }
+}
+for (const listings of Object.values(out.pages))
+  for (const l of listings) {
+    const p = profilePathById.get(l.id)
+    if (p) l.profilePath = p
+  }
+
 fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n')
 console.log(
-  `${OUT}: ${exp.mechanics.length} mechanics → ${Object.keys(out.pages).length} pages (${covered}/${cities.length} cities have ≥1 listing)`
+  `${OUT}: ${exp.mechanics.length} mechanics → ${Object.keys(out.pages).length} pages (${covered}/${cities.length} cities have ≥1 listing), ${Object.keys(out.profiles).length} profiles`
 )
