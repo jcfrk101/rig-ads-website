@@ -274,6 +274,37 @@ $star: #e8a93a;
     letter-spacing: 0.06em;
     color: $muted;
   }
+  @media (max-width: 760px) {
+    display: none; // collapsed behind .filterToggle; .filtersOpen shows it
+    border-right: none;
+    border-bottom: 1px solid $line;
+    h3 {
+      display: none;
+    }
+  }
+}
+.filtersOpen {
+  @media (max-width: 760px) {
+    display: block;
+  }
+}
+.filterToggle {
+  display: none;
+  @media (max-width: 760px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px 20px 0;
+    padding: 10px 14px;
+    border: 1.5px solid $line-d;
+    border-radius: 9px;
+    background: #fff;
+    color: $steel;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
 }
 .fgroup {
   padding: 15px 0;
@@ -442,6 +473,17 @@ $star: #e8a93a;
   gap: 7px;
   align-items: stretch;
   min-width: 132px;
+  @media (max-width: 560px) {
+    // full-width action bar under the shop info instead of a squeezed column
+    flex-basis: 100%;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+    a {
+      flex: 1;
+    }
+  }
 }
 .btnDispatch {
   background: $accent;

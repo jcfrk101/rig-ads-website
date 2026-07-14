@@ -26,6 +26,10 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
   const [serviceFilter, setServiceFilter] = useState<string[]>([])
   const [rigOnly, setRigOnly] = useState(false)
   const [open247Only, setOpen247Only] = useState(false)
+  // on mobile the filter panel collapses behind a toggle so listings stay
+  // right under the dispatch banner
+  const [filtersOpen, setFiltersOpen] = useState(false)
+  const activeFilterCount = serviceFilter.length + Number(rigOnly) + Number(open247Only)
 
   const shown = mechanics.filter(
     (m) =>
@@ -39,7 +43,11 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
 
   return (
     <div className={s.body}>
-      <aside className={s.filters}>
+      <button type="button" className={s.filterToggle} onClick={() => setFiltersOpen(!filtersOpen)}>
+        {filtersOpen ? 'Hide filters' : 'Filter'}
+        {activeFilterCount > 0 && ` (${activeFilterCount})`} {filtersOpen ? '▴' : '▾'}
+      </button>
+      <aside className={filtersOpen ? `${s.filters} ${s.filtersOpen}` : s.filters}>
         <h3>Filter</h3>
         <div className={s.fgroup}>
           <div className={s.fgroupLbl}>Service needed</div>
