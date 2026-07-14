@@ -11,18 +11,22 @@
 import realJson from './mechanics.json'
 import { CITIES, CORRIDORS } from './index'
 
+// Ratings model matches the RIG mechanics DB today: thumbs up/down %, jobs
+// completed, fix rate, and timeliness. Google reviews may be layered in later.
 export interface MechanicListing {
   id: string
   name: string
   initials: string
-  rating: number // 4.2 – 4.9
-  reviewCount: number
+  thumbsUpPct: number // 0–100, % of thumbs-up ratings
+  ratingCount: number // number of ratings behind the %
+  jobsCompleted: number
+  fixRatePct: number // % of jobs fixed (vs. escalated/towed)
+  onTimePct: number // timeliness: % arrivals within promised window
   distanceMi: number
   etaMin: number
   services: string[]
   rigNetwork: boolean // true = dispatchable RIG mechanic; false = listed shop only
   open247: boolean
-  availableNow: boolean
 }
 
 function seed(s: string): () => number {
@@ -41,7 +45,10 @@ function seed(s: string): () => number {
 
 const NAME_A = ['Interstate', 'Roadside', 'Heavy Haul', 'Premier', 'Allied', 'Summit', 'Ironline', 'Redline', 'Blue Ridge', 'Frontier', 'Cross Country', 'Overland']
 const NAME_B = ['Diesel Service', 'Truck Repair', 'Mobile Diesel', 'Fleet Service', 'Truck & Trailer', 'Diesel Repair', 'Mobile Mechanics', 'Heavy Duty Repair']
-const SERVICES = ['Mobile repair', 'Tire service', 'Air brake', 'DPF / regen', 'Electrical', 'Cooling', 'Trailer', 'Towing', 'Reefer', 'Jump / fuel', 'DOT inspection']
+// Display labels for the mechanics-DB service taxonomy — keep in sync with
+// SERVICE_LABELS in scripts/build-directory-mechanics.mjs. VERIFY against the
+// real service list in the mechanics DB before launch.
+const SERVICES = ['Tire change', 'Tire repair', 'Mobile repair', 'Towing', 'Jump start', 'Fuel delivery', 'Lockout', 'Air brakes', 'Electrical', 'Reefer repair', 'Trailer repair']
 
 function build(key: string, count: number, localName: string): MechanicListing[] {
   const rnd = seed(key)
@@ -64,14 +71,16 @@ function build(key: string, count: number, localName: string): MechanicListing[]
       id: `${key}-${i}`,
       name,
       initials: (words[0][0] + (words[1]?.[0] || '')).toUpperCase(),
-      rating: Math.round((4.2 + rnd() * 0.7) * 10) / 10,
-      reviewCount: 20 + Math.floor(rnd() * 220),
+      thumbsUpPct: 88 + Math.floor(rnd() * 12),
+      ratingCount: 20 + Math.floor(rnd() * 220),
+      jobsCompleted: 30 + Math.floor(rnd() * 400),
+      fixRatePct: 85 + Math.floor(rnd() * 14),
+      onTimePct: 86 + Math.floor(rnd() * 13),
       distanceMi: Math.round((1.5 + rnd() * 9) * 10) / 10,
       etaMin: 20 + Math.floor(rnd() * 35),
       services,
       rigNetwork,
       open247: rnd() > 0.35,
-      availableNow: rigNetwork && rnd() > 0.2,
     })
   }
   return out.sort((a, b) => Number(b.rigNetwork) - Number(a.rigNetwork) || a.etaMin - b.etaMin)

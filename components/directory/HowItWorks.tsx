@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { ReactNode, useEffect, useState } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SEGMENT, DISPATCH_PHONE_DISPLAY, DISPATCH_PHONE_TEL } from '../../data/directory'
+import { SEGMENT } from '../../data/directory'
+import { usePhone } from './PhoneContext'
 import { fireCallConversion } from '../../utils/gtag'
 
 export const HOW_IT_WORKS_PATH = `/${SEGMENT}/how-it-works/`
@@ -43,6 +44,7 @@ export function HowItWorksSteps({ compact }: { compact?: boolean }) {
 
 // Inline link/button that opens the condensed how-it-works popup.
 export default function HowItWorksLink({ children, className }: { children?: ReactNode; className?: string }) {
+  const phone = usePhone()
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -73,8 +75,8 @@ export default function HowItWorksLink({ children, className }: { children?: Rea
               closing. Dispatch gets you bids from local mechanics in minutes.
             </p>
             <HowItWorksSteps compact />
-            <a className={s.dispatchBtn} style={{ width: '100%', justifyContent: 'center' }} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
-              ☎ {DISPATCH_PHONE_DISPLAY}
+            <a className={s.dispatchBtn} style={{ width: '100%', justifyContent: 'center' }} href={phone.tel} onClick={fireCallConversion}>
+              ☎ {phone.display}
             </a>
             <div className={s.hiwMore}>
               <Link href={HOW_IT_WORKS_PATH}>

@@ -9,7 +9,6 @@ import {
   CITIES,
   SEGMENT,
   SITE_ORIGIN,
-  DISPATCH_PHONE_DISPLAY,
   DirectoryCity,
   DirectoryCorridor,
   CityStats,
@@ -22,6 +21,7 @@ import {
   statePath,
   corridorPath,
 } from '../../../data/directory'
+import { getPhoneForState } from '../../../data/directory/statePhones'
 import {
   getMechanicsForCity,
   isCityCovered,
@@ -40,6 +40,7 @@ interface Props {
 
 export default function CityPage({ city, stats, mechanics, corridorsThrough, corridorsInState, nearbyCities }: Props) {
   const path = cityPath(city)
+  const phone = getPhoneForState(city.state)
   const cityState = `${city.name}, ${city.state.toUpperCase()}`
   const corridorNames = corridorsThrough.map((c) => c.routeDisplay)
   const corridorPhrase =
@@ -48,16 +49,16 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
       : ''
 
   const title = `Mobile Semi Truck Repair in ${cityState} | 24/7 Dispatch | RIG`
-  const description = `Truck down in ${city.name}? RIG dispatches the closest available diesel mechanic — ${stats.mechanicsActive} active in the ${city.name} area, avg ${stats.avgDispatchMin} min to dispatch. Call ${DISPATCH_PHONE_DISPLAY}, 24/7.`
+  const description = `Truck down in ${city.name}? RIG dispatches the closest available diesel mechanic — ${stats.mechanicsInArea} in the ${city.name} area, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       serviceType: 'Mobile semi truck repair',
-      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: '+18557442223' },
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: phone.tel.replace('tel:', '+') },
       areaServed: { '@type': 'City', name: city.name, address: { '@type': 'PostalAddress', addressRegion: city.state.toUpperCase() } },
-      availableChannel: { '@type': 'ServiceChannel', servicePhone: '+18557442223' },
+      availableChannel: { '@type': 'ServiceChannel', servicePhone: phone.tel.replace('tel:', '+') },
       hoursAvailable: 'Mo-Su 00:00-24:00',
     },
   ]
@@ -73,6 +74,7 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
         { label: city.name },
       ]}
       jsonLd={jsonLd}
+      phone={phone}
       footnote="Live stats from the RIG network, refreshed regularly. Listed shops shown for completeness; dispatch routes to the closest available RIG mechanic."
     >
       <div className={s.pageHero}>
@@ -85,7 +87,7 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
         </p>
         <StatStrip
           stats={[
-            { label: 'Mechanics active now', value: String(stats.mechanicsActive), live: true },
+            { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
             { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
             { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
             { label: 'Jobs completed here', value: `${stats.jobsCompleted.toLocaleString()}+` },

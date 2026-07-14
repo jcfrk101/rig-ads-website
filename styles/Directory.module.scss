@@ -449,10 +449,14 @@ $star: #e8a93a;
   font-size: 13px;
   margin-top: 3px;
 }
-.stars {
-  color: $star;
-  font-size: 13px;
-  letter-spacing: 1px;
+.thumbs {
+  color: $ok;
+  font-weight: 700;
+}
+.cmetrics {
+  color: $muted;
+  font-size: 12px;
+  margin-top: 2px;
 }
 .svc {
   margin-top: 7px;

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedAt": "2026-07-14T02:00:00Z",
-  "_comment": "Sample of the Rig Services export schema (MECHANICS-API-PLAN.md §1). Used to test scripts/build-directory-mechanics.mjs.",
+  "_comment": "Sample of the Rig Services export schema (MECHANICS-API-PLAN.md \u00a71). Used to test scripts/build-directory-mechanics.mjs.",
   "mechanics": [
     {
       "id": "mech_sample_001",
@@ -9,13 +9,20 @@
       "baseLat": 32.7767,
       "baseLng": -96.87,
       "serviceRadiusMi": 60,
-      "services": ["mobile-repair", "air-brake", "dpf-regen", "dot-inspection", "electrical"],
-      "rating": 4.9,
-      "reviewCount": 212,
+      "services": [
+        "mobile-repair",
+        "air-brakes",
+        "tire-change",
+        "electrical"
+      ],
       "open247": true,
       "network": "rig",
-      "completedJobs": 87,
-      "phone": "+12145550148"
+      "phone": "+12145550148",
+      "thumbsUpPct": 97,
+      "ratingCount": 212,
+      "jobsCompleted": 540,
+      "fixRatePct": 94,
+      "onTimePct": 96
     },
     {
       "id": "mech_sample_002",
@@ -23,11 +30,19 @@
       "baseLat": 32.85,
       "baseLng": -96.75,
       "serviceRadiusMi": 45,
-      "services": ["mobile-repair", "tire-service", "towing"],
-      "rating": 4.8,
-      "reviewCount": 156,
+      "services": [
+        "mobile-repair",
+        "tire-change",
+        "tire-repair",
+        "towing"
+      ],
       "open247": false,
-      "network": "rig"
+      "network": "rig",
+      "thumbsUpPct": 95,
+      "ratingCount": 156,
+      "jobsCompleted": 310,
+      "fixRatePct": 92,
+      "onTimePct": 95
     },
     {
       "id": "mech_sample_003",
@@ -35,12 +50,19 @@
       "baseLat": 32.72,
       "baseLng": -96.95,
       "serviceRadiusMi": 30,
-      "services": ["trailer", "tire-service"],
-      "rating": 4.3,
-      "reviewCount": 61,
+      "services": [
+        "trailer",
+        "tire-change",
+        "tire-repair"
+      ],
       "open247": false,
       "network": "listed",
-      "phone": "+12145550190"
+      "phone": "+12145550190",
+      "thumbsUpPct": 89,
+      "ratingCount": 61,
+      "jobsCompleted": 88,
+      "fixRatePct": 88,
+      "onTimePct": 90
     },
     {
       "id": "mech_sample_004",
@@ -48,11 +70,19 @@
       "baseLat": 30.894,
       "baseLng": -102.879,
       "serviceRadiusMi": 75,
-      "services": ["mobile-repair", "tire-service", "jump-fuel"],
-      "rating": 4.9,
-      "reviewCount": 44,
+      "services": [
+        "mobile-repair",
+        "tire-change",
+        "jump-start",
+        "fuel-delivery"
+      ],
       "open247": true,
-      "network": "rig"
+      "network": "rig",
+      "thumbsUpPct": 98,
+      "ratingCount": 44,
+      "jobsCompleted": 130,
+      "fixRatePct": 95,
+      "onTimePct": 93
     }
   ]
 }

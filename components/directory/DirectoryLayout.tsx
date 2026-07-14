@@ -1,15 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import s from '../../styles/Directory.module.scss'
-import {
-  SITE_ORIGIN,
-  SEGMENT,
-  DISPATCH_PHONE_DISPLAY,
-  DISPATCH_PHONE_TEL,
-} from '../../data/directory'
-import { fireCallConversion } from '../../utils/gtag'
+import { SITE_ORIGIN, SEGMENT } from '../../data/directory'
+import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
+import { fireCallConversion, fireDniConfig } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
+import { PhoneProvider } from './PhoneContext'
 
 export interface Crumb {
   label: string
@@ -24,9 +21,16 @@ interface Props {
   jsonLd?: object[]
   children: ReactNode
   footnote?: string
+  phone?: PagePhone // state-local DNI number; defaults to toll-free
 }
 
-export default function DirectoryLayout({ title, description, path, crumbs, jsonLd, children, footnote }: Props) {
+export default function DirectoryLayout({ title, description, path, crumbs, jsonLd, children, footnote, phone }: Props) {
+  const pagePhone = phone || TOLLFREE_PHONE
+  // register the page's number with Google DNI (same pattern as LandingPage)
+  useEffect(() => {
+    if (pagePhone.dniLabel) fireDniConfig(pagePhone.dniLabel, pagePhone.display)
+  }, [pagePhone.dniLabel, pagePhone.display])
+
   const canonical = `${SITE_ORIGIN}${path}`
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -40,6 +44,7 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
   }
 
   return (
+    <PhoneProvider value={pagePhone}>
     <div className={s.page}>
       <Head>
         <title>{title}</title>
@@ -74,8 +79,8 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
             <a href="https://www.bigrig.app/fleets">For Fleets</a>
             <a href="https://www.bigrig.app/join">Join as Mechanic</a>
           </nav>
-          <a className={s.navCta} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
-            ☎ {DISPATCH_PHONE_DISPLAY}
+          <a className={s.navCta} href={pagePhone.tel} onClick={fireCallConversion}>
+            ☎ {pagePhone.display}
           </a>
         </header>
 
@@ -100,5 +105,6 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
         <DirectoryFooter />
       </div>
     </div>
+    </PhoneProvider>
   )
 }

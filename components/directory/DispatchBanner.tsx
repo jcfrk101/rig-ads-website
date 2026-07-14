@@ -1,7 +1,7 @@
 import s from '../../styles/Directory.module.scss'
-import { DISPATCH_PHONE_DISPLAY, DISPATCH_PHONE_TEL } from '../../data/directory'
 import { fireCallConversion } from '../../utils/gtag'
 import HowItWorksLink from './HowItWorks'
+import { usePhone } from './PhoneContext'
 
 interface Props {
   heading: string
@@ -9,6 +9,7 @@ interface Props {
 }
 
 export default function DispatchBanner({ heading, sub }: Props) {
+  const phone = usePhone()
   return (
     <div className={s.dispatchBanner}>
       <div className={s.dispatchText}>
@@ -17,8 +18,8 @@ export default function DispatchBanner({ heading, sub }: Props) {
           {sub} <HowItWorksLink className={s.hiwLinkOnDark}>How it works →</HowItWorksLink>
         </span>
       </div>
-      <a className={s.dispatchBtn} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
-        ☎ {DISPATCH_PHONE_DISPLAY}
+      <a className={s.dispatchBtn} href={phone.tel} onClick={fireCallConversion}>
+        ☎ {phone.display}
       </a>
     </div>
   )

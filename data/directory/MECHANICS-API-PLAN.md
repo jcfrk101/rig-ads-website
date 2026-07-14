@@ -39,14 +39,16 @@ build, not per page view. Even 50k mechanics is a few MB.
       "baseLat": 32.7767,               // where they roll from
       "baseLng": -96.8700,
       "serviceRadiusMi": 60,            // how far they'll travel
-      "services": ["mobile-repair", "tire-service", "air-brake",
-                    "dpf-regen", "electrical", "cooling", "trailer",
-                    "towing", "reefer", "jump-fuel", "dot-inspection"],
-      "rating": 4.9,                    // null if unrated
-      "reviewCount": 212,
+      "services": ["tire-change", "tire-repair", "mobile-repair",
+                    "towing", "jump-start", "fuel-delivery", "lockout",
+                    "air-brakes", "electrical", "reefer", "trailer"],
+      "thumbsUpPct": 97,                // % thumbs-up ratings (RIG ratings model)
+      "ratingCount": 212,               // ratings behind the %
+      "jobsCompleted": 540,
+      "fixRatePct": 94,                 // % of jobs fixed on site
+      "onTimePct": 96,                  // timeliness: % arrivals in promised window
       "open247": true,
       "network": "rig",                 // "rig" = dispatchable | "listed" = directory-only
-      "completedJobs": 87,              // optional
       "phone": "+12145550148"           // optional; used later for shop detail pages
     }
   ]
@@ -57,6 +59,7 @@ Notes for the Rig Services team:
 - `services` slugs are mapped to display labels on our side (see
   `SERVICE_LABELS` in `scripts/build-directory-mechanics.mjs`); add new slugs
   freely, unknown ones are passed through title-cased.
+- Ratings are the RIG thumbs up/down model; Google reviews may be layered in later as a separate field set.
 - Do NOT include real-time availability here — that's phase 2 (see §4).
 - Include *listed* (non-network) shops when the licensed shop universe lands;
   until then the export is just RIG's own mechanics and that's fine.

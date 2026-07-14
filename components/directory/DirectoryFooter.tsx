@@ -4,14 +4,13 @@ import {
   CITIES,
   STATES,
   SEGMENT,
-  DISPATCH_PHONE_DISPLAY,
-  DISPATCH_PHONE_TEL,
   statePath,
   cityPath,
   routePath,
 } from '../../data/directory'
 import { HOW_IT_WORKS_PATH } from './HowItWorks'
 import { fireCallConversion } from '../../utils/gtag'
+import { usePhone } from './PhoneContext'
 import { isCityCovered, isRouteCovered, isStateCovered } from '../../data/directory/mechanics'
 
 // Curated, small on purpose: the footer is on ~2,500 pages, so it links the
@@ -29,6 +28,7 @@ const TOP_CITIES = [...CITIES]
 const MAIN_SITE = 'https://www.bigrig.app'
 
 export default function DirectoryFooter() {
+  const phone = usePhone()
   return (
     <footer className={s.bigFooter}>
       <div className={s.bigFooterGrid}>
@@ -40,8 +40,8 @@ export default function DirectoryFooter() {
             24/7 mobile semi truck repair, dispatched nationwide. One call sends your breakdown to local
             mechanics who bid back in minutes.
           </p>
-          <a className={s.navCta} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
-            ☎ {DISPATCH_PHONE_DISPLAY}
+          <a className={s.navCta} href={phone.tel} onClick={fireCallConversion}>
+            ☎ {phone.display}
           </a>
         </div>
 

@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import s from '../../styles/Directory.module.scss'
 import { MechanicListing } from '../../data/directory/mechanics'
-import { DISPATCH_PHONE_TEL } from '../../data/directory'
 import { fireCallConversion } from '../../utils/gtag'
 import HowItWorksLink from './HowItWorks'
+import { usePhone } from './PhoneContext'
 
 interface Props {
   mechanics: MechanicListing[]
@@ -12,11 +12,8 @@ interface Props {
   noteLead: string
 }
 
-function starString(rating: number) {
-  return '★★★★★'.slice(0, Math.round(rating)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(rating))
-}
-
 export default function ListingSection({ mechanics, placeName, note, noteLead }: Props) {
+  const phone = usePhone()
   const allServices = useMemo(() => {
     const counts = new Map<string, number>()
     for (const m of mechanics) for (const svc of m.services) counts.set(svc, (counts.get(svc) || 0) + 1)
@@ -103,8 +100,11 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
                 )}
               </div>
               <div className={s.cmeta}>
-                <span className={s.stars}>{starString(m.rating)}</span> {m.rating.toFixed(1)} ({m.reviewCount}) ·{' '}
-                {m.distanceMi} mi · {m.open247 ? 'Open 24/7' : m.availableNow ? 'Available now' : 'Business hours'}
+                <span className={s.thumbs}>👍 {m.thumbsUpPct}%</span> ({m.ratingCount}) · {m.distanceMi} mi ·{' '}
+                {m.open247 ? 'Open 24/7' : 'Business hours'}
+              </div>
+              <div className={s.cmetrics}>
+                {m.jobsCompleted} jobs · {m.fixRatePct}% fix rate · {m.onTimePct}% on time
               </div>
               <div className={s.svc}>
                 {m.services.map((svc) => (
@@ -116,14 +116,14 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
               {m.rigNetwork ? (
                 <>
                   <div className={s.eta}>~{m.etaMin} min ETA</div>
-                  <a className={s.btnDispatch} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
+                  <a className={s.btnDispatch} href={phone.tel} onClick={fireCallConversion}>
                     Request dispatch
                   </a>
                 </>
               ) : (
                 <>
                   <div className={s.etaMuted}>Not in dispatch</div>
-                  <a className={s.btnDispatch} href={DISPATCH_PHONE_TEL} onClick={fireCallConversion}>
+                  <a className={s.btnDispatch} href={phone.tel} onClick={fireCallConversion}>
                     Find closest instead
                   </a>
                 </>

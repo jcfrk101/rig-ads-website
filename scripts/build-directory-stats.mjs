@@ -52,19 +52,19 @@ for (const c of cities) {
   // Counts vary LESS than you'd expect from population: mechanics serve a
   // radius, so small towns draw on mechanics based farther out. Time to
   // arrive varies MORE — it's mostly a function of that drive distance.
-  const mechanicsActive = clamp(Math.round(8 + 11 * Math.log10(pop / 1000) + r * 4), 8, 52)
+  const mechanicsInArea = clamp(Math.round(8 + 11 * Math.log10(pop / 1000) + r * 4), 8, 52)
   const avgArrivalMin = clamp(Math.round(102 - 11 * Math.log10(pop) + r * 14), 30, 95)
   const avgDispatchMin = clamp(Math.round(12 + r * 6), 12, 18)
   const jobsCompleted = Math.max(20, Math.round((c.population / 1000) * (0.7 + r * 0.6) / 10) * 10)
-  stats.cities[key] = { mechanicsActive, avgArrivalMin, avgDispatchMin, jobsCompleted }
+  stats.cities[key] = { mechanicsInArea, avgArrivalMin, avgDispatchMin, jobsCompleted }
 
   const st = (stats.states[c.state] = stats.states[c.state] || {
-    mechanicsActive: 0,
+    mechanicsInArea: 0,
     jobsCompleted: 0,
     _arrSum: 0,
     _n: 0,
   })
-  st.mechanicsActive += mechanicsActive
+  st.mechanicsInArea += mechanicsInArea
   st.jobsCompleted += jobsCompleted
   st._arrSum += avgArrivalMin
   st._n++
@@ -72,7 +72,7 @@ for (const c of cities) {
 
 for (const [code, st] of Object.entries(stats.states)) {
   stats.states[code] = {
-    mechanicsActive: st.mechanicsActive,
+    mechanicsInArea: st.mechanicsInArea,
     jobsCompleted: st.jobsCompleted,
     avgArrivalMin: Math.round(st._arrSum / st._n),
     avgDispatchMin: 14,

@@ -36,7 +36,7 @@ export interface DirectoryCorridor {
 }
 
 export interface CityStats {
-  mechanicsActive: number
+  mechanicsInArea: number
   avgArrivalMin: number
   avgDispatchMin: number
   jobsCompleted: number
@@ -103,14 +103,14 @@ export const getRoutes = () =>
 
 export const getCityStats = (state: string, citySlug: string): CityStats =>
   stats.cities[`${state}/${citySlug}`] || {
-    mechanicsActive: 4,
+    mechanicsInArea: 4,
     avgArrivalMin: 50,
     avgDispatchMin: 14,
     jobsCompleted: 40,
   }
 
 export const getStateStats = (state: string): CityStats =>
-  stats.states[state] || { mechanicsActive: 10, avgArrivalMin: 50, avgDispatchMin: 14, jobsCompleted: 100 }
+  stats.states[state] || { mechanicsInArea: 10, avgArrivalMin: 50, avgDispatchMin: 14, jobsCompleted: 100 }
 
 export const getCorridorStats = (route: string, state: string): CorridorStats =>
   stats.corridors[`${route}/${state}`] || { mechanicsCovering: 4, avgReachMin: 55 }

@@ -30,18 +30,20 @@ const MAX_RADIUS_MI = 75 // cap a mechanic's own serviceRadiusMi for matching
 const ETA_MPH = 45
 const ETA_PREP_MIN = 10
 
+// Mechanics-DB service taxonomy — keep in sync with SERVICES in
+// data/directory/mechanics.ts. VERIFY against the real mechanics DB.
 export const SERVICE_LABELS = {
+  'tire-change': 'Tire change',
+  'tire-repair': 'Tire repair',
   'mobile-repair': 'Mobile repair',
-  'tire-service': 'Tire service',
-  'air-brake': 'Air brake',
-  'dpf-regen': 'DPF / regen',
-  electrical: 'Electrical',
-  cooling: 'Cooling',
-  trailer: 'Trailer',
   towing: 'Towing',
-  reefer: 'Reefer',
-  'jump-fuel': 'Jump / fuel',
-  'dot-inspection': 'DOT inspection',
+  'jump-start': 'Jump start',
+  'fuel-delivery': 'Fuel delivery',
+  lockout: 'Lockout',
+  'air-brakes': 'Air brakes',
+  electrical: 'Electrical',
+  reefer: 'Reefer repair',
+  trailer: 'Trailer repair',
 }
 const serviceLabel = (slug) =>
   SERVICE_LABELS[slug] || slug.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase())
@@ -109,14 +111,16 @@ function toListing(m, distanceMi) {
     id: m.id,
     name: m.name,
     initials: (words[0][0] + (words[1]?.[0] || '')).toUpperCase(),
-    rating: m.rating ?? 0,
-    reviewCount: m.reviewCount ?? 0,
+    thumbsUpPct: m.thumbsUpPct ?? 0,
+    ratingCount: m.ratingCount ?? 0,
+    jobsCompleted: m.jobsCompleted ?? 0,
+    fixRatePct: m.fixRatePct ?? 0,
+    onTimePct: m.onTimePct ?? 0,
     distanceMi: Math.round(distanceMi * 10) / 10,
     etaMin: Math.round((distanceMi / ETA_MPH) * 60 + ETA_PREP_MIN),
     services: m.services.map(serviceLabel),
     rigNetwork: m.network === 'rig',
     open247: Boolean(m.open247),
-    availableNow: false, // real-time availability is phase 2 (see plan §4)
   }
 }
 
@@ -127,7 +131,7 @@ function pickForPoint(mechanics, lat, lng, cap) {
     .sort(
       (a, b) =>
         Number(b.m.network === 'rig') - Number(a.m.network === 'rig') ||
-        (b.m.rating ?? 0) - (a.m.rating ?? 0) ||
+        (b.m.thumbsUpPct ?? 0) - (a.m.thumbsUpPct ?? 0) ||
         a.d - b.d
     )
     .slice(0, cap)

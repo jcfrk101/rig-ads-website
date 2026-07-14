@@ -7,7 +7,6 @@ import s from '../../../styles/Directory.module.scss'
 import {
   STATES,
   SEGMENT,
-  DISPATCH_PHONE_DISPLAY,
   StateInfo,
   DirectoryCity,
   DirectoryCorridor,
@@ -19,6 +18,7 @@ import {
   corridorPath,
 } from '../../../data/directory'
 import { isCityCovered, isCorridorCovered, isStateCovered } from '../../../data/directory/mechanics'
+import { getPhoneForState } from '../../../data/directory/statePhones'
 
 interface Props {
   state: StateInfo
@@ -28,8 +28,9 @@ interface Props {
 }
 
 export default function StateHub({ state, cities, corridors, stats }: Props) {
+  const phone = getPhoneForState(state.code)
   const title = `Semi Truck Repair in ${state.name} | 24/7 Mobile Diesel Mechanics | RIG`
-  const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${DISPATCH_PHONE_DISPLAY}, 24/7.`
+  const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
 
   return (
     <DirectoryLayout
@@ -37,6 +38,7 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
       description={description}
       path={`/${SEGMENT}/${state.code}/`}
       crumbs={[{ label: 'Semi Truck Repair', href: `/${SEGMENT}/` }, { label: state.name }]}
+      phone={phone}
       footnote="Live stats from the RIG network, refreshed regularly."
     >
       <div className={s.pageHero}>
@@ -49,7 +51,7 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
         </p>
         <StatStrip
           stats={[
-            { label: 'Mechanics active', value: String(stats.mechanicsActive), live: true },
+            { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
             { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
             { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
             { label: 'Jobs completed', value: `${stats.jobsCompleted.toLocaleString()}+` },
