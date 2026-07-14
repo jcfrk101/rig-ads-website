@@ -9,6 +9,7 @@
 // the page templates render.
 // ============================================================================
 import realJson from './mechanics.json'
+import { CITIES, CORRIDORS } from './index'
 
 export interface MechanicListing {
   id: string
@@ -80,6 +81,27 @@ const real = realJson as { pages: Record<string, MechanicListing[]> }
 // Once the export is wired, its ingestion output drives EVERY page (a page
 // missing from it renders zero listings rather than mixing in mock data).
 const realMode = Object.keys(real.pages).length > 0
+
+// ---------------------------------------------------------------------------
+// Coverage gating (launch policy): pages with 0 mechanics are not built and
+// not linked. In mock mode everything counts as covered, so the gate arms
+// itself automatically when the real export lands. When licensed shop data
+// is added later (fuller coverage), the same rule just hides fewer pages.
+// scripts/build-sitemap.mjs applies the identical rule — keep them in sync.
+// ---------------------------------------------------------------------------
+export const isCityCovered = (state: string, citySlug: string) =>
+  !realMode || (real.pages[`${state}/${citySlug}`] || []).length > 0
+
+export const isCorridorCovered = (route: string, state: string) =>
+  !realMode || (real.pages[`${route}/${state}`] || []).length > 0
+
+export const isStateCovered = (state: string) =>
+  !realMode ||
+  CITIES.some((c) => c.state === state && isCityCovered(c.state, c.citySlug)) ||
+  CORRIDORS.some((c) => c.state === state && isCorridorCovered(c.route, c.state))
+
+export const isRouteCovered = (route: string) =>
+  !realMode || CORRIDORS.some((c) => c.route === route && isCorridorCovered(c.route, c.state))
 
 export function getMechanicsForCity(state: string, citySlug: string, cityName: string): MechanicListing[] {
   if (realMode) return real.pages[`${state}/${citySlug}`] || []

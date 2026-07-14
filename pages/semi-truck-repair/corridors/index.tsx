@@ -3,9 +3,10 @@ import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
 import s from '../../../styles/Directory.module.scss'
 import { SEGMENT, DISPATCH_PHONE_DISPLAY, getRoutes, getCorridorsByRoute, routePath, corridorPath } from '../../../data/directory'
+import { isCorridorCovered, isRouteCovered } from '../../../data/directory/mechanics'
 
 export default function CorridorsHub() {
-  const routes = getRoutes()
+  const routes = getRoutes().filter(isRouteCovered)
   const title = 'Interstate Truck Breakdown Coverage by Corridor | RIG'
   const description = `Broke down on the interstate? RIG covers every major US freight corridor with 24/7 mobile diesel mechanics dispatched to your mile marker. Call ${DISPATCH_PHONE_DISPLAY}.`
 
@@ -32,7 +33,7 @@ export default function CorridorsHub() {
 
       <div className={s.hubSection}>
         {routes.map((r) => {
-          const segs = getCorridorsByRoute(r)
+          const segs = getCorridorsByRoute(r).filter((c) => isCorridorCovered(c.route, c.state))
           return (
             <div key={r}>
               <div className={s.secTitle}>

@@ -22,7 +22,12 @@ import {
   statePath,
   corridorPath,
 } from '../../../data/directory'
-import { getMechanicsForCity, MechanicListing } from '../../../data/directory/mechanics'
+import {
+  getMechanicsForCity,
+  isCityCovered,
+  isCorridorCovered,
+  MechanicListing,
+} from '../../../data/directory/mechanics'
 
 interface Props {
   city: DirectoryCity
@@ -152,7 +157,10 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: CITIES.map((c) => ({ params: { state: c.state, city: c.citySlug } })),
+  // coverage gate: cities with 0 mechanics don't get pages
+  paths: CITIES.filter((c) => isCityCovered(c.state, c.citySlug)).map((c) => ({
+    params: { state: c.state, city: c.citySlug },
+  })),
   fallback: false,
 })
 
@@ -168,12 +176,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const city = getCity(state, citySlug)
   if (!city) return { notFound: true }
 
-  const corridorsInState = getCorridorsByState(state)
+  const corridorsInState = getCorridorsByState(state).filter((c) => isCorridorCovered(c.route, c.state))
   const corridorsThrough = corridorsInState.filter((c) =>
     getCorridorMeta(c.route, c.state)?.citiesAlong.includes(citySlug)
   )
   const nearbyCities = getCitiesByState(state)
-    .filter((c) => c.citySlug !== citySlug)
+    .filter((c) => c.citySlug !== citySlug && isCityCovered(c.state, c.citySlug))
     .sort((a, b) => distSq(a, city) - distSq(b, city))
     .slice(0, 8)
 

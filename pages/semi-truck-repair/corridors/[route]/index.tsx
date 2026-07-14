@@ -12,6 +12,7 @@ import {
   getCorridorMeta,
   corridorPath,
 } from '../../../../data/directory'
+import { isCorridorCovered, isRouteCovered } from '../../../../data/directory/mechanics'
 
 interface Props {
   route: string
@@ -95,13 +96,16 @@ export default function RoutePage({ route, segments }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: getRoutes().map((route) => ({ params: { route } })),
+  // coverage gate: a route page exists only if >=1 state segment is covered
+  paths: getRoutes()
+    .filter(isRouteCovered)
+    .map((route) => ({ params: { route } })),
   fallback: false,
 })
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const route = String(params?.route)
-  const segments = getCorridorsByRoute(route)
+  const segments = getCorridorsByRoute(route).filter((c) => isCorridorCovered(c.route, c.state))
   if (segments.length === 0) return { notFound: true }
   return { props: { route, segments: orderSegments(route, segments) } }
 }

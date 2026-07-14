@@ -9,8 +9,21 @@ const DATA_DIR = path.join(__dirname, '..', 'data', 'directory')
 const ORIGIN = 'https://www.bigrig.app'
 const SEGMENT = 'semi-truck-repair'
 
-const cities = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'cities.json'), 'utf8'))
-const corridors = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'corridors.json'), 'utf8'))
+const allCities = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'cities.json'), 'utf8'))
+const allCorridors = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'corridors.json'), 'utf8'))
+
+// Coverage gate — same rule as data/directory/mechanics.ts (keep in sync):
+// in real mode (mechanics.json non-empty) pages with 0 mechanics don't exist.
+const mech = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'mechanics.json'), 'utf8'))
+const realMode = Object.keys(mech.pages || {}).length > 0
+const covered = (key) => !realMode || (mech.pages[key] || []).length > 0
+
+const cities = allCities.filter((c) => covered(`${c.state}/${c.citySlug}`))
+const corridors = allCorridors.filter((c) => covered(`${c.route}/${c.state}`))
+if (realMode)
+  console.log(
+    `coverage gate ON: ${cities.length}/${allCities.length} cities, ${corridors.length}/${allCorridors.length} corridors`
+  )
 
 const urls = [
   { loc: `/${SEGMENT}/`, priority: '1.0' },
@@ -18,7 +31,7 @@ const urls = [
   { loc: `/${SEGMENT}/corridors/`, priority: '0.8' },
 ]
 
-const states = [...new Set(cities.map((c) => c.state))].sort()
+const states = [...new Set([...cities.map((c) => c.state), ...corridors.map((c) => c.state)])].sort()
 for (const st of states) urls.push({ loc: `/${SEGMENT}/${st}/`, priority: '0.8' })
 
 const routes = [...new Set(corridors.map((c) => c.route))].sort((a, b) =>

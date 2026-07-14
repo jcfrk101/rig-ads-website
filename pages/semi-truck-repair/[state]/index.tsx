@@ -18,6 +18,7 @@ import {
   cityPath,
   corridorPath,
 } from '../../../data/directory'
+import { isCityCovered, isCorridorCovered, isStateCovered } from '../../../data/directory/mechanics'
 
 interface Props {
   state: StateInfo
@@ -93,19 +94,24 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: Object.keys(STATES).map((code) => ({ params: { state: code } })),
+  // coverage gate: a state hub exists only if it has a covered city/corridor
+  paths: Object.keys(STATES)
+    .filter(isStateCovered)
+    .map((code) => ({ params: { state: code } })),
   fallback: false,
 })
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const code = String(params?.state)
   const state = STATES[code]
-  if (!state) return { notFound: true }
+  if (!state || !isStateCovered(code)) return { notFound: true }
   return {
     props: {
       state,
-      cities: getCitiesByState(code).sort((a, b) => b.population - a.population),
-      corridors: getCorridorsByState(code),
+      cities: getCitiesByState(code)
+        .filter((c) => isCityCovered(c.state, c.citySlug))
+        .sort((a, b) => b.population - a.population),
+      corridors: getCorridorsByState(code).filter((c) => isCorridorCovered(c.route, c.state)),
       stats: getStateStats(code),
     },
   }

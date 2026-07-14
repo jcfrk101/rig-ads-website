@@ -82,11 +82,16 @@ per-page listings into `data/directory/mechanics.json`:
   The `MechanicListing` interface is the stable contract; page templates never
   change.
 
-**Launch policy decision (open):** once real data is in, a city with zero
-mechanics in range renders "0 mechanics & shops" with the dispatch banner
-still primary. Decide whether that's acceptable or those pages should get a
-dispatch-only layout / be held back (spec v2 says don't publish where coverage
-is a hollow promise).
+**Launch policy (decided 2026-07-14): coverage gating.** Any city/corridor
+with 0 mechanics is not built and not linked; a state hub exists only if it
+has ≥1 covered city/corridor; a route page exists only if ≥1 state segment is
+covered. Implemented in `mechanics.ts` (`isCityCovered` / `isCorridorCovered`
+/ `isStateCovered` / `isRouteCovered`) and applied in every `getStaticPaths`,
+all internal link lists, the footer, and `build-sitemap.mjs` (same rule,
+duplicated — keep in sync). The gate is inert in mock mode and arms itself
+when the real export lands. Launching on RIG-network data only; when licensed
+shop listings are added (~3–6 months) coverage expands toward everywhere
+under the same rule. Revisit then whether to keep gating at all.
 
 ## 3. Rebuild triggers (freshness)
 

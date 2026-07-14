@@ -24,7 +24,12 @@ import {
   routePath,
   statePath,
 } from '../../../../data/directory'
-import { getMechanicsForCorridor, MechanicListing } from '../../../../data/directory/mechanics'
+import {
+  getMechanicsForCorridor,
+  isCityCovered,
+  isCorridorCovered,
+  MechanicListing,
+} from '../../../../data/directory/mechanics'
 
 interface Props {
   corridor: DirectoryCorridor
@@ -172,7 +177,10 @@ export default function CorridorStatePage({ corridor, stats, meta, mechanics, ci
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: CORRIDORS.map((c) => ({ params: { route: c.route, state: c.state } })),
+  // coverage gate: corridor segments with 0 mechanics don't get pages
+  paths: CORRIDORS.filter((c) => isCorridorCovered(c.route, c.state)).map((c) => ({
+    params: { route: c.route, state: c.state },
+  })),
   fallback: false,
 })
 
@@ -180,15 +188,21 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const route = String(params?.route)
   const state = String(params?.state)
   const corridor = getCorridor(route, state)
-  if (!corridor) return { notFound: true }
+  if (!corridor || !isCorridorCovered(route, state)) return { notFound: true }
 
   const meta = getCorridorMeta(route, state)
   const citiesAlong = (meta?.citiesAlong || [])
     .map((slug) => getCity(state, slug))
-    .filter((c): c is DirectoryCity => Boolean(c))
-  const otherStates = getCorridorsByRoute(route).filter((c) => c.state !== state)
-  const prevState = meta?.neighbors.prev ? getCorridor(route, meta.neighbors.prev) || null : null
-  const nextState = meta?.neighbors.next ? getCorridor(route, meta.neighbors.next) || null : null
+    .filter((c): c is DirectoryCity => Boolean(c) && isCityCovered(c!.state, c!.citySlug))
+  const otherStates = getCorridorsByRoute(route).filter(
+    (c) => c.state !== state && isCorridorCovered(c.route, c.state)
+  )
+  const coveredNeighbor = (code: string | null | undefined) => {
+    if (!code || !isCorridorCovered(route, code)) return null
+    return getCorridor(route, code) || null
+  }
+  const prevState = coveredNeighbor(meta?.neighbors.prev)
+  const nextState = coveredNeighbor(meta?.neighbors.next)
 
   return {
     props: {

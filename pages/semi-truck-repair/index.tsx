@@ -14,11 +14,18 @@ import {
   cityPath,
   routePath,
 } from '../../data/directory'
+import { isCityCovered, isRouteCovered, isStateCovered } from '../../data/directory/mechanics'
 
 export default function SemiHub() {
-  const states = Object.values(STATES).sort((a, b) => a.name.localeCompare(b.name))
-  const topCities = [...CITIES].sort((a, b) => b.population - a.population).slice(0, 24)
-  const routes = getRoutes()
+  const coveredCities = CITIES.filter((c) => isCityCovered(c.state, c.citySlug))
+  const coveredCityCount = new Map<string, number>()
+  for (const c of coveredCities) coveredCityCount.set(c.state, (coveredCityCount.get(c.state) || 0) + 1)
+
+  const states = Object.values(STATES)
+    .filter((st) => isStateCovered(st.code))
+    .sort((a, b) => a.name.localeCompare(b.name))
+  const topCities = [...coveredCities].sort((a, b) => b.population - a.population).slice(0, 24)
+  const routes = getRoutes().filter(isRouteCovered)
 
   const title = 'Semi Truck Repair Near You | 24/7 Mobile Diesel Mechanics | RIG'
   const description = `Truck down? RIG dispatches the closest available diesel mechanic anywhere in the US — ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min dispatch, avg $${NATIONAL_STATS.avgCostUsd} per job. Call ${DISPATCH_PHONE_DISPLAY}.`
@@ -61,7 +68,7 @@ export default function SemiHub() {
           {states.map((st) => (
             <Link key={st.code} href={statePath(st.code)}>
               <a className={s.linkCard}>
-                {st.name} <small>{st.cityCount} cities</small>
+                {st.name} <small>{coveredCityCount.get(st.code) || 0} cities</small>
               </a>
             </Link>
           ))}
