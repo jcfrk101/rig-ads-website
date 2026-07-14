@@ -61,6 +61,7 @@ export interface CorridorMeta {
   majorJunctions: string[]
   neighbors: { prev: string | null; next: string | null }
   description: string
+  verified?: string // geometry-verification stamp, e.g. "osm-2026-07-13"
 }
 
 export const CITIES = citiesJson as DirectoryCity[]

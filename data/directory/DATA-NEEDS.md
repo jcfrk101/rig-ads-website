@@ -9,7 +9,7 @@ real, what's placeholder, and where the real version comes from.
 |---|---|---|---|
 | Page list (2,107 cities + 222 corridor-states) | ✅ real | `pages.csv` → `cities.json` / `corridors.json` | SimpleMaps/Census-derived master CSV |
 | City population, lat/lng, tier | ✅ real | `cities.json` | same CSV |
-| Corridor metadata (cities along, endpoints, mileage, junctions, description) | ⚠️ **draft** | `corridor-meta.json` | Model-drafted, grounded in our own city list; needs geometry verification (below) |
+| Corridor metadata (cities along, endpoints, mileage, junctions, description) | ✅ **geometry-verified** | `corridor-meta.json` | OSM centerline verification 2026-07-13 (see §3); each entry carries a `verified` stamp |
 | Dispatch stats (mechanics active, avg dispatch/arrival, jobs) | ⚠️ **placeholder** | `stats.json` | Population-seeded formulas in `scripts/build-directory-stats.mjs` |
 | Mechanic listings on pages | ⚠️ **mock** | `mechanics.ts` | Deterministic generator; swap for mechanics API |
 | Sitemap | ✅ generated | `public/sitemap.xml` | `scripts/build-sitemap.mjs` |
@@ -29,9 +29,29 @@ templates render. Point `getMechanicsForCity` / `getMechanicsForCorridor` at
 the real mechanics API (build-time fetch is fine for SSG) and delete the mock
 generator.
 
-### 3. Corridor geometry verification (owner: engineering, ~free)
-`corridor-meta.json` is drafted from model knowledge grounded in our city list.
-Verify + enrich with real geometry:
+### 3. Corridor geometry verification — ✅ DONE 2026-07-13
+`corridor-meta.json` is now verified against OSM interstate centerlines
+(Overpass, `highway=motorway|trunk` ways with `I xx` refs, per state):
+
+- **citiesAlong**: every city in `cities.json` point-to-polyline tested against
+  a 10-mile buffer of the route (incl. I-35W/E and I-69E/W/C branches); cities
+  ordered by distance along the route (gap-healed Dijkstra over the way graph).
+  ~1,800 cities added; drafted cities kept unless >15 mi off-route.
+- **approxMiles**: dual-carriageway length / 2, rounded to 5 — matches FHWA
+  route logs within ~1% on spot checks. Express/local corridors (NJ Turnpike,
+  Chicago, Charlotte) hand-pinned to route-log values.
+- **majorJunctions**: all interstates whose OSM geometry comes within 1 km,
+  ordered along the route. Caught real omissions (I-430, I-165) and removed
+  draft errors (I-40/I-55 never meet in TN; Iowa's I-680 is now I-880).
+- **neighbors**: draft chains kept; geometry confirmed adjacency and fixed the
+  I-95 va→dc→md chain plus symmetry on unfinished I-69 links.
+- Each entry has a `verified` stamp. Special cases: I-91/NH and I-59/TN never
+  enter the state (cities from cross-border buffer); I-69/TN kept drafted
+  miles/junctions (OSM barely tags the unsigned Memphis concurrency).
+- Pipeline (rerunnable): `download_osm.py` + `process.py` + `apply.py` — ask
+  engineering; state OSM extracts cache locally, full run ~1 h.
+
+Original plan/source notes:
 
 - **FHWA National Highway System** shapefiles (free, public domain):
   https://www.fhwa.dot.gov/planning/national_highway_system/nhs_maps/
