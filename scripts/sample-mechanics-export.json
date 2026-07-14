@@ -10,19 +10,18 @@
       "baseLng": -96.87,
       "serviceRadiusMi": 60,
       "services": [
-        "mobile-repair",
-        "air-brakes",
-        "tire-change",
-        "electrical"
+        "mobile_service",
+        "tire_change",
+        "maintenance_change"
       ],
       "open247": true,
       "network": "rig",
       "phone": "+12145550148",
-      "thumbsUpPct": 97,
-      "ratingCount": 212,
-      "jobsCompleted": 540,
-      "fixRatePct": 94,
-      "onTimePct": 96
+      "percentSatisfied": 97,
+      "totalRatings": 212,
+      "completedJobs": 540,
+      "percentFixed": 94,
+      "percentOnTime": 96
     },
     {
       "id": "mech_sample_002",
@@ -31,18 +30,17 @@
       "baseLng": -96.75,
       "serviceRadiusMi": 45,
       "services": [
-        "mobile-repair",
-        "tire-change",
-        "tire-repair",
-        "towing"
+        "mobile_service",
+        "tire_change",
+        "tow_service"
       ],
       "open247": false,
       "network": "rig",
-      "thumbsUpPct": 95,
-      "ratingCount": 156,
-      "jobsCompleted": 310,
-      "fixRatePct": 92,
-      "onTimePct": 95
+      "percentSatisfied": 95,
+      "totalRatings": 156,
+      "completedJobs": 310,
+      "percentFixed": 92,
+      "percentOnTime": 95
     },
     {
       "id": "mech_sample_003",
@@ -51,18 +49,17 @@
       "baseLng": -96.95,
       "serviceRadiusMi": 30,
       "services": [
-        "trailer",
-        "tire-change",
-        "tire-repair"
+        "tire_change",
+        "maintenance_change"
       ],
       "open247": false,
       "network": "listed",
       "phone": "+12145550190",
-      "thumbsUpPct": 89,
-      "ratingCount": 61,
-      "jobsCompleted": 88,
-      "fixRatePct": 88,
-      "onTimePct": 90
+      "percentSatisfied": 89,
+      "totalRatings": 61,
+      "completedJobs": 88,
+      "percentFixed": 88,
+      "percentOnTime": 90
     },
     {
       "id": "mech_sample_004",
@@ -71,18 +68,16 @@
       "baseLng": -102.879,
       "serviceRadiusMi": 75,
       "services": [
-        "mobile-repair",
-        "tire-change",
-        "jump-start",
-        "fuel-delivery"
+        "mobile_service",
+        "tire_change"
       ],
       "open247": true,
       "network": "rig",
-      "thumbsUpPct": 98,
-      "ratingCount": 44,
-      "jobsCompleted": 130,
-      "fixRatePct": 95,
-      "onTimePct": 93
+      "percentSatisfied": 98,
+      "totalRatings": 44,
+      "completedJobs": 130,
+      "percentFixed": 95,
+      "percentOnTime": 93
     }
   ]
 }

@@ -30,23 +30,16 @@ const MAX_RADIUS_MI = 75 // cap a mechanic's own serviceRadiusMi for matching
 const ETA_MPH = 45
 const ETA_PREP_MIN = 10
 
-// Mechanics-DB service taxonomy — keep in sync with SERVICES in
-// data/directory/mechanics.ts. VERIFY against the real mechanics DB.
+// RIG service taxonomy — matches ServiceConstants.RIG_SUPPORTED_SERVICES in
+// rig-web-services. Keep in sync with SERVICES in data/directory/mechanics.ts.
 export const SERVICE_LABELS = {
-  'tire-change': 'Tire change',
-  'tire-repair': 'Tire repair',
-  'mobile-repair': 'Mobile repair',
-  towing: 'Towing',
-  'jump-start': 'Jump start',
-  'fuel-delivery': 'Fuel delivery',
-  lockout: 'Lockout',
-  'air-brakes': 'Air brakes',
-  electrical: 'Electrical',
-  reefer: 'Reefer repair',
-  trailer: 'Trailer repair',
+  mobile_service: 'Mobile repair',
+  tire_change: 'Tire change',
+  tow_service: 'Towing',
+  maintenance_change: 'Maintenance',
 }
 const serviceLabel = (slug) =>
-  SERVICE_LABELS[slug] || slug.replace(/-/g, ' ').replace(/^./, (c) => c.toUpperCase())
+  SERVICE_LABELS[slug] || slug.replace(/[-_]/g, ' ').replace(/^./, (c) => c.toUpperCase())
 
 function haversineMi(lat1, lng1, lat2, lng2) {
   const R = 3958.8
@@ -111,11 +104,13 @@ function toListing(m, distanceMi) {
     id: m.id,
     name: m.name,
     initials: (words[0][0] + (words[1]?.[0] || '')).toUpperCase(),
-    thumbsUpPct: m.thumbsUpPct ?? 0,
-    ratingCount: m.ratingCount ?? 0,
-    jobsCompleted: m.jobsCompleted ?? 0,
-    fixRatePct: m.fixRatePct ?? 0,
-    onTimePct: m.onTimePct ?? 0,
+    // export uses rig-web-services vocabulary (MechanicRatingResponse /
+    // ServiceRating aggregates); listing uses directory display names
+    thumbsUpPct: Math.round(m.percentSatisfied ?? 0),
+    ratingCount: m.totalRatings ?? 0,
+    jobsCompleted: m.completedJobs ?? 0,
+    fixRatePct: Math.round(m.percentFixed ?? 0),
+    onTimePct: Math.round(m.percentOnTime ?? 0),
     distanceMi: Math.round(distanceMi * 10) / 10,
     etaMin: Math.round((distanceMi / ETA_MPH) * 60 + ETA_PREP_MIN),
     services: m.services.map(serviceLabel),
@@ -131,7 +126,7 @@ function pickForPoint(mechanics, lat, lng, cap) {
     .sort(
       (a, b) =>
         Number(b.m.network === 'rig') - Number(a.m.network === 'rig') ||
-        (b.m.thumbsUpPct ?? 0) - (a.m.thumbsUpPct ?? 0) ||
+        (b.m.percentSatisfied ?? 0) - (a.m.percentSatisfied ?? 0) ||
         a.d - b.d
     )
     .slice(0, cap)

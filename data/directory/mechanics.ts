@@ -45,10 +45,11 @@ function seed(s: string): () => number {
 
 const NAME_A = ['Interstate', 'Roadside', 'Heavy Haul', 'Premier', 'Allied', 'Summit', 'Ironline', 'Redline', 'Blue Ridge', 'Frontier', 'Cross Country', 'Overland']
 const NAME_B = ['Diesel Service', 'Truck Repair', 'Mobile Diesel', 'Fleet Service', 'Truck & Trailer', 'Diesel Repair', 'Mobile Mechanics', 'Heavy Duty Repair']
-// Display labels for the mechanics-DB service taxonomy — keep in sync with
-// SERVICE_LABELS in scripts/build-directory-mechanics.mjs. VERIFY against the
-// real service list in the mechanics DB before launch.
-const SERVICES = ['Tire change', 'Tire repair', 'Mobile repair', 'Towing', 'Jump start', 'Fuel delivery', 'Lockout', 'Air brakes', 'Electrical', 'Reefer repair', 'Trailer repair']
+// Display labels for the RIG service taxonomy — matches
+// ServiceConstants.RIG_SUPPORTED_SERVICES in rig-web-services
+// (tire_change, tow_service, mobile_service, maintenance_change).
+// Keep in sync with SERVICE_LABELS in scripts/build-directory-mechanics.mjs.
+const SERVICES = ['Mobile repair', 'Tire change', 'Towing', 'Maintenance']
 
 function build(key: string, count: number, localName: string): MechanicListing[] {
   const rnd = seed(key)
@@ -60,12 +61,9 @@ function build(key: string, count: number, localName: string): MechanicListing[]
         ? `${localName} ${NAME_B[Math.floor(rnd() * NAME_B.length)]}`
         : `${NAME_A[Math.floor(rnd() * NAME_A.length)]} ${NAME_B[Math.floor(rnd() * NAME_B.length)]}`
     const words = name.split(' ')
-    const svcCount = 2 + Math.floor(rnd() * 3)
-    const services: string[] = []
-    while (services.length < svcCount) {
-      const s = SERVICES[Math.floor(rnd() * SERVICES.length)]
-      if (!services.includes(s)) services.push(s)
-    }
+    // nearly all mechanics do mobile repair; the rest varies
+    const services: string[] = ['Mobile repair']
+    for (const s of SERVICES.slice(1)) if (rnd() > 0.45) services.push(s)
     const rigNetwork = i < Math.max(2, count - 2) // most are in-network in mock data
     out.push({
       id: `${key}-${i}`,
