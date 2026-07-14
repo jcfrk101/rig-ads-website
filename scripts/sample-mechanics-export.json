@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-14T02:00:00Z",
+  "_comment": "Sample of the Rig Services export schema (MECHANICS-API-PLAN.md §1). Used to test scripts/build-directory-mechanics.mjs.",
+  "mechanics": [
+    {
+      "id": "mech_sample_001",
+      "name": "Salazar Diesel",
+      "baseLat": 32.7767,
+      "baseLng": -96.87,
+      "serviceRadiusMi": 60,
+      "services": ["mobile-repair", "air-brake", "dpf-regen", "dot-inspection", "electrical"],
+      "rating": 4.9,
+      "reviewCount": 212,
+      "open247": true,
+      "network": "rig",
+      "completedJobs": 87,
+      "phone": "+12145550148"
+    },
+    {
+      "id": "mech_sample_002",
+      "name": "Metro Truck Mobile",
+      "baseLat": 32.85,
+      "baseLng": -96.75,
+      "serviceRadiusMi": 45,
+      "services": ["mobile-repair", "tire-service", "towing"],
+      "rating": 4.8,
+      "reviewCount": 156,
+      "open247": false,
+      "network": "rig"
+    },
+    {
+      "id": "mech_sample_003",
+      "name": "Bigwheel Truck & Trailer",
+      "baseLat": 32.72,
+      "baseLng": -96.95,
+      "serviceRadiusMi": 30,
+      "services": ["trailer", "tire-service"],
+      "rating": 4.3,
+      "reviewCount": 61,
+      "open247": false,
+      "network": "listed",
+      "phone": "+12145550190"
+    },
+    {
+      "id": "mech_sample_004",
+      "name": "West Texas Mobile Diesel",
+      "baseLat": 30.894,
+      "baseLng": -102.879,
+      "serviceRadiusMi": 75,
+      "services": ["mobile-repair", "tire-service", "jump-fuel"],
+      "rating": 4.9,
+      "reviewCount": 44,
+      "open247": true,
+      "network": "rig"
+    }
+  ]
+}

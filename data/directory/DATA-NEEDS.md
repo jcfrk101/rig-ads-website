@@ -23,11 +23,14 @@ keyed `tx/dallas` / `corridors` keyed `i-10/al`). Refresh daily or weekly via
 cron; pages pick it up on next build. Cities with no real coverage should get
 honest low numbers or trigger removing the "active now" strip (decide policy).
 
-### 2. Real mechanics listings (owner: us — API or export)
-`data/directory/mechanics.ts` defines the `MechanicListing` interface the
-templates render. Point `getMechanicsForCity` / `getMechanicsForCorridor` at
-the real mechanics API (build-time fetch is fine for SSG) and delete the mock
-generator.
+### 2. Real mechanics listings (owner: Rig Services — one export job)
+Architecture, export schema, rebuild triggers, and failure handling are all in
+**`MECHANICS-API-PLAN.md`**. Directory-side ingestion is already built:
+`scripts/build-directory-mechanics.mjs` (tested against
+`scripts/sample-mechanics-export.json`) writes `mechanics.json`, which
+`mechanics.ts` prefers over the mock generator the moment it's non-empty.
+What's left: Rig Services ships the nightly export (GCS file or endpoint),
+plus a scheduled Cloud Build trigger for the rebuild.
 
 ### 3. Corridor geometry verification — ✅ DONE 2026-07-13
 `corridor-meta.json` is now verified against OSM interstate centerlines

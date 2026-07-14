@@ -1,11 +1,14 @@
 // ============================================================================
-// MOCK MECHANICS PROVIDER
+// MECHANICS PROVIDER
 //
-// Deterministic, seeded from the page key, so every build renders the same
-// shops. Swap `getMechanicsForCity` / `getMechanicsForCorridor` to call the
-// real mechanics API when it's available — the `MechanicListing` shape is the
-// contract the page templates render.
+// Real data path: mechanics.json, produced at build time from the Rig
+// Services bulk export by scripts/build-directory-mechanics.mjs (see
+// data/directory/MECHANICS-API-PLAN.md). While that file is empty, every
+// page falls back to the deterministic MOCK generator below (seeded from the
+// page key so builds are stable). `MechanicListing` is the stable contract
+// the page templates render.
 // ============================================================================
+import realJson from './mechanics.json'
 
 export interface MechanicListing {
   id: string
@@ -73,12 +76,19 @@ function build(key: string, count: number, localName: string): MechanicListing[]
   return out.sort((a, b) => Number(b.rigNetwork) - Number(a.rigNetwork) || a.etaMin - b.etaMin)
 }
 
+const real = realJson as { pages: Record<string, MechanicListing[]> }
+// Once the export is wired, its ingestion output drives EVERY page (a page
+// missing from it renders zero listings rather than mixing in mock data).
+const realMode = Object.keys(real.pages).length > 0
+
 export function getMechanicsForCity(state: string, citySlug: string, cityName: string): MechanicListing[] {
+  if (realMode) return real.pages[`${state}/${citySlug}`] || []
   const rnd = seed(`${state}/${citySlug}`)
   return build(`${state}/${citySlug}`, 4 + Math.floor(rnd() * 3), cityName)
 }
 
 export function getMechanicsForCorridor(route: string, state: string, stateName: string): MechanicListing[] {
+  if (realMode) return real.pages[`${route}/${state}`] || []
   const rnd = seed(`${route}/${state}`)
   return build(`${route}/${state}`, 2 + Math.floor(rnd() * 2), stateName)
 }

@@ -1,0 +1,127 @@
+# Mechanics Data Architecture — Directory ↔ Rig Services
+
+**Principle: the directory never calls Rig Services while a driver is on a
+page.** All 2,400+ pages are static. Mechanic listings are ingested at build
+time from a bulk export; freshness comes from rebuilds, not runtime calls.
+This keeps page speed and SEO independent of Rig Services uptime, and it means
+the Rig Services side is *one export job*, not a hardened public API.
+
+```
+Rig Services (sister repo)                    This repo
+┌──────────────────────────┐                 ┌──────────────────────────────┐
+│ nightly export job       │   JSON file     │ scripts/                     │
+│ (all directory-relevant  │ ──────────────► │  build-directory-mechanics   │
+│  mechanics)              │  GCS bucket or  │  → data/directory/           │
+│                          │  HTTPS endpoint │    mechanics.json            │
+│ optional: Pub/Sub event  │                 │  (per-page listings)         │
+│ on mechanic on/offboard  │ ──► Cloud Build │                              │
+└──────────────────────────┘     trigger     │ next build (SSG, ~minutes)   │
+                                             └──────────────────────────────┘
+```
+
+## 1. The export (what Rig Services builds)
+
+One job that dumps every directory-relevant mechanic as JSON, either written
+to a GCS bucket (preferred — survives API downtime, easy to version) or served
+from one authenticated endpoint. Speed is a non-issue: it's read once per
+build, not per page view. Even 50k mechanics is a few MB.
+
+### Export schema (v1)
+
+```json
+{
+  "version": 1,
+  "generatedAt": "2026-07-14T02:00:00Z",
+  "mechanics": [
+    {
+      "id": "mech_01HXYZ...",          // stable ID
+      "name": "Salazar Diesel",
+      "baseLat": 32.7767,               // where they roll from
+      "baseLng": -96.8700,
+      "serviceRadiusMi": 60,            // how far they'll travel
+      "services": ["mobile-repair", "tire-service", "air-brake",
+                    "dpf-regen", "electrical", "cooling", "trailer",
+                    "towing", "reefer", "jump-fuel", "dot-inspection"],
+      "rating": 4.9,                    // null if unrated
+      "reviewCount": 212,
+      "open247": true,
+      "network": "rig",                 // "rig" = dispatchable | "listed" = directory-only
+      "completedJobs": 87,              // optional
+      "phone": "+12145550148"           // optional; used later for shop detail pages
+    }
+  ]
+}
+```
+
+Notes for the Rig Services team:
+- `services` slugs are mapped to display labels on our side (see
+  `SERVICE_LABELS` in `scripts/build-directory-mechanics.mjs`); add new slugs
+  freely, unknown ones are passed through title-cased.
+- Do NOT include real-time availability here — that's phase 2 (see §4).
+- Include *listed* (non-network) shops when the licensed shop universe lands;
+  until then the export is just RIG's own mechanics and that's fine.
+
+## 2. Ingestion (this repo — already built)
+
+`scripts/build-directory-mechanics.mjs` reads the export and precomputes
+per-page listings into `data/directory/mechanics.json`:
+
+- **City pages**: mechanics whose `baseLat/baseLng` is within
+  `min(serviceRadiusMi, 75mi)` of the city, sorted network-first then rating,
+  capped at 12. ETA shown is an estimate from distance (drive at ~45 mph +
+  10 min wheels-up), clearly a heuristic until dispatch telemetry exists.
+- **Corridor pages**: mechanics within reach of any city along the corridor
+  (from the geometry-verified `corridor-meta.json`), capped at 10.
+- Usage:
+  ```
+  node scripts/build-directory-mechanics.mjs --from-file export.json   # local file
+  MECHANICS_EXPORT_URL=https://... node scripts/build-directory-mechanics.mjs
+  ```
+- `data/directory/mechanics.ts` uses `mechanics.json` when it's non-empty and
+  falls back to the deterministic mock generator while it's empty (`{}`).
+  The `MechanicListing` interface is the stable contract; page templates never
+  change.
+
+**Launch policy decision (open):** once real data is in, a city with zero
+mechanics in range renders "0 mechanics & shops" with the dispatch banner
+still primary. Decide whether that's acceptable or those pages should get a
+dispatch-only layout / be held back (spec v2 says don't publish where coverage
+is a hollow promise).
+
+## 3. Rebuild triggers (freshness)
+
+| Trigger | Staleness | Effort |
+|---|---|---|
+| **Nightly Cloud Build schedule** (start here) | ≤ 24 h | one cron trigger on the existing cloudbuild.yaml |
+| **Pub/Sub on mechanic onboard/offboard → Cloud Build** (phase 2) | ~15 min (debounced) | small subscriber + trigger |
+
+Full SSG build is ~minutes for 2,500 pages — a nightly rebuild is effectively
+free. Stats (`stats.json`) ride the same rebuild.
+
+**Failure isolation:** the ingestion script keeps the last good export
+(`mechanics-export.last-good.json`, gitignored) and falls back to it if the
+fetch fails — a Rig Services outage at build time can never blank the
+directory; worst case listings are a day stale.
+
+## 4. Real-time layer (phase 2, optional)
+
+The only genuinely live elements are "mechanics active NOW" and availability
+badges. Options, in order of preference:
+
+1. **Ship without it** — label the static number honestly ("mechanics
+   covering this area") and skip the infrastructure.
+2. **Hydrate-enhance** — pages server-render the static value, then one
+   client-side fetch per page load hits a single lightweight Rig Services
+   endpoint (`GET /directory/live-stats?geo=tx/dallas`), cached ~60 s at the
+   edge/Redis. If it's down, the static value silently stays. This is the only
+   endpoint that needs to be fast, and it's one cacheable counter.
+
+## What we deliberately avoid
+
+- **Runtime SSR / per-request API calls** — makes page speed hostage to Rig
+  Services and kills the static SEO model.
+- **ISR on Cloud Run** — Next 12's ISR cache is per-instance; multiple Cloud
+  Run instances would serve inconsistent pages and cold starts re-fetch.
+  A nightly rebuild is simpler and behaves better.
+- **Bidding/dispatch flow in the directory** — the CTA is a phone call; the
+  transactional system stays entirely in Rig Services.
