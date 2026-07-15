@@ -2,6 +2,7 @@ import Link from 'next/link'
 import DirectoryLayout from '../../components/directory/DirectoryLayout'
 import StatStrip from '../../components/directory/StatStrip'
 import DispatchBanner from '../../components/directory/DispatchBanner'
+import DispatchExplainer from '../../components/directory/DispatchExplainer'
 import s from '../../styles/Directory.module.scss'
 import {
   CITIES,
@@ -61,6 +62,8 @@ export default function SemiHub() {
         heading="Broke down right now?"
         sub={`Skip the browsing — one call connects you to the closest available mechanic, avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch.`}
       />
+
+      <DispatchExplainer pageKey="hub" />
 
       <div className={s.hubSection}>
         <div className={s.secTitle}>Semi truck repair by state</div>

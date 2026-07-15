@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import DirectoryLayout from '../../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../../components/directory/DispatchBanner'
+import DispatchExplainer from '../../../../components/directory/DispatchExplainer'
 import s from '../../../../styles/Directory.module.scss'
 import {
   SEGMENT,
@@ -78,6 +79,8 @@ export default function RoutePage({ route, segments }: Props) {
         heading={`Stopped on ${rd} right now?`}
         sub="Call with your mile marker — we dispatch the nearest available mechanic to your exact location, 24/7."
       />
+
+      <DispatchExplainer pageKey={`route/${route}`} placeName={rd} />
 
       <div className={s.hubSection}>
         <div className={s.secTitle}>{rd} by state</div>

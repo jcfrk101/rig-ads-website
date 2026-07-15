@@ -806,6 +806,73 @@ $star: #e8a93a;
   }
 }
 
+/* ============ dispatch explainer band (non-listing pages) ============ */
+.explainer {
+  padding: 20px 22px 24px;
+  border-top: 1px solid $line;
+}
+.photoStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+    img:nth-child(n + 2) {
+      display: none; // one strong photo on small screens
+    }
+  }
+  img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 11px;
+    border: 1px solid $line;
+    background: #eef1f3;
+    @media (max-width: 560px) {
+      height: 200px;
+    }
+  }
+}
+.explainerSteps {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+  li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    border: 1px solid $line;
+    border-radius: 11px;
+    padding: 12px 13px;
+    background: #fff;
+    b {
+      font-size: 13.5px;
+    }
+    p {
+      margin: 3px 0 0;
+      font-size: 12.5px;
+      color: $muted;
+      line-height: 1.5;
+    }
+  }
+}
+.explainerCta {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 .footnote {
   padding: 16px 22px;
   background: #fafbfc;

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import StatStrip from '../../../components/directory/StatStrip'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
+import DispatchExplainer from '../../../components/directory/DispatchExplainer'
 import s from '../../../styles/Directory.module.scss'
 import {
   STATES,
@@ -63,6 +64,8 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
         heading={`Broke down in ${state.name} right now?`}
         sub={`One call connects you to the closest available mechanic — avg ${stats.avgDispatchMin} min to dispatch.`}
       />
+
+      <DispatchExplainer pageKey={`state/${state.code}`} placeName={state.name} />
 
       <div className={s.hubSection}>
         {corridors.length > 0 && (

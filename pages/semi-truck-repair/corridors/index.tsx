@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
+import DispatchExplainer from '../../../components/directory/DispatchExplainer'
 import s from '../../../styles/Directory.module.scss'
 import { SEGMENT, DISPATCH_PHONE_DISPLAY, getRoutes, getCorridorsByRoute, routePath, corridorPath } from '../../../data/directory'
 import { isCorridorCovered, isRouteCovered } from '../../../data/directory/mechanics'
@@ -30,6 +31,8 @@ export default function CorridorsHub() {
         heading="On the shoulder right now?"
         sub="Give us your interstate and mile marker — we dispatch the nearest available mechanic to your exact location."
       />
+
+      <DispatchExplainer pageKey="corridors-hub" />
 
       <div className={s.hubSection}>
         {routes.map((r) => {
