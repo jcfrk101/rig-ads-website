@@ -126,6 +126,11 @@ function toListing(m, distanceMi) {
     services: m.services.map(serviceLabel),
     rigNetwork: m.network === 'rig',
     open247: Boolean(m.open247),
+    // optional enrichments (see MECHANICS-API-PLAN.md schema for provenance)
+    ...(m.profileImageUrl ? { avatarUrl: m.profileImageUrl } : {}),
+    ...(m.standardHourlyRate ? { hourlyRate: m.standardHourlyRate } : {}),
+    ...(m.avgResponseMin ? { avgResponseMin: Math.round(m.avgResponseMin) } : {}),
+    ...(m.insured != null ? { insured: Boolean(m.insured) } : {}),
   }
 }
 
@@ -236,6 +241,12 @@ for (const m of exp.mechanics) {
     // the honest-data model: listed shops show their own line; RIG-network
     // mechanics are reached through dispatch only
     ...(m.network === 'listed' && m.phone ? { directPhone: m.phone } : {}),
+    // profile-only enrichments
+    ...(m.afterHoursHourlyRate ? { afterHoursRate: m.afterHoursHourlyRate } : {}),
+    ...(m.calloutDetails ? { calloutTerms: m.calloutDetails } : {}),
+    ...(m.serviceRadiusMi ? { serviceRadiusMi: m.serviceRadiusMi } : {}),
+    ...(Array.isArray(m.makesServiced) && m.makesServiced.length ? { makesServiced: m.makesServiced } : {}),
+    ...(m.memberSince ? { memberSince: m.memberSince } : {}),
   }
 }
 for (const listings of Object.values(out.pages))

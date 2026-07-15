@@ -90,7 +90,9 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
 
         {shown.map((m) => (
           <div key={m.id} className={s.cardRow}>
-            <div className={m.rigNetwork ? s.thumb : s.thumbListed}>{m.initials}</div>
+            <div className={m.rigNetwork ? s.thumb : s.thumbListed}>
+              {m.avatarUrl ? <img src={m.avatarUrl} alt={m.name} /> : m.initials}
+            </div>
             <div className={s.cinfo}>
               <div className={s.cname}>
                 {m.name}
@@ -99,6 +101,7 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
                 ) : (
                   <span className={s.tagListed}>Listed shop</span>
                 )}
+                {m.insured && <span className={s.tagVerified}>✓ Insured</span>}
               </div>
               <div className={s.cmeta}>
                 <span className={s.thumbs}>👍 {m.thumbsUpPct}%</span> ({m.ratingCount}) · {m.distanceMi} mi ·{' '}
@@ -106,6 +109,8 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
               </div>
               <div className={s.cmetrics}>
                 {m.jobsCompleted} jobs · {m.fixRatePct}% fix rate · {m.onTimePct}% on time
+                {m.hourlyRate ? ` · $${m.hourlyRate}/hr` : ''}
+                {m.avgResponseMin ? ` · responds ~${m.avgResponseMin} min` : ''}
               </div>
               <div className={s.svc}>
                 {m.services.map((svc) => (

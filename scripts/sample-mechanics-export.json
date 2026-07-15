@@ -21,7 +21,25 @@
       "totalRatings": 212,
       "completedJobs": 540,
       "percentFixed": 94,
-      "percentOnTime": 96
+      "percentOnTime": 96,
+      "standardHourlyRate": 155,
+      "afterHoursHourlyRate": 180,
+      "avgResponseMin": 6,
+      "insured": true,
+      "calloutDetails": {
+        "laborIncluded": true,
+        "mileageIncluded": true,
+        "diagnosisIncluded": true,
+        "hoursIncluded": 1
+      },
+      "makesServiced": [
+        "Freightliner",
+        "Kenworth",
+        "Peterbilt",
+        "Volvo"
+      ],
+      "memberSince": 2022,
+      "profileImageUrl": "https://storage.googleapis.com/rig-avatars/mech_sample_001.jpg"
     },
     {
       "id": "mech_sample_002",
@@ -40,7 +58,23 @@
       "totalRatings": 156,
       "completedJobs": 310,
       "percentFixed": 92,
-      "percentOnTime": 95
+      "percentOnTime": 95,
+      "standardHourlyRate": 140,
+      "afterHoursHourlyRate": 165,
+      "avgResponseMin": 9,
+      "insured": true,
+      "calloutDetails": {
+        "laborIncluded": false,
+        "mileageIncluded": true,
+        "diagnosisIncluded": true,
+        "hoursIncluded": 0
+      },
+      "makesServiced": [
+        "Freightliner",
+        "International",
+        "Mack"
+      ],
+      "memberSince": 2023
     },
     {
       "id": "mech_sample_003",
@@ -59,7 +93,8 @@
       "totalRatings": 61,
       "completedJobs": 88,
       "percentFixed": 88,
-      "percentOnTime": 90
+      "percentOnTime": 90,
+      "insured": false
     },
     {
       "id": "mech_sample_004",
@@ -77,7 +112,23 @@
       "totalRatings": 44,
       "completedJobs": 130,
       "percentFixed": 95,
-      "percentOnTime": 93
+      "percentOnTime": 93,
+      "standardHourlyRate": 125,
+      "afterHoursHourlyRate": 150,
+      "avgResponseMin": 12,
+      "insured": true,
+      "calloutDetails": {
+        "laborIncluded": true,
+        "mileageIncluded": false,
+        "diagnosisIncluded": true,
+        "hoursIncluded": 1
+      },
+      "makesServiced": [
+        "Kenworth",
+        "Peterbilt",
+        "Western Star"
+      ],
+      "memberSince": 2021
     }
   ]
 }

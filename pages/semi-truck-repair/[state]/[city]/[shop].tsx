@@ -70,12 +70,15 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
       <div className={s.pageHero}>
         <div className={s.segTabs}>
           {profile.rigNetwork ? <span className={s.tagRig}>RIG network</span> : <span className={s.tagListed}>Listed shop</span>}
+          {profile.insured && <span className={s.tagVerified}>✓ Insured</span>}
           {profile.open247 && <span className={s.tagVerified}>Open 24/7</span>}
+          {profile.memberSince && <span className={s.tagListed}>On RIG since {profile.memberSince}</span>}
         </div>
         <h1>{profile.name}</h1>
         <p className={s.sub}>
           Heavy-duty truck repair · {cityState} area
           {profile.rigNetwork ? ' · dispatchable through RIG' : ''}
+          {profile.avgResponseMin ? ` · responds to dispatch in ~${profile.avgResponseMin} min` : ''}
         </p>
         <StatStrip
           stats={[
@@ -104,9 +107,52 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
           ))}
         </div>
 
+        {(profile.hourlyRate || profile.calloutTerms) && (
+          <>
+            <h2>Rates &amp; call-out</h2>
+            {profile.hourlyRate && (
+              <p>
+                <b>${profile.hourlyRate}/hr</b> standard
+                {profile.afterHoursRate ? (
+                  <>
+                    {' '}
+                    · <b>${profile.afterHoursRate}/hr</b> after hours
+                  </>
+                ) : null}
+              </p>
+            )}
+            {profile.calloutTerms && (
+              <div className={s.hiwCallout}>
+                <b>Call-out fee includes:</b>{' '}
+                {[
+                  profile.calloutTerms.diagnosisIncluded && 'diagnosis',
+                  profile.calloutTerms.mileageIncluded && 'mileage / drive time',
+                  profile.calloutTerms.laborIncluded &&
+                    `labor${profile.calloutTerms.hoursIncluded ? ` (first ${profile.calloutTerms.hoursIncluded} hr)` : ''}`,
+                ]
+                  .filter(Boolean)
+                  .join(' · ') || 'terms provided with the bid'}
+                . The call-out fee is the industry-standard charge to come to you — every RIG bid shows it upfront.
+              </div>
+            )}
+          </>
+        )}
+
+        {profile.makesServiced && profile.makesServiced.length > 0 && (
+          <>
+            <h2>Works on</h2>
+            <div className={s.svc} style={{ marginTop: 8 }}>
+              {profile.makesServiced.map((make) => (
+                <span key={make}>{make}</span>
+              ))}
+            </div>
+          </>
+        )}
+
         <h2>Details</h2>
         <p>
           Based in the {profile.homeCityName} area · {profile.open247 ? 'Open 24/7' : 'Business hours'}
+          {profile.serviceRadiusMi ? ` · serves a ~${profile.serviceRadiusMi} mi radius` : ''}
           {profile.directPhone ? (
             <>
               {' '}

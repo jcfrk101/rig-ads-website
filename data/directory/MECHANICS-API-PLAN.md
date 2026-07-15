@@ -48,7 +48,18 @@ build, not per page view. Even 50k mechanics is a few MB.
       "percentOnTime": 96,              // % of ratings with ServiceRating.isOnTime
       "open247": true,
       "network": "rig",                 // "rig" = dispatchable | "listed" = directory-only
-      "phone": "+12145550148"           // optional; used later for shop detail pages
+      "phone": "+12145550148",          // optional; shown only for listed shops
+      "profileImageUrl": "https://...", // optional; User.profileImageUrl
+      "standardHourlyRate": 155,        // optional; ShopRates.standard_hourly_rate, USD
+      "afterHoursHourlyRate": 180,      // optional; ShopRates.after_hours_hourly_rate
+      "avgResponseMin": 6,              // optional; avg minutes request→offer (MechanicOffer aggregate)
+      "insured": true,                  // optional; Insurance confirmed + validThru in date
+      "calloutDetails": {               // optional; Workshop CalloutDetails (call-out fee terms)
+        "laborIncluded": true, "mileageIncluded": true,
+        "diagnosisIncluded": true, "hoursIncluded": 1
+      },
+      "makesServiced": ["Freightliner", "Kenworth"],  // optional; top ServiceRating.servicedMake
+      "memberSince": 2022               // optional; year of User.createdDate
     }
   ]
 }

@@ -13,6 +13,9 @@ import { CITIES, CORRIDORS } from './index'
 
 // Ratings model matches the RIG mechanics DB today: thumbs up/down %, jobs
 // completed, fix rate, and timeliness. Google reviews may be layered in later.
+// Field provenance is rig-web-services: ShopRates, CalloutDetails, Insurance,
+// User.profileImageUrl/createdDate, ServiceRating.servicedMake, MechanicOffer
+// response-time aggregates.
 export interface MechanicListing {
   id: string
   name: string
@@ -28,6 +31,19 @@ export interface MechanicListing {
   rigNetwork: boolean // true = dispatchable RIG mechanic; false = listed shop only
   open247: boolean
   profilePath?: string // /semi-truck-repair/<state>/<home-city>/<slug>/
+  avatarUrl?: string // User.profileImageUrl
+  hourlyRate?: number // ShopRates.standard_hourly_rate, USD
+  avgResponseMin?: number // avg minutes from request to their offer
+  insured?: boolean // Insurance confirmed + in date
+}
+
+// Call-out fee terms (Workshop CalloutDetails) — what the industry-standard
+// call-out charge includes for this mechanic.
+export interface CalloutTerms {
+  laborIncluded?: boolean
+  mileageIncluded?: boolean
+  diagnosisIncluded?: boolean
+  hoursIncluded?: number
 }
 
 // Profile page data: the mechanic-level record behind a listing, anchored to
@@ -37,6 +53,11 @@ export interface MechanicProfile extends MechanicListing {
   homeCitySlug: string
   homeCityName: string
   directPhone?: string // listed shops only — shown per the all-data-honest model
+  afterHoursRate?: number // ShopRates.after_hours_hourly_rate, USD
+  calloutTerms?: CalloutTerms
+  serviceRadiusMi?: number
+  makesServiced?: string[] // top makes from ServiceRating.servicedMake
+  memberSince?: number // year, from User.createdDate
 }
 
 export const slugifyMechanic = (name: string, id: string) =>
@@ -103,6 +124,9 @@ function build(key: string, count: number, localName: string, profileBase?: stri
       services,
       rigNetwork,
       open247: rnd() > 0.35,
+      hourlyRate: 115 + Math.floor(rnd() * 12) * 5, // $115–$170 in $5 steps
+      avgResponseMin: 4 + Math.floor(rnd() * 14),
+      insured: rnd() > 0.25,
     })
   }
   return out.sort((a, b) => Number(b.rigNetwork) - Number(a.rigNetwork) || a.etaMin - b.etaMin)
@@ -173,5 +197,24 @@ export function getProfile(state: string, citySlug: string, shopSlug: string): M
     m.profilePath?.endsWith(`/${shopSlug}/`)
   )
   if (!listing) return null
-  return { ...listing, homeState: state, homeCitySlug: citySlug, homeCityName: city.name }
+  // mock profile extras, deterministic per mechanic
+  const rnd = seed(listing.id)
+  const MAKES = ['Freightliner', 'Kenworth', 'Peterbilt', 'Volvo', 'International', 'Mack', 'Western Star']
+  const makesServiced = MAKES.filter(() => rnd() > 0.5).slice(0, 5)
+  return {
+    ...listing,
+    homeState: state,
+    homeCitySlug: citySlug,
+    homeCityName: city.name,
+    afterHoursRate: (listing.hourlyRate || 140) + 25,
+    calloutTerms: {
+      laborIncluded: rnd() > 0.4,
+      mileageIncluded: rnd() > 0.3,
+      diagnosisIncluded: true,
+      hoursIncluded: 1,
+    },
+    serviceRadiusMi: 30 + Math.floor(rnd() * 9) * 5,
+    makesServiced: makesServiced.length ? makesServiced : ['Freightliner', 'Kenworth'],
+    memberSince: 2021 + Math.floor(rnd() * 4),
+  }
 }
