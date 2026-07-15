@@ -6,7 +6,7 @@ import url from 'url'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const DATA_DIR = path.join(__dirname, '..', 'data', 'directory')
-const ORIGIN = 'https://www.bigrig.app'
+const ORIGIN = 'https://bigrig.app'
 const SEGMENT = 'semi-truck-repair'
 
 const allCities = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'cities.json'), 'utf8'))

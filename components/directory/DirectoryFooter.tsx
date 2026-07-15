@@ -25,7 +25,7 @@ const TOP_CITIES = [...CITIES]
   .sort((a, b) => b.population - a.population)
   .slice(0, 8)
 
-const MAIN_SITE = 'https://www.bigrig.app'
+const MAIN_SITE = 'https://bigrig.app'
 
 export default function DirectoryFooter() {
   const phone = usePhone()

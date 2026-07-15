@@ -38,7 +38,7 @@ const MarketingPageShell: FunctionComponent<MarketingPageShellProps> = ({ pageTi
             padding: isMobile ? '24px 20px' : '28px 48px',
           }}
         >
-          <Box component="a" href="https://www.bigrig.app" style={{ display: 'inline-flex' }}>
+          <Box component="a" href="https://bigrig.app" style={{ display: 'inline-flex' }}>
             <img
               src="/static/icons/logo-full.svg"
               alt="RIG Logo"

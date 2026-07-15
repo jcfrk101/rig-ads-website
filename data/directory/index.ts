@@ -7,7 +7,7 @@ import statesJson from './states.json'
 import statsJson from './stats.json'
 import corridorMetaJson from './corridor-meta.json'
 
-export const SITE_ORIGIN = 'https://www.bigrig.app'
+export const SITE_ORIGIN = 'https://bigrig.app'
 export const SEGMENT = 'semi-truck-repair'
 export const DISPATCH_PHONE_DISPLAY = '1-855-744-2223'
 export const DISPATCH_PHONE_TEL = 'tel:18557442223'

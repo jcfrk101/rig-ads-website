@@ -76,8 +76,8 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
             <Link href={`/${SEGMENT}/how-it-works/`}>
               <a>How It Works</a>
             </Link>
-            <a href="https://www.bigrig.app/fleets">For Fleets</a>
-            <a href="https://www.bigrig.app/join">Join as Mechanic</a>
+            <a href="https://bigrig.app/fleets">For Fleets</a>
+            <a href="https://bigrig.app/join">Join as Mechanic</a>
           </nav>
           <a className={s.navCta} href={pagePhone.tel} onClick={fireCallConversion}>
             ☎ {pagePhone.display}
