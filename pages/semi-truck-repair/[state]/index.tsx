@@ -84,9 +84,7 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
         <div className={s.linkGrid}>
           {cities.map((c) => (
             <Link key={c.citySlug} href={cityPath(c)}>
-              <a className={s.linkCard}>
-                {c.name} <small>{c.population > 0 ? `${Math.round(c.population / 1000)}k` : ''}</small>
-              </a>
+              <a className={s.linkCard}>{c.name}</a>
             </Link>
           ))}
         </div>
