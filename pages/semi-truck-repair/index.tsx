@@ -16,6 +16,7 @@ import {
   routePath,
 } from '../../data/directory'
 import { isCityCovered, isRouteCovered, isStateCovered } from '../../data/directory/mechanics'
+import { DIRECTORY_SERVICES, servicePath } from '../../data/directory/services'
 
 export default function SemiHub() {
   const coveredCities = CITIES.filter((c) => isCityCovered(c.state, c.citySlug))
@@ -66,6 +67,15 @@ export default function SemiHub() {
       <DispatchExplainer pageKey="hub" />
 
       <div className={s.hubSection}>
+        <div className={s.secTitle}>Services we dispatch</div>
+        <div className={s.chipRow}>
+          {DIRECTORY_SERVICES.map((svc) => (
+            <Link key={svc.slug} href={servicePath(svc.slug)}>
+              <a className={s.chip}>{svc.name}</a>
+            </Link>
+          ))}
+        </div>
+
         <div className={s.secTitle}>Semi truck repair by state</div>
         <div className={s.linkGrid}>
           {states.map((st) => (

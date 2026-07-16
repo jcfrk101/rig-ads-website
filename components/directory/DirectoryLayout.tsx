@@ -70,6 +70,9 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
             <Link href={`/${SEGMENT}/`}>
               <a>Semi Truck Repair</a>
             </Link>
+            <Link href={`/${SEGMENT}/services/`}>
+              <a>Services</a>
+            </Link>
             <Link href={`/${SEGMENT}/corridors/`}>
               <a>Corridors</a>
             </Link>

@@ -25,9 +25,14 @@ if (realMode)
     `coverage gate ON: ${cities.length}/${allCities.length} cities, ${corridors.length}/${allCorridors.length} corridors`
   )
 
+const SERVICE_SLUGS = ['tire-change', 'mobile-repair', 'towing', 'preventive-maintenance',
+  'air-brakes', 'jump-start', 'dpf-regen', 'trailer-repair', 'reefer-repair'] // keep in sync with data/directory/services.ts
+
 const urls = [
   { loc: `/${SEGMENT}/`, priority: '1.0' },
   { loc: `/${SEGMENT}/how-it-works/`, priority: '0.9' },
+  { loc: `/${SEGMENT}/services/`, priority: '0.8' },
+  ...SERVICE_SLUGS.map((s) => ({ loc: `/${SEGMENT}/services/${s}/`, priority: '0.8' })),
   { loc: `/${SEGMENT}/corridors/`, priority: '0.8' },
 ]
 

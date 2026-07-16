@@ -119,6 +119,12 @@ export const getCorridorStats = (route: string, state: string): CorridorStats =>
 export const getCorridorMeta = (route: string, state: string): CorridorMeta | null =>
   CORRIDOR_META[`${route}/${state}`] || null
 
+// NYC boroughs are separate rows in the city data; "top market" lists
+// shouldn't show them next to New York City itself
+export const NYC_BOROUGH_SLUGS = new Set(['brooklyn', 'queens', 'manhattan', 'the-bronx', 'staten-island'])
+export const isBorough = (c: Pick<DirectoryCity, 'state' | 'citySlug'>) =>
+  c.state === 'ny' && NYC_BOROUGH_SLUGS.has(c.citySlug)
+
 export const cityPath = (c: Pick<DirectoryCity, 'state' | 'citySlug'>) =>
   `/${SEGMENT}/${c.state}/${c.citySlug}/`
 export const statePath = (state: string) => `/${SEGMENT}/${state}/`

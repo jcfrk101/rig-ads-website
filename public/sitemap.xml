@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bigrig.app/semi-truck-repair/</loc><priority>1.0</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/how-it-works/</loc><priority>0.9</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/tire-change/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/mobile-repair/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/towing/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/preventive-maintenance/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/air-brakes/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/jump-start/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/dpf-regen/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/trailer-repair/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/reefer-repair/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ak/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/</loc><priority>0.8</priority></url>

@@ -4,6 +4,7 @@ import {
   CITIES,
   STATES,
   SEGMENT,
+  isBorough,
   statePath,
   cityPath,
   routePath,
@@ -17,11 +18,8 @@ import { isCityCovered, isRouteCovered, isStateCovered } from '../../data/direct
 // hubs and a handful of top markets, not everything.
 const TOP_STATE_CODES = ['tx', 'ca', 'fl', 'il', 'ny', 'pa', 'ga', 'oh'].filter(isStateCovered)
 const TOP_ROUTES = ['i-95', 'i-80', 'i-10', 'i-40', 'i-70', 'i-75'].filter(isRouteCovered)
-// NYC boroughs are separate rows in the city data; the footer shouldn't list
-// them next to New York City itself
-const BOROUGHS = new Set(['brooklyn', 'queens', 'bronx', 'manhattan', 'staten-island'])
 const TOP_CITIES = [...CITIES]
-  .filter((c) => !(c.state === 'ny' && BOROUGHS.has(c.citySlug)) && isCityCovered(c.state, c.citySlug))
+  .filter((c) => !isBorough(c) && isCityCovered(c.state, c.citySlug))
   .sort((a, b) => b.population - a.population)
   .slice(0, 8)
 
@@ -49,6 +47,9 @@ export default function DirectoryFooter() {
           <div className={s.bigFooterHead}>Directory</div>
           <Link href={`/${SEGMENT}/`}>
             <a>All states</a>
+          </Link>
+          <Link href={`/${SEGMENT}/services/`}>
+            <a>All services</a>
           </Link>
           {TOP_STATE_CODES.filter((c) => STATES[c]).map((c) => (
             <Link key={c} href={statePath(c)}>
