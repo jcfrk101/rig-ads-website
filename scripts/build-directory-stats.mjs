@@ -39,6 +39,9 @@ const stats = {
     avgArrivalMin: 47,
     avgCostUsd: 465,
     costVsIndustryPct: -29,
+    // % of jobs fixed on site (no tow) — replace with the real network-wide
+    // ServiceRating.isFixed aggregate; drives the "don't tow" copy
+    fixRatePct: 93,
   },
   states: {},
   cities: {},

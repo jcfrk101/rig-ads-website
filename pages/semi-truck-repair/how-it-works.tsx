@@ -66,6 +66,15 @@ export default function HowItWorksPage() {
           {NATIONAL_STATS.avgArrivalMin} minutes to arrive.
         </p>
 
+        <h2>Don&apos;t tow it — fix it where it sits</h2>
+        <p>
+          A tow should be the last resort, not the first call. Most breakdowns — tires, air lines, electrical,
+          fuel, sensors, brakes — get fixed right on the shoulder: RIG mechanics&apos; fix rate runs{' '}
+          {NATIONAL_STATS.fixRatePct}% of dispatched jobs. A tow adds hours of waiting, hundreds of dollars, and
+          you still pay a shop on the other end. Call dispatch first; if the job genuinely needs a shop, the
+          mechanic tells you straight and you&apos;ve lost nothing.
+        </p>
+
         <h2>What to have ready when you call</h2>
         <p>
           Your location (exit number, mile marker, or a GPS pin), what the truck was doing when it quit, any

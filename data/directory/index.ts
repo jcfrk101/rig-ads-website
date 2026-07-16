@@ -76,6 +76,7 @@ const stats = statsJson as unknown as {
     avgArrivalMin: number
     avgCostUsd: number
     costVsIndustryPct: number
+    fixRatePct: number
   }
   states: Record<string, CityStats>
   cities: Record<string, CityStats>

@@ -7,7 +7,8 @@
   "avgDispatchMin": 14,
   "avgArrivalMin": 47,
   "avgCostUsd": 465,
-  "costVsIndustryPct": -29
+  "costVsIndustryPct": -29,
+  "fixRatePct": 93
  },
  "states": {
   "ak": {

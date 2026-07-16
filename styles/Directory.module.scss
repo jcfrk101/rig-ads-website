@@ -216,7 +216,7 @@ $star: #e8a93a;
 
 /* ============ dispatch banner ============ */
 .dispatchBanner {
-  margin: 18px 22px 0;
+  margin: 18px 22px;
   background: $steel;
   border-radius: 12px;
   padding: 18px 20px;
@@ -808,8 +808,7 @@ $star: #e8a93a;
 
 /* ============ dispatch explainer band (non-listing pages) ============ */
 .explainer {
-  padding: 20px 22px 24px;
-  border-top: 1px solid $line;
+  padding: 4px 22px 24px;
 }
 .photoStrip {
   display: grid;
@@ -838,7 +837,7 @@ $star: #e8a93a;
   margin: 10px 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   @media (max-width: 900px) {
     grid-template-columns: 1fr 1fr;
@@ -863,6 +862,16 @@ $star: #e8a93a;
       color: $muted;
       line-height: 1.5;
     }
+  }
+}
+.explainerNote {
+  margin: 14px 0 0;
+  font-size: 13.5px;
+  color: $muted;
+  line-height: 1.6;
+  max-width: 720px;
+  b {
+    color: $ink;
   }
 }
 .explainerCta {
