@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import s from '../../styles/Directory.module.scss'
 import { pickPhotos } from '../../data/directory/images'
-import { NATIONAL_STATS } from '../../data/directory'
-import HowItWorksLink, { HOW_IT_WORKS_PATH } from './HowItWorks'
+import { HOW_IT_WORKS_PATH } from './HowItWorks'
 import { usePhone } from './PhoneContext'
 import { fireCallConversion } from '../../utils/gtag'
 
@@ -58,12 +57,6 @@ export default function DispatchExplainer({ pageKey, placeName }: Props) {
           </li>
         ))}
       </ol>
-
-      <p className={s.explainerNote}>
-        <b>Don&apos;t call a tow first.</b> Most breakdowns get fixed right where the truck sits — RIG mechanics&apos;
-        fix rate runs {NATIONAL_STATS.fixRatePct}% — and a tow adds hours and hundreds of dollars.{' '}
-        <HowItWorksLink>See the full process →</HowItWorksLink>
-      </p>
 
       <div className={s.explainerCta}>
         <a className={s.dispatchBtn} href={phone.tel} onClick={fireCallConversion}>
