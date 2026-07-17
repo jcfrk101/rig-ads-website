@@ -140,7 +140,7 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
 
         {profile.makesServiced && profile.makesServiced.length > 0 && (
           <>
-            <h2>Works on</h2>
+            <h2>Previous jobs</h2>
             <div className={s.svc} style={{ marginTop: 8 }}>
               {profile.makesServiced.map((make) => (
                 <span key={make}>{make}</span>
