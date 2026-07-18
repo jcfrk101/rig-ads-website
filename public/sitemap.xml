@@ -13,7 +13,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/services/trailer-repair/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/services/reefer-repair/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/</loc><priority>0.8</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ar/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/az/</loc><priority>0.8</priority></url>
@@ -24,7 +23,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/de/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/fl/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ga/</loc><priority>0.8</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/id/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/il/</loc><priority>0.8</priority></url>
@@ -117,8 +115,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-94/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-95/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-96/</loc><priority>0.7</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/anchorage/</loc><priority>0.7</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/eagle-river/</loc><priority>0.6</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/huntsville/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/birmingham/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/montgomery/</loc><priority>0.7</priority></url>
@@ -819,15 +815,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/ga/tucker/</loc><priority>0.6</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ga/carrollton/</loc><priority>0.6</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ga/canton/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/honolulu/</loc><priority>0.7</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/east-honolulu/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/pearl-city/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/makakilo--kapolei--honokai-hale/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/kalihi-palama/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/joint-base-pearl-harbor-hickam/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/aliamanu--salt-lakes--foster-village/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/kailua/</loc><priority>0.6</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/waipahu/</loc><priority>0.6</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/des-moines/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/cedar-rapids/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/davenport/</loc><priority>0.7</priority></url>
@@ -2562,7 +2549,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/ny/auburn/janda-arctic-acres-llc-5e7/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/nh/derry-village/forrest-industries-5e1/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/mn/moorhead/up-north-field-service-5dd/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/pearl-city/js-mobile-diesel-repair-5db/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/az/kingman/western-arizona-truck-and-auto-repair-3vs/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/thousand-oaks/jm-welding-and-heavy-repair-3v0/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/nv/henderson/jettr-llc-38o/</loc><priority>0.5</priority></url>
@@ -2711,7 +2697,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/tx/wichita-falls/swisher-field-service-1wu/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/nc/gastonia/on-the-go-fleet-service-1b5/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/pa/williamsport/sheks-heavy-duty-repair-1ag/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/anchorage/gold-standard-diesel-and-fleet-llc-19f/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/santa-maria/valerios-diesel-mobile-repair-17s/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ny/amherst/cb-truck-service-170/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/az/maricopa/anytime-mobile-repair-16v/</loc><priority>0.5</priority></url>
@@ -2780,7 +2765,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/al/dothan/mobile-tech-m6/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/bakersfield/sandm-diesel-and-trailer-repair-l4/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/mi/lansing/shawn-s-1h/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/anchorage/jasons-auto-and-mobile-services-1g/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/id/rexburg/hope-automotive-7ph/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/sioux-city/tds-7pf/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ok/shawnee/randr-mobile-truck-service-7om/</loc><priority>0.5</priority></url>
@@ -2963,7 +2947,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/fl/cooper-city/n-a-710/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/co/wheat-ridge/the-mapogos-6c3/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/indio/p-and-v-diesel-67s/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/pearl-city/mobile-5lg/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/mn/owatonna/tire-house-5ip/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ut/herriman/tlr-4ve/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/mo/saint-peters/hawkins-systems-co-43w/</loc><priority>0.5</priority></url>
@@ -3962,7 +3945,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/tx/austin/georgetown-tire-repair-5vh/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/tx/victoria/ace-fleet-services-5uk/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/tx/victoria/lerma-s-24hr-road-service-5um/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/eagle-river/self-employed-mobile-mechanic-5ui/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/tx/mission/christian-mechanic-llc-5uj/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/mi/holland/castillo-repair-5uh/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/il/oswego/btcc-mobile-repair-service-5tq/</loc><priority>0.5</priority></url>
@@ -4463,7 +4445,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/ca/simi-valley/friendly-mobile-mechanic-xn/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/thousand-oaks/friendly-mobile-mechanic-x1/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/desert-hot-springs/gustavo-s-truck-repair-wv/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/hi/honolulu/done-right-diesel-wu/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/banning/diamond-diesel-mobile-repair-w6/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ca/hesperia/mgd-truck-repair-w2/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ga/tucker/dixon-s-mobile-services-llc-w3/</loc><priority>0.5</priority></url>
@@ -5251,7 +5232,6 @@
   <url><loc>https://bigrig.app/semi-truck-repair/ia/cedar-rapids/do-s-truck-and-trailer-repair-2hg/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/des-moines/a-and-a-truck-and-trailer-repair-2he/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/id/pocatello/caribou-mobile-repair-services-2hd/</loc><priority>0.5</priority></url>
-  <url><loc>https://bigrig.app/semi-truck-repair/ak/anchorage/bowey-s-mobile-repair-2gr/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/id/twin-falls/freeway-service-2gq/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/id/caldwell/jac-mobile-repair-2gp/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/des-moines/a1-mobile-2gm/</loc><priority>0.5</priority></url>

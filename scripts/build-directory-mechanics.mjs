@@ -27,6 +27,11 @@ const OUT = argVal('--out') || path.join(DATA_DIR, 'mechanics.json')
 const CITY_CAP = 12
 const CORRIDOR_CAP = 10
 const MAX_RADIUS_MI = 75 // cap a mechanic's own serviceRadiusMi for matching
+
+// Launch policy (Josh, 2026-07-18): lower 48 + DC only. AK/HI have a handful
+// of signups (4 AK, 3 HI in the first export) — too thin to promise coverage.
+// Remove a state here to reinstate it; the coverage gate does the rest.
+const EXCLUDED_STATES = new Set(['ak', 'hi'])
 const ETA_MPH = 45
 const ETA_PREP_MIN = 10
 
@@ -180,6 +185,7 @@ let covered = 0
 const homeCandidate = new Map() // mechanicId -> {city, distanceMi}
 
 for (const c of cities) {
+  if (EXCLUDED_STATES.has(c.state)) continue
   const listings = pickForPoint(exp.mechanics, c.lat, c.lng, CITY_CAP)
   out.pages[`${c.state}/${c.citySlug}`] = listings
   if (listings.length) covered++
@@ -212,6 +218,7 @@ function distToSegmentMi(pLat, pLng, aLat, aLng, bLat, bLng) {
 
 for (const [key, meta] of Object.entries(corridorMeta)) {
   const state = key.split('/').pop()
+  if (EXCLUDED_STATES.has(state)) continue
   const waypoints = (meta.citiesAlong || [])
     .map((slug) => cityByKey.get(`${state}/${slug}`))
     .filter(Boolean)
