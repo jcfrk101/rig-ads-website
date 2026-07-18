@@ -46,6 +46,8 @@ export const SERVICE_LABELS = {
 const serviceLabel = (slug) =>
   SERVICE_LABELS[slug] || slug.replace(/[-_]/g, ' ').replace(/^./, (c) => c.toUpperCase())
 
+const saneRate = (r) => typeof r === 'number' && r >= 50 && r <= 500
+
 // mirror of slugifyMechanic in data/directory/mechanics.ts — keep in sync
 const slugifyMechanic = (name, id) =>
   name
@@ -149,9 +151,11 @@ function toListing(m, distanceMi) {
     services: m.services.map(serviceLabel),
     rigNetwork: m.network === 'rig',
     open247: Boolean(m.open247),
-    // optional enrichments (see MECHANICS-API-PLAN.md schema for provenance)
+    // optional enrichments (see MECHANICS-API-PLAN.md schema for provenance).
+    // Rates outside a sane display band are omitted, not shown — the first
+    // real export had 13 outliers from \$1/hr to \$15,000/hr.
     ...(m.profileImageUrl ? { avatarUrl: m.profileImageUrl } : {}),
-    ...(m.standardHourlyRate ? { hourlyRate: m.standardHourlyRate } : {}),
+    ...(saneRate(m.standardHourlyRate) ? { hourlyRate: m.standardHourlyRate } : {}),
     ...(m.avgResponseMin ? { avgResponseMin: Math.round(m.avgResponseMin) } : {}),
     ...(m.insured != null ? { insured: Boolean(m.insured) } : {}),
   }
@@ -267,7 +271,7 @@ for (const m of exp.mechanics) {
     // mechanics are reached through dispatch only
     ...(m.network === 'listed' && m.phone ? { directPhone: m.phone } : {}),
     // profile-only enrichments
-    ...(m.afterHoursHourlyRate ? { afterHoursRate: m.afterHoursHourlyRate } : {}),
+    ...(saneRate(m.afterHoursHourlyRate) ? { afterHoursRate: m.afterHoursHourlyRate } : {}),
     ...(m.calloutDetails ? { calloutTerms: m.calloutDetails } : {}),
     ...(m.serviceRadiusMi ? { serviceRadiusMi: m.serviceRadiusMi } : {}),
     ...(Array.isArray(m.makesServiced) && m.makesServiced.length ? { makesServiced: m.makesServiced } : {}),
