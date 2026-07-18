@@ -104,13 +104,23 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
                 {m.insured && <span className={s.tagVerified}>✓ Insured</span>}
               </div>
               <div className={s.cmeta}>
-                <span className={s.thumbs}>👍 {m.thumbsUpPct}%</span> ({m.ratingCount}) · {m.distanceMi} mi ·{' '}
-                {m.open247 ? 'Open 24/7' : 'Business hours'}
+                {m.ratingCount > 0 ? (
+                  <>
+                    <span className={s.thumbs}>👍 {m.thumbsUpPct}%</span> ({m.ratingCount}) ·{' '}
+                  </>
+                ) : null}
+                {m.distanceMi} mi · {m.open247 ? 'Open 24/7' : 'Business hours'}
               </div>
               <div className={s.cmetrics}>
-                {m.jobsCompleted} jobs · {m.fixRatePct}% fix rate · {m.onTimePct}% on time
-                {m.hourlyRate ? ` · $${m.hourlyRate}/hr` : ''}
-                {m.avgResponseMin ? ` · responds ~${m.avgResponseMin} min` : ''}
+                {[
+                  m.jobsCompleted > 0 ? `${m.jobsCompleted} jobs` : 'New to RIG',
+                  m.ratingCount > 0 && m.fixRatePct > 0 ? `${m.fixRatePct}% fix rate` : null,
+                  m.ratingCount > 0 && m.onTimePct > 0 ? `${m.onTimePct}% on time` : null,
+                  m.hourlyRate ? `$${m.hourlyRate}/hr` : null,
+                  m.avgResponseMin ? `responds ~${m.avgResponseMin} min` : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
               </div>
               <div className={s.svc}>
                 {m.services.map((svc) => (

@@ -34,7 +34,11 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
   const path = `/${SEGMENT}/${profile.homeState}/${profile.homeCitySlug}/${profile.profilePath!.split('/').filter(Boolean).pop()}/`
   const cityState = `${profile.homeCityName}, ${profile.homeState.toUpperCase()}`
   const title = `${profile.name} — Truck Repair in ${cityState} | RIG`
-  const description = `${profile.name}: ${profile.services.join(', ').toLowerCase()} in the ${profile.homeCityName} area. 👍 ${profile.thumbsUpPct}% satisfied (${profile.ratingCount} ratings), ${profile.jobsCompleted} jobs completed. ${profile.rigNetwork ? `Dispatch via RIG: ${phone.display}.` : 'Listed shop.'}`
+  const description = `${profile.name}: ${profile.services.join(', ').toLowerCase()} in the ${profile.homeCityName} area.${
+    profile.ratingCount > 0
+      ? ` 👍 ${profile.thumbsUpPct}% satisfied (${profile.ratingCount} ratings), ${profile.jobsCompleted} jobs completed.`
+      : ''
+  } ${profile.rigNetwork ? `Dispatch via RIG: ${phone.display}.` : 'Listed shop.'}`
 
   const jsonLd = [
     {
@@ -81,12 +85,21 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
           {profile.avgResponseMin ? ` · responds to dispatch in ~${profile.avgResponseMin} min` : ''}
         </p>
         <StatStrip
-          stats={[
-            { label: 'Thumbs up', value: `👍 ${profile.thumbsUpPct}%`, note: `${profile.ratingCount} ratings` },
-            { label: 'Jobs completed', value: String(profile.jobsCompleted) },
-            { label: 'Fix rate', value: `${profile.fixRatePct}%` },
-            { label: 'On time', value: `${profile.onTimePct}%` },
-          ]}
+          stats={
+            profile.ratingCount > 0
+              ? [
+                  { label: 'Thumbs up', value: `👍 ${profile.thumbsUpPct}%`, note: `${profile.ratingCount} ratings` },
+                  { label: 'Jobs completed', value: String(profile.jobsCompleted) },
+                  { label: 'Fix rate', value: `${profile.fixRatePct}%` },
+                  { label: 'On time', value: `${profile.onTimePct}%` },
+                ]
+              : [
+                  { label: 'Jobs completed', value: profile.jobsCompleted > 0 ? String(profile.jobsCompleted) : 'New to RIG' },
+                  { label: 'Ratings', value: 'None yet' },
+                  { label: 'Availability', value: profile.open247 ? '24/7' : 'Business hrs' },
+                  { label: 'Dispatch', value: 'Via RIG' },
+                ]
+          }
         />
       </div>
 
@@ -165,7 +178,9 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
         </p>
         <p>
           {profile.rigNetwork
-            ? `${profile.name} is part of the RIG network: ${profile.jobsCompleted} completed jobs, ${profile.thumbsUpPct}% thumbs-up across ${profile.ratingCount} ratings, fixing ${profile.fixRatePct}% of jobs on site and arriving on time ${profile.onTimePct}% of the time.`
+            ? profile.ratingCount > 0
+              ? `${profile.name} is part of the RIG network: ${profile.jobsCompleted} completed jobs, ${profile.thumbsUpPct}% thumbs-up across ${profile.ratingCount} ratings, fixing ${profile.fixRatePct}% of jobs on site and arriving on time ${profile.onTimePct}% of the time.`
+              : `${profile.name} is part of the RIG network and dispatches through RIG. Ratings and job stats appear here as they complete dispatched work.`
             : `${profile.name} is listed for completeness. For an active breakdown, RIG dispatch finds the closest available network mechanic.`}
         </p>
       </div>

@@ -92,20 +92,36 @@ async function loadExport() {
   }
 }
 
+// A handful of bad rows must not kill the nightly build: invalid mechanics
+// are skipped with a report, and we only abort if the file shape is wrong or
+// nearly everything is invalid.
 function validate(exp) {
   if (!exp || exp.version !== 1 || !Array.isArray(exp.mechanics))
     throw new Error('export must be {version: 1, mechanics: [...]}')
-  const bad = exp.mechanics.filter(
-    (m) =>
-      !m.id ||
-      !m.name ||
-      typeof m.baseLat !== 'number' ||
-      typeof m.baseLng !== 'number' ||
-      !Array.isArray(m.services) ||
-      !['rig', 'listed'].includes(m.network)
-  )
-  if (bad.length)
-    throw new Error(`${bad.length} mechanics missing required fields (first: ${JSON.stringify(bad[0]).slice(0, 120)})`)
+
+  const reasons = new Map()
+  const skip = (m, reason) => {
+    reasons.set(reason, (reasons.get(reason) || 0) + 1)
+    return false
+  }
+  const ok = exp.mechanics.filter((m) => {
+    if (!m.id) return skip(m, 'missing id')
+    if (!m.name || !String(m.name).trim()) return skip(m, 'empty name')
+    if (typeof m.baseLat !== 'number' || typeof m.baseLng !== 'number') return skip(m, 'missing coords')
+    if (Math.abs(m.baseLat) < 0.5 && Math.abs(m.baseLng) < 0.5) return skip(m, 'null-island coords')
+    if (!Array.isArray(m.services)) return skip(m, 'missing services')
+    if (!['rig', 'listed'].includes(m.network)) return skip(m, 'bad network')
+    return true
+  })
+
+  const skipped = exp.mechanics.length - ok.length
+  if (skipped)
+    console.warn(
+      `skipped ${skipped}/${exp.mechanics.length} invalid mechanics: ${[...reasons.entries()].map(([r, n]) => `${r}=${n}`).join(', ')}`
+    )
+  if (ok.length < exp.mechanics.length * 0.5)
+    throw new Error(`more than half the export is invalid (${skipped}/${exp.mechanics.length}) — refusing to build from it`)
+  exp.mechanics = ok.map((m) => ({ ...m, name: String(m.name).trim() }))
 }
 
 function toListing(m, distanceMi) {
@@ -115,12 +131,14 @@ function toListing(m, distanceMi) {
     name: m.name,
     initials: (words[0][0] + (words[1]?.[0] || '')).toUpperCase(),
     // export uses rig-web-services vocabulary (MechanicRatingResponse /
-    // ServiceRating aggregates); listing uses directory display names
-    thumbsUpPct: Math.round(m.percentSatisfied ?? 0),
+    // ServiceRating aggregates); listing uses directory display names.
+    // Percent fields clamped 0-100 — the 2026-07-17 test export had 31
+    // mechanics with percentSatisfied up to 200 (reported upstream).
+    thumbsUpPct: Math.min(100, Math.max(0, Math.round(m.percentSatisfied ?? 0))),
     ratingCount: m.totalRatings ?? 0,
     jobsCompleted: m.completedJobs ?? 0,
-    fixRatePct: Math.round(m.percentFixed ?? 0),
-    onTimePct: Math.round(m.percentOnTime ?? 0),
+    fixRatePct: Math.min(100, Math.max(0, Math.round(m.percentFixed ?? 0))),
+    onTimePct: Math.min(100, Math.max(0, Math.round(m.percentOnTime ?? 0))),
     distanceMi: Math.round(distanceMi * 10) / 10,
     etaMin: Math.round((distanceMi / ETA_MPH) * 60 + ETA_PREP_MIN),
     services: m.services.map(serviceLabel),
@@ -255,7 +273,8 @@ for (const listings of Object.values(out.pages))
     if (p) l.profilePath = p
   }
 
-fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n')
+// compact — this file is large (thousands of mechanics) and regenerated often
+fs.writeFileSync(OUT, JSON.stringify(out) + '\n')
 console.log(
   `${OUT}: ${exp.mechanics.length} mechanics → ${Object.keys(out.pages).length} pages (${covered}/${cities.length} cities have ≥1 listing), ${Object.keys(out.profiles).length} profiles`
 )
