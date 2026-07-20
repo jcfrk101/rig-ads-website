@@ -55,13 +55,11 @@ the Services owner, then:
 ```bash
 printf '%s' '<TOKEN>' | gcloud secrets create mechanics-export-token \
   --replication-policy=automatic --data-file=-
-
-# Cloud Build's service account must be able to read it
-PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
-gcloud secrets add-iam-policy-binding mechanics-export-token \
-  --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" \
-  --role="roles/secretmanager.secretAccessor"
 ```
+
+(No real token yet? Create it with a placeholder value — builds stay green
+on committed data — and add the real one later with
+`gcloud secrets versions add`. The accessor binding is in §0(a), owner-only.)
 
 Rotating the token later = `gcloud secrets versions add mechanics-export-token --data-file=-`
 (the build always reads `latest`). If the secret is missing or wrong the
