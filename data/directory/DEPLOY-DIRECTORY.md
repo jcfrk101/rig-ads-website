@@ -65,28 +65,10 @@ Rotating the token later = `gcloud secrets versions add mechanics-export-token -
 (the build always reads `latest`). If the secret is missing or wrong the
 build still succeeds — pages ship with the committed mechanics data.
 
-## 2. Create the Cloud Run service (first deploy only)
+## 2. Build trigger on the seo-directory branch
 
-`cloudbuild-directory.yaml` uses `gcloud run services update`, which needs
-the service to exist. Bootstrap it once from any built image (the first
-trigger run's image, or kick one manually):
-
-```bash
-# one manual pipeline run to get an image + create the service:
-gcloud builds submit --config=cloudbuild-directory.yaml . || true  # build+push may succeed, deploy fails (no service yet)
-
-gcloud run deploy rig-directory \
-  --image=us.gcr.io/$PROJECT_ID/rig-ads-website/rig-directory:<COMMIT_SHA-from-the-build> \
-  --region=us-central1 --platform=managed \
-  --memory=512Mi --cpu=1 --min-instances=1
-```
-
-(No `--allow-unauthenticated` — that's a setIamPolicy op; an Owner runs
-§0(c) once after the service exists to make it public.)
-
-After this, the pipeline's update step works on every run.
-
-## 3. Build trigger on the seo-directory branch
+Create the trigger FIRST — it reads cloudbuild-directory.yaml from the
+GitHub repo, so this works from any directory (no local checkout needed):
 
 ```bash
 gcloud builds triggers create github \
@@ -101,6 +83,33 @@ gcloud builds triggers create github \
 this one in the console with the same settings + `cloudbuild-directory.yaml`
 is equivalent. The old trigger stays on main → old service, untouched.)
 
+## 3. First run + create the Cloud Run service (once)
+
+The pipeline's `gcloud run services update` needs the service to exist, so
+the FIRST run's Deploy step fails — expected. Run it, wait, then bootstrap:
+
+```bash
+gcloud builds triggers run rig-directory-deploy --branch=seo-directory
+gcloud builds list --limit=1        # wait for STATUS: the build+push succeed,
+                                    # the Deploy step fails (no service yet)
+
+# resolve the freshly pushed image tag and create the service from it:
+TAG=$(gcloud container images list-tags \
+  us.gcr.io/$PROJECT_ID/rig-ads-website/rig-directory \
+  --sort-by=~timestamp --limit=1 --format='get(tags[0])')
+echo "deploying tag: $TAG"
+
+gcloud run deploy rig-directory \
+  --image=us.gcr.io/$PROJECT_ID/rig-ads-website/rig-directory:$TAG \
+  --region=us-central1 --platform=managed \
+  --memory=512Mi --cpu=1 --min-instances=1
+```
+
+(No `--allow-unauthenticated` — that's a setIamPolicy op; an Owner runs
+§0(c) once after the service exists to make it public.)
+
+After this, every trigger run — push or nightly — deploys end to end.
+
 ## 4. Nightly rebuild (fresh mechanics data daily)
 
 Cloud Scheduler runs the same trigger every night at 03:30 Central (after
@@ -109,7 +118,7 @@ the Services export lands):
 (The service account + its role were created in §0(b).)
 
 ```bash
-TRIGGER_ID=$(gcloud builds triggers describe rig-directory-deploy --format='value(id)')
+TRIGGER_ID=$(gcloud builds triggers describe rig-directory-deploy --format='value(id)')  # trigger from §2
 gcloud scheduler jobs create http rig-directory-nightly \
   --location=us-central1 \
   --schedule="30 3 * * *" --time-zone="America/Chicago" \
