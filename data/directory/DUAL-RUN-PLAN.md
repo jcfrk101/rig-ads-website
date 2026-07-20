@@ -96,4 +96,4 @@ retirement is reversible.
       gating and profile pages armed with real data
 - [ ] GSC property + sitemap submitted
 - [ ] Nightly Cloud Build rebuild trigger
-- [ ] Swap "R" logo mark for real logo-full.svg
+- [x] Real logo-full.svg in header/footer, linked to the apex home

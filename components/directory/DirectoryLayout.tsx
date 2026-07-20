@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode, useEffect } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SITE_ORIGIN, SEGMENT } from '../../data/directory'
+import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion, fireDniConfig } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
@@ -61,11 +61,9 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
 
       <div className={s.frame}>
         <header className={s.nav}>
-          <Link href={`/${SEGMENT}/`}>
-            <a className={s.logo}>
-              <span className={s.logoMark}>R</span> RIG
-            </a>
-          </Link>
+          <a className={s.logo} href={MAIN_SITE}>
+            <img src="/static/icons/logo-full.svg" alt="RIG" />
+          </a>
           <nav className={s.navLinks}>
             <Link href={`/${SEGMENT}/`}>
               <a>Semi Truck Repair</a>

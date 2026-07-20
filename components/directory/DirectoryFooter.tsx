@@ -4,6 +4,7 @@ import {
   CITIES,
   STATES,
   SEGMENT,
+  MAIN_SITE,
   isBorough,
   statePath,
   cityPath,
@@ -23,17 +24,15 @@ const TOP_CITIES = [...CITIES]
   .sort((a, b) => b.population - a.population)
   .slice(0, 8)
 
-const MAIN_SITE = 'https://bigrig.app'
-
 export default function DirectoryFooter() {
   const phone = usePhone()
   return (
     <footer className={s.bigFooter}>
       <div className={s.bigFooterGrid}>
         <div className={s.bigFooterBrand}>
-          <div className={s.logo}>
-            <span className={s.logoMark}>R</span> RIG
-          </div>
+          <a className={s.logo} href={MAIN_SITE}>
+            <img src="/static/icons/logo-full.svg" alt="RIG" />
+          </a>
           <p>
             24/7 mobile semi truck repair, dispatched nationwide. One call sends your breakdown to local
             mechanics who bid back in minutes.

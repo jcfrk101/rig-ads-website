@@ -52,22 +52,11 @@ $star: #e8a93a;
 .logo {
   display: flex;
   align-items: center;
-  gap: 9px;
-  font-weight: 800;
-  font-size: 19px;
-  letter-spacing: 0.5px;
-}
-.logoMark {
-  width: 30px;
-  height: 30px;
-  background: #fff;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $steel;
-  font-weight: 900;
-  font-size: 16px;
+  img {
+    height: 30px;
+    width: auto;
+    display: block;
+  }
 }
 .navLinks {
   display: flex;
