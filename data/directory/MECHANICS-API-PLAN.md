@@ -22,7 +22,10 @@ Rig Services (sister repo)                    This repo
 ## 1. The export (what Rig Services builds)
 
 **DECIDED (2026-07-20): the Services layer serves a daily export at
-`https://api.bigrig.app/directory-export/latest`** (authenticated; the
+`https://api.bigrig.app/directory-export/latest`** — path agreed and wired
+into the build, but **the export job behind it is not generating yet**
+(endpoint currently 401s; builds fall back to the committed data until
+Services ships the job). (Authenticated; the
 directory sends `Authorization: Bearer $MECHANICS_EXPORT_TOKEN`). The
 ingestion script defaults to this URL — every build, including the nightly
 Cloud Build, pulls the latest automatically. Speed is a non-issue: it's read

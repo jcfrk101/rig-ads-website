@@ -122,6 +122,13 @@ After this, every trigger run — push or nightly — deploys end to end.
 
 ## 4. Nightly rebuild (fresh mechanics data daily)
 
+> **Status: the export API is NOT generating yet.** The path
+> (api.bigrig.app/directory-export/latest) is agreed and coded into the
+> build, but the Services job behind it doesn't exist yet. Nightly rebuilds
+> are safe to schedule now (each build just falls back to the committed
+> data) but pointless until the export goes live — fine to defer this step
+> until Services ships the job + real token.
+
 Cloud Scheduler runs the same trigger every night at 03:30 Central (after
 the Services export lands):
 
