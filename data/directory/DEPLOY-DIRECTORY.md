@@ -11,9 +11,11 @@
 export PROJECT_ID=rig-production-337414
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')
 
-# (a) let Cloud Build read the export-token secret — bind BOTH service
-# accounts builds may run as (classic Cloud Build SA and compute default,
-# which newer triggers use):
+# (a) let Cloud Build read the export-token secret — REQUIRED BEFORE THE
+# FIRST BUILD (§3): the pipeline references the secret, and Cloud Build
+# fails the whole build if its service account can't read it. Bind BOTH
+# service accounts builds may run as (classic Cloud Build SA and compute
+# default, which newer triggers use):
 for SA in "${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" \
           "${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"; do
   gcloud secrets add-iam-policy-binding mechanics-export-token \
@@ -84,6 +86,10 @@ this one in the console with the same settings + `cloudbuild-directory.yaml`
 is equivalent. The old trigger stays on main → old service, untouched.)
 
 ## 3. First run + create the Cloud Run service (once)
+
+**Prerequisite: §0(a) must be done first** — without the secret accessor
+binding, the build fails immediately (before pushing any image) and the
+`TAG` lookup below comes back empty.
 
 The pipeline's `gcloud run services update` needs the service to exist, so
 the FIRST run's Deploy step fails — expected. Run it, wait, then bootstrap:
