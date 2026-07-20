@@ -1,0 +1,7 @@
+node_modules
+.next
+.git
+.claude
+*.log
+.env*
+data/directory/mechanics-export.last-good.json

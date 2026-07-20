@@ -84,7 +84,10 @@ retirement is reversible.
 
 ## Launch checklist for the new service (when ready)
 
-- [ ] Cloud Run service `rig-directory` from `seo-directory` branch
+- [ ] Cloud Run service `rig-directory` from `seo-directory` branch —
+      pipeline ready: cloudbuild-directory.yaml + one-time setup runbook
+      in DEPLOY-DIRECTORY.md (secret, service bootstrap, trigger,
+      nightly scheduler)
 - [ ] LB/edge: bigrig.app/semi-truck-repair/* → rig-directory; www → apex
       301; decide /sitemap.xml + robots.txt ownership at the apex
 - [ ] Env: same NEXT_PUBLIC_GTAG_ID as old service; do NOT set
@@ -95,5 +98,6 @@ retirement is reversible.
       api.bigrig.app/directory-export/latest on every build; coverage
       gating and profile pages armed with real data
 - [ ] GSC property + sitemap submitted
-- [ ] Nightly Cloud Build rebuild trigger
+- [ ] Nightly Cloud Build rebuild trigger — commands in
+      DEPLOY-DIRECTORY.md §4
 - [x] Real logo-full.svg in header/footer, linked to the apex home
