@@ -4,6 +4,10 @@
 > most of this but NOT any `*setIamPolicy` operation — those 403. The four
 > IAM commands are collected in §0 for a project **Owner** to run once;
 > everything else works as Editor. Project: `rig-production-337414`.
+>
+> **Status 2026-07-20:** §1 secret created ✓ · §2 trigger created ✓ ·
+> §3 first build run by Josh (Editor) · §0 owner block NOT yet run —
+> shareable owner instructions: see the "GCP owner setup" artifact.
 
 ## 0. Owner-only block (run once by a project Owner)
 
