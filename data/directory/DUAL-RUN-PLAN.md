@@ -88,10 +88,12 @@ retirement is reversible.
 - [ ] LB/edge: bigrig.app/semi-truck-repair/* → rig-directory; www → apex
       301; decide /sitemap.xml + robots.txt ownership at the apex
 - [ ] Env: same NEXT_PUBLIC_GTAG_ID as old service; do NOT set
-      NEXT_PUBLIC_GTAG_CALL_CONVERSION
+      NEXT_PUBLIC_GTAG_CALL_CONVERSION; set MECHANICS_EXPORT_TOKEN
+      (Cloud Build secret) for the daily export fetch
 - [ ] Real stats export replaces placeholder formulas (stats.json)
-- [ ] Mechanics export wired (mechanics.json) — arms coverage gating and
-      profile pages automatically
+- [x] Mechanics export wired — daily pull from
+      api.bigrig.app/directory-export/latest on every build; coverage
+      gating and profile pages armed with real data
 - [ ] GSC property + sitemap submitted
 - [ ] Nightly Cloud Build rebuild trigger
 - [ ] Swap "R" logo mark for real logo-full.svg

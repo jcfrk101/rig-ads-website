@@ -69,15 +69,19 @@ function haversineMi(lat1, lng1, lat2, lng2) {
   return 2 * R * Math.asin(Math.sqrt(a))
 }
 
+// The Services layer drops a daily export behind this endpoint (auth
+// required — set MECHANICS_EXPORT_TOKEN locally and as a Cloud Build
+// secret). Override with MECHANICS_EXPORT_URL or --from-file for testing.
+const DEFAULT_EXPORT_URL = 'https://api.bigrig.app/directory-export/latest'
+
+// Failure chain — a fetch problem must never break a build:
+// live endpoint → last-good cache (gitignored) → keep the committed
+// mechanics.json unchanged → abort only when there is no data at all.
 async function loadExport() {
   const fromFile = argVal('--from-file')
   if (fromFile) return JSON.parse(fs.readFileSync(fromFile, 'utf8'))
 
-  const exportUrl = process.env.MECHANICS_EXPORT_URL
-  if (!exportUrl) {
-    console.error('No --from-file and no MECHANICS_EXPORT_URL set.')
-    process.exit(1)
-  }
+  const exportUrl = process.env.MECHANICS_EXPORT_URL || DEFAULT_EXPORT_URL
   try {
     const res = await fetch(exportUrl, {
       headers: process.env.MECHANICS_EXPORT_TOKEN
@@ -87,14 +91,22 @@ async function loadExport() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const data = await res.json()
     fs.writeFileSync(LAST_GOOD, JSON.stringify(data))
+    console.log(`fetched export from ${exportUrl} (generatedAt ${data.generatedAt || 'unknown'})`)
     return data
   } catch (err) {
-    console.error(`Export fetch failed (${err.message})`)
+    console.error(`Export fetch failed from ${exportUrl} (${err.message})`)
     if (fs.existsSync(LAST_GOOD)) {
       console.error('→ falling back to last good export')
       return JSON.parse(fs.readFileSync(LAST_GOOD, 'utf8'))
     }
-    console.error('→ no last-good export available, aborting')
+    try {
+      const existing = JSON.parse(fs.readFileSync(OUT, 'utf8'))
+      if (existing && existing.pages && Object.keys(existing.pages).length > 0) {
+        console.error('→ no last-good cache; keeping existing mechanics.json unchanged')
+        process.exit(0)
+      }
+    } catch {}
+    console.error('→ no usable data at all, aborting')
     process.exit(1)
   }
 }

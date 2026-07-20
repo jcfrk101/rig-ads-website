@@ -21,10 +21,12 @@ Rig Services (sister repo)                    This repo
 
 ## 1. The export (what Rig Services builds)
 
-One job that dumps every directory-relevant mechanic as JSON, either written
-to a GCS bucket (preferred — survives API downtime, easy to version) or served
-from one authenticated endpoint. Speed is a non-issue: it's read once per
-build, not per page view. Even 50k mechanics is a few MB.
+**DECIDED (2026-07-20): the Services layer serves a daily export at
+`https://api.bigrig.app/directory-export/latest`** (authenticated; the
+directory sends `Authorization: Bearer $MECHANICS_EXPORT_TOKEN`). The
+ingestion script defaults to this URL — every build, including the nightly
+Cloud Build, pulls the latest automatically. Speed is a non-issue: it's read
+once per build, not per page view. Even 50k mechanics is a few MB.
 
 ### Export schema (v1)
 
@@ -116,10 +118,11 @@ under the same rule. Revisit then whether to keep gating at all.
 Full SSG build is ~minutes for 2,500 pages — a nightly rebuild is effectively
 free. Stats (`stats.json`) ride the same rebuild.
 
-**Failure isolation:** the ingestion script keeps the last good export
-(`mechanics-export.last-good.json`, gitignored) and falls back to it if the
-fetch fails — a Rig Services outage at build time can never blank the
-directory; worst case listings are a day stale.
+**Failure isolation:** on fetch failure the ingestion script falls back to
+the last good export (`mechanics-export.last-good.json`, gitignored), then to
+the committed `mechanics.json` unchanged — a Rig Services outage, a bad
+token, or a malformed file can never blank the directory; worst case
+listings are a day stale.
 
 ## 4. Real-time layer (phase 2, optional)
 

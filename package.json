@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "directory:data": "node scripts/build-directory-data.mjs && node scripts/build-directory-stats.mjs && node scripts/build-sitemap.mjs",
+    "directory:data": "node scripts/build-directory-data.mjs && node scripts/build-directory-mechanics.mjs && node scripts/build-directory-stats.mjs && node scripts/build-sitemap.mjs",
     "prebuild": "npm run directory:data"
   },
   "dependencies": {
