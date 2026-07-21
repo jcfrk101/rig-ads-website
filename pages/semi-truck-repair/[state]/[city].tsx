@@ -20,14 +20,18 @@ import {
   cityPath,
   statePath,
   corridorPath,
+  servicePathCity,
 } from '../../../data/directory'
 import { getPhoneForState } from '../../../data/directory/statePhones'
 import {
   getMechanicsForCity,
+  cityServicesForCity,
   isCityCovered,
   isCorridorCovered,
   MechanicListing,
 } from '../../../data/directory/mechanics'
+
+import { getService } from '../../../data/directory/services'
 
 interface Props {
   city: DirectoryCity
@@ -36,9 +40,10 @@ interface Props {
   corridorsThrough: DirectoryCorridor[] // corridors whose citiesAlong include this city
   corridorsInState: DirectoryCorridor[]
   nearbyCities: DirectoryCity[]
+  cityServiceSlugs: string[]
 }
 
-export default function CityPage({ city, stats, mechanics, corridorsThrough, corridorsInState, nearbyCities }: Props) {
+export default function CityPage({ city, stats, mechanics, corridorsThrough, corridorsInState, nearbyCities, cityServiceSlugs }: Props) {
   const path = cityPath(city)
   const phone = getPhoneForState(city.state)
   const cityState = `${city.name}, ${city.state.toUpperCase()}`
@@ -125,6 +130,23 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
       </div>
 
       <div className={s.hubSection}>
+        {cityServiceSlugs.length > 0 && (
+          <>
+            <div className={s.secTitle}>Services in {city.name}</div>
+            <div className={s.chipRow}>
+              {cityServiceSlugs.map((slug) => {
+                const svc = getService(slug)
+                return svc ? (
+                  <Link key={slug} href={servicePathCity(city.state, city.citySlug, slug)}>
+                    <a className={s.chip}>
+                      {svc.name} in {city.name}
+                    </a>
+                  </Link>
+                ) : null
+              })}
+            </div>
+          </>
+        )}
         {corridorsInState.length > 0 && (
           <>
             <div className={s.secTitle}>Interstate corridors in {city.stateName}</div>
@@ -195,6 +217,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       corridorsThrough,
       corridorsInState,
       nearbyCities,
+      cityServiceSlugs: cityServicesForCity(state, citySlug),
     },
   }
 }

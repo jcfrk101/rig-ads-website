@@ -26,7 +26,7 @@ if (realMode)
   )
 
 const SERVICE_SLUGS = ['tire-change', 'mobile-repair', 'towing', 'preventive-maintenance',
-  'air-brakes', 'jump-start', 'dpf-regen', 'trailer-repair', 'reefer-repair'] // keep in sync with data/directory/services.ts
+  'air-brakes', 'jump-start', 'dpf-regen', 'trailer-repair', 'reefer-repair', 'truck-ac-repair'] // keep in sync with data/directory/services.ts
 
 const urls = [
   { loc: `/${SEGMENT}/`, priority: '1.0' },
@@ -49,6 +49,10 @@ for (const c of cities)
 
 for (const c of corridors)
   urls.push({ loc: `/${SEGMENT}/corridors/${c.route}/${c.state}/`, priority: c.tier === 'Core' ? '0.7' : '0.6' })
+
+// city x service pages (ingestion-computed program)
+for (const key of Object.keys(mech.cityServices || {}))
+  urls.push({ loc: `/${SEGMENT}/${key}/`, priority: '0.7' })
 
 // mechanic profile pages exist only in real mode (mock profiles aren't real
 // entities and aren't prerendered)

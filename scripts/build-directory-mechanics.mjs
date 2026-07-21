@@ -297,7 +297,36 @@ for (const listings of Object.values(out.pages))
   }
 
 // compact — this file is large (thousands of mechanics) and regenerated often
+// ---------------------------------------------------------------------------
+// City x service pages (ads data: geo+service queries). Top markets by
+// population among covered cities (boroughs excluded), one page per service
+// in the program IF at least one mechanic listed in that city offers the
+// service's underlying type. Keep the program list in sync with the
+// cityTitle/cityH1 services in data/directory/services.ts.
+// ---------------------------------------------------------------------------
+const CITY_SERVICE_PROGRAM = [
+  { slug: 'tire-change', label: 'Tire change' },
+  { slug: 'trailer-repair', label: 'Mobile repair' }, // trailer work dispatches as mobile_service
+]
+const TOP_MARKETS = 25
+const BOROUGHS = new Set(['brooklyn', 'queens', 'manhattan', 'the-bronx', 'staten-island'])
+
+out.cityServices = {}
+const markets = cities
+  .filter((c) => !(c.state === 'ny' && BOROUGHS.has(c.citySlug)))
+  .filter((c) => (out.pages[`${c.state}/${c.citySlug}`] || []).length > 0)
+  .sort((a, b) => b.population - a.population)
+  .slice(0, TOP_MARKETS)
+for (const c of markets) {
+  const listings = out.pages[`${c.state}/${c.citySlug}`]
+  for (const svc of CITY_SERVICE_PROGRAM) {
+    if (listings.some((l) => l.services.includes(svc.label)))
+      out.cityServices[`${c.state}/${c.citySlug}/${svc.slug}`] = true
+  }
+}
+
 fs.writeFileSync(OUT, JSON.stringify(out) + '\n')
+console.log('city-service pages:', Object.keys(out.cityServices).length)
 console.log(
   `${OUT}: ${exp.mechanics.length} mechanics → ${Object.keys(out.pages).length} pages (${covered}/${cities.length} cities have ≥1 listing), ${Object.keys(out.profiles).length} profiles`
 )

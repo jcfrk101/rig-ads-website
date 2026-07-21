@@ -13,6 +13,12 @@ export interface DirectoryService {
   whatWeDo: string // paragraph: what the mechanic does on site
   roadsideFixes: string[] // bullets: typical roadside fixes
   roadsideOrShop: string // paragraph: honest roadside-vs-shop/tow framing
+  // City x service program (ads data: geo+service queries like "trailer
+  // repair austin tx"). When set, top markets get /{state}/{city}/{slug}/
+  // pages — the page list itself is computed at ingestion (mechanics.json
+  // cityServices) so pages only exist where mechanics offer the service.
+  cityTitle?: string // "{city}" placeholder, <=60 chars resolved
+  cityH1?: string // "{city}" placeholder
 }
 
 export const DIRECTORY_SERVICES: DirectoryService[] = [
@@ -22,6 +28,8 @@ export const DIRECTORY_SERVICES: DirectoryService[] = [
     h1: 'Mobile Semi Truck Tire Change & Repair',
     short: 'Blowouts, flats, and mounted spares — fixed on the shoulder, any position.',
     dbType: 'tire_change',
+    cityTitle: 'Mobile Truck Tire Change in {city} | 24/7 | RIG',
+    cityH1: 'Mobile Truck Tire Change & Repair in {city}',
     heroSub:
       'Tires are the #1 roadside breakdown. RIG dispatches a tire-equipped mobile mechanic to your location — steer, drive, or trailer position — 24/7.',
     whatWeDo:
@@ -161,6 +169,8 @@ export const DIRECTORY_SERVICES: DirectoryService[] = [
     h1: 'Mobile Trailer Repair — Lights, Air, Doors & Landing Gear',
     short: 'Lights and ABS faults, air leaks, landing gear, doors — fixed at the trailer.',
     dbType: 'mobile_service',
+    cityTitle: 'Trailer Repair in {city} | Mobile & 24/7 | RIG',
+    cityH1: 'Mobile Trailer Repair in {city}',
     heroSub:
       'A dead trailer strands a load just as hard as a dead tractor. Mobile mechanics handle the trailer-side failures that put you out of service.',
     whatWeDo:
@@ -194,6 +204,26 @@ export const DIRECTORY_SERVICES: DirectoryService[] = [
     ],
     roadsideOrShop:
       'Most reefer failures that strand a load — fuel, sensors, electrical, codes — are roadside-fixable. Compressor and refrigerant-circuit failures need a reefer shop; with a cold load that usually means dispatch also helps you think through load rescue options fast.',
+  },
+  {
+    slug: 'truck-ac-repair',
+    name: 'Truck AC repair',
+    h1: 'Mobile Truck AC Repair — Cab Cooling Fixed On Site',
+    short: 'Dead AC in the sleeper or cab — diagnosed and repaired where the truck sits.',
+    dbType: 'mobile_service',
+    heroSub:
+      'A truck without AC in July is a safety problem, not a comfort problem. Mobile mechanics diagnose and repair cab and sleeper cooling on site.',
+    whatWeDo:
+      'The mechanic checks the system end to end — compressor and clutch, condenser, blower, pressures, and leaks — and carries the common failure parts. Many AC calls are electrical (relays, switches, blower motors) or a failed clutch rather than a lost refrigerant charge, and those are straight roadside fixes.',
+    roadsideFixes: [
+      'AC diagnosis — pressures, leaks, electrical',
+      'Compressor clutch and relay replacement',
+      'Blower motor and switch repair',
+      'Condenser airflow and fan issues',
+      'APU and sleeper cooling problems',
+    ],
+    roadsideOrShop:
+      'Electrical faults, clutches, blowers, and many component swaps are handled on site. A full evacuate-and-recharge or a buried evaporator job may point to a shop — the mechanic will tell you which side your problem is on after diagnosis, before you commit to anything.',
   },
 ]
 

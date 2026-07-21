@@ -12,13 +12,14 @@ import {
   DirectoryCity,
   isBorough,
   cityPath,
+  servicePathCity,
 } from '../../../data/directory'
-import { isCityCovered } from '../../../data/directory/mechanics'
+import { hasCityService, isCityCovered } from '../../../data/directory/mechanics'
 import { DIRECTORY_SERVICES, DirectoryService, getService, servicePath } from '../../../data/directory/services'
 
 interface Props {
   service: DirectoryService
-  topMarkets: DirectoryCity[]
+  topMarkets: (DirectoryCity & { deepLink: boolean })[]
 }
 
 export default function ServicePage({ service, topMarkets }: Props) {
@@ -92,7 +93,10 @@ export default function ServicePage({ service, topMarkets }: Props) {
         <div className={s.secTitle}>{service.name} in major markets</div>
         <div className={s.linkGrid}>
           {topMarkets.map((c) => (
-            <Link key={`${c.state}/${c.citySlug}`} href={cityPath(c)}>
+            <Link
+              key={`${c.state}/${c.citySlug}`}
+              href={c.deepLink ? servicePathCity(c.state, c.citySlug, service.slug) : cityPath(c)}
+            >
               <a className={s.linkCard}>
                 {c.name} <small>{c.state.toUpperCase()}</small>
               </a>
@@ -125,6 +129,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const topMarkets = CITIES.filter((c) => !isBorough(c) && isCityCovered(c.state, c.citySlug))
     .sort((a, b) => b.population - a.population)
     .slice(0, 24)
+    .map((c) => ({ ...c, deepLink: hasCityService(c.state, c.citySlug, service.slug) }))
 
   return { props: { service, topMarkets } }
 }

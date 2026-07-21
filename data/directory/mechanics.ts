@@ -181,6 +181,18 @@ export function getMechanicsForCorridor(route: string, state: string, stateName:
 // ---------------------------------------------------------------------------
 const realProfiles = (realJson as { profiles?: Record<string, MechanicProfile> }).profiles || {}
 
+// City x service pages — computed at ingestion (see build-directory-mechanics
+// CITY_SERVICE_PROGRAM): keys like "tx/dallas/tire-change". Real mode only.
+const cityServices = (realJson as { cityServices?: Record<string, boolean> }).cityServices || {}
+
+export const getCityServiceKeys = () => Object.keys(cityServices)
+export const hasCityService = (state: string, citySlug: string, serviceSlug: string) =>
+  Boolean(cityServices[`${state}/${citySlug}/${serviceSlug}`])
+export const cityServicesForCity = (state: string, citySlug: string) =>
+  Object.keys(cityServices)
+    .filter((k) => k.startsWith(`${state}/${citySlug}/`))
+    .map((k) => k.split('/')[2])
+
 export function getProfilePaths(): { state: string; city: string; shop: string }[] {
   if (!realMode) return []
   return Object.keys(realProfiles).map((key) => {

@@ -132,3 +132,5 @@ export const statePath = (state: string) => `/${SEGMENT}/${state}/`
 export const corridorPath = (route: string, state: string) =>
   `/${SEGMENT}/corridors/${route}/${state}/`
 export const routePath = (route: string) => `/${SEGMENT}/corridors/${route}/`
+export const servicePathCity = (state: string, citySlug: string, serviceSlug: string) =>
+  `/${SEGMENT}/${state}/${citySlug}/${serviceSlug}/`

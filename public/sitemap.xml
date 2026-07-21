@@ -12,6 +12,7 @@
   <url><loc>https://bigrig.app/semi-truck-repair/services/dpf-regen/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/services/trailer-repair/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/services/reefer-repair/</loc><priority>0.8</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/services/truck-ac-repair/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/</loc><priority>0.8</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ar/</loc><priority>0.8</priority></url>
@@ -2413,6 +2414,56 @@
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-95/sc/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-95/va/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/corridors/i-96/mi/</loc><priority>0.6</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ny/new-york-city/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ny/new-york-city/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/los-angeles/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/los-angeles/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/il/chicago/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/il/chicago/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/houston/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/houston/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/az/phoenix/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/az/phoenix/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/pa/philadelphia/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/pa/philadelphia/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/san-antonio/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/san-antonio/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-diego/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-diego/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/dallas/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/dallas/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/fl/jacksonville/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/fl/jacksonville/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/fort-worth/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/fort-worth/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-jose/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-jose/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/austin/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/austin/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/oh/columbus/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/oh/columbus/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/nc/charlotte/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/nc/charlotte/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/in/indianapolis/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/in/indianapolis/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-francisco/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ca/san-francisco/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/wa/seattle/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/wa/seattle/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/co/denver/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/co/denver/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/dc/washington/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/dc/washington/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tn/nashville/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tn/nashville/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ok/oklahoma-city/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ok/oklahoma-city/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/el-paso/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/tx/el-paso/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ma/boston/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/ma/boston/trailer-repair/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/or/portland/tire-change/</loc><priority>0.7</priority></url>
+  <url><loc>https://bigrig.app/semi-truck-repair/or/portland/trailer-repair/</loc><priority>0.7</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/ia/council-bluffs/aydens-mobile-mechanics-7ga/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/va/richmond/chester-va-6qh/</loc><priority>0.5</priority></url>
   <url><loc>https://bigrig.app/semi-truck-repair/al/phenix-city/driveline-national-truck-and-trailer-repair-65u/</loc><priority>0.5</priority></url>

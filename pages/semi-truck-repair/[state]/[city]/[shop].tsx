@@ -3,33 +3,167 @@ import Link from 'next/link'
 import DirectoryLayout from '../../../../components/directory/DirectoryLayout'
 import StatStrip from '../../../../components/directory/StatStrip'
 import DispatchBanner from '../../../../components/directory/DispatchBanner'
+import ListingSection from '../../../../components/directory/ListingSection'
 import s from '../../../../styles/Directory.module.scss'
 import {
   SEGMENT,
   SITE_ORIGIN,
+  DirectoryCity,
   DirectoryCorridor,
+  CityStats,
   getCity,
+  getCityStats,
   getCorridorsByState,
   getCorridorMeta,
   cityPath,
   statePath,
   corridorPath,
+  servicePathCity,
 } from '../../../../data/directory'
 import {
+  getMechanicsForCity,
   getProfile,
   getProfilePaths,
+  getCityServiceKeys,
+  hasCityService,
   isCorridorCovered,
+  MechanicListing,
   MechanicProfile,
 } from '../../../../data/directory/mechanics'
 import { getPhoneForState } from '../../../../data/directory/statePhones'
+import { DirectoryService, getService, servicePath } from '../../../../data/directory/services'
 
-interface Props {
-  profile: MechanicProfile
-  stateName: string
-  corridorsNearby: DirectoryCorridor[]
+// This route serves TWO page types at /{state}/{city}/{slug}/:
+//  - mechanic profiles (slug = name-slug with hash suffix)
+//  - city x service pages (slug = a service slug from the ingestion-computed
+//    cityServices program, e.g. "tire-change") — the geo+service landing
+//    pages the ads data asked for. Service slugs never collide with mechanic
+//    slugs (those always carry a hash suffix).
+type Props =
+  | { kind: 'profile'; profile: MechanicProfile; stateName: string; corridorsNearby: DirectoryCorridor[] }
+  | {
+      kind: 'cityService'
+      service: DirectoryService
+      city: DirectoryCity
+      stats: CityStats
+      mechanics: MechanicListing[]
+      siblingServices: string[]
+      nearbyWithService: DirectoryCity[]
+    }
+
+function CityServicePage({ service, city, stats, mechanics, siblingServices, nearbyWithService }: Extract<Props, { kind: 'cityService' }>) {
+  const phone = getPhoneForState(city.state)
+  const cityState = `${city.name}, ${city.state.toUpperCase()}`
+  const fill = (t: string) => t.replace('{city}', cityState)
+  const title = fill(service.cityTitle || `${service.name} in {city} | RIG`)
+  const h1 = fill(service.cityH1 || `${service.name} in {city}`)
+  const description = `${service.short} ${mechanics.length} mechanics offering ${service.name.toLowerCase()} in the ${city.name} area — dispatched 24/7. Call ${phone.display}.`
+
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: service.name,
+      name: h1,
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: phone.tel.replace('tel:', '+') },
+      areaServed: { '@type': 'City', name: city.name, address: { '@type': 'PostalAddress', addressRegion: city.state.toUpperCase() } },
+      hoursAvailable: 'Mo-Su 00:00-24:00',
+    },
+  ]
+
+  return (
+    <DirectoryLayout
+      title={title}
+      description={description}
+      path={servicePathCity(city.state, city.citySlug, service.slug)}
+      crumbs={[
+        { label: 'Semi Truck Repair', href: `/${SEGMENT}/` },
+        { label: city.stateName, href: statePath(city.state) },
+        { label: city.name, href: cityPath(city) },
+        { label: service.name },
+      ]}
+      jsonLd={jsonLd}
+      phone={phone}
+      footnote="Live stats from the RIG network, refreshed regularly. Dispatch routes to the closest available RIG mechanic."
+    >
+      <div className={s.pageHero}>
+        <div className={s.segTabs}>
+          <span className={s.segTabOn}>Semi / Big Truck</span>
+        </div>
+        <h1>{h1}</h1>
+        <p className={s.sub}>{service.heroSub}</p>
+        <StatStrip
+          stats={[
+            { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
+            { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
+            { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
+            { label: 'Jobs completed here', value: `${stats.jobsCompleted.toLocaleString()}+` },
+          ]}
+        />
+      </div>
+
+      <DispatchBanner
+        heading={`Need ${service.name.toLowerCase()} in ${city.name} right now?`}
+        sub={`One call sends your breakdown to local mechanics — avg ${stats.avgDispatchMin} min to dispatch, 24/7.`}
+      />
+
+      <ListingSection
+        mechanics={mechanics}
+        placeName={`${service.name.toLowerCase()} — ${city.name} area`}
+        noteLead="How RIG works:"
+        note={`for a breakdown, we dispatch the closest available mechanic offering ${service.name.toLowerCase()} — fastest wins.`}
+      />
+
+      <div className={s.prose}>
+        <h2>What the mechanic does on site</h2>
+        <p>{service.whatWeDo}</p>
+        <h2>Roadside or shop?</h2>
+        <p>{service.roadsideOrShop}</p>
+      </div>
+
+      <div className={s.hubSection}>
+        <div className={s.secTitle}>More in {city.name}</div>
+        <div className={s.chipRow}>
+          <Link href={cityPath(city)}>
+            <a className={s.chip}>All mechanics in {city.name} →</a>
+          </Link>
+          {siblingServices.map((slug) => {
+            const svc = getService(slug)
+            return svc ? (
+              <Link key={slug} href={servicePathCity(city.state, city.citySlug, slug)}>
+                <a className={s.chip}>{svc.name} in {city.name}</a>
+              </Link>
+            ) : null
+          })}
+          <Link href={servicePath(service.slug)}>
+            <a className={s.chip}>{service.name} — nationwide</a>
+          </Link>
+        </div>
+        {nearbyWithService.length > 0 && (
+          <>
+            <div className={s.secTitle}>{service.name} in other markets</div>
+            <div className={s.linkGrid}>
+              {nearbyWithService.map((c) => (
+                <Link key={`${c.state}/${c.citySlug}`} href={servicePathCity(c.state, c.citySlug, service.slug)}>
+                  <a className={s.linkCard}>
+                    {c.name} <small>{c.state.toUpperCase()}</small>
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </DirectoryLayout>
+  )
 }
 
-export default function MechanicProfilePage({ profile, stateName, corridorsNearby }: Props) {
+export default function ShopOrCityServicePage(props: Props) {
+  if (props.kind === 'cityService') return <CityServicePage {...props} />
+  return <MechanicProfilePage {...props} />
+}
+
+function MechanicProfilePage({ profile, stateName, corridorsNearby }: Extract<Props, { kind: 'profile' }>) {
   const phone = getPhoneForState(profile.homeState)
   const path = `/${SEGMENT}/${profile.homeState}/${profile.homeCitySlug}/${profile.profilePath!.split('/').filter(Boolean).pop()}/`
   const cityState = `${profile.homeCityName}, ${profile.homeState.toUpperCase()}`
@@ -205,10 +339,16 @@ export default function MechanicProfilePage({ profile, stateName, corridorsNearb
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  // real mode: every profile prerendered (from mechanics.json). Mock mode:
-  // none prerendered — fallback renders on demand so ~10k fake pages don't
-  // bloat the build; the pages that ship at launch come from real data.
-  paths: getProfilePaths().map(({ state, city, shop }) => ({ params: { state, city, shop } })),
+  // real mode: every profile + every city-service page prerendered (from
+  // mechanics.json). Mock mode: none prerendered — fallback renders on
+  // demand so ~10k fake pages don't bloat the build.
+  paths: [
+    ...getProfilePaths().map(({ state, city, shop }) => ({ params: { state, city, shop } })),
+    ...getCityServiceKeys().map((k) => {
+      const [state, city, shop] = k.split('/')
+      return { params: { state, city, shop } }
+    }),
+  ],
   fallback: 'blocking',
 })
 
@@ -216,13 +356,46 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const state = String(params?.state)
   const citySlug = String(params?.city)
   const shopSlug = String(params?.shop)
-  const profile = getProfile(state, citySlug, shopSlug)
   const city = getCity(state, citySlug)
-  if (!profile || !city) return { notFound: true }
+  if (!city) return { notFound: true }
+
+  // city x service page?
+  if (hasCityService(state, citySlug, shopSlug)) {
+    const service = getService(shopSlug)
+    if (!service) return { notFound: true }
+    const label = { tire_change: 'Tire change', tow_service: 'Towing', mobile_service: 'Mobile repair', maintenance_change: 'Maintenance' }[service.dbType]
+    const mechanics = getMechanicsForCity(state, citySlug, city.name).filter((m) => m.services.includes(label))
+    const siblingServices = getCityServiceKeys()
+      .filter((k) => k.startsWith(`${state}/${citySlug}/`))
+      .map((k) => k.split('/')[2])
+      .filter((slug) => slug !== shopSlug)
+    const nearbyWithService = getCityServiceKeys()
+      .filter((k) => k.endsWith(`/${shopSlug}`) && !k.startsWith(`${state}/${citySlug}/`))
+      .map((k) => {
+        const [st, ct] = k.split('/')
+        return getCity(st, ct)
+      })
+      .filter((c): c is DirectoryCity => Boolean(c))
+      .slice(0, 12)
+    return {
+      props: {
+        kind: 'cityService' as const,
+        service,
+        city,
+        stats: getCityStats(state, citySlug),
+        mechanics,
+        siblingServices,
+        nearbyWithService,
+      },
+    }
+  }
+
+  const profile = getProfile(state, citySlug, shopSlug)
+  if (!profile) return { notFound: true }
 
   const corridorsNearby = getCorridorsByState(state)
     .filter((c) => isCorridorCovered(c.route, c.state))
     .filter((c) => getCorridorMeta(c.route, c.state)?.citiesAlong.includes(citySlug))
 
-  return { props: { profile, stateName: city.stateName, corridorsNearby } }
+  return { props: { kind: 'profile' as const, profile, stateName: city.stateName, corridorsNearby } }
 }
