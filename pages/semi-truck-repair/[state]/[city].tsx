@@ -48,7 +48,7 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
       ? ` and the nearby ${corridorNames.slice(0, 3).join(', ')} ${corridorNames.length > 1 ? 'corridors' : 'corridor'}`
       : ''
 
-  const title = `Mobile Semi Truck Repair in ${cityState} | 24/7 Dispatch | RIG`
+  const title = `Mobile Diesel Mechanic in ${cityState} | 24/7 Truck Repair | RIG`
   const description = `Truck down in ${city.name}? RIG dispatches the closest available diesel mechanic — ${stats.mechanicsInArea} in the ${city.name} area, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
 
   const jsonLd = [

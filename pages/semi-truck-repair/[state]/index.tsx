@@ -30,7 +30,7 @@ interface Props {
 
 export default function StateHub({ state, cities, corridors, stats }: Props) {
   const phone = getPhoneForState(state.code)
-  const title = `Semi Truck Repair in ${state.name} | 24/7 Mobile Diesel Mechanics | RIG`
+  const title = `Mobile Diesel Mechanics in ${state.name} | 24/7 Truck Repair | RIG`
   const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
 
   return (

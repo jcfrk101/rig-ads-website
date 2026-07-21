@@ -29,7 +29,7 @@ export default function SemiHub() {
   const topCities = [...coveredCities].sort((a, b) => b.population - a.population).slice(0, 24)
   const routes = getRoutes().filter(isRouteCovered)
 
-  const title = 'Semi Truck Repair Near You | 24/7 Mobile Diesel Mechanics | RIG'
+  const title = 'Mobile Diesel Mechanics Near You | 24/7 Semi Truck Repair | RIG'
   const description = `Truck down? RIG dispatches the closest available diesel mechanic anywhere in the US — ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min dispatch, avg $${NATIONAL_STATS.avgCostUsd} per job. Call ${DISPATCH_PHONE_DISPLAY}.`
 
   return (
