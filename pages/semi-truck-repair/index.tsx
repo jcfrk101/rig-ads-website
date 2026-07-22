@@ -47,7 +47,8 @@ export default function SemiHub() {
         <h1>24/7 Mobile Semi Truck Repair, Anywhere in the US</h1>
         <p className={s.sub}>
           Pick your state or interstate corridor — or just call. RIG routes the closest available diesel mechanic
-          to your truck, 24 hours a day.
+          to your truck, 24 hours a day. Anything diesel — and only diesel: big rigs, diesel RVs, diesel
+          pickups.
         </p>
         <StatStrip
           stats={[

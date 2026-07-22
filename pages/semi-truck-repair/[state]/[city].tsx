@@ -21,6 +21,7 @@ import {
   statePath,
   corridorPath,
   servicePathCity,
+  DIESEL_ONLY_BLURB,
 } from '../../../data/directory'
 import { getPhoneForState } from '../../../data/directory/statePhones'
 import {
@@ -127,6 +128,7 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
           </Link>
           .
         </p>
+        <p>{DIESEL_ONLY_BLURB}</p>
       </div>
 
       <div className={s.hubSection}>

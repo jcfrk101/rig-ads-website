@@ -22,6 +22,7 @@ import {
   corridorPath,
   routePath,
   statePath,
+  DIESEL_ONLY_BLURB,
 } from '../../../../data/directory'
 import { getPhoneForState } from '../../../../data/directory/statePhones'
 import {
@@ -133,6 +134,7 @@ export default function CorridorStatePage({ corridor, stats, meta, mechanics, ci
           </h2>
           <p>{meta.description}</p>
           {meta.majorJunctions.length > 0 && <p>Major junctions: {meta.majorJunctions.join(' · ')}</p>}
+          <p>{DIESEL_ONLY_BLURB}</p>
         </div>
       )}
 

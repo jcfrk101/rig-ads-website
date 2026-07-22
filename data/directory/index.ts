@@ -126,6 +126,12 @@ export const NYC_BOROUGH_SLUGS = new Set(['brooklyn', 'queens', 'manhattan', 'th
 export const isBorough = (c: Pick<DirectoryCity, 'state' | 'citySlug'>) =>
   c.state === 'ny' && NYC_BOROUGH_SLUGS.has(c.citySlug)
 
+// Diesel-only positioning — "mobile diesel mechanic" is the top-converting
+// search term, so pages say it explicitly rather than implying it.
+export const DIESEL_ONLY_HEADING = 'Anything diesel — and only diesel'
+export const DIESEL_ONLY_BLURB =
+  'RIG works on anything diesel — and only diesel. Big rigs and semi trucks, diesel RVs and motorhomes, diesel pickups and work trucks: every mechanic in the network is a diesel mechanic, so your breakdown goes to someone who works on engines like yours every day.'
+
 export const cityPath = (c: Pick<DirectoryCity, 'state' | 'citySlug'>) =>
   `/${SEGMENT}/${c.state}/${c.citySlug}/`
 export const statePath = (state: string) => `/${SEGMENT}/${state}/`

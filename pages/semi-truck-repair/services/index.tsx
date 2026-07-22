@@ -21,7 +21,8 @@ export default function ServicesHub() {
         <h1>Mobile Truck Repair Services</h1>
         <p className={s.sub}>
           Whatever put the truck on the shoulder, one call covers it — RIG dispatches the closest qualified
-          mechanic for the job. Most of these are fixed right where the truck sits.
+          mechanic for the job. Most of these are fixed right where the truck sits. Anything diesel — and
+          only diesel: big rigs, diesel RVs, diesel pickups.
         </p>
       </div>
 

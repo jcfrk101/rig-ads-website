@@ -19,6 +19,7 @@ import {
   statePath,
   corridorPath,
   servicePathCity,
+  DIESEL_ONLY_BLURB,
 } from '../../../../data/directory'
 import {
   getMechanicsForCity,
@@ -119,6 +120,7 @@ function CityServicePage({ service, city, stats, mechanics, siblingServices, nea
         <p>{service.whatWeDo}</p>
         <h2>Roadside or shop?</h2>
         <p>{service.roadsideOrShop}</p>
+        <p>{DIESEL_ONLY_BLURB}</p>
       </div>
 
       <div className={s.hubSection}>

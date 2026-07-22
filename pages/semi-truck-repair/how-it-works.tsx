@@ -2,7 +2,15 @@ import DirectoryLayout from '../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../components/directory/DispatchBanner'
 import { HowItWorksSteps, HOW_IT_WORKS_STEPS } from '../../components/directory/HowItWorks'
 import s from '../../styles/Directory.module.scss'
-import { SEGMENT, SITE_ORIGIN, DISPATCH_PHONE_DISPLAY, DISPATCH_PHONE_TEL, NATIONAL_STATS } from '../../data/directory'
+import {
+  SEGMENT,
+  SITE_ORIGIN,
+  DISPATCH_PHONE_DISPLAY,
+  DISPATCH_PHONE_TEL,
+  NATIONAL_STATS,
+  DIESEL_ONLY_HEADING,
+  DIESEL_ONLY_BLURB,
+} from '../../data/directory'
 import { fireCallConversion } from '../../utils/gtag'
 
 export default function HowItWorksPage() {
@@ -51,6 +59,13 @@ export default function HowItWorksPage() {
           RIG shows the call-out fee and the hourly rate upfront, so there are no surprises when the truck is
           fixed.
         </div>
+
+        <h2>{DIESEL_ONLY_HEADING}</h2>
+        <p>
+          {DIESEL_ONLY_BLURB} If you drive a diesel motorhome or tow with a diesel pickup, the same call
+          works for you — the network isn&apos;t just for commercial trucks. If it doesn&apos;t run on
+          diesel, we&apos;ll tell you straight and you&apos;ve lost nothing.
+        </p>
 
         <h2>Why this beats calling around</h2>
         <p>

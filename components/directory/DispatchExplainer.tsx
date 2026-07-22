@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import s from '../../styles/Directory.module.scss'
 import { pickPhotos } from '../../data/directory/images'
+import { DIESEL_ONLY_HEADING } from '../../data/directory'
 import { HOW_IT_WORKS_PATH } from './HowItWorks'
 import { usePhone } from './PhoneContext'
 import { fireCallConversion } from '../../utils/gtag'
@@ -57,6 +58,11 @@ export default function DispatchExplainer({ pageKey, placeName }: Props) {
           </li>
         ))}
       </ol>
+
+      <div className={s.hiwCallout}>
+        <b>{DIESEL_ONLY_HEADING}.</b> Big rigs and semi trucks, diesel RVs and motorhomes, diesel pickups
+        and work trucks — every mechanic in the network is a diesel mechanic.
+      </div>
 
       <div className={s.explainerCta}>
         <a className={s.dispatchBtn} href={phone.tel} onClick={fireCallConversion}>

@@ -13,6 +13,7 @@ import {
   isBorough,
   cityPath,
   servicePathCity,
+  DIESEL_ONLY_BLURB,
 } from '../../../data/directory'
 import { hasCityService, isCityCovered } from '../../../data/directory/mechanics'
 import { DIRECTORY_SERVICES, DirectoryService, getService, servicePath } from '../../../data/directory/services'
@@ -75,6 +76,7 @@ export default function ServicePage({ service, topMarkets }: Props) {
 
         <h2>Roadside or shop?</h2>
         <p>{service.roadsideOrShop}</p>
+        <p>{DIESEL_ONLY_BLURB}</p>
 
         <div className={s.hiwCallout}>
           <b>Pricing is upfront.</b> Every bid shows the mechanic&apos;s hourly rate and call-out fee — the
