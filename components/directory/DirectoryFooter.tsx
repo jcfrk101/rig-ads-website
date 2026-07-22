@@ -94,8 +94,10 @@ export default function DirectoryFooter() {
 
       <div className={s.bigFooterLegal}>
         <span>© {new Date().getFullYear()} RIG Technologies</span>
-        <a href={`${MAIN_SITE}/terms`}>Terms</a>
-        <a href={`${MAIN_SITE}/privacy`}>Privacy</a>
+        {/* site-wide Terms of Use is hosted on the app subdomains (identical on
+            shop./fleet.); privacy policy exists only as this Termly document */}
+        <a href="https://shop.bigrig.app/terms">Terms</a>
+        <a href="https://app.termly.io/document/privacy-policy/ac7366a2-9849-41f8-b938-760ab198e47b">Privacy</a>
         <span className={s.bigFooterNote}>
           Listed shops shown for completeness; dispatch routes to the closest available RIG mechanic.
         </span>
