@@ -68,4 +68,10 @@ const xml =
   '\n</urlset>\n'
 
 fs.writeFileSync(path.join(__dirname, '..', 'public', 'sitemap.xml'), xml)
-console.log(`sitemap.xml: ${urls.length} URLs`)
+// The bigrig.app LB routes only /semi-truck-repair/* to this service, so the
+// root copy is unreachable there — this copy is the one to submit in Search
+// Console (all URLs sit under the prefix, so the location is protocol-valid).
+const segDir = path.join(__dirname, '..', 'public', SEGMENT)
+fs.mkdirSync(segDir, { recursive: true })
+fs.writeFileSync(path.join(segDir, 'sitemap.xml'), xml)
+console.log(`sitemap.xml: ${urls.length} URLs (also at /${SEGMENT}/sitemap.xml)`)
