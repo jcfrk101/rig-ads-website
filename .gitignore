@@ -27,3 +27,7 @@ yarn-error.log*
 
 # directory build artifacts
 data/directory/mechanics-export.last-good.json
+
+# Google Ads API credentials (see scripts/ads/README.md)
+scripts/ads/client_secret.json
+google-ads.yaml
