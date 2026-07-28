@@ -35,8 +35,22 @@ creds = flow.run_local_server(port=0, prompt="consent")
 with open(CLIENT_SECRET) as f:
     cs = json.load(f)["installed"]
 
-dev_token = os.environ.get("ADS_DEVELOPER_TOKEN", "PASTE_DEVELOPER_TOKEN_HERE")
-login_cid = os.environ.get("ADS_LOGIN_CUSTOMER_ID", "PASTE_MCC_ID_NO_DASHES")
+# carry over values already in ~/google-ads.yaml (e.g. developer_token added
+# ahead of time); env vars win if set
+existing = {}
+if os.path.exists(OUT):
+    with open(OUT) as f:
+        for line in f:
+            if ":" in line and not line.lstrip().startswith("#"):
+                k, _, v = line.partition(":")
+                existing[k.strip()] = v.strip()
+
+dev_token = os.environ.get(
+    "ADS_DEVELOPER_TOKEN", existing.get("developer_token", "PASTE_DEVELOPER_TOKEN_HERE")
+)
+login_cid = os.environ.get(
+    "ADS_LOGIN_CUSTOMER_ID", existing.get("login_customer_id", "PASTE_MCC_ID_NO_DASHES")
+)
 
 with open(OUT, "w") as f:
     f.write(
