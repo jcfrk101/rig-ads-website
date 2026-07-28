@@ -1,6 +1,9 @@
 // Google Ads tag ID — format: AW-XXXXXXXXXX
 export const GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID ?? ''
 
+// Google Analytics 4 property — shared with the marketing site (rig-marketing-website).
+export const GA4_ID = 'G-01P3D7LMSG'
+
 // Legacy click-based call conversion (soft tap event). Kept running in parallel with DNI
 // for ~2 weeks so Smart Bidding has overlap data; will be removed after.
 export const GTAG_CALL_CONVERSION = process.env.NEXT_PUBLIC_GTAG_CALL_CONVERSION ?? ''

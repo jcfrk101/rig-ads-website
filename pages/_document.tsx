@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
 import createEmotionCache from '../utils/createEmotionCache'
-import { GTAG_ID } from '../utils/gtag'
+import { GTAG_ID, GA4_ID } from '../utils/gtag'
 import { OAIQ_PIXEL_ID } from '../utils/oaiq'
 
 export default class MyDocument extends Document {
@@ -37,21 +37,20 @@ export default class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png" />
-          {!!GTAG_ID && (
-            <>
-              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`} />
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GTAG_ID}');
-                  `,
-                }}
-              />
-            </>
-          )}
+          {/* Google tag (gtag.js) — one loader configures GA4 always and the
+              Ads conversion tag when its env var is set. */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA4_ID}');
+                ${GTAG_ID ? `gtag('config', '${GTAG_ID}');` : ''}
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />
