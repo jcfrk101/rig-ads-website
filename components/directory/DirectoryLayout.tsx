@@ -57,6 +57,17 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
         {[breadcrumbLd, ...(jsonLd || [])].map((obj, i) => (
           <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(obj) }} />
         ))}
+        {/* Rig breakdown-chat embed (served by the marketing site on the same
+            origin). Gated: renders only when NEXT_PUBLIC_CHAT_EMBED=1 is set at
+            build time — local dev via .env.local today; production launch means
+            passing it through the Docker build args in cloudbuild-directory. */}
+        {process.env.NEXT_PUBLIC_CHAT_EMBED === '1' && (
+          <script
+            async
+            src={`${process.env.NEXT_PUBLIC_CHAT_EMBED_ORIGIN || ''}/chat-embed.js`}
+            data-origin={process.env.NEXT_PUBLIC_CHAT_EMBED_ORIGIN || ''}
+          />
+        )}
       </Head>
 
       <div className={s.frame}>
