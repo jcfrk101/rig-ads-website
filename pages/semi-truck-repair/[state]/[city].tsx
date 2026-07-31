@@ -23,7 +23,7 @@ import {
   servicePathCity,
   DIESEL_ONLY_BLURB,
 } from '../../../data/directory'
-import { getPhoneForState } from '../../../data/directory/statePhones'
+import { getPhoneForState, SEO_PHONE } from '../../../data/directory/statePhones'
 import {
   getMechanicsForCity,
   cityServicesForCity,
@@ -55,16 +55,16 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
       : ''
 
   const title = `Mobile Diesel Mechanic in ${cityState} | 24/7 Truck Repair | RIG`
-  const description = `Truck down in ${city.name}? RIG dispatches the closest available diesel mechanic — ${stats.mechanicsInArea} in the ${city.name} area, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
+  const description = `Truck down in ${city.name}? RIG dispatches the closest available diesel mechanic — ${stats.mechanicsInArea} in the ${city.name} area, avg ${stats.avgDispatchMin} min to dispatch. Call ${SEO_PHONE.display}, 24/7.`
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       serviceType: 'Mobile semi truck repair',
-      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: phone.tel.replace('tel:', '+') },
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
       areaServed: { '@type': 'City', name: city.name, address: { '@type': 'PostalAddress', addressRegion: city.state.toUpperCase() } },
-      availableChannel: { '@type': 'ServiceChannel', servicePhone: phone.tel.replace('tel:', '+') },
+      availableChannel: { '@type': 'ServiceChannel', servicePhone: SEO_PHONE.tel.replace('tel:', '+') },
       hoursAvailable: 'Mo-Su 00:00-24:00',
     },
   ]

@@ -7,7 +7,6 @@ import {
   CITIES,
   SEGMENT,
   SITE_ORIGIN,
-  DISPATCH_PHONE_DISPLAY,
   NATIONAL_STATS,
   DirectoryCity,
   isBorough,
@@ -15,6 +14,7 @@ import {
   servicePathCity,
   DIESEL_ONLY_BLURB,
 } from '../../../data/directory'
+import { SEO_PHONE } from '../../../data/directory/statePhones'
 import { hasCityService, isCityCovered } from '../../../data/directory/mechanics'
 import { DIRECTORY_SERVICES, DirectoryService, getService, servicePath } from '../../../data/directory/services'
 
@@ -25,7 +25,7 @@ interface Props {
 
 export default function ServicePage({ service, topMarkets }: Props) {
   const title = `${service.h1} | 24/7 Dispatch | RIG`
-  const description = `${service.short} RIG dispatches the closest qualified mobile mechanic, 24/7 — bids back in minutes with rates and call-out fee upfront. Call ${DISPATCH_PHONE_DISPLAY}.`
+  const description = `${service.short} RIG dispatches the closest qualified mobile mechanic, 24/7 — bids back in minutes with rates and call-out fee upfront. Call ${SEO_PHONE.display}.`
 
   const jsonLd = [
     {
@@ -33,7 +33,7 @@ export default function ServicePage({ service, topMarkets }: Props) {
       '@type': 'Service',
       serviceType: service.name,
       name: service.h1,
-      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: '+18557442223' },
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
       areaServed: { '@type': 'Country', name: 'United States' },
       hoursAvailable: 'Mo-Su 00:00-24:00',
     },

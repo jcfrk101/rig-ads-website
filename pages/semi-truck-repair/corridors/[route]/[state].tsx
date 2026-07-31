@@ -24,7 +24,7 @@ import {
   statePath,
   DIESEL_ONLY_BLURB,
 } from '../../../../data/directory'
-import { getPhoneForState } from '../../../../data/directory/statePhones'
+import { getPhoneForState, SEO_PHONE } from '../../../../data/directory/statePhones'
 import {
   getMechanicsForCorridor,
   isCityCovered,
@@ -48,14 +48,14 @@ export default function CorridorStatePage({ corridor, stats, meta, mechanics, ci
   const phone = getPhoneForState(corridor.state)
   const rd = corridor.routeDisplay
   const title = `${rd} Truck Breakdown in ${corridor.stateName}? Mobile Repair & Dispatch | RIG`
-  const description = `Broke down on ${rd} in ${corridor.stateName}? RIG dispatches the closest available diesel mechanic to your mile marker — ${stats.mechanicsCovering} covering this corridor, avg ${stats.avgReachMin} min reach. Call ${phone.display}, 24/7.`
+  const description = `Broke down on ${rd} in ${corridor.stateName}? RIG dispatches the closest available diesel mechanic to your mile marker — ${stats.mechanicsCovering} covering this corridor, avg ${stats.avgReachMin} min reach. Call ${SEO_PHONE.display}, 24/7.`
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       serviceType: 'Mobile semi truck repair — interstate corridor coverage',
-      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: phone.tel.replace('tel:', '+') },
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
       areaServed: { '@type': 'State', name: corridor.stateName },
       hoursAvailable: 'Mo-Su 00:00-24:00',
     },

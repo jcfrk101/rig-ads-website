@@ -6,13 +6,13 @@ import DispatchExplainer from '../../../../components/directory/DispatchExplaine
 import s from '../../../../styles/Directory.module.scss'
 import {
   SEGMENT,
-  DISPATCH_PHONE_DISPLAY,
   DirectoryCorridor,
   getRoutes,
   getCorridorsByRoute,
   getCorridorMeta,
   corridorPath,
 } from '../../../../data/directory'
+import { SEO_PHONE } from '../../../../data/directory/statePhones'
 import { isCorridorCovered, isRouteCovered } from '../../../../data/directory/mechanics'
 
 interface Props {
@@ -48,7 +48,7 @@ function orderSegments(route: string, segs: DirectoryCorridor[]): DirectoryCorri
 export default function RoutePage({ route, segments }: Props) {
   const rd = route.toUpperCase()
   const title = `${rd} Truck Breakdown Coverage, State by State | RIG`
-  const description = `Broke down on ${rd}? RIG covers the full corridor with 24/7 mobile diesel mechanics dispatched to your mile marker, in every state ${rd} crosses. Call ${DISPATCH_PHONE_DISPLAY}.`
+  const description = `Broke down on ${rd}? RIG covers the full corridor with 24/7 mobile diesel mechanics dispatched to your mile marker, in every state ${rd} crosses. Call ${SEO_PHONE.display}.`
 
   return (
     <DirectoryLayout

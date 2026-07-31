@@ -19,7 +19,7 @@ import {
   corridorPath,
 } from '../../../data/directory'
 import { isCityCovered, isCorridorCovered, isStateCovered } from '../../../data/directory/mechanics'
-import { getPhoneForState } from '../../../data/directory/statePhones'
+import { getPhoneForState, SEO_PHONE } from '../../../data/directory/statePhones'
 
 interface Props {
   state: StateInfo
@@ -31,7 +31,7 @@ interface Props {
 export default function StateHub({ state, cities, corridors, stats }: Props) {
   const phone = getPhoneForState(state.code)
   const title = `Mobile Diesel Mechanics in ${state.name} | 24/7 Truck Repair | RIG`
-  const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${phone.display}, 24/7.`
+  const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${SEO_PHONE.display}, 24/7.`
 
   return (
     <DirectoryLayout

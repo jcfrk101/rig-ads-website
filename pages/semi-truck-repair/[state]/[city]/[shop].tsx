@@ -31,7 +31,7 @@ import {
   MechanicListing,
   MechanicProfile,
 } from '../../../../data/directory/mechanics'
-import { getPhoneForState } from '../../../../data/directory/statePhones'
+import { getPhoneForState, SEO_PHONE } from '../../../../data/directory/statePhones'
 import { DirectoryService, getService, servicePath } from '../../../../data/directory/services'
 
 // This route serves TWO page types at /{state}/{city}/{slug}/:
@@ -58,7 +58,7 @@ function CityServicePage({ service, city, stats, mechanics, siblingServices, nea
   const fill = (t: string) => t.replace('{city}', cityState)
   const title = fill(service.cityTitle || `${service.name} in {city} | RIG`)
   const h1 = fill(service.cityH1 || `${service.name} in {city}`)
-  const description = `${service.short} ${mechanics.length} mechanics offering ${service.name.toLowerCase()} in the ${city.name} area — dispatched 24/7. Call ${phone.display}.`
+  const description = `${service.short} ${mechanics.length} mechanics offering ${service.name.toLowerCase()} in the ${city.name} area — dispatched 24/7. Call ${SEO_PHONE.display}.`
 
   const jsonLd = [
     {
@@ -66,7 +66,7 @@ function CityServicePage({ service, city, stats, mechanics, siblingServices, nea
       '@type': 'Service',
       serviceType: service.name,
       name: h1,
-      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: phone.tel.replace('tel:', '+') },
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
       areaServed: { '@type': 'City', name: city.name, address: { '@type': 'PostalAddress', addressRegion: city.state.toUpperCase() } },
       hoursAvailable: 'Mo-Su 00:00-24:00',
     },
@@ -174,7 +174,7 @@ function MechanicProfilePage({ profile, stateName, corridorsNearby }: Extract<Pr
     profile.ratingCount > 0
       ? ` 👍 ${profile.thumbsUpPct}% satisfied (${profile.ratingCount} ratings), ${profile.jobsCompleted} jobs completed.`
       : ''
-  } ${profile.rigNetwork ? `Dispatch via RIG: ${phone.display}.` : 'Listed shop.'}`
+  } ${profile.rigNetwork ? `Dispatch via RIG: ${SEO_PHONE.display}.` : 'Listed shop.'}`
 
   const jsonLd = [
     {

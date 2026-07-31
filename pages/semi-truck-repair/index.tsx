@@ -9,12 +9,12 @@ import {
   STATES,
   SEGMENT,
   NATIONAL_STATS,
-  DISPATCH_PHONE_DISPLAY,
   getRoutes,
   statePath,
   cityPath,
   routePath,
 } from '../../data/directory'
+import { SEO_PHONE } from '../../data/directory/statePhones'
 import { isCityCovered, isRouteCovered, isStateCovered } from '../../data/directory/mechanics'
 import { DIRECTORY_SERVICES, servicePath } from '../../data/directory/services'
 
@@ -30,7 +30,7 @@ export default function SemiHub() {
   const routes = getRoutes().filter(isRouteCovered)
 
   const title = 'Mobile Diesel Mechanics Near You | 24/7 Semi Truck Repair | RIG'
-  const description = `Truck down? RIG dispatches the closest available diesel mechanic anywhere in the US — ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min dispatch, avg $${NATIONAL_STATS.avgCostUsd} per job. Call ${DISPATCH_PHONE_DISPLAY}.`
+  const description = `Truck down? RIG dispatches the closest available diesel mechanic anywhere in the US — ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min dispatch, avg $${NATIONAL_STATS.avgCostUsd} per job. Call ${SEO_PHONE.display}.`
 
   return (
     <DirectoryLayout
