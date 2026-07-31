@@ -5,17 +5,33 @@ import s from '../../styles/Directory.module.scss'
 import {
   SEGMENT,
   SITE_ORIGIN,
-  DISPATCH_PHONE_DISPLAY,
-  DISPATCH_PHONE_TEL,
   NATIONAL_STATS,
   DIESEL_ONLY_HEADING,
   DIESEL_ONLY_BLURB,
 } from '../../data/directory'
+import { SEO_PHONE } from '../../data/directory/statePhones'
+import { usePhone } from '../../components/directory/PhoneContext'
 import { fireCallConversion } from '../../utils/gtag'
+
+function BigCallCta() {
+  const phone = usePhone()
+  return (
+    <div style={{ padding: '18px 22px 26px', textAlign: 'center' }}>
+      <a
+        className={s.dispatchBtn}
+        style={{ display: 'inline-flex', fontSize: 19, padding: '16px 34px' }}
+        href={phone.tel}
+        onClick={fireCallConversion}
+      >
+        ☎ Call dispatch: {phone.display}
+      </a>
+    </div>
+  )
+}
 
 export default function HowItWorksPage() {
   const title = 'How RIG Dispatch Works | Bids From Local Mechanics in Minutes | RIG'
-  const description = `Broke down? One call to RIG dispatch sends your breakdown to 5–20 local heavy-duty mechanics, who bid back in minutes with hourly rates, call-out fees, and ETAs. Call ${DISPATCH_PHONE_DISPLAY}, 24/7.`
+  const description = `Broke down? One call to RIG dispatch sends your breakdown to 5–20 local heavy-duty mechanics, who bid back in minutes with hourly rates, call-out fees, and ETAs. Call ${SEO_PHONE.display}, 24/7.`
 
   const jsonLd = [
     {
@@ -103,16 +119,7 @@ export default function HowItWorksPage() {
         sub={`One call starts the bidding — avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7.`}
       />
 
-      <div style={{ padding: '18px 22px 26px', textAlign: 'center' }}>
-        <a
-          className={s.dispatchBtn}
-          style={{ display: 'inline-flex', fontSize: 19, padding: '16px 34px' }}
-          href={DISPATCH_PHONE_TEL}
-          onClick={fireCallConversion}
-        >
-          ☎ Call dispatch: {DISPATCH_PHONE_DISPLAY}
-        </a>
-      </div>
+      <BigCallCta />
     </DirectoryLayout>
   )
 }

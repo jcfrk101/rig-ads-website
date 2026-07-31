@@ -3,13 +3,14 @@ import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
 import DispatchExplainer from '../../../components/directory/DispatchExplainer'
 import s from '../../../styles/Directory.module.scss'
-import { SEGMENT, DISPATCH_PHONE_DISPLAY, getRoutes, getCorridorsByRoute, routePath, corridorPath } from '../../../data/directory'
+import { SEGMENT, getRoutes, getCorridorsByRoute, routePath, corridorPath } from '../../../data/directory'
+import { SEO_PHONE } from '../../../data/directory/statePhones'
 import { isCorridorCovered, isRouteCovered } from '../../../data/directory/mechanics'
 
 export default function CorridorsHub() {
   const routes = getRoutes().filter(isRouteCovered)
   const title = 'Interstate Truck Breakdown Coverage by Corridor | RIG'
-  const description = `Broke down on the interstate? RIG covers every major US freight corridor with 24/7 mobile diesel mechanics dispatched to your mile marker. Call ${DISPATCH_PHONE_DISPLAY}.`
+  const description = `Broke down on the interstate? RIG covers every major US freight corridor with 24/7 mobile diesel mechanics dispatched to your mile marker. Call ${SEO_PHONE.display}.`
 
   return (
     <DirectoryLayout

@@ -21,6 +21,14 @@ module.exports = {
   // slash version, so existing ad URLs keep working through the migration.
   trailingSlash: true,
 
+  // assetPrefix makes HTML reference /semi-truck-repair/_next/...; in prod the
+  // LB routes that prefix to this service, but the Next server itself only
+  // serves /_next — this rewrite bridges the two (and unbreaks local dev,
+  // where chunks otherwise 404 and pages never hydrate).
+  async rewrites() {
+    return [{ source: '/semi-truck-repair/_next/:path*', destination: '/_next/:path*' }]
+  },
+
   async redirects() {
     return [
       // legacy state landing-page slugs (pre-directory paradigm)

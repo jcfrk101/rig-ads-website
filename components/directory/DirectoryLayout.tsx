@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { ReactNode, useEffect } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import s from '../../styles/Directory.module.scss'
 import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
-import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
+import { PagePhone, TOLLFREE_PHONE, SEO_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion, fireDniConfig } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
 import { PhoneProvider } from './PhoneContext'
@@ -21,15 +21,39 @@ interface Props {
   jsonLd?: object[]
   children: ReactNode
   footnote?: string
-  phone?: PagePhone // state-local DNI number; defaults to toll-free
+  phone?: PagePhone // ads number for this page (state-local DNI); defaults to toll-free
+}
+
+// Attribution split: organic visitors (and crawlers — this is what's in the
+// SSR HTML) see the national SEO tracking number on every page. Visitors who
+// arrived from a Google Ads click (click-id in the URL, remembered for the
+// session) get the page's ads number instead, registered with Google DNI so
+// ads call conversions keep flowing into the same per-state actions. The SEO
+// number is never registered with DNI, so Google forwarding never routes
+// through the SEO tracker and the two call pools stay clean.
+const ADS_VISITOR_KEY = 'rigAdsClick'
+const isAdsVisitor = () => {
+  try {
+    const p = new URLSearchParams(window.location.search)
+    if (p.has('gclid') || p.has('gbraid') || p.has('wbraid')) {
+      sessionStorage.setItem(ADS_VISITOR_KEY, '1')
+      return true
+    }
+    return sessionStorage.getItem(ADS_VISITOR_KEY) === '1'
+  } catch {
+    return false
+  }
 }
 
 export default function DirectoryLayout({ title, description, path, crumbs, jsonLd, children, footnote, phone }: Props) {
-  const pagePhone = phone || TOLLFREE_PHONE
-  // register the page's number with Google DNI (same pattern as LandingPage)
+  const adsPhone = phone || TOLLFREE_PHONE
+  const [pagePhone, setPagePhone] = useState<PagePhone>(SEO_PHONE)
   useEffect(() => {
-    if (pagePhone.dniLabel) fireDniConfig(pagePhone.dniLabel, pagePhone.display)
-  }, [pagePhone.dniLabel, pagePhone.display])
+    if (isAdsVisitor()) {
+      setPagePhone(adsPhone)
+      if (adsPhone.dniLabel) fireDniConfig(adsPhone.dniLabel, adsPhone.display)
+    }
+  }, [adsPhone.dniLabel, adsPhone.display]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const canonical = `${SITE_ORIGIN}${path}`
   const breadcrumbLd = {

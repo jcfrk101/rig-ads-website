@@ -20,6 +20,17 @@ export const TOLLFREE_PHONE: PagePhone = {
   dniLabel: GTAG_CALL_CONVERSION_TOLLFREE,
 }
 
+// SEO call-tracking number — what organic visitors (and crawlers) see on every
+// directory page, all states. Never registered with Google DNI: the state
+// numbers above and the toll-free line are the ads-only pool, swapped in
+// client-side for ad-click visitors (see DirectoryLayout). Any call on this
+// number is attributable to SEO by construction.
+export const SEO_PHONE: PagePhone = {
+  display: '1-855-557-9883',
+  tel: 'tel:18555579883',
+  dniLabel: '',
+}
+
 // stateData is keyed by full-name slug ("texas"); the directory uses 2-letter
 // codes. Match on state name.
 const nameToCode = new Map(Object.values(STATES).map((st) => [st.name.toLowerCase(), st.code]))

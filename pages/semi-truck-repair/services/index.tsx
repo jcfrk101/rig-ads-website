@@ -2,12 +2,13 @@ import Link from 'next/link'
 import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
 import s from '../../../styles/Directory.module.scss'
-import { SEGMENT, DISPATCH_PHONE_DISPLAY } from '../../../data/directory'
+import { SEGMENT } from '../../../data/directory'
+import { SEO_PHONE } from '../../../data/directory/statePhones'
 import { DIRECTORY_SERVICES, servicePath } from '../../../data/directory/services'
 
 export default function ServicesHub() {
   const title = 'Mobile Truck Repair Services — Tires, Brakes, Regen, Towing & More | RIG'
-  const description = `Every roadside service RIG dispatches, 24/7: tire change, mobile repair, air brakes, DPF/regen, jump starts, trailer and reefer repair, towing, and maintenance. Call ${DISPATCH_PHONE_DISPLAY}.`
+  const description = `Every roadside service RIG dispatches, 24/7: tire change, mobile repair, air brakes, DPF/regen, jump starts, trailer and reefer repair, towing, and maintenance. Call ${SEO_PHONE.display}.`
 
   return (
     <DirectoryLayout
