@@ -8,6 +8,9 @@ ARG NEXT_PUBLIC_GTAG_CALL_CONVERSION_TOLLFREE
 # `npm run build` (prebuild). Empty/absent is safe — ingestion falls back to
 # the committed mechanics.json. Builder-stage only; never in the runner image.
 ARG MECHANICS_EXPORT_TOKEN
+# Rig breakdown-chat embed on directory pages: 1 = render the loader script
+# (served same-origin by the marketing site at /chat-embed.js via the LB).
+ARG NEXT_PUBLIC_CHAT_EMBED
 
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
@@ -15,6 +18,7 @@ ENV NEXT_PUBLIC_GTAG_ID=${NEXT_PUBLIC_GTAG_ID}
 ENV NEXT_PUBLIC_GTAG_CALL_CONVERSION=${NEXT_PUBLIC_GTAG_CALL_CONVERSION}
 ENV NEXT_PUBLIC_GTAG_CALL_CONVERSION_TOLLFREE=${NEXT_PUBLIC_GTAG_CALL_CONVERSION_TOLLFREE}
 ENV MECHANICS_EXPORT_TOKEN=${MECHANICS_EXPORT_TOKEN}
+ENV NEXT_PUBLIC_CHAT_EMBED=${NEXT_PUBLIC_CHAT_EMBED}
 
 WORKDIR /rig-ads-website
 COPY . .
