@@ -67,6 +67,26 @@ const xml =
     .join('\n') +
   '\n</urlset>\n'
 
+// ---- RV tree sitemap (/rv-repair/*) — content + geo pages, same coverage gate
+const RV_SEGMENT = 'rv-repair'
+// keep in sync with data/rv/problems.ts
+const RV_PROBLEM_SLUGS = ['tire-blowout', 'roof-ac', 'generator', 'electrical', 'overheating', 'brakes', 'slide-out', 'tow-or-fix']
+const rvUrls = [
+  { loc: `/${RV_SEGMENT}/`, priority: '1.0' },
+  ...RV_PROBLEM_SLUGS.map((s) => ({ loc: `/${RV_SEGMENT}/${s}/`, priority: '0.8' })),
+  ...states.map((st) => ({ loc: `/${RV_SEGMENT}/${st}/`, priority: '0.7' })),
+  ...cities.map((c) => ({ loc: `/${RV_SEGMENT}/${c.state}/${c.citySlug}/`, priority: c.tier === 'Core' ? '0.6' : '0.5' })),
+]
+const rvXml =
+  '<?xml version="1.0" encoding="UTF-8"?>\n' +
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  rvUrls.map((u) => `  <url><loc>${ORIGIN}${u.loc}</loc><priority>${u.priority}</priority></url>`).join('\n') +
+  '\n</urlset>\n'
+const rvDir = path.join(__dirname, '..', 'public', RV_SEGMENT)
+fs.mkdirSync(rvDir, { recursive: true })
+fs.writeFileSync(path.join(rvDir, 'sitemap.xml'), rvXml)
+console.log(`rv sitemap: ${rvUrls.length} URLs (at /${RV_SEGMENT}/sitemap.xml)`)
+
 fs.writeFileSync(path.join(__dirname, '..', 'public', 'sitemap.xml'), xml)
 // The bigrig.app LB routes only /semi-truck-repair/* to this service, so the
 // root copy is unreachable there — this copy is the one to submit in Search

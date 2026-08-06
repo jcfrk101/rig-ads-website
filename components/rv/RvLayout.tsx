@@ -2,11 +2,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
+import { SITE_ORIGIN, MAIN_SITE } from '../../data/directory'
+import { RV_SEGMENT } from '../../data/rv'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion } from '../../utils/gtag'
-import DirectoryFooter from './DirectoryFooter'
-import { PhoneProvider, usePagePhone } from './PhoneContext'
+import DirectoryFooter from '../directory/DirectoryFooter'
+import { PhoneProvider, usePagePhone } from '../directory/PhoneContext'
 
 export interface Crumb {
   label: string
@@ -16,19 +17,19 @@ export interface Crumb {
 interface Props {
   title: string
   description: string
-  path: string // canonical path, e.g. /semi-truck-repair/tx/dallas/
+  path: string
   crumbs: Crumb[]
   jsonLd?: object[]
   children: ReactNode
   footnote?: string
-  phone?: PagePhone // ads number for this page (state-local DNI); defaults to toll-free
+  phone?: PagePhone // ads number when a campaign points here; defaults to toll-free
 }
 
-export default function DirectoryLayout({ title, description, path, crumbs, jsonLd, children, footnote, phone }: Props) {
-  // SEO number by default; ad-click visitors get the state ads number + DNI
-  // (see usePagePhone for the attribution-split rationale)
+// RV-tree chrome: same machinery as DirectoryLayout (SEO/ads phone split,
+// chat embed gate, footer) with RV-facing navigation. Kept separate rather
+// than parameterized — the two trees' navs and voices will keep diverging.
+export default function RvLayout({ title, description, path, crumbs, jsonLd, children, footnote, phone }: Props) {
   const pagePhone = usePagePhone(phone || TOLLFREE_PHONE)
-
   const canonical = `${SITE_ORIGIN}${path}`
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -55,10 +56,6 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
         {[breadcrumbLd, ...(jsonLd || [])].map((obj, i) => (
           <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(obj) }} />
         ))}
-        {/* Rig breakdown-chat embed (served by the marketing site on the same
-            origin). Gated: renders only when NEXT_PUBLIC_CHAT_EMBED=1 is set at
-            build time — local dev via .env.local today; production launch means
-            passing it through the Docker build args in cloudbuild-directory. */}
         {process.env.NEXT_PUBLIC_CHAT_EMBED === '1' && (
           <script
             async
@@ -74,20 +71,18 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
             <img src="/static/icons/logo-full.svg" alt="RIG" />
           </a>
           <nav className={s.navLinks}>
-            <Link href={`/${SEGMENT}/`}>
-              <a>Semi Truck Repair</a>
+            <Link href={`/${RV_SEGMENT}/`}>
+              <a>RV Repair</a>
             </Link>
-            <Link href={`/${SEGMENT}/services/`}>
-              <a>Services</a>
+            <Link href={`/${RV_SEGMENT}/tow-or-fix/`}>
+              <a>Tow or Fix?</a>
             </Link>
-            <Link href={`/${SEGMENT}/corridors/`}>
-              <a>Corridors</a>
-            </Link>
-            <Link href={`/${SEGMENT}/how-it-works/`}>
+            <Link href="/semi-truck-repair/how-it-works/">
               <a>How It Works</a>
             </Link>
-            <a href="https://fleet.bigrig.app">For Fleets</a>
-            <a href="https://shop.bigrig.app">Join as Mechanic</a>
+            <Link href="/semi-truck-repair/">
+              <a>Semi Truck Repair</a>
+            </Link>
           </nav>
           <a className={s.navCta} href={pagePhone.tel} onClick={fireCallConversion}>
             ☎ {pagePhone.display}
