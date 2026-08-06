@@ -17,7 +17,7 @@ export default function SiteHeader() {
       </a>
       <nav className={s.navLinks}>
         <Link href={`/${SEGMENT}/`}>
-          <a>Semi Truck Repair</a>
+          <a>Semi Repair</a>
         </Link>
         <Link href={`/${RV_SEGMENT}/`}>
           <a>RV Repair</a>
@@ -25,14 +25,11 @@ export default function SiteHeader() {
         <Link href={`/${SEGMENT}/services/`}>
           <a>Services</a>
         </Link>
-        <Link href={`/${SEGMENT}/corridors/`}>
-          <a>Corridors</a>
-        </Link>
         <Link href={`/${SEGMENT}/how-it-works/`}>
-          <a>How It Works</a>
+          <a>How it Works</a>
         </Link>
-        <a href="https://fleet.bigrig.app">For Fleets</a>
-        <a href="https://shop.bigrig.app">Join as Mechanic</a>
+        <a href="https://fleet.bigrig.app">Fleets</a>
+        <a href="https://shop.bigrig.app">Mechanics</a>
       </nav>
       <a className={s.navCta} href={phone.tel} onClick={fireCallConversion}>
         ☎ {phone.display}

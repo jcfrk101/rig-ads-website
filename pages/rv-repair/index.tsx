@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import RvLayout from '../../components/rv/RvLayout'
 import ChatCta from '../../components/rv/ChatCta'
-import StatStrip from '../../components/directory/StatStrip'
+import StatStack from '../../components/rv/StatStack'
 import s from '../../styles/Directory.module.scss'
 import { SITE_ORIGIN } from '../../data/directory'
 import { SEO_PHONE } from '../../data/directory/statePhones'
@@ -43,21 +43,25 @@ export default function RvHub() {
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <h1>RV Trouble Shouldn&apos;t End the Trip</h1>
-        <p className={s.sub}>
-          Mobile mechanics dispatched to your rig — on the shoulder or at the campsite. Describe the problem
-          once; nearby mechanics bid back in minutes with rates and ETAs. You pick, they roll, the vacation
-          continues.
-        </p>
-        <StatStrip
-          stats={[
-            { label: 'Mechanics in network', value: `${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+`, live: true },
-            { label: 'Avg. dispatch', value: `${NATIONAL_STATS.avgDispatchMin} min` },
-            { label: 'Avg. time to arrive', value: `${NATIONAL_STATS.avgArrivalMin} min` },
-            { label: 'Availability', value: '24/7' },
-          ]}
-        />
-        <ChatCta />
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ flex: '1 1 360px', minWidth: 300 }}>
+            <h1>RV Trouble Shouldn&apos;t End the Trip</h1>
+            <p className={s.sub}>
+              Mobile mechanics dispatched to your rig — on the shoulder or at the campsite. Describe the
+              problem once; nearby mechanics bid back in minutes with rates and ETAs. You pick, they roll,
+              the vacation continues.
+            </p>
+            <ChatCta />
+          </div>
+          <StatStack
+            stats={[
+              { label: 'Mechanics in network', value: `${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+`, live: true },
+              { label: 'Avg. dispatch', value: `${NATIONAL_STATS.avgDispatchMin} min` },
+              { label: 'Avg. time to arrive', value: `${NATIONAL_STATS.avgArrivalMin} min` },
+              { label: 'Availability', value: '24/7' },
+            ]}
+          />
+        </div>
       </div>
 
       <div className={s.prose}>

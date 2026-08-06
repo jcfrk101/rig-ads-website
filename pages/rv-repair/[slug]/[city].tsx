@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import RvLayout from '../../../components/rv/RvLayout'
 import ChatCta from '../../../components/rv/ChatCta'
-import StatStrip from '../../../components/directory/StatStrip'
+import StatStack from '../../../components/rv/StatStack'
 import s from '../../../styles/Directory.module.scss'
 import { SITE_ORIGIN, DirectoryCity, CityStats, getCity, getCitiesByState } from '../../../data/directory'
 import { isCityCovered } from '../../../data/directory/mechanics'
@@ -65,20 +65,24 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <h1>Mobile RV Repair in {cityState}</h1>
-        <p className={s.sub}>
-          Rig down near {city.name}? Mechanics come to you — highway shoulder, campground, or driveway.
-          Describe the problem once and nearby mechanics bid back in minutes with rates and ETAs.
-        </p>
-        <StatStrip
-          stats={[
-            { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
-            { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
-            { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
-            { label: 'Availability', value: '24/7' },
-          ]}
-        />
-        <ChatCta placeholder={`Describe the problem — e.g. "broke down near ${city.name}"`} />
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ flex: '1 1 360px', minWidth: 300 }}>
+            <h1>Mobile RV Repair in {cityState}</h1>
+            <p className={s.sub}>
+              Rig down near {city.name}? Mechanics come to you — highway shoulder, campground, or driveway.
+              Describe the problem once and nearby mechanics bid back in minutes with rates and ETAs.
+            </p>
+            <ChatCta placeholder={`Describe the problem — e.g. "broke down near ${city.name}"`} />
+          </div>
+          <StatStack
+            stats={[
+              { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
+              { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
+              { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
+              { label: 'Availability', value: '24/7' },
+            ]}
+          />
+        </div>
       </div>
 
       <div className={s.prose}>

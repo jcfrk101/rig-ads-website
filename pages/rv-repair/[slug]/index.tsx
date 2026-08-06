@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import RvLayout from '../../../components/rv/RvLayout'
 import ChatCta from '../../../components/rv/ChatCta'
-import StatStrip from '../../../components/directory/StatStrip'
+import StatStack from '../../../components/rv/StatStack'
 import s from '../../../styles/Directory.module.scss'
 import { SITE_ORIGIN, STATES, CityStats, DirectoryCity, isBorough } from '../../../data/directory'
 import { getPhoneForState, SEO_PHONE, PagePhone } from '../../../data/directory/statePhones'
@@ -126,20 +126,25 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <h1>Mobile RV Repair in {stateName}</h1>
-        <p className={s.sub}>
-          Broke down on the way to the campground? Mechanics dispatched to your rig across {stateName} —
-          tires, brakes, engine, batteries, generators. Describe it once, get bids in minutes, keep the trip.
-        </p>
-        <StatStrip
-          stats={[
-            { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
-            { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
-            { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
-            { label: 'Availability', value: '24/7' },
-          ]}
-        />
-        <ChatCta placeholder={`Describe the problem and where you are in ${stateName}…`} />
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ flex: '1 1 360px', minWidth: 300 }}>
+            <h1>Mobile RV Repair in {stateName}</h1>
+            <p className={s.sub}>
+              Broke down on the way to the campground? Mechanics dispatched to your rig across {stateName} —
+              tires, brakes, engine, batteries, generators. Describe it once, get bids in minutes, keep the
+              trip.
+            </p>
+            <ChatCta placeholder={`Describe the problem and where you are in ${stateName}…`} />
+          </div>
+          <StatStack
+            stats={[
+              { label: 'Mechanics in area', value: String(stats.mechanicsInArea), live: true },
+              { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
+              { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
+              { label: 'Availability', value: '24/7' },
+            ]}
+          />
+        </div>
       </div>
 
       <div className={s.prose}>
