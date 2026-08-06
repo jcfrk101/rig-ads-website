@@ -35,7 +35,7 @@ export default function RvHub() {
       title={title}
       description={description}
       path={`/${RV_SEGMENT}/`}
-      crumbs={[{ label: 'Home', href: `/${RV_SEGMENT}/` }, { label: 'RV Repair' }]}
+      crumbs={[{ label: 'RV Repair' }]}
       jsonLd={jsonLd}
       footnote="Live stats from the RIG network, refreshed regularly. Availability varies by area — chat tells you what's real near you in minutes."
     >

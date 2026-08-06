@@ -85,6 +85,41 @@ $star: #e8a93a;
   &:hover {
     background: $accent-d;
   }
+  @media (max-width: 760px) {
+    display: none;
+  }
+}
+.navBurger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  @media (max-width: 760px) {
+    display: block;
+  }
+}
+.mobileMenu {
+  display: none;
+  @media (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+    background: $steel;
+    padding: 0 22px 12px;
+    a {
+      color: #e2e7eb;
+      padding: 12px 0;
+      font-size: 15.5px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
 }
 
 /* ============ breadcrumb + hero ============ */

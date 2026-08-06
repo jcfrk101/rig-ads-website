@@ -37,7 +37,7 @@ export default function SemiHub() {
       title={title}
       description={description}
       path={`/${SEGMENT}/`}
-      crumbs={[{ label: 'Home', href: `/${SEGMENT}/` }, { label: 'Semi Truck Repair' }]}
+      crumbs={[{ label: 'Semi Truck Repair' }]}
       footnote="RIG dispatches the closest available mechanic from a nationwide network. Stats refreshed regularly."
     >
       <div className={s.pageHero}>

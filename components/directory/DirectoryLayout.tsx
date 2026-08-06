@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SITE_ORIGIN, SEGMENT } from '../../data/directory'
+import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
@@ -31,14 +31,15 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
   const pagePhone = usePagePhone(phone || TOLLFREE_PHONE)
 
   const canonical = `${SITE_ORIGIN}${path}`
+  const allCrumbs = [{ label: 'Home', href: MAIN_SITE }, ...crumbs]
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: crumbs.map((c, i) => ({
+    itemListElement: allCrumbs.map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      ...(c.href ? { item: `${SITE_ORIGIN}${c.href}` } : {}),
+      ...(c.href ? { item: c.href.startsWith('http') ? c.href : `${SITE_ORIGIN}${c.href}` } : {}),
     })),
   }
 
@@ -73,13 +74,17 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
         <SiteHeader />
 
         <div className={s.crumb}>
-          {crumbs.map((c, i) => (
+          {allCrumbs.map((c, i) => (
             <span key={i}>
               {i > 0 && ' › '}
               {c.href ? (
-                <Link href={c.href}>
-                  <a>{c.label}</a>
-                </Link>
+                c.href.startsWith('http') ? (
+                  <a href={c.href}>{c.label}</a>
+                ) : (
+                  <Link href={c.href}>
+                    <a>{c.label}</a>
+                  </Link>
+                )
               ) : (
                 <b>{c.label}</b>
               )}
