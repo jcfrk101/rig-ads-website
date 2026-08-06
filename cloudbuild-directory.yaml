@@ -27,6 +27,7 @@ steps:
         --build-arg NEXT_PUBLIC_GTAG_CALL_CONVERSION_TOLLFREE=$_GTAG_CALL_CONVERSION_TOLLFREE \
         --build-arg MECHANICS_EXPORT_TOKEN=$$MECHANICS_EXPORT_TOKEN \
         --build-arg NEXT_PUBLIC_CHAT_EMBED=$_CHAT_EMBED \
+        --build-arg NEXT_PUBLIC_CHAT_EMBED_ORIGIN=$_CHAT_EMBED_ORIGIN \
         . \
         -f Dockerfile
     timeout: 1800s
@@ -66,6 +67,8 @@ options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
   _CHAT_EMBED: '1'
+  # absolute origin so the embed also works on non-bigrig.app hosts (run.app previews)
+  _CHAT_EMBED_ORIGIN: 'https://bigrig.app'
   _DEPLOY_REGION: us-central1
   _GCR_HOSTNAME: us.gcr.io
   _PLATFORM: managed
