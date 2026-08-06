@@ -95,7 +95,7 @@ export const RV_PROBLEMS: RvProblem[] = [
       'If it clicks but won\'t crank, try after 30 min of engine charging',
     ],
     dispatch:
-      'A mobile diesel mechanic can diagnose fuel, filters, pumps, and batteries at your site or roadside. Tell dispatch the make, the blink code, and where you are — mechanics bid back with rates and ETAs, and most generator calls end with the genset running the same day. Your boondocking week is salvageable.',
+      'A mobile mechanic can diagnose fuel, filters, pumps, and batteries at your site or roadside — gas or diesel genset. Tell dispatch the make, the blink code, and where you are — mechanics bid back with rates and ETAs, and most generator calls end with the genset running the same day. Your boondocking week is salvageable.',
   },
   {
     slug: 'electrical',

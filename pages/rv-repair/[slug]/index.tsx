@@ -120,7 +120,7 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
       crumbs={[{ label: 'RV Repair', href: `/${RV_SEGMENT}/` }, { label: stateName }]}
       jsonLd={jsonLd}
       phone={phone}
-      footnote="Live stats from the RIG network, refreshed regularly. Most network mechanics handle RV chassis work — tires, brakes, engine, electrical."
+      footnote="Live stats from the RIG network, refreshed regularly. Gas or diesel — coverage and specialties vary by mechanic and area; chat confirms what's available near you before anyone rolls."
     >
       <div className={s.pageHero}>
         <div className={s.segTabs}>
@@ -146,11 +146,12 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
         <h2>RV breakdown help across {stateName}</h2>
         <p>
           RIG covers {stateName} with mobile mechanics who work on heavy rigs every day — and a motorhome is
-          a heavy rig. Tires, air and hydraulic brakes, cooling systems, batteries and charging, generators:
-          the roadside systems that end trips are the systems these mechanics fix for a living. Most
-          breakdowns are handled where the rig sits, roadside or at your site, without a tow. You&apos;ll see
-          each mechanic&apos;s rate, call-out fee, and ETA before choosing — and payment runs protected
-          through the app.
+          a heavy rig, gas or diesel. Tires, brakes, cooling systems, batteries and charging, generators:
+          the roadside systems that end trips are the systems these mechanics fix for a living. Coverage is
+          strongest along the interstates and around bigger towns, and specialties vary by mechanic — chat
+          tells you what&apos;s genuinely available near you in minutes. Most breakdowns are handled where
+          the rig sits, roadside or at your site, without a tow, with each mechanic&apos;s rate, call-out
+          fee, and ETA shown before you choose.
         </p>
       </div>
 

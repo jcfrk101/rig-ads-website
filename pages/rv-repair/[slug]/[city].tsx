@@ -59,7 +59,7 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
       ]}
       jsonLd={jsonLd}
       phone={phone}
-      footnote="Live stats from the RIG network, refreshed regularly. Most network mechanics handle RV chassis work — tires, brakes, engine, electrical."
+      footnote="Live stats from the RIG network, refreshed regularly. Gas or diesel — coverage and specialties vary by mechanic and area; chat confirms what's available near you before anyone rolls."
     >
       <div className={s.pageHero}>
         <div className={s.segTabs}>
@@ -84,11 +84,13 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
       <div className={s.prose}>
         <h2>RV breakdown help in the {city.name} area</h2>
         <p>
-          The {city.name} area has {stats.mechanicsInArea} mechanics in the RIG network, and most handle the
-          chassis systems that strand RVs: tires and blowouts, brakes, engine and cooling problems, batteries
-          and charging, generators. One conversation with dispatch puts your breakdown in front of the ones
-          available right now — you compare real rates and ETAs instead of calling shops from the shoulder.
-          Most problems get fixed where the rig sits, and your trip loses hours instead of days.
+          The {city.name} area has {stats.mechanicsInArea} mechanics in the RIG network. Gas or diesel,
+          motorhome or towable — the systems that strand RVs are tires and blowouts, brakes, engine and
+          cooling problems, batteries and charging, generators, and that&apos;s the daily work of this
+          network. Specialties vary by mechanic, so one conversation with dispatch puts your breakdown in
+          front of the ones actually available right now — you compare real rates and ETAs instead of
+          calling shops from the shoulder. Most problems get fixed where the rig sits, and your trip loses
+          hours instead of days.
         </p>
       </div>
 

@@ -61,7 +61,7 @@ export default function RvHub() {
       </div>
 
       <div className={s.prose}>
-        <h2>Built for travelers, not junkyards</h2>
+        <h2>Built for travelers on a schedule</h2>
         <p>
           You&apos;re out here to see the country, and every hour on the shoulder is an hour off the itinerary.
           RIG&apos;s dispatch model is built for exactly that math: instead of calling shops one by one from a
@@ -71,9 +71,12 @@ export default function RvHub() {
           fastest competent wrench available, headed your way.
         </p>
         <p>
-          Anything diesel is home turf — diesel pushers, Super Cs, diesel tow rigs — and the roadside
-          systems every RV shares: tires, brakes, batteries, charging, cooling, generators. Most breakdowns
-          get fixed where the rig sits.{' '}
+          RIG is a diesel and RV network: gas or diesel, motorhome or towable, the roadside systems that end
+          trips — tires, brakes, batteries, charging, cooling, generators — are what these mechanics fix
+          every day. Coverage and specialties do vary by mechanic and by area, and that&apos;s exactly what
+          chat is for: describe the rig and the problem, and dispatch tells you what&apos;s actually
+          available near you — in minutes, not after a morning of phone calls. Most breakdowns get fixed
+          where the rig sits.{' '}
           <Link href={rvProblemPath('tow-or-fix')}>
             <a style={{ fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 2 }}>
               Why fixing beats towing for RVs →
