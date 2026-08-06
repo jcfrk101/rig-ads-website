@@ -23,10 +23,10 @@ import { RV_PROBLEMS, RvProblem, getRvProblem } from '../../../data/rv/problems'
 //  - anything else -> problem page ("RV Generator Won't Start")
 // State slugs are always exactly 2 letters, problem slugs never are.
 type Props =
-  | { kind: 'problem'; problem: RvProblem }
+  | { kind: 'problem'; problem: RvProblem; states: { code: string; name: string }[] }
   | { kind: 'state'; code: string; stateName: string; stats: CityStats; topCities: DirectoryCity[]; phone: PagePhone }
 
-function ProblemPage({ problem }: Extract<Props, { kind: 'problem' }>) {
+function ProblemPage({ problem, states }: Extract<Props, { kind: 'problem' }>) {
   const description = `${problem.heroSub.slice(0, 130)} Chat with RIG dispatch or call ${SEO_PHONE.display}, 24/7.`
   const jsonLd = [
     {
@@ -90,6 +90,15 @@ function ProblemPage({ problem }: Extract<Props, { kind: 'problem' }>) {
           {RV_PROBLEMS.filter((p) => p.slug !== problem.slug).map((p) => (
             <Link key={p.slug} href={rvProblemPath(p.slug)}>
               <a className={s.chip}>{p.name}</a>
+            </Link>
+          ))}
+        </div>
+
+        <div className={s.secTitle}>Mobile RV repair by state</div>
+        <div className={s.linkGrid}>
+          {states.map((st) => (
+            <Link key={st.code} href={rvStatePath(st.code)}>
+              <a className={s.linkCard}>{st.name}</a>
             </Link>
           ))}
         </div>
@@ -221,5 +230,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
   const problem = getRvProblem(slug)
   if (!problem) return { notFound: true }
-  return { props: { kind: 'problem', problem } }
+  const states = rvCoveredStates().map((st) => ({ code: st.code, name: st.name }))
+  return { props: { kind: 'problem', problem, states } }
 }
