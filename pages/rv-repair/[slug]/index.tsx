@@ -135,7 +135,7 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 360px', minWidth: 300 }}>
             <h1>Mobile RV Repair in {stateName}</h1>
             <p className={s.sub}>
@@ -156,7 +156,7 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
         </div>
       </div>
 
-      <div className={s.prose}>
+      <div className={s.prose} style={{ maxWidth: 'none' }}>
         <h2>RV breakdown help across {stateName}</h2>
         <p>
           RIG covers {stateName} with mobile mechanics who work on heavy rigs every day — and a motorhome is

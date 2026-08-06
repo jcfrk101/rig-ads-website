@@ -65,7 +65,7 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 360px', minWidth: 300 }}>
             <h1>Mobile RV Repair in {cityState}</h1>
             <p className={s.sub}>
@@ -85,7 +85,7 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
         </div>
       </div>
 
-      <div className={s.prose}>
+      <div className={s.prose} style={{ maxWidth: 'none' }}>
         <h2>RV breakdown help in the {city.name} area</h2>
         <p>
           The {city.name} area has {stats.mechanicsInArea} mechanics in the RIG network. Gas or diesel,

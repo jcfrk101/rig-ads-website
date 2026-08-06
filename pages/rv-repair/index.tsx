@@ -43,7 +43,7 @@ export default function RvHub() {
         <div className={s.segTabs}>
           <span className={s.segTabOn}>RV / Motorhome</span>
         </div>
-        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 360px', minWidth: 300 }}>
             <h1>RV Trouble Shouldn&apos;t End the Trip</h1>
             <p className={s.sub}>
@@ -64,7 +64,7 @@ export default function RvHub() {
         </div>
       </div>
 
-      <div className={s.prose}>
+      <div className={s.prose} style={{ maxWidth: 'none' }}>
         <h2>Built for travelers on a schedule</h2>
         <p>
           You&apos;re out here to see the country, and every hour on the shoulder is an hour off the itinerary.
