@@ -43,6 +43,13 @@ export default function ServicesHub() {
               </a>
             </Link>
           ))}
+          <Link href="/rv-repair/">
+            <a className={s.serviceCard}>
+              <b>RV Repair</b>
+              <p>Gas or diesel, motorhome or towable — mobile RV repair dispatched roadside or to your campsite.</p>
+              <span>Learn more →</span>
+            </a>
+          </Link>
         </div>
       </div>
     </DirectoryLayout>
