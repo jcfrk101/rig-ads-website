@@ -54,7 +54,7 @@ function ProblemPage({ problem }: Extract<Props, { kind: 'problem' }>) {
         </div>
         <h1>{problem.h1}</h1>
         <p className={s.sub}>{problem.heroSub}</p>
-        <ChatCta context="get help now" />
+        <ChatCta placeholder='Describe the problem — dispatch reads it and mechanics bid back' />
       </div>
 
       <div className={s.prose}>
@@ -139,7 +139,7 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
             { label: 'Availability', value: '24/7' },
           ]}
         />
-        <ChatCta context={`RV help in ${stateName}`} />
+        <ChatCta placeholder={`Describe the problem and where you are in ${stateName}…`} />
       </div>
 
       <div className={s.prose}>

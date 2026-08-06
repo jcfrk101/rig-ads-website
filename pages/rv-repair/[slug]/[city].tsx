@@ -78,7 +78,7 @@ export default function RvCityPage({ city, stats, nearby, phone }: Props) {
             { label: 'Availability', value: '24/7' },
           ]}
         />
-        <ChatCta context={`RV help near ${city.name}`} />
+        <ChatCta placeholder={`Describe the problem — e.g. "broke down near ${city.name}"`} />
       </div>
 
       <div className={s.prose}>

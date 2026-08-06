@@ -2,11 +2,12 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SITE_ORIGIN, MAIN_SITE } from '../../data/directory'
+import { SITE_ORIGIN } from '../../data/directory'
 import { RV_SEGMENT } from '../../data/rv'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion } from '../../utils/gtag'
 import DirectoryFooter from '../directory/DirectoryFooter'
+import SiteHeader from '../SiteHeader'
 import { PhoneProvider, usePagePhone } from '../directory/PhoneContext'
 
 export interface Crumb {
@@ -66,28 +67,7 @@ export default function RvLayout({ title, description, path, crumbs, jsonLd, chi
       </Head>
 
       <div className={s.frame}>
-        <header className={s.nav}>
-          <a className={s.logo} href={MAIN_SITE}>
-            <img src="/static/icons/logo-full.svg" alt="RIG" />
-          </a>
-          <nav className={s.navLinks}>
-            <Link href={`/${RV_SEGMENT}/`}>
-              <a>RV Repair</a>
-            </Link>
-            <Link href={`/${RV_SEGMENT}/tow-or-fix/`}>
-              <a>Tow or Fix?</a>
-            </Link>
-            <Link href="/semi-truck-repair/how-it-works/">
-              <a>How It Works</a>
-            </Link>
-            <Link href="/semi-truck-repair/">
-              <a>Semi Truck Repair</a>
-            </Link>
-          </nav>
-          <a className={s.navCta} href={pagePhone.tel} onClick={fireCallConversion}>
-            ☎ {pagePhone.display}
-          </a>
-        </header>
+        <SiteHeader />
 
         <div className={s.crumb}>
           {crumbs.map((c, i) => (

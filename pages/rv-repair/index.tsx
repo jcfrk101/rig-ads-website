@@ -57,7 +57,7 @@ export default function RvHub() {
             { label: 'Availability', value: '24/7' },
           ]}
         />
-        <ChatCta context="describe the problem" />
+        <ChatCta />
       </div>
 
       <div className={s.prose}>

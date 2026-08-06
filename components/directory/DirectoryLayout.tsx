@@ -2,10 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import s from '../../styles/Directory.module.scss'
-import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
+import { SITE_ORIGIN, SEGMENT } from '../../data/directory'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
 import { fireCallConversion } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
+import SiteHeader from '../SiteHeader'
 import { PhoneProvider, usePagePhone } from './PhoneContext'
 
 export interface Crumb {
@@ -69,30 +70,7 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
       </Head>
 
       <div className={s.frame}>
-        <header className={s.nav}>
-          <a className={s.logo} href={MAIN_SITE}>
-            <img src="/static/icons/logo-full.svg" alt="RIG" />
-          </a>
-          <nav className={s.navLinks}>
-            <Link href={`/${SEGMENT}/`}>
-              <a>Semi Truck Repair</a>
-            </Link>
-            <Link href={`/${SEGMENT}/services/`}>
-              <a>Services</a>
-            </Link>
-            <Link href={`/${SEGMENT}/corridors/`}>
-              <a>Corridors</a>
-            </Link>
-            <Link href={`/${SEGMENT}/how-it-works/`}>
-              <a>How It Works</a>
-            </Link>
-            <a href="https://fleet.bigrig.app">For Fleets</a>
-            <a href="https://shop.bigrig.app">Join as Mechanic</a>
-          </nav>
-          <a className={s.navCta} href={pagePhone.tel} onClick={fireCallConversion}>
-            ☎ {pagePhone.display}
-          </a>
-        </header>
+        <SiteHeader />
 
         <div className={s.crumb}>
           {crumbs.map((c, i) => (
