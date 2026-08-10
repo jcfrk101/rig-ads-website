@@ -26,7 +26,7 @@ export const HOW_IT_WORKS_STEPS = [
   },
   {
     title: 'Easy payment through the app',
-    body: 'Pay when the work is done — no extra negotiation on the shoulder, no risk. A protected payment flow for credit cards, with EFS fleet payments coming soon.',
+    body: 'Pay when the work is done — no extra negotiation on the shoulder, no risk. A protected payment flow for credit cards and EFS Payments.',
   },
 ]
 
