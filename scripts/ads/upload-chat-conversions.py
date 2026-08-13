@@ -27,9 +27,12 @@ from datetime import datetime, timezone
 CUSTOMER_ID = "5579032852"
 ACCEPTED_ACTION = f"customers/{CUSTOMER_ID}/conversionActions/7720133259"
 JOB_ACTION = f"customers/{CUSTOMER_ID}/conversionActions/7720133262"
+# Unified conversions export: {"calls": [...], "chats": [...]}. This script
+# uploads the chat side; calls still go up via the legacy CSV
+# (/ad/conversion.csv) until that flow moves to the API too.
 EXPORT_URL = (
     "https://api.bigrig.app/admin/a52d35fa-b696-4a13-93e6-a31f4f98d9a7"
-    "/ad/chat-conversion?time_frame={days}"
+    "/ad/conversion?time_frame={days}"
 )
 
 
@@ -37,10 +40,12 @@ def fetch_rows(days: int) -> list:
     with urllib.request.urlopen(EXPORT_URL.format(days=days), timeout=30) as res:
         body = json.load(res)
     # rig-web-services wraps responses in { data: ... } — unwrap when present.
-    rows = body.get("data") if isinstance(body, dict) else body
-    if isinstance(rows, str):  # endpoint returns the JSON as a string payload
-        rows = json.loads(rows)
-    return rows or []
+    data = body.get("data") if isinstance(body, dict) and "data" in body else body
+    if isinstance(data, str):  # endpoint returns the JSON as a string payload
+        data = json.loads(data)
+    if isinstance(data, dict):
+        return data.get("chats") or []
+    return data or []
 
 
 def conversion_time(epoch: int) -> str:
