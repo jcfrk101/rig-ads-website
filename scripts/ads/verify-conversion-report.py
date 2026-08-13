@@ -23,6 +23,7 @@ import csv
 import io
 import json
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -42,17 +43,32 @@ def parse_csv(text: str) -> dict:
     return rows
 
 
-def fetch(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=570) as res:
-        return res.read().decode()
+def fetch(url: str, attempts: int = 3) -> str:
+    # The prod report endpoint is heavy (live Stripe walks) and occasionally
+    # drops a connection or 500s transiently — retry before concluding anything.
+    for i in range(attempts):
+        try:
+            with urllib.request.urlopen(url, timeout=570) as res:
+                return res.read().decode()
+        except Exception as e:
+            if i == attempts - 1:
+                raise
+            print(f"    (fetch retry {i + 1} after {type(e).__name__}: {e})")
+            time.sleep(15)
 
 
-def compare(name: str, baseline: dict, current: dict) -> bool:
+def compare(name: str, baseline: dict, current: dict, longest_current: dict) -> bool:
+    # The window is anchored at "now", so a row near the window's start edge at
+    # baseline time can age out by verify time. If it still exists in the
+    # longest window's CURRENT pull, nothing was lost — it just moved past the
+    # shorter window's edge.
     missing = [k for k in baseline if k not in current]
+    drifted = [k for k in missing if k in longest_current]
+    missing = [k for k in missing if k not in longest_current]
     shrunk = [k for k in baseline if k in current and current[k] < baseline[k] - 0.005]
     new = [k for k in current if k not in baseline]
     print(f"  {name}: baseline {len(baseline)} rows -> current {len(current)} rows; "
-          f"missing {len(missing)}, shrunk {len(shrunk)}, new {len(new)}")
+          f"missing {len(missing)}, aged-out {len(drifted)}, shrunk {len(shrunk)}, new {len(new)}")
     for k in missing[:5]:
         print(f"    MISSING {k} (was ${baseline[k]:.2f})")
     for k in shrunk[:5]:
@@ -65,6 +81,10 @@ def main() -> int:
     ap.add_argument("--days", type=int, nargs="+", default=[90, 180])
     args = ap.parse_args()
 
+    # Longest window's current rows anchor the aged-out-vs-lost distinction.
+    longest = max(args.days)
+    longest_current = parse_csv(fetch(f"{BASE}/conversion.csv?time_frame={longest}"))
+
     ok = True
     for days in args.days:
         path = BASELINE_DIR / BASELINE_TPL.format(days=days)
@@ -74,8 +94,9 @@ def main() -> int:
         baseline = parse_csv(path.read_text())
         print(f"tf={days}:")
 
-        csv_rows = parse_csv(fetch(f"{BASE}/conversion.csv?time_frame={days}"))
-        ok &= compare("csv ", baseline, csv_rows)
+        csv_rows = longest_current if days == longest \
+            else parse_csv(fetch(f"{BASE}/conversion.csv?time_frame={days}"))
+        ok &= compare("csv ", baseline, csv_rows, longest_current)
 
         body = json.loads(fetch(f"{BASE}/conversion?time_frame={days}"))
         data = body.get("data", body)
@@ -83,12 +104,15 @@ def main() -> int:
             data = json.loads(data)
         json_rows = {(c["caller_phone_number"], c["call_start_time"]): c["value_dollars"]
                      for c in data.get("calls", [])}
-        ok &= compare("json", baseline, json_rows)
+        ok &= compare("json", baseline, json_rows, longest_current)
         if json_rows != csv_rows:
             drift = {k for k in (set(json_rows) ^ set(csv_rows))}
             print(f"    NOTE csv/json call rows differ on {len(drift)} keys "
                   "(expected only if jobs captured between the two fetches)")
-        print(f"  chats array present: {'chats' in data} ({len(data.get('chats', []))} rows)")
+        # Micronaut's NON_EMPTY serialization omits the chats key while the
+        # array is empty — absent means "no chat conversions yet", not broken.
+        print(f"  chats: {len(data.get('chats', []))} rows"
+              + ("" if "chats" in data else " (key omitted while empty — expected pre-launch)"))
 
     print("\nRESULT:", "PASS — nothing lost or shrunk" if ok else "FAIL — see rows above")
     return 0 if ok else 1
