@@ -13,9 +13,24 @@ export default function ChatCta({ placeholder }: { placeholder?: string }) {
   const phone = usePhone()
 
   const openChat = () => {
-    const launcher = document.querySelector<HTMLButtonElement>('button[aria-label="Chat with Dispatch"]')
-    if (launcher) launcher.click()
-    else window.open(`${CHAT_ORIGIN}/help`, '_blank', 'noopener')
+    // Stable data attribute first; legacy aria-labels cover an older
+    // chat-embed.js still cached from before the attribute existed.
+    const launcher = document.querySelector<HTMLButtonElement>(
+      'button[data-rig-chat-launcher], button[aria-label="Need a Mechanic? Chat Now"], button[aria-label="Chat with Dispatch"]'
+    )
+    if (launcher) {
+      launcher.click()
+      return
+    }
+    // Fallback opens /help in a NEW tab, where this tab's sessionStorage (and
+    // the ad click ID chat-embed.js captured into rig-journey) doesn't follow —
+    // so carry the click ID in the URL for chat-conversion attribution.
+    let query = ''
+    try {
+      const click = JSON.parse(sessionStorage.getItem('rig-journey') || 'null')?.click
+      if (click?.kind && click?.id) query = `?${click.kind}=${encodeURIComponent(click.id)}`
+    } catch {}
+    window.open(`${CHAT_ORIGIN}/help${query}`, '_blank', 'noopener')
   }
 
   return (
