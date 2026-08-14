@@ -28,17 +28,27 @@ CUSTOMER_ID = "5579032852"
 ACCEPTED_ACTION = f"customers/{CUSTOMER_ID}/conversionActions/7720133259"
 JOB_ACTION = f"customers/{CUSTOMER_ID}/conversionActions/7720133262"
 # Unified conversions export: {"calls": [...], "chats": [...]}. This script
-# uploads the chat side; calls still go up via the legacy CSV
-# (/ad/conversion.csv) until that flow moves to the API too.
+# uploads the chat side; calls go up via Google Ads' scheduled CSV import,
+# which fetches /ad/conversion (CSV — never point it at JSON) twice daily.
 EXPORT_URL = (
     "https://api.bigrig.app/admin/a52d35fa-b696-4a13-93e6-a31f4f98d9a7"
-    "/ad/conversion?time_frame={days}"
+    "/ad/conversion.json?time_frame={days}"
 )
 
 
 def fetch_rows(days: int) -> list:
-    with urllib.request.urlopen(EXPORT_URL.format(days=days), timeout=30) as res:
-        body = json.load(res)
+    try:
+        with urllib.request.urlopen(EXPORT_URL.format(days=days), timeout=570) as res:
+            body = json.load(res)
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            raise
+        # PR #247 (JSON moved to /ad/conversion.json) not deployed yet — the
+        # combined JSON still lives at the bare URL.
+        with urllib.request.urlopen(
+                EXPORT_URL.replace("/ad/conversion.json", "/ad/conversion").format(days=days),
+                timeout=570) as res:
+            body = json.load(res)
     # rig-web-services wraps responses in { data: ... } — unwrap when present.
     data = body.get("data") if isinstance(body, dict) and "data" in body else body
     if isinstance(data, str):  # endpoint returns the JSON as a string payload
