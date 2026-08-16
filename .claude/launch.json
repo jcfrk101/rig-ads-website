@@ -4,9 +4,32 @@
     {
       "name": "rig-directory-dev",
       "runtimeExecutable": "bash",
-      "runtimeArgs": ["-c", "PATH=/opt/homebrew/opt/node@20/bin:$PATH npm run dev"],
+      "runtimeArgs": [
+        "-c",
+        "PATH=/opt/homebrew/opt/node@20/bin:$PATH npm run dev"
+      ],
       "port": 3000,
       "autoPort": true
+    },
+    {
+      "name": "rig-marketing-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/jmelick/Code/rig-marketing-website && PATH=/opt/homebrew/opt/node@20/bin:$PATH npm run dev -- -p 3005"
+      ],
+      "port": 3005,
+      "autoPort": false
+    },
+    {
+      "name": "rig-web-app-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/jmelick/Code/rig-web-app && PATH=/opt/homebrew/opt/node@20/bin:$PATH npm run dev:shop -- -p 3010"
+      ],
+      "port": 3010,
+      "autoPort": false
     }
   ]
 }
