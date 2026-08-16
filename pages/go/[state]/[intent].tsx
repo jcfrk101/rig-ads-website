@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useEffect, useState } from 'react'
 import s from '../../../styles/Directory.module.scss'
-import { STATES, MAIN_SITE, getStateStats, CityStats } from '../../../data/directory'
-import { getPhoneForState, PagePhone } from '../../../data/directory/statePhones'
+import { STATES, MAIN_SITE, NATIONAL_STATS, getStateStats, CityStats } from '../../../data/directory'
+import { getPhoneForState, PagePhone, TOLLFREE_PHONE } from '../../../data/directory/statePhones'
 import { GO_INTENT_SLUGS, getGoIntent, GoIntent } from '../../../data/go/intents'
 import { PhoneProvider } from '../../../components/directory/PhoneContext'
 import { fireCallConversion, fireDniConfig } from '../../../utils/gtag'
@@ -31,10 +31,12 @@ interface Props {
   phone: PagePhone
 }
 
-type GeoMap = Record<string, string>
+// id -> [name, stateCode]; files bucketed by id % 100 (~8KB each) so any
+// page — state or national — resolves a location with one small fetch.
+type GeoBucket = Record<string, [string, string]>
 
-function useAdPlace(stateCode: string, stateName: string): string {
-  const [place, setPlace] = useState(stateName)
+function useAdPlace(fallback: string): string {
+  const [place, setPlace] = useState(fallback)
   useEffect(() => {
     let cancelled = false
     try {
@@ -43,35 +45,35 @@ function useAdPlace(stateCode: string, stateName: string): string {
       // physical location; both are Google geo-target criterion IDs.
       const ids = [p.get('int'), p.get('loc')].filter((v): v is string => !!v && /^\d+$/.test(v))
       if (!ids.length) return
-      fetch(`/static/go-geo/${stateCode.toLowerCase()}.json`)
-        .then((r) => (r.ok ? r.json() : null))
-        .then((geo: GeoMap | null) => {
-          if (cancelled || !geo) return
-          for (const id of ids) {
-            if (geo[id]) {
-              setPlace(`${geo[id]}, ${stateCode.toUpperCase()}`)
-              return
-            }
-          }
-        })
-        .catch(() => {})
+      Promise.all(
+        ids.map((id) =>
+          fetch(`/static/go-geo/b/${String(Number(id) % 100).padStart(2, '0')}.json`)
+            .then((r) => (r.ok ? (r.json() as Promise<GeoBucket>) : null))
+            .then((b) => (b && b[id]) || null)
+            .catch(() => null)
+        )
+      ).then((hits) => {
+        if (cancelled) return
+        const hit = hits.find((h) => h)
+        if (hit) setPlace(`${hit[0]}, ${hit[1].toUpperCase()}`)
+      })
     } catch {
       /* no personalization */
     }
     return () => {
       cancelled = true
     }
-  }, [stateCode, stateName])
+  }, [fallback])
   return place
 }
 
 export default function GoLanding({ stateCode, stateName, intent, stats, phone }: Props) {
-  const place = useAdPlace(stateCode, stateName)
+  const place = useAdPlace(stateCode === 'us' ? 'Your Area' : stateName)
   useEffect(() => {
     if (phone.dniLabel) fireDniConfig(phone.dniLabel, phone.display)
   }, [phone.dniLabel, phone.display])
 
-  const title = `${intent.noun} in ${stateName} | RIG Dispatch`
+  const title = stateCode === 'us' ? `${intent.noun} — 24/7 nationwide | RIG Dispatch` : `${intent.noun} in ${stateName} | RIG Dispatch`
   return (
     <PhoneProvider value={phone}>
       <div className={s.page}>
@@ -128,7 +130,7 @@ export default function GoLanding({ stateCode, stateName, intent, stats, phone }
               </div>
               <StatStack
                 stats={[
-                  { label: `Mechanics in ${stateName}`, value: `${stats.mechanicsInArea}+`, live: true },
+                  { label: stateCode === 'us' ? 'Mechanics in network' : `Mechanics in ${stateName}`, value: `${stats.mechanicsInArea.toLocaleString()}+`, live: true },
                   { label: 'Avg. dispatch', value: `${stats.avgDispatchMin} min` },
                   { label: 'Avg. time to arrive', value: `${stats.avgArrivalMin} min` },
                   { label: 'Availability', value: '24/7' },
@@ -204,7 +206,7 @@ export default function GoLanding({ stateCode, stateName, intent, stats, phone }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: Object.keys(STATES).flatMap((st) =>
+  paths: [...Object.keys(STATES), 'us'].flatMap((st) =>
     GO_INTENT_SLUGS.map((intent) => ({ params: { state: st.toLowerCase(), intent } }))
   ),
   fallback: false,
@@ -213,8 +215,27 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const stateCode = String(params?.state || '').toLowerCase()
   const intent = getGoIntent(String(params?.intent || ''))
+  if (!intent) return { notFound: true }
+  // 'us' serves the national campaigns (Tire / RV / National): toll-free
+  // number, network-wide stats, hero personalized from the click's location.
+  if (stateCode === 'us') {
+    return {
+      props: {
+        stateCode,
+        stateName: 'the U.S.',
+        intent,
+        stats: {
+          mechanicsInArea: NATIONAL_STATS.mechanicsNetwork,
+          avgArrivalMin: NATIONAL_STATS.avgArrivalMin,
+          avgDispatchMin: NATIONAL_STATS.avgDispatchMin,
+          jobsCompleted: 0,
+        },
+        phone: TOLLFREE_PHONE,
+      },
+    }
+  }
   const state = STATES[stateCode]
-  if (!intent || !state) return { notFound: true }
+  if (!state) return { notFound: true }
   return {
     props: {
       stateCode,
