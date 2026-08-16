@@ -24,12 +24,16 @@ import io
 import json
 import sys
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
 BASE = "https://api.bigrig.app/admin/a52d35fa-b696-4a13-93e6-a31f4f98d9a7/ad"
 BASELINE_DIR = Path.home() / "Library/CloudStorage/Dropbox/Work/RigApp/Ads Reports"
 BASELINE_TPL = "call-conversions-baseline-2026-08-13-tf{days}.txt"
+# Endpoints (services PR #252 renamed them; the legacy names still serve the calls CSV).
+CALLS_CSV = "conversion-calls.csv"
+JSON = "conversion.json"
 
 
 def parse_csv(text: str) -> dict:
@@ -44,6 +48,16 @@ def parse_csv(text: str) -> dict:
 
 
 def fetch(url: str, attempts: int = 3) -> str:
+    # Pre-#252 prod: renamed endpoints 404 -> fall back to the legacy names.
+    try:
+        return _fetch(url, attempts)
+    except urllib.error.HTTPError as e:
+        if e.code == 404 and CALLS_CSV in url:
+            return _fetch(url.replace(CALLS_CSV, "conversion.csv"), attempts)
+        raise
+
+
+def _fetch(url: str, attempts: int = 3) -> str:
     # The prod report endpoint is heavy (live Stripe walks) and occasionally
     # drops a connection or 500s transiently — retry before concluding anything.
     for i in range(attempts):
@@ -83,7 +97,7 @@ def main() -> int:
 
     # Longest window's current rows anchor the aged-out-vs-lost distinction.
     longest = max(args.days)
-    longest_current = parse_csv(fetch(f"{BASE}/conversion.csv?time_frame={longest}"))
+    longest_current = parse_csv(fetch(f"{BASE}/{CALLS_CSV}?time_frame={longest}"))
 
     ok = True
     for days in args.days:
@@ -95,10 +109,10 @@ def main() -> int:
         print(f"tf={days}:")
 
         csv_rows = longest_current if days == longest \
-            else parse_csv(fetch(f"{BASE}/conversion.csv?time_frame={days}"))
+            else parse_csv(fetch(f"{BASE}/{CALLS_CSV}?time_frame={days}"))
         ok &= compare("csv ", baseline, csv_rows, longest_current)
 
-        body = json.loads(fetch(f"{BASE}/conversion?time_frame={days}"))
+        body = json.loads(fetch(f"{BASE}/{JSON}?time_frame={days}"))
         data = body.get("data", body)
         if isinstance(data, str):
             data = json.loads(data)
