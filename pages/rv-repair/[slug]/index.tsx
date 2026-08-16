@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import RvLayout from '../../../components/rv/RvLayout'
+import useAdPlace from '../../../components/directory/useAdPlace'
 import ChatCta from '../../../components/rv/ChatCta'
 import StatStack from '../../../components/rv/StatStack'
 import s from '../../../styles/Directory.module.scss'
@@ -108,6 +109,9 @@ function ProblemPage({ problem, states }: Extract<Props, { kind: 'problem' }>) {
 }
 
 function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, { kind: 'state' }>) {
+  // Ad clicks carry ValueTrack location IDs (campaign final-URL suffix).
+  const adPlace = useAdPlace()
+  const adCity = adPlace ? topCities.find((c) => c.name.toLowerCase() === adPlace.name.toLowerCase()) || null : null
   const title = `Mobile RV Repair in ${stateName} | Get Back to Your Trip | RIG`
   const description = `RV broke down in ${stateName}? RIG dispatches mobile mechanics to your rig — roadside or campsite. ${stats.mechanicsInArea} mechanics in the area, avg ${stats.avgDispatchMin} min to dispatch. Chat or call ${SEO_PHONE.display}, 24/7.`
   const jsonLd = [
@@ -137,13 +141,21 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
         </div>
         <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 360px', minWidth: 300 }}>
-            <h1>Mobile RV Repair in {stateName}</h1>
+            <h1>Mobile RV Repair {adPlace ? `near ${adPlace.name}, ${adPlace.state.toUpperCase()}` : `in ${stateName}`}</h1>
             <p className={s.sub}>
               Broke down on the way to the campground? Mechanics dispatched to your rig across {stateName} —
               tires, brakes, engine, batteries, generators. Describe it once, get bids in minutes, keep the
               trip.
             </p>
             <ChatCta placeholder={`Describe the problem and where you are in ${stateName}…`} />
+            {adCity && (
+              <p style={{ marginTop: 12, fontSize: 14 }}>
+                Your area:{' '}
+                <Link href={rvCityPath(code, adCity.citySlug)}>
+                  <a style={{ fontWeight: 700 }}>RV mechanics near {adCity.name} →</a>
+                </Link>
+              </p>
+            )}
           </div>
           <StatStack
             stats={[
