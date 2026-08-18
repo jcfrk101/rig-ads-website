@@ -4,6 +4,8 @@ import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import StatStack from '../../../components/rv/StatStack'
 import ChatCta from '../../../components/rv/ChatCta'
 import useAdPlace from '../../../components/directory/useAdPlace'
+import WorkFeedStrip from '../../../components/directory/WorkFeedStrip'
+import { FeedItem, fetchStateFeed } from '../../../data/feed'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
 import DispatchExplainer from '../../../components/directory/DispatchExplainer'
 import s from '../../../styles/Directory.module.scss'
@@ -28,9 +30,10 @@ interface Props {
   cities: DirectoryCity[]
   corridors: DirectoryCorridor[]
   stats: CityStats
+  feed: { items: FeedItem[]; scope: 'state' | 'network' }
 }
 
-export default function StateHub({ state, cities, corridors, stats }: Props) {
+export default function StateHub({ state, cities, corridors, stats, feed }: Props) {
   const phone = getPhoneForState(state.code)
   // Ad clicks carry ValueTrack location IDs (campaign final-URL suffix);
   // resolve to a city and, when the directory covers it, point there.
@@ -87,6 +90,8 @@ export default function StateHub({ state, cities, corridors, stats }: Props) {
 
       <DispatchExplainer pageKey={`state/${state.code}`} placeName={state.name} />
 
+      <WorkFeedStrip items={feed.items} scope={feed.scope} placeName={state.name} />
+
       <div className={s.hubSection}>
         {corridors.length > 0 && (
           <>
@@ -136,6 +141,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         .sort((a, b) => b.population - a.population),
       corridors: getCorridorsByState(code).filter((c) => isCorridorCovered(c.route, c.state)),
       stats: getStateStats(code),
+      feed: await fetchStateFeed(code.toUpperCase()),
     },
   }
 }

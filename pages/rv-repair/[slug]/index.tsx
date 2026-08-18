@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import RvLayout from '../../../components/rv/RvLayout'
 import useAdPlace from '../../../components/directory/useAdPlace'
+import WorkFeedStrip from '../../../components/directory/WorkFeedStrip'
+import { FeedItem, fetchStateFeed } from '../../../data/feed'
 import ChatCta from '../../../components/rv/ChatCta'
 import StatStack from '../../../components/rv/StatStack'
 import s from '../../../styles/Directory.module.scss'
@@ -25,7 +27,7 @@ import { RV_PROBLEMS, RvProblem, getRvProblem } from '../../../data/rv/problems'
 // State slugs are always exactly 2 letters, problem slugs never are.
 type Props =
   | { kind: 'problem'; problem: RvProblem; states: { code: string; name: string }[] }
-  | { kind: 'state'; code: string; stateName: string; stats: CityStats; topCities: DirectoryCity[]; phone: PagePhone }
+  | { kind: 'state'; code: string; stateName: string; stats: CityStats; topCities: DirectoryCity[]; phone: PagePhone; feed: { items: FeedItem[]; scope: 'state' | 'network' } }
 
 function ProblemPage({ problem, states }: Extract<Props, { kind: 'problem' }>) {
   const description = `${problem.heroSub.slice(0, 130)} Chat with RIG dispatch or call ${SEO_PHONE.display}, 24/7.`
@@ -108,7 +110,7 @@ function ProblemPage({ problem, states }: Extract<Props, { kind: 'problem' }>) {
   )
 }
 
-function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, { kind: 'state' }>) {
+function StatePage({ code, stateName, stats, topCities, phone, feed }: Extract<Props, { kind: 'state' }>) {
   // Ad clicks carry ValueTrack location IDs (campaign final-URL suffix).
   const adPlace = useAdPlace()
   const adCity = adPlace ? topCities.find((c) => c.name.toLowerCase() === adPlace.name.toLowerCase()) || null : null
@@ -191,6 +193,8 @@ function StatePage({ code, stateName, stats, topCities, phone }: Extract<Props, 
           ))}
         </div>
 
+        <WorkFeedStrip items={feed.items} scope={feed.scope} placeName={stateName} />
+
         {topCities.length > 0 && (
           <>
             <div className={s.secTitle}>RV repair near {stateName} cities</div>
@@ -237,6 +241,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         stats: getStateStats(slug),
         topCities,
         phone: getPhoneForState(slug),
+        feed: await fetchStateFeed(slug.toUpperCase()),
       },
     }
   }
