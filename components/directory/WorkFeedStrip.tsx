@@ -60,7 +60,8 @@ export default function WorkFeedStrip({ items, scope, placeName, moreHref = 'htt
               <li key={i.item_id} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0', borderBottom: '1px solid #eef1f4', fontSize: 13.5 }}>
                 <span aria-hidden style={{ width: 8, height: 8, borderRadius: '50%', background: '#0adc6a', flexShrink: 0 }} />
                 <span style={{ color: '#323e48' }}>
-                  <b>{serviceLabel(i.service_type)}</b> requested{place ? ` in ${place}` : ''} — mechanics bidding
+                  <b>{serviceLabel(i.service_type)}</b>
+                  {place ? ` · ${place}` : ''}
                 </span>
                 <span style={{ marginLeft: 'auto', color: '#8b8c8c', fontSize: 12, flexShrink: 0 }}>{shortDate(i.event_at_epoch)}</span>
               </li>
