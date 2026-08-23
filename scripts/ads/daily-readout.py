@@ -19,6 +19,12 @@ from google.ads.googleads.client import GoogleAdsClient
 
 PRIMARY_ACTIONS = {"Calls - Uploads", "Chat Jobs - Uploads"}
 
+# Call-ad wind-down test: call ads PAUSED (RSA kept) in these campaigns on
+# PAUSE_DATE; every other state campaign is the control. National campaigns
+# are excluded from both cohorts. Restore list: Dropbox Ads Reports/call-ad-pause-test-2026-08-22.txt
+TEST_CAMPAIGNS = {"PENNSYLVANIA - HD", "CALIFORNIA - HD", "ARIZONA - HD", "NORTH CAROLINA - HD"}
+PAUSE_DATE = dt.date(2026, 8, 22)
+
 
 def q(client, customer, gaql):
     svc = client.get_service("GoogleAdsService")
@@ -137,6 +143,40 @@ def main():
             elif t == "CALL" and rsa and rsa.get("conv") and v["conv"] and cpa > 2 * (rsa["cost"] / rsa["conv"]):
                 note = "<< CPA >2x RSA"
             print(f"{c[:39]:<40}{t:<6}{v['cost']:>8.0f}{v['clicks']:>7.0f}{v['conv']:>6.1f}{cpa:>7.0f}{v['val']:>8.0f}  {note}")
+
+    # --- wind-down test: TEST (call ads paused) vs CONTROL states ---------
+    # Pre = 14 days before the pause; post = pause date onward. Per cohort and
+    # arm: spend, primary conv, value, CPA — the question is whether RSA in the
+    # test states picks up the jobs the call ads were getting, at what cost.
+    pre_start = PAUSE_DATE - dt.timedelta(days=14)
+    rows = q(client, cust, f"""
+        SELECT campaign.name, ad_group_ad.ad.type, segments.date, metrics.cost_micros, metrics.clicks,
+               metrics.conversions, metrics.conversions_value
+        FROM ad_group_ad WHERE segments.date BETWEEN '{pre_start}' AND '{end}' AND metrics.impressions > 0""")
+    coh = defaultdict(lambda: defaultdict(float))
+    for r in rows:
+        if "National" in r.campaign.name:
+            continue
+        d = dt.date.fromisoformat(r.segments.date)
+        period = "post" if d >= PAUSE_DATE else "pre"
+        cohort = "TEST" if r.campaign.name in TEST_CAMPAIGNS else "CONTROL"
+        t = "RSA" if r.ad_group_ad.ad.type_.name == "RESPONSIVE_SEARCH_AD" else "CALL"
+        for k, v in (("cost", money(r.metrics.cost_micros)), ("clicks", r.metrics.clicks),
+                     ("conv", r.metrics.conversions), ("val", r.metrics.conversions_value)):
+            coh[(period, cohort, t)][k] += v
+            coh[(period, cohort, "ALL")][k] += v
+    post_days = max((end - PAUSE_DATE).days + 1, 0)
+    print(f"\nWind-down test — TEST (PA/CA/AZ/NC, call ads paused {PAUSE_DATE}) vs CONTROL (other states). Per-day averages; pre = 14d before.")
+    print(f"{'period':<8}{'cohort':<9}{'arm':<5}{'spend/d':>9}{'clicks/d':>10}{'conv/d':>8}{'CPA':>7}{'val/d':>8}{'val/$':>7}")
+    for period, days in (("pre", 14), ("post", post_days)):
+        if not days:
+            continue
+        for cohort in ("TEST", "CONTROL"):
+            for t in ("RSA", "CALL", "ALL"):
+                v = coh[(period, cohort, t)]
+                cpa = v["cost"] / v["conv"] if v["conv"] else 0
+                roas = v["val"] / v["cost"] if v["cost"] else 0
+                print(f"{period:<8}{cohort:<9}{t:<5}{v['cost']/days:>9.0f}{v['clicks']/days:>10.1f}{v['conv']/days:>8.2f}{cpa:>7.0f}{v['val']/days:>8.0f}{roas:>7.2f}")
 
     # --- spend movers: last 2 days vs the 5 before ------------------------
     camp_day = defaultdict(lambda: defaultdict(float))
