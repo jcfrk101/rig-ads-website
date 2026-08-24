@@ -77,7 +77,7 @@ export default function RoutePage({ route, segments }: Props) {
 
       <DispatchBanner
         heading={`Stopped on ${rd} right now?`}
-        sub="Call with your mile marker — we dispatch the nearest available mechanic to your exact location, 24/7."
+        sub="Chat or call with your mile marker — we dispatch the nearest available mechanic to your exact location, 24/7."
       />
 
       <DispatchExplainer pageKey={`route/${route}`} placeName={rd} />

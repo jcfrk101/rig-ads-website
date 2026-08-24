@@ -243,7 +243,7 @@ function MechanicProfilePage({ profile, stateName, corridorsNearby }: Extract<Pr
         heading={profile.rigNetwork ? `Want ${profile.name} on the job?` : 'Broke down now?'}
         sub={
           profile.rigNetwork
-            ? 'RIG dispatches the closest available mechanic — call and we route your breakdown, fastest wins.'
+            ? 'RIG dispatches the closest available mechanic — chat or call and we route your breakdown, fastest wins.'
             : 'RIG dispatches the closest available mechanic from the network — usually the fastest way back on the road.'
         }
       />

@@ -11,27 +11,34 @@ import {
 } from '../../data/directory'
 import { SEO_PHONE } from '../../data/directory/statePhones'
 import { usePhone } from '../../components/directory/PhoneContext'
+import ChatCta, { openDispatchChat } from '../../components/rv/ChatCta'
 import { fireCallConversion } from '../../utils/gtag'
 
 function BigCallCta() {
   const phone = usePhone()
   return (
     <div style={{ padding: '18px 22px 26px', textAlign: 'center' }}>
-      <a
+      <button
         className={s.dispatchBtn}
         style={{ display: 'inline-flex', fontSize: 19, padding: '16px 34px' }}
-        href={phone.tel}
-        onClick={fireCallConversion}
+        onClick={openDispatchChat}
+        type="button"
       >
-        ☎ Call dispatch: {phone.display}
-      </a>
+        💬 Chat with dispatch now
+      </button>
+      <div style={{ marginTop: 10, fontSize: 15 }}>
+        Rather talk?{' '}
+        <a href={phone.tel} onClick={fireCallConversion} style={{ fontWeight: 700 }}>
+          ☎ {phone.display}
+        </a>
+      </div>
     </div>
   )
 }
 
 export default function HowItWorksPage() {
   const title = 'How RIG Dispatch Works | Bids From Local Mechanics in Minutes | RIG'
-  const description = `Broke down? One call to RIG dispatch sends your breakdown to 5–20 local heavy-duty mechanics, who bid back in minutes with hourly rates, call-out fees, and ETAs. Call ${SEO_PHONE.display}, 24/7.`
+  const description = `Broke down? Start a chat or call RIG dispatch — your breakdown goes to 5–20 local heavy-duty mechanics, who bid back in minutes with hourly rates, call-out fees, and ETAs. 24/7 at ${SEO_PHONE.display}.`
 
   const jsonLd = [
     {
@@ -61,9 +68,10 @@ export default function HowItWorksPage() {
         <h1>How RIG Dispatch Works</h1>
         <p className={s.sub}>
           In trucking, time is money. A reefer load warming up, a bus full of passengers, a pickup window
-          closing — every hour on the shoulder costs you. RIG turns one phone call into competing bids from
-          local mechanics, usually within minutes.
+          closing — every hour on the shoulder costs you. RIG turns one chat — or one call — into live bids
+          from local mechanics, usually within minutes.
         </p>
+        <ChatCta />
       </div>
 
       <div className={s.prose}>
@@ -86,7 +94,7 @@ export default function HowItWorksPage() {
         <h2>Why this beats calling around</h2>
         <p>
           The old way: search for shops, call them one at a time, describe the problem over and over, wait for
-          callbacks, and hope the first &quot;yes&quot; isn&apos;t overpriced — while your load sits. With RIG,
+          callbacks — all while your load sits. With RIG,
           you describe the breakdown once. We package your location, the symptoms, and your photos, and put it
           in front of 5–20 qualified heavy-duty mechanics near you at the same time. They compete to win the
           job, and you see real numbers — rate, call-out fee, ETA — before choosing.
@@ -101,22 +109,23 @@ export default function HowItWorksPage() {
         <p>
           A tow should be the last resort, not the first call. Most breakdowns — tires, air lines, electrical,
           fuel, sensors, brakes — get fixed right on the shoulder: RIG mechanics&apos; fix rate runs{' '}
-          {NATIONAL_STATS.fixRatePct}% of dispatched jobs. A tow adds hours of waiting, hundreds of dollars, and
-          you still pay a shop on the other end. Call dispatch first; if the job genuinely needs a shop, the
+          {NATIONAL_STATS.fixRatePct}% of dispatched jobs. A tow adds hours of waiting, and you still need the
+          repair on the other end. Chat or call dispatch first; if the job genuinely needs a shop, the
           mechanic tells you straight and you&apos;ve lost nothing.
         </p>
 
-        <h2>What to have ready when you call</h2>
+        <h2>What to have ready when you chat or call</h2>
         <p>
           Your location (exit number, mile marker, or a GPS pin), what the truck was doing when it quit, any
-          warning lights or codes, and — if it&apos;s safe — a few photos. The more the mechanics know, the more
+          warning lights or codes, and — if it&apos;s safe — a few photos (in chat, you drop them straight into
+          the thread). The more the mechanics know, the more
           accurate the bids and the more likely they arrive with the right parts the first time.
         </p>
       </div>
 
       <DispatchBanner
         heading="Broke down right now?"
-        sub={`One call starts the bidding — avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7.`}
+        sub={`A chat or a call starts the bidding — avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7.`}
       />
 
       <BigCallCta />

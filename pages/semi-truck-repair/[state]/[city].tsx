@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import StatStrip from '../../../components/directory/StatStrip'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
+import ChatCta from '../../../components/rv/ChatCta'
 import ListingSection from '../../../components/directory/ListingSection'
 import s from '../../../styles/Directory.module.scss'
 import {
@@ -99,11 +100,12 @@ export default function CityPage({ city, stats, mechanics, corridorsThrough, cor
             { label: 'Jobs completed here', value: `${stats.jobsCompleted.toLocaleString()}+` },
           ]}
         />
+        <ChatCta placeholder={`Describe the problem — e.g. "won't start at the ${city.name} truck stop, batteries clicking"`} />
       </div>
 
       <DispatchBanner
         heading={`Broke down in ${city.name} right now?`}
-        sub={`One call connects you to the closest available mechanic — avg ${stats.avgDispatchMin} min to dispatch.`}
+        sub={`A chat or a call connects you to the closest available mechanic — avg ${stats.avgDispatchMin} min to dispatch.`}
       />
 
       <ListingSection

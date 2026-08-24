@@ -2,6 +2,7 @@ import Link from 'next/link'
 import DirectoryLayout from '../../components/directory/DirectoryLayout'
 import StatStrip from '../../components/directory/StatStrip'
 import DispatchBanner from '../../components/directory/DispatchBanner'
+import ChatCta from '../../components/rv/ChatCta'
 import DispatchExplainer from '../../components/directory/DispatchExplainer'
 import s from '../../styles/Directory.module.scss'
 import {
@@ -30,7 +31,7 @@ export default function SemiHub() {
   const routes = getRoutes().filter(isRouteCovered)
 
   const title = 'Mobile Diesel Mechanics Near You | 24/7 Semi Truck Repair | RIG'
-  const description = `Truck down? RIG dispatches the closest available diesel mechanic anywhere in the US — ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min dispatch, avg $${NATIONAL_STATS.avgCostUsd} per job. Call ${SEO_PHONE.display}.`
+  const description = `Truck down? Chat or call RIG — we dispatch the closest available diesel mechanic anywhere in the US. ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7. ${SEO_PHONE.display}.`
 
   return (
     <DirectoryLayout
@@ -46,7 +47,7 @@ export default function SemiHub() {
         </div>
         <h1>24/7 Mobile Semi Truck Repair, Anywhere in the US</h1>
         <p className={s.sub}>
-          Pick your state or interstate corridor — or just call. RIG routes the closest available diesel mechanic
+          Pick your state or interstate corridor — or just start a chat or call. RIG routes the closest available diesel mechanic
           to your truck, 24 hours a day. Anything diesel — and only diesel: big rigs, diesel RVs, diesel
           pickups.
         </p>
@@ -55,14 +56,15 @@ export default function SemiHub() {
             { label: 'Mechanics in network', value: `${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+`, live: true },
             { label: 'Avg. dispatch', value: `${NATIONAL_STATS.avgDispatchMin} min` },
             { label: 'Avg. time to arrive', value: `${NATIONAL_STATS.avgArrivalMin} min` },
-            { label: 'Avg. cost', value: `$${NATIONAL_STATS.avgCostUsd}`, note: `${Math.abs(NATIONAL_STATS.costVsIndustryPct)}% less` },
+            { label: 'Fixed on site, no tow', value: `${NATIONAL_STATS.fixRatePct}%` },
           ]}
         />
+        <ChatCta />
       </div>
 
       <DispatchBanner
         heading="Broke down right now?"
-        sub={`Skip the browsing — one call connects you to the closest available mechanic, avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch.`}
+        sub={`Skip the browsing — a chat or a call connects you to the closest available mechanic, avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch.`}
       />
 
       <DispatchExplainer pageKey="hub" />

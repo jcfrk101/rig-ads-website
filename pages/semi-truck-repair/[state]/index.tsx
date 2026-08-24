@@ -85,7 +85,7 @@ export default function StateHub({ state, cities, corridors, stats, feed }: Prop
 
       <DispatchBanner
         heading={`Broke down in ${state.name} right now?`}
-        sub={`One call connects you to the closest available mechanic — avg ${stats.avgDispatchMin} min to dispatch.`}
+        sub={`A chat or a call connects you to the closest available mechanic — avg ${stats.avgDispatchMin} min to dispatch.`}
       />
 
       <DispatchExplainer pageKey={`state/${state.code}`} placeName={state.name} />

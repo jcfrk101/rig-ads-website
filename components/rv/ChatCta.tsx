@@ -9,29 +9,31 @@ import { fireCallConversion } from '../../utils/gtag'
 // Phone is the quiet secondary path underneath.
 const CHAT_ORIGIN = process.env.NEXT_PUBLIC_CHAT_EMBED_ORIGIN || ''
 
+// Shared by every chat entry point on the site (hero CTAs, DispatchBanner).
+export function openDispatchChat() {
+  // Stable data attribute first; legacy aria-labels cover an older
+  // chat-embed.js still cached from before the attribute existed.
+  const launcher = document.querySelector<HTMLButtonElement>(
+    'button[data-rig-chat-launcher], button[aria-label="Need a Mechanic? Chat Now"], button[aria-label="Chat with Dispatch"]'
+  )
+  if (launcher) {
+    launcher.click()
+    return
+  }
+  // Fallback opens /help in a NEW tab, where this tab's sessionStorage (and
+  // the ad click ID chat-embed.js captured into rig-journey) doesn't follow —
+  // so carry the click ID in the URL for chat-conversion attribution.
+  let query = ''
+  try {
+    const click = JSON.parse(sessionStorage.getItem('rig-journey') || 'null')?.click
+    if (click?.kind && click?.id) query = `?${click.kind}=${encodeURIComponent(click.id)}`
+  } catch {}
+  window.open(`${CHAT_ORIGIN}/help${query}`, '_blank', 'noopener')
+}
+
 export default function ChatCta({ placeholder }: { placeholder?: string }) {
   const phone = usePhone()
-
-  const openChat = () => {
-    // Stable data attribute first; legacy aria-labels cover an older
-    // chat-embed.js still cached from before the attribute existed.
-    const launcher = document.querySelector<HTMLButtonElement>(
-      'button[data-rig-chat-launcher], button[aria-label="Need a Mechanic? Chat Now"], button[aria-label="Chat with Dispatch"]'
-    )
-    if (launcher) {
-      launcher.click()
-      return
-    }
-    // Fallback opens /help in a NEW tab, where this tab's sessionStorage (and
-    // the ad click ID chat-embed.js captured into rig-journey) doesn't follow —
-    // so carry the click ID in the URL for chat-conversion attribution.
-    let query = ''
-    try {
-      const click = JSON.parse(sessionStorage.getItem('rig-journey') || 'null')?.click
-      if (click?.kind && click?.id) query = `?${click.kind}=${encodeURIComponent(click.id)}`
-    } catch {}
-    window.open(`${CHAT_ORIGIN}/help${query}`, '_blank', 'noopener')
-  }
+  const openChat = openDispatchChat
 
   return (
     <div style={{ marginTop: 18, maxWidth: 560 }}>

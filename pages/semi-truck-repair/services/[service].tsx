@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
+import ChatCta from '../../../components/rv/ChatCta'
 import s from '../../../styles/Directory.module.scss'
 import {
   CITIES,
@@ -25,7 +26,7 @@ interface Props {
 
 export default function ServicePage({ service, topMarkets }: Props) {
   const title = `${service.h1} | 24/7 Dispatch | RIG`
-  const description = `${service.short} RIG dispatches the closest qualified mobile mechanic, 24/7 — bids back in minutes with rates and call-out fee upfront. Call ${SEO_PHONE.display}.`
+  const description = `${service.short} RIG dispatches the closest qualified mobile mechanic, 24/7 — bids back in minutes with rates and call-out fee upfront. Chat or call ${SEO_PHONE.display}.`
 
   const jsonLd = [
     {
@@ -58,11 +59,12 @@ export default function ServicePage({ service, topMarkets }: Props) {
         </div>
         <h1>{service.h1}</h1>
         <p className={s.sub}>{service.heroSub}</p>
+        <ChatCta placeholder={`Describe what happened — dispatch routes the right ${service.name.toLowerCase()} help`} />
       </div>
 
       <DispatchBanner
         heading="Broke down right now?"
-        sub={`One call sends your breakdown to local mechanics — avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7.`}
+        sub={`A chat or a call sends your breakdown to local mechanics — avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7.`}
       />
 
       <div className={s.prose}>

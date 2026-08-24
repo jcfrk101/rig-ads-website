@@ -117,7 +117,7 @@ export default function CorridorStatePage({ corridor, stats, meta, mechanics, ci
 
       <DispatchBanner
         heading="Give us your mile marker — we'll find the closest help."
-        sub={`${rd} coverage across ${corridor.stateName}. Call and we dispatch the nearest mechanic to your exact location.`}
+        sub={`${rd} coverage across ${corridor.stateName}. Chat or call and we dispatch the nearest mechanic to your exact location.`}
       />
 
       <ListingSection
