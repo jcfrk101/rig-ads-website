@@ -4,21 +4,22 @@ import s from '../../styles/Directory.module.scss'
 import { SEGMENT } from '../../data/directory'
 import { usePhone } from './PhoneContext'
 import { fireCallConversion } from '../../utils/gtag'
+import { openDispatchChat } from '../rv/ChatCta'
 
 export const HOW_IT_WORKS_PATH = `/${SEGMENT}/how-it-works/`
 
 export const HOW_IT_WORKS_STEPS = [
   {
-    title: 'Call dispatch — 24/7',
-    body: 'One call. Tell us where you are (exit, mile marker, or GPS pin), what happened, and what you know. Send pictures if you can — they help mechanics show up with the right parts.',
+    title: 'Chat or call dispatch — 24/7',
+    body: 'Describe it once. Tell us where you are (exit, mile marker, or GPS pin), what happened, and what you know. In chat, drop pictures straight into the thread — they help mechanics show up with the right parts.',
   },
   {
     title: 'We send it to 5–20 local mechanics',
-    body: 'Your breakdown goes out instantly to qualified heavy-duty mechanics near your location — no calling shops one by one, no waiting on callbacks.',
+    body: 'We already have the relationships: your breakdown goes out instantly to qualified heavy-duty mechanics near your location. No voicemails, no hold, no calling shops one by one.',
   },
   {
     title: 'They bid back in minutes',
-    body: 'Each mechanic replies with their hourly rate, call-out fee, ETA, and other details — upfront, before anyone rolls. The call-out fee is the industry-standard charge that typically covers drive time and initial diagnostics.',
+    body: 'Mechanics who can actually roll right now reply with their hourly rate, call-out fee, and a real ETA — upfront, before anyone moves. The call-out fee is the industry-standard charge that typically covers drive time and initial diagnostics.',
   },
   {
     title: 'Pick one and get rolling',
@@ -79,9 +80,20 @@ export default function HowItWorksLink({ children, className }: { children?: Rea
               closing. Dispatch gets you bids from local mechanics in minutes.
             </p>
             <HowItWorksSteps compact />
-            <a className={s.dispatchBtn} style={{ width: '100%', justifyContent: 'center' }} href={phone.tel} onClick={fireCallConversion}>
-              ☎ {phone.display}
-            </a>
+            <button
+              className={s.dispatchBtn}
+              style={{ width: '100%', justifyContent: 'center' }}
+              onClick={openDispatchChat}
+              type="button"
+            >
+              💬 Chat with dispatch
+            </button>
+            <div style={{ textAlign: 'center', marginTop: 8, fontSize: 14.5 }}>
+              Rather talk?{' '}
+              <a href={phone.tel} onClick={fireCallConversion} style={{ fontWeight: 700 }}>
+                ☎ {phone.display}
+              </a>
+            </div>
             <div className={s.hiwMore}>
               <Link href={HOW_IT_WORKS_PATH}>
                 <a onClick={() => setOpen(false)}>Read the full explanation →</a>

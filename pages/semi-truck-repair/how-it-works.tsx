@@ -84,20 +84,20 @@ export default function HowItWorksPage() {
           fixed.
         </div>
 
-        <h2>{DIESEL_ONLY_HEADING}</h2>
-        <p>
-          {DIESEL_ONLY_BLURB} If you drive a diesel motorhome or tow with a diesel pickup, the same call
-          works for you — the network isn&apos;t just for commercial trucks. If it doesn&apos;t run on
-          diesel, we&apos;ll tell you straight and you&apos;ve lost nothing.
-        </p>
-
         <h2>Why this beats calling around</h2>
         <p>
-          The old way: search for shops, call them one at a time, describe the problem over and over, wait for
-          callbacks — all while your load sits. With RIG,
-          you describe the breakdown once. We package your location, the symptoms, and your photos, and put it
-          in front of 5–20 qualified heavy-duty mechanics near you at the same time. They compete to win the
-          job, and you see real numbers — rate, call-out fee, ETA — before choosing.
+          Stuck on the shoulder, the old way is brutal: search for mobile mechanics, dial them one at a time,
+          leave voicemails, sit on hold, describe the problem over and over, and wait for callbacks while your
+          load sits. When one finally answers, you&apos;re taking the word of the only shop that picked up —
+          and &quot;we can come out&quot; often means &quot;after we finish the job we&apos;re on.&quot;
+        </p>
+        <p>
+          RIG already has the relationships. We run an on-demand network of{' '}
+          {NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ heavy-duty mechanics, so you describe the
+          breakdown once — location, symptoms, photos — and we put it in front of 5–20 qualified mechanics
+          near you at the same time. The ones who can actually roll right now bid back with their rate,
+          call-out fee, and a real ETA. You compare several live options instead of trusting the first
+          &quot;yes,&quot; pick, and they&apos;re on the way.
         </p>
         <p>
           It works anywhere in our network: in a city, at a truck stop, or on a rural interstate shoulder at 3
@@ -105,13 +105,19 @@ export default function HowItWorksPage() {
           {NATIONAL_STATS.avgArrivalMin} minutes to arrive.
         </p>
 
-        <h2>Don&apos;t tow it — fix it where it sits</h2>
+        <h2>{DIESEL_ONLY_HEADING}</h2>
         <p>
-          A tow should be the last resort, not the first call. Most breakdowns — tires, air lines, electrical,
-          fuel, sensors, brakes — get fixed right on the shoulder: RIG mechanics&apos; fix rate runs{' '}
-          {NATIONAL_STATS.fixRatePct}% of dispatched jobs. A tow adds hours of waiting, and you still need the
-          repair on the other end. Chat or call dispatch first; if the job genuinely needs a shop, the
-          mechanic tells you straight and you&apos;ve lost nothing.
+          {DIESEL_ONLY_BLURB} If you drive a diesel motorhome or tow with a diesel pickup, the same chat
+          works for you — the network isn&apos;t just for commercial trucks. If it doesn&apos;t run on
+          diesel, we&apos;ll tell you straight and you&apos;ve lost nothing.
+        </p>
+
+        <h2>Most jobs don&apos;t need the tow</h2>
+        <p>
+          Any pro knows towing is the last resort. Most breakdowns — tires, air lines, electrical, fuel,
+          sensors, brakes — get fixed where the truck sits: RIG mechanics&apos; fix rate runs{' '}
+          {NATIONAL_STATS.fixRatePct}% of dispatched jobs. And if the job genuinely needs a shop, the mechanic
+          tells you straight and you&apos;ve lost nothing.
         </p>
 
         <h2>What to have ready when you chat or call</h2>
