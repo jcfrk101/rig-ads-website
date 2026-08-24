@@ -16,10 +16,13 @@ export interface FeedItem {
 
 const API = process.env.RIG_API_URL || 'https://api.bigrig.app'
 
-export async function fetchFeed(opts: { state?: string; service?: string; limit?: number } = {}): Promise<FeedItem[]> {
+export async function fetchFeed(
+  opts: { state?: string; service?: string; type?: FeedItem['type']; limit?: number } = {},
+): Promise<FeedItem[]> {
   const params = new URLSearchParams()
   if (opts.state) params.set('state', opts.state)
   if (opts.service) params.set('service', opts.service)
+  if (opts.type) params.set('type', opts.type)
   params.set('limit', String(opts.limit ?? 30))
   try {
     const res = await fetch(`${API}/feed/public?${params}`)
@@ -32,11 +35,24 @@ export async function fetchFeed(opts: { state?: string; service?: string; limit?
   }
 }
 
+/** Completed + requested fetched separately (requests ~20:1 would bury the photo cards). */
+async function fetchMix(state?: string): Promise<FeedItem[]> {
+  const [completed, requested] = await Promise.all([
+    fetchFeed({ state, type: 'JOB_COMPLETED', limit: 8 }),
+    fetchFeed({ state, type: 'JOB_REQUESTED', limit: 12 }),
+  ])
+  // client-side filters as a belt while an older API (ignores type=) is deployed
+  return [
+    ...completed.filter((i) => i.type === 'JOB_COMPLETED'),
+    ...requested.filter((i) => i.type === 'JOB_REQUESTED'),
+  ]
+}
+
 /** State-scoped feed with a network-wide fallback so the section is never empty. */
 export async function fetchStateFeed(state: string): Promise<{ items: FeedItem[]; scope: 'state' | 'network' }> {
-  const local = await fetchFeed({ state, limit: 30 })
+  const local = await fetchMix(state)
   if (local.length >= 3) return { items: local, scope: 'state' }
-  const national = await fetchFeed({ limit: 30 })
+  const national = await fetchMix()
   return { items: [...local, ...national.filter((n) => !local.some((l) => l.item_id === n.item_id))], scope: local.length ? 'state' : 'network' }
 }
 
