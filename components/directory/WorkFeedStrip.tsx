@@ -1,4 +1,14 @@
 import { FeedItem, placeOf, serviceLabel, shortDate } from '../../data/feed'
+
+// Factual alt from the job's own data — real job photos should rank for
+// "mobile repair on a <vehicle> in <city, state>" image searches.
+const photoAlt = (i: FeedItem) => {
+  const parts = [serviceLabel(i.service_type)]
+  if (i.vehicle) parts.push(`on a ${i.vehicle}`)
+  const place = placeOf(i)
+  if (place) parts.push(`in ${place}`)
+  return `${parts.join(' ')} — completed mobile repair job photo (RIG)`
+}
 import s from '../../styles/Directory.module.scss'
 
 // "Recent RIG work" section for directory hubs: completed jobs as cards
@@ -34,7 +44,7 @@ export default function WorkFeedStrip({ items, scope, placeName, moreHref = 'htt
               <article key={i.item_id} style={{ background: '#fff', border: '1px solid #dde3e8', borderRadius: 12, overflow: 'hidden' }}>
                 {photo && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={photo} alt="" loading="lazy" style={{ width: '100%', height: 150, objectFit: 'cover', display: 'block' }} />
+                  <img src={photo} alt={photoAlt(i)} loading="lazy" style={{ width: '100%', height: 150, objectFit: 'cover', display: 'block' }} />
                 )}
                 <div style={{ padding: '10px 12px 12px' }}>
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 11.5, marginBottom: 6 }}>
