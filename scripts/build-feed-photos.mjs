@@ -36,7 +36,9 @@ async function get(u) {
 let photos = []
 try {
   // Preferred: the flattened best-first pool (carries per-photo quality).
-  photos = (await get(`${API}/feed/photos?limit=24`)).map((p) => ({ src: p.url, alt: altFor(p) }))
+  // min_quality=3: the strips are hero imagery — ordinary (2) and bad (1) ranked
+  // shots stay on the feed cards but don't headline directory pages.
+  photos = (await get(`${API}/feed/photos?min_quality=3&limit=24`)).map((p) => ({ src: p.url, alt: altFor(p) }))
 } catch {
   try {
     // Older API: flatten completed items (photo_urls[0] is the item's best shot).
