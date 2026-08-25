@@ -18,6 +18,14 @@ export interface ServicePhoto {
   alt: string
 }
 
+// Real job photos from the work feed (prebuild: scripts/build-feed-photos.mjs,
+// refreshed by the nightly rebuild, AI-ranked best-first). The static
+// Squarespace list below is now the FALLBACK — used only when the feed pool
+// is too thin to give pages variety.
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+import feedPhotosJson from './feed-photos.json'
+const FEED_PHOTOS = feedPhotosJson as ServicePhoto[]
+
 export const SERVICE_PHOTOS: ServicePhoto[] = [
   { src: 'https://images.squarespace-cdn.com/content/v1/66561a788242c8621f3683d9/04cb11a1-9b13-43aa-ba10-8c1a12abdbea/service_image_2.jpg', alt: 'RIG mechanic servicing a semi truck on the roadside' },
   { src: 'https://images.squarespace-cdn.com/content/v1/66561a788242c8621f3683d9/79b74ef3-0410-4284-b7ac-bbe9781b757e/service_image_10.jpg', alt: 'Mobile diesel mechanic working under a truck' },
@@ -34,11 +42,12 @@ export const SERVICE_PHOTOS: ServicePhoto[] = [
 // Deterministic per-page photo picker: same page always shows the same
 // photos (stable builds), different pages rotate through the collection.
 export function pickPhotos(pageKey: string, count: number): ServicePhoto[] {
+  const pool = FEED_PHOTOS.length >= 6 ? FEED_PHOTOS : SERVICE_PHOTOS
   let h = 2166136261
   for (let i = 0; i < pageKey.length; i++) {
     h ^= pageKey.charCodeAt(i)
     h = Math.imul(h, 16777619)
   }
-  const start = (h >>> 0) % SERVICE_PHOTOS.length
-  return Array.from({ length: Math.min(count, SERVICE_PHOTOS.length) }, (_, i) => SERVICE_PHOTOS[(start + i) % SERVICE_PHOTOS.length])
+  const start = (h >>> 0) % pool.length
+  return Array.from({ length: Math.min(count, pool.length) }, (_, i) => pool[(start + i) % pool.length])
 }
