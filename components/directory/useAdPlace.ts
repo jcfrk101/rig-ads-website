@@ -14,9 +14,10 @@ import { useEffect, useState } from 'react'
 export interface AdPlace {
   name: string
   state: string // lowercase code
+  citySlug?: string // set when this place has its own directory city page
 }
 
-type GeoBucket = Record<string, [string, string]>
+type GeoBucket = Record<string, [string, string] | [string, string, string]>
 
 export default function useAdPlace(): AdPlace | null {
   const [place, setPlace] = useState<AdPlace | null>(null)
@@ -37,7 +38,7 @@ export default function useAdPlace(): AdPlace | null {
       ).then((hits) => {
         if (cancelled) return
         const hit = hits.find((h) => h)
-        if (hit) setPlace({ name: hit[0], state: hit[1] })
+        if (hit) setPlace({ name: hit[0], state: hit[1], citySlug: hit[2] })
       })
     } catch {
       /* no personalization */

@@ -1044,3 +1044,29 @@ $star: #e8a93a;
   white-space: nowrap;
   text-decoration: none;
 }
+
+.locBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 22px 0;
+  padding: 12px 16px;
+  background: rgba(10, 220, 106, 0.1);
+  border: 1px solid rgba(10, 220, 106, 0.35);
+  border-radius: 10px;
+  font-size: 14.5px;
+}
+
+.locBannerLink {
+  font-weight: 800;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.btnDispatch {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}

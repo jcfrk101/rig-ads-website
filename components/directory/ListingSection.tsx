@@ -2,9 +2,8 @@ import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import s from '../../styles/Directory.module.scss'
 import { MechanicListing } from '../../data/directory/mechanics'
-import { fireCallConversion } from '../../utils/gtag'
+import { openDispatchChat } from '../rv/ChatCta'
 import HowItWorksLink from './HowItWorks'
-import { usePhone } from './PhoneContext'
 
 interface Props {
   mechanics: MechanicListing[]
@@ -14,7 +13,6 @@ interface Props {
 }
 
 export default function ListingSection({ mechanics, placeName, note, noteLead }: Props) {
-  const phone = usePhone()
   const allServices = useMemo(() => {
     const counts = new Map<string, number>()
     for (const m of mechanics) for (const svc of m.services) counts.set(svc, (counts.get(svc) || 0) + 1)
@@ -132,16 +130,16 @@ export default function ListingSection({ mechanics, placeName, note, noteLead }:
               {m.rigNetwork ? (
                 <>
                   <div className={s.eta}>~{m.etaMin} min ETA</div>
-                  <a className={s.btnDispatch} href={phone.tel} onClick={fireCallConversion}>
-                    Request dispatch
-                  </a>
+                  <button className={s.btnDispatch} onClick={openDispatchChat} type="button">
+                    💬 Request dispatch
+                  </button>
                 </>
               ) : (
                 <>
                   <div className={s.etaMuted}>Not in dispatch</div>
-                  <a className={s.btnDispatch} href={phone.tel} onClick={fireCallConversion}>
-                    Find closest instead
-                  </a>
+                  <button className={s.btnDispatch} onClick={openDispatchChat} type="button">
+                    💬 Find closest instead
+                  </button>
                 </>
               )}
               {m.profilePath && (

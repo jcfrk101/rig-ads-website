@@ -4,6 +4,7 @@ import DirectoryLayout from '../../../components/directory/DirectoryLayout'
 import StatStack from '../../../components/rv/StatStack'
 import ChatCta from '../../../components/rv/ChatCta'
 import useAdPlace from '../../../components/directory/useAdPlace'
+import LocationBanner from '../../../components/directory/LocationBanner'
 import WorkFeedStrip from '../../../components/directory/WorkFeedStrip'
 import { FeedItem, fetchStateFeed } from '../../../data/feed'
 import DispatchBanner from '../../../components/directory/DispatchBanner'
@@ -38,7 +39,6 @@ export default function StateHub({ state, cities, corridors, stats, feed }: Prop
   // Ad clicks carry ValueTrack location IDs (campaign final-URL suffix);
   // resolve to a city and, when the directory covers it, point there.
   const adPlace = useAdPlace()
-  const adCity = adPlace ? cities.find((c) => c.name.toLowerCase() === adPlace.name.toLowerCase()) || null : null
   const title = `Mobile Diesel Mechanics in ${state.name} | 24/7 Truck Repair | RIG`
   const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${SEO_PHONE.display}, 24/7.`
 
@@ -63,14 +63,9 @@ export default function StateHub({ state, cities, corridors, stats, feed }: Prop
               an ETA in minutes, you pick one, they roll to you. 24/7 across {state.name}.
             </p>
             <ChatCta placeholder={`Describe the problem — e.g. "derated on the interstate, check engine light, can't get above 5 mph"`} />
-            {adCity && (
-              <p style={{ marginTop: 12, fontSize: 14 }}>
-                Your area:{' '}
-                <Link href={cityPath(adCity)}>
-                  <a style={{ fontWeight: 700 }}>Mechanics in {adCity.name} →</a>
-                </Link>
-              </p>
-            )}
+            {/* cross-state too: the go-geo lookup carries the citySlug, so a
+                Denver click on the Kansas page still routes to Denver */}
+            <LocationBanner />
           </div>
           <StatStack
             stats={[
