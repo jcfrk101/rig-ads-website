@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { PagePhone, TOLLFREE_PHONE, SEO_PHONE } from '../../data/directory/statePhones'
-import { fireDniConfig } from '../../utils/gtag'
+import { requestDniNumber } from '../../utils/gtag'
 
 // One phone number per page: state-scoped pages provide their local DNI
 // number via the layout; every CTA (nav, banner, listing buttons, footer,
@@ -31,13 +31,32 @@ const isAdsVisitor = () => {
   }
 }
 
-/** SEO number by default; swaps to the page's ads number for ad-click visitors. */
+/**
+ * SEO number by default; ad-click visitors get the page's ads number
+ * immediately, then Google's forwarding number as soon as DNI answers.
+ * The forwarding number lives in React state (not a gtag DOM rewrite), so
+ * re-renders can't revert it and render order can't lose it — see
+ * requestDniNumber for why the callback form matters.
+ */
 export function usePagePhone(adsPhone: PagePhone): PagePhone {
   const [pagePhone, setPagePhone] = useState<PagePhone>(SEO_PHONE)
   useEffect(() => {
-    if (isAdsVisitor()) {
-      setPagePhone(adsPhone)
-      if (adsPhone.dniLabel) fireDniConfig(adsPhone.dniLabel, adsPhone.display)
+    if (!isAdsVisitor()) return
+    // Ads number right away — if Google never answers (blocked tag, no DNI
+    // label), the visitor still sees the paid-pool number, never the SEO one.
+    setPagePhone(adsPhone)
+    if (!adsPhone.dniLabel) return
+    let cancelled = false
+    requestDniNumber(adsPhone.dniLabel, adsPhone.display, (formattedNumber, mobileNumber) => {
+      if (cancelled || !formattedNumber) return
+      const telDigits = String(mobileNumber || formattedNumber).replace(/[^0-9+]/g, '')
+      if (!telDigits) return
+      setPagePhone({ display: formattedNumber, tel: `tel:${telDigits}`, dniLabel: adsPhone.dniLabel })
+    })
+    return () => {
+      // Page navigated away before the callback — don't stamp this page's
+      // forwarding number onto the next page's context.
+      cancelled = true
     }
   }, [adsPhone.dniLabel, adsPhone.display]) // eslint-disable-line react-hooks/exhaustive-deps
   return pagePhone

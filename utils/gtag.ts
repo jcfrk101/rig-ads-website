@@ -26,11 +26,34 @@ export function fireCallConversion() {
   })
 }
 
-// Registers the page's phone number with Google's DNI so gtag swaps it to a forwarding
-// number and tracks completed calls >=60s as conversions.
+// Registers the page's phone number with Google's DNI and asks for the forwarding
+// number via callback INSTEAD of letting gtag rewrite the DOM. On a React page,
+// gtag's own text replacement is a race twice over: it can scan before React has
+// committed the ads number (finds nothing, replaces nothing), and any later
+// re-render (useAdPlace resolving, banners) rewrites Google's swapped text back.
+// With the callback, the forwarding number goes into React state and React
+// renders it everywhere itself — nothing to race, nothing to revert.
+// Per Google's docs, providing phone_conversion_callback disables automatic
+// DOM replacement, so the two mechanisms never fight.
+// Legacy DOM-replacement form, used only by the repair.bigrig.app landing pages
+// (LandingPage.tsx): there the ads number is in the SSR HTML before gtag runs and
+// the page barely re-renders, so gtag's own text replacement is race-free. New
+// directory code must use requestDniNumber instead.
 export function fireDniConfig(label: string, phoneNumber: string) {
   if (typeof window === 'undefined' || !window.gtag || !GTAG_ID || !label || !phoneNumber) return
   window.gtag('config', `${GTAG_ID}/${label}`, {
     phone_conversion_number: phoneNumber,
+  })
+}
+
+export function requestDniNumber(
+  label: string,
+  phoneNumber: string,
+  onNumber: (formattedNumber: string, mobileNumber: string) => void,
+) {
+  if (typeof window === 'undefined' || !window.gtag || !GTAG_ID || !label || !phoneNumber) return
+  window.gtag('config', `${GTAG_ID}/${label}`, {
+    phone_conversion_number: phoneNumber,
+    phone_conversion_callback: onNumber,
   })
 }
