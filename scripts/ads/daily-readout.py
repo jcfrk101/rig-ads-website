@@ -24,6 +24,12 @@ PRIMARY_ACTIONS = {"Calls - Uploads", "Chat Jobs - Uploads"}
 # are excluded from both cohorts. Restore list: Dropbox Ads Reports/call-ad-pause-test-2026-08-22.txt
 TEST_CAMPAIGNS = {"PENNSYLVANIA - HD", "CALIFORNIA - HD", "ARIZONA - HD", "NORTH CAROLINA - HD"}
 PAUSE_DATE = dt.date(2026, 8, 22)
+# Wave 2 (2026-08-26): bottom ~22% of call spend by 28d val/$ — call ads paused,
+# RSA kept. Excluded from the CONTROL cohort so the original test stays clean.
+# Restore list: Dropbox Ads Reports/call-ad-pause-wave2-2026-08-26.txt
+WAVE2_CAMPAIGNS = {"ARKANSAS - HD", "OKLAHOMA - HD", "WASHINGTON - HD", "KENTUCKY - HD", "OREGON - HD",
+                   "MARYLAND - HD", "MISSISSIPPI - HD", "LOUISIANA - HD", "MICHIGAN - HD", "WISCONSIN - HD",
+                   "INDIANA - HD", "Minnesota - HD", "TENNESSEE - HD", "Tire-National-Phone-Call-HD"}
 
 
 def q(client, customer, gaql):
@@ -155,7 +161,7 @@ def main():
         FROM ad_group_ad WHERE segments.date BETWEEN '{pre_start}' AND '{end}' AND metrics.impressions > 0""")
     coh = defaultdict(lambda: defaultdict(float))
     for r in rows:
-        if "National" in r.campaign.name:
+        if "National" in r.campaign.name or r.campaign.name in WAVE2_CAMPAIGNS:
             continue
         d = dt.date.fromisoformat(r.segments.date)
         period = "post" if d >= PAUSE_DATE else "pre"
