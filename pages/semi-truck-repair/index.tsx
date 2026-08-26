@@ -3,6 +3,7 @@ import DirectoryLayout from '../../components/directory/DirectoryLayout'
 import StatStrip from '../../components/directory/StatStrip'
 import DispatchBanner from '../../components/directory/DispatchBanner'
 import ChatCta from '../../components/rv/ChatCta'
+import LocationBanner from '../../components/directory/LocationBanner'
 import DispatchExplainer from '../../components/directory/DispatchExplainer'
 import s from '../../styles/Directory.module.scss'
 import {
@@ -61,6 +62,8 @@ export default function SemiHub() {
         />
         <ChatCta />
       </div>
+
+      <LocationBanner />
 
       <DispatchBanner
         heading="Broke down right now?"
