@@ -35,17 +35,6 @@ export function fireCallConversion() {
 // renders it everywhere itself — nothing to race, nothing to revert.
 // Per Google's docs, providing phone_conversion_callback disables automatic
 // DOM replacement, so the two mechanisms never fight.
-// Legacy DOM-replacement form, used only by the repair.bigrig.app landing pages
-// (LandingPage.tsx): there the ads number is in the SSR HTML before gtag runs and
-// the page barely re-renders, so gtag's own text replacement is race-free. New
-// directory code must use requestDniNumber instead.
-export function fireDniConfig(label: string, phoneNumber: string) {
-  if (typeof window === 'undefined' || !window.gtag || !GTAG_ID || !label || !phoneNumber) return
-  window.gtag('config', `${GTAG_ID}/${label}`, {
-    phone_conversion_number: phoneNumber,
-  })
-}
-
 export function requestDniNumber(
   label: string,
   phoneNumber: string,

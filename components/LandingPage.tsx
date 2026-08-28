@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import Head from 'next/head'
 import { Box, Container, Typography, useMediaQuery } from '@mui/material'
-import { fireCallConversion, fireDniConfig } from '../utils/gtag'
+import { fireCallConversion, requestDniNumber } from '../utils/gtag'
 import { fireCallLead } from '../utils/oaiq'
 
 // Phone-call CTA: fire the Google Ads call conversion and the OpenAI Ads lead_created event.
@@ -268,8 +268,8 @@ export interface LandingPageProps {
 }
 
 export default function LandingPage({
-  phoneDisplay = '1-855-744-2223',
-  phoneTel = 'tel:18557442223',
+  phoneDisplay: phoneDisplayProp = '1-855-744-2223',
+  phoneTel: phoneTelProp = 'tel:18557442223',
   heroTitle = 'Truck Broke Down?',
   stateName,
   stateMechanicsCount,
@@ -283,6 +283,15 @@ export default function LandingPage({
   const isRV = vehicleType === 'rv'
   const isMobile = useMediaQuery('(max-width:768px)')
   const [metrics, setMetrics] = useState<ServiceMetrics | null>(null)
+  // The number every CTA renders. Starts as the state ads number (matches the
+  // SSR HTML, so hydration is clean), upgraded to Google's DNI forwarding
+  // number when the callback answers. Same reasoning as the directory's
+  // usePagePhone: gtag's own DOM rewrite loses to React both ways — hydration
+  // can revert an early swap, and a late swap can miss a re-render — so the
+  // forwarding number lives in state and React renders it everywhere itself.
+  const [dniPhone, setDniPhone] = useState({ display: phoneDisplayProp, tel: phoneTelProp })
+  const phoneDisplay = dniPhone.display
+  const phoneTel = dniPhone.tel
 
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'https://api.bigrig.app'
@@ -295,8 +304,19 @@ export default function LandingPage({
   }, [])
 
   useEffect(() => {
-    if (gtagCallConversionLabel) fireDniConfig(gtagCallConversionLabel, phoneDisplay)
-  }, [gtagCallConversionLabel, phoneDisplay])
+    // client-side nav between state pages resets to the new state's number
+    setDniPhone({ display: phoneDisplayProp, tel: phoneTelProp })
+    if (!gtagCallConversionLabel) return
+    let cancelled = false
+    requestDniNumber(gtagCallConversionLabel, phoneDisplayProp, (formattedNumber, mobileNumber) => {
+      if (cancelled || !formattedNumber) return
+      const telDigits = String(mobileNumber || formattedNumber).replace(/[^0-9+]/g, '')
+      if (telDigits) setDniPhone({ display: formattedNumber, tel: `tel:${telDigits}` })
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [gtagCallConversionLabel, phoneDisplayProp, phoneTelProp])
 
   const rigTimeToDispatch = metrics ? Math.round(metrics.avg_time_to_first_offer_minutes * 10) / 10 : 14.1
   const rigAvgCost = metrics ? Math.floor(metrics.avg_completed_offer_cost) : 465
