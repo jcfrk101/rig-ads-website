@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import s from '../../styles/Directory.module.scss'
 import { SITE_ORIGIN, MAIN_SITE, SEGMENT } from '../../data/directory'
 import { PagePhone, TOLLFREE_PHONE } from '../../data/directory/statePhones'
@@ -8,6 +8,7 @@ import { fireCallConversion } from '../../utils/gtag'
 import DirectoryFooter from './DirectoryFooter'
 import SiteHeader from '../SiteHeader'
 import { PhoneProvider, usePagePhone } from './PhoneContext'
+import { logAdClick } from '../../utils/adClickBeacon'
 
 export interface Crumb {
   label: string
@@ -29,6 +30,8 @@ export default function DirectoryLayout({ title, description, path, crumbs, json
   // SEO number by default; ad-click visitors get the state ads number + DNI
   // (see usePagePhone for the attribution-split rationale)
   const pagePhone = usePagePhone(phone || TOLLFREE_PHONE)
+  // Log the ad click server-side (no-op for organic visitors) — see utils/adClickBeacon.
+  useEffect(() => logAdClick(), [])
 
   const canonical = `${SITE_ORIGIN}${path}`
   const allCrumbs = [{ label: 'Home', href: MAIN_SITE }, ...crumbs]
