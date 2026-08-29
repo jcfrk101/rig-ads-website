@@ -13,6 +13,7 @@ import s from '../../../styles/Directory.module.scss'
 import {
   STATES,
   SEGMENT,
+  SITE_ORIGIN,
   StateInfo,
   DirectoryCity,
   DirectoryCorridor,
@@ -42,12 +43,26 @@ export default function StateHub({ state, cities, corridors, stats, feed }: Prop
   const title = `Mobile Diesel Mechanics in ${state.name} | 24/7 Truck Repair | RIG`
   const description = `Truck down in ${state.name}? RIG dispatches the closest available diesel mechanic — coverage in ${cities.length} ${state.name} cities, avg ${stats.avgDispatchMin} min to dispatch. Call ${SEO_PHONE.display}, 24/7.`
 
+  // Same Service schema the city pages carry, scoped to the state.
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: 'Mobile semi truck repair',
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
+      areaServed: { '@type': 'State', name: state.name },
+      availableChannel: { '@type': 'ServiceChannel', servicePhone: SEO_PHONE.tel.replace('tel:', '+') },
+      hoursAvailable: 'Mo-Su 00:00-24:00',
+    },
+  ]
+
   return (
     <DirectoryLayout
       title={title}
       description={description}
       path={`/${SEGMENT}/${state.code}/`}
       crumbs={[{ label: 'Semi Truck Repair', href: `/${SEGMENT}/` }, { label: state.name }]}
+      jsonLd={jsonLd}
       phone={phone}
       footnote="Live stats from the RIG network, refreshed regularly."
     >

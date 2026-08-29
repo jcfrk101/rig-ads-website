@@ -10,6 +10,7 @@ import {
   CITIES,
   STATES,
   SEGMENT,
+  SITE_ORIGIN,
   NATIONAL_STATS,
   getRoutes,
   statePath,
@@ -34,10 +35,24 @@ export default function SemiHub() {
   const title = 'Mobile Diesel Mechanics Near You | 24/7 Semi Truck Repair | RIG'
   const description = `Truck down? Chat or call RIG — we dispatch the closest available diesel mechanic anywhere in the US. ${NATIONAL_STATS.mechanicsNetwork.toLocaleString()}+ mechanics, avg ${NATIONAL_STATS.avgDispatchMin} min to dispatch, 24/7. ${SEO_PHONE.display}.`
 
+  // National Service schema — same shape the city/state pages carry.
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: 'Mobile semi truck repair',
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
+      areaServed: { '@type': 'Country', name: 'United States' },
+      availableChannel: { '@type': 'ServiceChannel', servicePhone: SEO_PHONE.tel.replace('tel:', '+') },
+      hoursAvailable: 'Mo-Su 00:00-24:00',
+    },
+  ]
+
   return (
     <DirectoryLayout
       title={title}
       description={description}
+      jsonLd={jsonLd}
       path={`/${SEGMENT}/`}
       crumbs={[{ label: 'Semi Truck Repair' }]}
       footnote="RIG dispatches the closest available mechanic from a nationwide network. Stats refreshed regularly."

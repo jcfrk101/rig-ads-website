@@ -6,6 +6,7 @@ import DispatchExplainer from '../../../../components/directory/DispatchExplaine
 import s from '../../../../styles/Directory.module.scss'
 import {
   SEGMENT,
+  SITE_ORIGIN,
   DirectoryCorridor,
   getRoutes,
   getCorridorsByRoute,
@@ -50,10 +51,24 @@ export default function RoutePage({ route, segments }: Props) {
   const title = `${rd} Truck Breakdown Coverage, State by State | RIG`
   const description = `Broke down on ${rd}? RIG covers the full corridor with 24/7 mobile diesel mechanics dispatched to your mile marker, in every state ${rd} crosses. Call ${SEO_PHONE.display}.`
 
+  // Service schema scoped to the corridor's states (same shape as city/state pages).
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: `Mobile semi truck repair along ${rd}`,
+      provider: { '@type': 'Organization', name: 'RIG', url: SITE_ORIGIN, telephone: SEO_PHONE.tel.replace('tel:', '+') },
+      areaServed: segments.map((c) => ({ '@type': 'State', name: c.stateName })),
+      availableChannel: { '@type': 'ServiceChannel', servicePhone: SEO_PHONE.tel.replace('tel:', '+') },
+      hoursAvailable: 'Mo-Su 00:00-24:00',
+    },
+  ]
+
   return (
     <DirectoryLayout
       title={title}
       description={description}
+      jsonLd={jsonLd}
       path={`/${SEGMENT}/corridors/${route}/`}
       crumbs={[
         { label: 'Semi Truck Repair', href: `/${SEGMENT}/` },
